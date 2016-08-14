@@ -3,7 +3,7 @@ A Network Utility
 
 Author: Siddhartha Das
 
-How to install nutty:
+##How to install nutty:
 
   ```shell
   sudo apt-add-repository ppa:bablu-boy/nutty.0.1
