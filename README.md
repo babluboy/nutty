@@ -25,4 +25,4 @@ make
 ```
 ## Screenshot
 
-![screenshot](nutty/screenshots/Nutty_Device_Alert.png)
+![screenshot](https://github.com/babluboy/nutty/blob/master/screenshots/Nutty_Device_Alert.png)
