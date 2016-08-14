@@ -25,4 +25,4 @@ make
 ```
 ## Screenshot
 
-![screenshot](https://drive.google.com/open?id=0B3qvTaZlWfvrU0U5SUdicFdTVEE)
+![screenshot](nutty/screenshots/Nutty_Device_Alert.png)
