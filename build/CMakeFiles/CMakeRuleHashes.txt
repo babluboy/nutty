@@ -1,5 +1,0 @@
-# Hashes of file build rules.
-ccca037b497d272a0159a38941fffcfe CMakeFiles/pot_file
-272c3eb9a52120a70c667dd026eeab20 nutty_valac.stamp
-0ee7fefb5d9fbeafc5c4fa7e6c5c28aa po/nutty.pot
-ccca037b497d272a0159a38941fffcfe src/nutty.c

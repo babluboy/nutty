@@ -1,2 +1,0 @@
-/home/sid/Documents/Linux/eOS/nutty/nutty/build/CMakeFiles/nutty.dir
-/home/sid/Documents/Linux/eOS/nutty/nutty/build/CMakeFiles/pot_file.dir
