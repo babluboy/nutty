@@ -17,7 +17,7 @@
 */
 
 namespace NuttyApp.Constants{
-	public const string nutty_version = "0.8";
+	public const string nutty_version = "0.9";
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public static const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
 	public static const string TEXT_FOR_HEADERBAR_MENU_PREFS = _("Preferences");
@@ -115,6 +115,8 @@ namespace NuttyApp.Constants{
 	public static const string COMMAND_FOR_INTERFACE_HARDWARE = "lspci -v";
 	public static const string SCRIPT_FOR_BANDWIDTH_USAGE = "sudo nethogs -t > /tmp/nethogs.txt &bg\nsleep 3\nsudo killall nethogs";
 	public static const string[] COMMAND_FOR_PORTS = {"netstat", "-p", "-e"};
+	public static const string COMMAND_FOR_WIRELESS_CARD_DETAILS = "iwconfig ";
+	public static const string COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS = "iwlist ";
 	public static const string COMMAND_FOR_INTERFACE_NAMES = "/sbin/ifconfig -s";
 	public static const string COMMAND_FOR_INTERFACE_DETAILS = "/sbin/ifconfig -a ";
 	public static const string COMMAND_FOR_DEVICES_PREFIX = "/usr/bin/nmap -sn -oX ";

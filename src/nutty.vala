@@ -27,7 +27,7 @@ namespace NuttyApp {
 	public class Nutty:Granite.Application {
 		public Gtk.Window window;
 		public string PRIMARY_TEXT_FOR_DISCLAIMER = _("You have permissions to scan devices on your network.");
-		public string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using.")+ "\n" + 
+		public string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using.")+ "\n" +
 										 _("It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network. ") +
 										 _("While using port scan (Devices tab) on a network which you do not own please consult and get approval of the Network Administrator or other competent network authority. ") + "\n\n" +
 										 _("Please read the following disclaimer on Nmap (used by Nutty) for further information: ") + "\n" +
@@ -58,7 +58,6 @@ namespace NuttyApp {
 		public string SPEEDTESTDATE = "";
 		public int exitCodeForCommand = 0;
 		public StringBuilder spawn_async_with_pipes_output = new StringBuilder("");
-		public StringBuilder spawn_async_with_pipes_error = new StringBuilder("");
 		public Stack stack;
 		public Gee.HashMap<string,string> interfaceConnectionMap;
 		public Gee.HashMap<string,string> interfaceIPMap;
@@ -78,6 +77,7 @@ namespace NuttyApp {
 		public Spinner traceRouteSpinner;
 		public Label route_results_label;
 		public Spinner speedTestSpinner;
+		public Button speed_test_refresh_button;
 		public Label speed_test_results_label;
 		public bool isPortsViewLoaded = false;
 		public Label ports_results_label;
@@ -113,7 +113,7 @@ namespace NuttyApp {
 		public static Nutty application;
 		private string[] COMMAND_USING_SUDO = {"gksudo", "-S", "-u", "root"};
 		public string nutty_state_data = "";
-		
+
 		construct {
 			application_id = "org.nutty";
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
@@ -134,7 +134,7 @@ namespace NuttyApp {
 			about_comments = _("A Network Utility");
 			about_translators = _("Launchpad Translators");
 			about_license_type = Gtk.License.GPL_3_0;
-			
+
 			options = new OptionEntry[4];
 			options[0] = { "version", 0, 0, OptionArg.NONE, ref command_line_option_version, _("Display version number"), null };
 			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("PATH"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
@@ -142,15 +142,15 @@ namespace NuttyApp {
 			options[3] = { "debug", 0, 0, OptionArg.NONE, ref command_line_option_debug, _("Run Nutty in debug mode"), null };
 			add_main_option_entries (options);
 		}
-		
+
 		public Nutty() {
 			Intl.setlocale(LocaleCategory.MESSAGES, "");
-			Intl.textdomain(GETTEXT_PACKAGE); 
-			Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8"); 
+			Intl.textdomain(GETTEXT_PACKAGE);
+			Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
 			Intl.bindtextdomain(GETTEXT_PACKAGE, "./locale");
 			debug ("Completed setting Internalization...");
 		}
-		
+
 		public static int main (string[] args) {
 			Log.set_handler ("nutty", GLib.LogLevelFlags.LEVEL_DEBUG, GLib.Log.default_handler);
 			if("--debug" in args){
@@ -158,7 +158,7 @@ namespace NuttyApp {
 				debug ("Nutty Application running in debug mode - all debug messages will be displayed");
 			}
 			application = new Nutty();
-							
+
 			//Workaround to get Granite's --about & Gtk's --help working together
 			if ("--help" in args || "-h" in args || "--monitor" in args || "--alert" in args || "--version" in args) {
 				return application.processCommandLine (args);
@@ -167,12 +167,12 @@ namespace NuttyApp {
 				return application.run(args);
 			}
 		}
-		
+
 		public override int command_line (ApplicationCommandLine command_line) {
 			activate();
 			return 0;
 		}
-		
+
 		private int processCommandLine (string[] args) {
 			try {
 				var opt_context = new OptionContext ("- nutty");
@@ -206,7 +206,7 @@ namespace NuttyApp {
 				return 0;
 			}
 		}
-		   
+
 		public override void activate() {
 			debug("Starting to activate Gtk Window for Nutty...");
 			window = new Gtk.Window ();
@@ -242,7 +242,7 @@ namespace NuttyApp {
 			});
 			debug("Completed loading Gtk Window for Nutty...");
 		}
-		
+
 		private void create_headerbar(Gtk.Window window) {
 			debug("Starting creation of header bar..");
 			Gtk.HeaderBar headerbar = new Gtk.HeaderBar();
@@ -253,7 +253,7 @@ namespace NuttyApp {
 			window.set_titlebar (headerbar);
 			//add menu items
 			headerbar.pack_end(createNuttyMenu(new Gtk.Menu ()));
-			
+
 			//Add a search entry to the header
 			headerSearchBar = new Gtk.SearchEntry();
 			headerSearchBar.set_text(Constants.TEXT_FOR_SEARCH_HEADERBAR);
@@ -287,7 +287,7 @@ namespace NuttyApp {
 			});
 			debug("Completed loading HeaderBar sucessfully...");
 		}
-		
+
 		public AppMenu createNuttyMenu (Gtk.Menu menu) {
 			debug("Starting creation of Nutty Menu...");
 			Granite.Widgets.AppMenu app_menu;
@@ -297,7 +297,7 @@ namespace NuttyApp {
 			Gtk.MenuItem menuItemExportToFile = new Gtk.MenuItem.with_label(Constants.TEXT_FOR_HEADERBAR_MENU_EXPORT);
 			menu.add (menuItemExportToFile);
 			app_menu = new Granite.Widgets.AppMenu.with_app(this, menu);
-			
+
 			//Add actions for menu items
 			menuItemPrefferences.activate.connect(() => {
 				createPrefsDialog();
@@ -310,7 +310,7 @@ namespace NuttyApp {
 			debug("Completed creation of Nutty Menu sucessfully...");
 			return app_menu;
 		}
-		
+
 		public void createPrefsDialog() {
 			debug("Started setting up Prefference Dialog ...");
 			Gtk.Dialog prefsDialog = new Gtk.Dialog.with_buttons("Preferences", window, DialogFlags.MODAL);
@@ -319,12 +319,12 @@ namespace NuttyApp {
 			prefsDialog.set_default_size (400, 250);
 			prefsDialog.destroy.connect (Gtk.main_quit);
 			prefsDialog.add_button (Constants.TEXT_FOR_PREFS_DIALOG_CLOSE_BUTTON, Gtk.ResponseType.CLOSE);
-			
+
 			// Layout widgets for Preferences
 			Gtk.Label deviceMonitorLabel = new Gtk.Label.with_mnemonic (Constants.TEXT_FOR_PREFS_DIALOG_DEVICE_MONITORING);
 			Gtk.Switch deviceMonitoringSwitch = new Gtk.Switch ();
 			deviceMonitoringSwitch.set_active(false);
-					
+
 			// trigger action for change of device schedule
 			deviceMonitoringSwitch.notify["active"].connect (() => {
 				if (deviceMonitoringSwitch.active) {
@@ -335,23 +335,23 @@ namespace NuttyApp {
 					handleDeviceMonitoring(false);
 				}
 			});
-			
+
 			min15Option = new Gtk.RadioButton.with_label_from_widget (null, Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION);
 			min15Option.set_sensitive (false);
 			min15Option.toggled.connect (deviceScheduleSelection);
-					
+
 			min30Option = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION);
 			min30Option.set_sensitive (false);
 			min30Option.toggled.connect (deviceScheduleSelection);
-			
+
 			hourOption = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION);
 			hourOption.set_sensitive (false);
 			hourOption.toggled.connect (deviceScheduleSelection);
-			
+
 			dayOption = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION);
 			dayOption.set_sensitive (false);
 			dayOption.toggled.connect (deviceScheduleSelection);
-			
+
 			//set the option for device monitoring - based on saved state
 			if(DEVICE_SCHEDULE_STATE == DEVICE_SCHEDULE_ENABLED){
 				deviceMonitoringSwitch.set_active(true);
@@ -360,7 +360,7 @@ namespace NuttyApp {
 				deviceMonitoringSwitch.set_active(false);
 				handleDeviceMonitoring(false);
 			}
-				
+
 			//set the active option for device schedule - based on saved state
 			if(DEVICE_SCHEDULE_SELECTED == Constants.DEVICE_SCHEDULE_15MINS){
 				min15Option.set_active (true);
@@ -373,13 +373,13 @@ namespace NuttyApp {
 			}else{
 				hourOption.set_active (true);
 			}
-			
+
 			Gtk.Box monitorIntervalBox = new Gtk.Box (Gtk.Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			monitorIntervalBox.pack_start (min15Option, false, false, 0);
 			monitorIntervalBox.pack_start (min30Option, false, false, 0);
 			monitorIntervalBox.pack_start (hourOption, false, false, 0);
 			monitorIntervalBox.pack_start (dayOption, false, false, 0);
-			
+
 			Gtk.Box scheduleBox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			scheduleBox.pack_start (deviceMonitorLabel, false, true, 0);
 			scheduleBox.pack_start (deviceMonitoringSwitch, false, true, 0);
@@ -391,12 +391,12 @@ namespace NuttyApp {
 			Gtk.Box prefsContent = prefsDialog.get_content_area () as Gtk.Box;
 			prefsContent.pack_start (prefsBox, false, true, 0);
 			prefsContent.spacing = Constants.SPACING_WIDGETS;
-					
+
 			prefsDialog.show_all ();
 			prefsDialog.response.connect(prefsDialogResponseHandler);
 			debug("Completed setting up Prefference Dialog sucessfully...");
 		}
-		
+
 		private void prefsDialogResponseHandler(Gtk.Dialog source, int response_id) {
 			switch (response_id) {
 				case Gtk.ResponseType.CLOSE:
@@ -410,7 +410,7 @@ namespace NuttyApp {
 			}
 			debug ("Prefference dialog handler response handled ["+response_id.to_string()+"]...");
 		}
-		
+
 		private void exportDialogResponseHandler(Gtk.Dialog source, int response_id) {
 			//Set the File Chooser default folder path based on the folder the action was comitted
 			Utils.last_file_chooser_path = ((Gtk.FileChooserDialog) source).get_current_folder();
@@ -425,7 +425,7 @@ namespace NuttyApp {
 			}
 			debug ("Export dialog handler response handled ["+response_id.to_string()+"]...");
 		}
-		
+
 		private void deviceScheduleSelection (Gtk.ToggleButton button) {
 			if(Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION == button.label)
 				DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_15MINS;
@@ -437,7 +437,7 @@ namespace NuttyApp {
 				DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1DAY;
 			debug("Completed noting the selection for device monitoring schedule...");
 		}
-		
+
 		private void handleDeviceMonitoring(bool isSwitchSet){
 			if (isSwitchSet) {
 				min15Option.set_sensitive(true);
@@ -452,7 +452,7 @@ namespace NuttyApp {
 			}
 			debug("Completed toggling device monitoring UI...");
 		}
-		
+
 		public void createExportDialog() {
 			debug("Started setting up Export Dialog ...");
 			Gtk.FileChooserDialog aFileChooserDialog = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, "Export Nutty Data", window, false);
@@ -460,40 +460,40 @@ namespace NuttyApp {
 			aFileChooserDialog.response.connect(exportDialogResponseHandler);
 			debug("Completed setting up Export Dialog sucessfully...");
 		}
-		
+
 		public Box createNuttyUI() {
 			debug("Starting to create main window components...");
 			Gtk.Box main_ui_box = new Gtk.Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-							
+
 			//define the stack for the tabbed view
 			stack = new Gtk.Stack();
 			stack.set_transition_type(StackTransitionType.SLIDE_LEFT_RIGHT);
 			stack.set_transition_duration(1000);
-				
+
 			//define the switcher for switching between tabs
 			StackSwitcher switcher = new StackSwitcher();
 			switcher.set_halign(Align.CENTER);
 			switcher.set_stack(stack);
 			main_ui_box.pack_start(switcher, false, true, 0);
 			main_ui_box.pack_start(stack, true, true, 0);
-			
+
 			//Add a user friendly message to the gksudo prompt
 			COMMAND_USING_SUDO += "-m";
 			COMMAND_USING_SUDO += Constants.TEXT_FOR_PASSWORD_INPUT_FOR_SUDO;
 			COMMAND_USING_SUDO += "";
-			
+
 			//Fetch and persist names of connections and interfaces if it dosent exist already
 			getConnectionsList();
 			debug("Obtained the list of connections...");
-			
+
 			/* Start of tabs UI set up */
-			
+
 			//Show the Disclaimer only if the Disclaimer has not been agreed earlier
 			if(!disclaimerSetGet(Constants.HAS_DISCLAIMER_BEEN_AGREED)){
 				debug("Starting to Modal Dialog for Nutty Disclaimer...");
-				Gtk.MessageDialog disclaimerDialog = new Gtk.MessageDialog(window, 
-															   Gtk.DialogFlags.MODAL, 
-															   Gtk.MessageType.WARNING, 
+				Gtk.MessageDialog disclaimerDialog = new Gtk.MessageDialog(window,
+															   Gtk.DialogFlags.MODAL,
+															   Gtk.MessageType.WARNING,
 															   Gtk.ButtonsType.NONE,
 															   "",
 															   null
@@ -520,7 +520,7 @@ namespace NuttyApp {
 				});
 				disclaimerDialog.show ();
 				debug("Completed showing Modal Dialog for Nutty Disclaimer...");
-			}	
+			}
 			// Tab 1 : MyInfo Tab: This Tab displays info on the computer and network interface hardware
 			Label info_details_combobox_label = new Label (Constants.TEXT_FOR_MYINFO_DETAILS_LABEL);
 			ComboBoxText info_combobox = new ComboBoxText();
@@ -535,7 +535,7 @@ namespace NuttyApp {
 				info_combobox_counter++;
 			}
 			info_combobox.active = 0;
-			
+
 			TreeView info_table_treeview = new TreeView();
 			CellRendererText info_cell = new CellRendererText ();
 			info_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_MYINFO_COLUMN_NAME_1, info_cell, "text", 0);
@@ -575,25 +575,25 @@ namespace NuttyApp {
 					setFilterAndSort(info_table_treeview, infoTreeModelFilter, SortType.DESCENDING);
 				}
 			});
-			
+
 			Box info_interface_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			info_interface_box.pack_start (info_combobox, false, true, 0);
 			info_interface_box.pack_start (info_details_combobox_label, false, true, 0);
 			info_interface_box.pack_start (detailsInfoSwitch, false, true, 0);
 			info_interface_box.pack_end (infoProcessSpinner, false, true, 0);
-				
+
 			ScrolledWindow info_scroll = new ScrolledWindow (null, null);
 			info_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			info_scroll.add (info_table_treeview);
-			
+
 			Box info_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			info_layout_box.pack_start (info_interface_box, false, true, 0);
 			info_layout_box.pack_start (info_scroll, true, true, 0);
 			//Add info-box to stack
 			stack.add_titled(info_layout_box, "my-info", Constants.TEXT_FOR_MYINFO_TAB);
 			debug("Info tab set up completed...");
-			
-			//Tab 2 : Bandwidth : Show bandwidth usage for this device	
+
+			//Tab 2 : Bandwidth : Show bandwidth usage for this device
 			Label bandwidth_details_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
 			bandwidth_results_label = new Label (Constants.TEXT_FOR_BANDWIDTH_LABEL);
 			bandwidthProcessSpinner = new Spinner();
@@ -610,7 +610,7 @@ namespace NuttyApp {
 			bandwidth_results_box.pack_start (bandwidth_combobox, false, true, 0);
 			bandwidth_results_box.pack_start (bandwidth_details_label, false, true, 0);
 			bandwidth_results_box.pack_start (bandwidth_results_label, false, true, 0);
-			
+
 			TreeView bandwidth_table_treeview = new TreeView();
 			bandwidth_table_treeview.set_fixed_height_mode(true);
 			CellRendererText bandwidth_cell = new CellRendererText ();
@@ -618,13 +618,13 @@ namespace NuttyApp {
 			bandwidth_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_2, bandwidth_cell, "text", 1);
 			bandwidth_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_3, bandwidth_cell, "text", 2);
 			bandwidth_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_4, bandwidth_cell, "text", 3);
-				   
+
 			ScrolledWindow bandwidth_scroll = new ScrolledWindow (null, null);
 			bandwidth_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			bandwidth_scroll.add (bandwidth_table_treeview);
-			
+
 			Gtk.Separator bandwidth_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-							
+
 			TreeView bandwidth_process_table_treeview = new TreeView();
 			bandwidth_process_table_treeview.set_fixed_height_mode(true);
 			CellRendererText bandwidth_process_cell = new CellRendererText ();
@@ -633,42 +633,42 @@ namespace NuttyApp {
 			bandwidth_process_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_PROCESS_COLUMN_NAME_1, bandwidth_process_cell, "text", 1);
 			bandwidth_process_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_PROCESS_COLUMN_NAME_2, bandwidth_process_cell, "text", 2);
 			bandwidth_process_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_PROCESS_COLUMN_NAME_3, bandwidth_process_cell, "text", 3);
-						   
+
 			ScrolledWindow bandwidth_process_scroll = new ScrolledWindow (null, null);
 			bandwidth_process_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			bandwidth_process_scroll.add (bandwidth_process_table_treeview);
-			
+
 			Box bandwidth_process_result_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			Button bandwidth_process_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
 			bandwidth_process_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_BANDWIDTH_PROCESS_TOOLTIP);
 			Label bandwidth_process_label = new Label (Constants.TEXT_FOR_BANDWIDTH_PROCESS_LABEL+bandwidth_combobox.get_active_text()+ " connection.");
-			
+
 			bandwidth_process_result_box.pack_start (bandwidth_process_label, false, false, 0);
 			bandwidth_process_result_box.pack_end (bandwidth_process_refresh_button, false, false, 0);
 			bandwidth_process_result_box.pack_end (bandwidthProcessSpinner, false, false, 0);
-							
+
 			Box bandwidth_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			bandwidth_layout_box.pack_start (bandwidth_results_box, false, true, 0);
 			bandwidth_layout_box.pack_start (bandwidth_scroll, true, true, 0);
 			bandwidth_layout_box.pack_start (bandwidth_separator, true, true, 0);
 			bandwidth_layout_box.pack_start (bandwidth_process_result_box, false, false, 0);
 			bandwidth_layout_box.pack_end (bandwidth_process_scroll, true, true, 0);
-			
+
 			bandwidth_combobox.changed.connect (() => {
 				if(Constants.TEXT_FOR_INTERFACE_LABEL != bandwidth_combobox.get_active_id ()){
 					bandwidthTreeModelFilter = new Gtk.TreeModelFilter (processBandwidthUsage(bandwidth_combobox.get_active_id ()), null);
 					setFilterAndSort(bandwidth_table_treeview, bandwidthTreeModelFilter, SortType.DESCENDING);
 					//set the text for the bandwidth process label
 					bandwidth_process_label.set_text(Constants.TEXT_FOR_BANDWIDTH_PROCESS_LABEL+bandwidth_combobox.get_active_text()+ " connection.");
-					//empty the bandwidth process treeview of any previous results 
+					//empty the bandwidth process treeview of any previous results
 					bandwidth_process_table_treeview.set_model(null);
 				}else{
 					//set the text for the bandwidth label and the bandwidth process label
 					bandwidth_results_label.set_text(Constants.TEXT_FOR_BANDWIDTH_LABEL);
 					bandwidth_process_label.set_text(Constants.TEXT_FOR_BANDWIDTH_LABEL);
-					//empty the bandwidth treeview of any previous results 
+					//empty the bandwidth treeview of any previous results
 					bandwidth_table_treeview.set_model(null);
-					//empty the bandwidth process treeview of any previous results 
+					//empty the bandwidth process treeview of any previous results
 					bandwidth_process_table_treeview.set_model(null);
 				}
 			});
@@ -685,29 +685,29 @@ namespace NuttyApp {
 			speedTestSpinner = new Spinner();
 			Label speed_test_label = new Label (Constants.TEXT_FOR_SPEED_LABEL);
 			speed_test_results_label = new Label (SPEEDTESTDATE);
-			Button speed_test_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
+			speed_test_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
 			speed_test_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_SPEEDTEST_TOOLTIP);
 			Gtk.Separator speed_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-					
+
 			TreeView speedtest_table_treeview = new TreeView();
 			speedtest_table_treeview.set_fixed_height_mode(true);
 			CellRendererText speedtest_cell = new CellRendererText ();
 			speedtest_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_SPEEDTEST_COLUMN_NAME_1, speedtest_cell, "text", 0);
 			speedtest_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_SPEEDTEST_COLUMN_NAME_2, speedtest_cell, "text", 1);
-			
+
 			speedTestTreeModelFilter = new Gtk.TreeModelFilter (processSpeedTest(false), null);
 			setFilterAndSort(speedtest_table_treeview, speedTestTreeModelFilter, SortType.DESCENDING);
-			
+
 			Box speed_test_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			speed_test_box.pack_start (speed_test_label, false, true, 0);
 			speed_test_box.pack_start (speed_test_results_label, false, true, 0);
 			speed_test_box.pack_end (speed_test_refresh_button, false, true, 0);
 			speed_test_box.pack_end (speedTestSpinner, false, true, 0);
-					
+
 			Box speedtest_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			speedtest_layout_box.pack_start (speed_test_box, false, true, 0);
 			speedtest_layout_box.pack_start (speedtest_table_treeview, false, true, 0);
-			
+
 			traceRouteSpinner = new Spinner();
 			Label route_speed_label = new Label (Constants.TEXT_FOR_ROUTE_TO_HOST);
 			Entry route_entry_text = new Entry();
@@ -716,7 +716,7 @@ namespace NuttyApp {
 			Button route_button = new Button.from_icon_name (Constants.GO_ICON, IconSize.SMALL_TOOLBAR);
 			TreeView route_table_treeview = new TreeView();
 			route_table_treeview.set_fixed_height_mode(true);
-			
+
 			CellRendererText route_cell = new CellRendererText ();
 			route_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_ROUTE_COLUMN_NAME_1, route_cell, "text", 0);
 			route_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_ROUTE_COLUMN_NAME_2, route_cell, "text", 1);
@@ -724,14 +724,14 @@ namespace NuttyApp {
 			route_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_ROUTE_COLUMN_NAME_4, route_cell, "text", 3);
 			route_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_ROUTE_COLUMN_NAME_5, route_cell, "text", 4);
 			route_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_ROUTE_COLUMN_NAME_6, route_cell, "text", 5);
-				
+
 			// Set actions for Route EntryText Return Key Press
 			route_entry_text.activate.connect (() => {
 				traceRouteSpinner.start();
 				routeTreeModelFilter = new Gtk.TreeModelFilter (processRouteScan(route_entry_text.get_text()), null);
 				setFilterAndSort(route_table_treeview, routeTreeModelFilter, SortType.DESCENDING);
 			});
-			
+
 			// Set actions for Route Button Clicking
 			route_button.clicked.connect (() => {
 				traceRouteSpinner.start();
@@ -741,27 +741,28 @@ namespace NuttyApp {
 			// Set actions for Speed Test Refresh Button Clicking
 			speed_test_refresh_button.clicked.connect (() => {
 				speedTestSpinner.start();
+				speed_test_refresh_button.set_sensitive(false);
 				speedTestTreeModelFilter = new Gtk.TreeModelFilter (processSpeedTest(true), null);
 				setFilterAndSort(speedtest_table_treeview, speedTestTreeModelFilter, SortType.DESCENDING);
 				speed_test_results_label.set_text(SPEEDTESTDATE);
 			});
-											
+
 			Box route_input_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			route_input_box.pack_start (route_speed_label, false, true, 0);
 			route_input_box.pack_start (route_entry_text, false, true, 0);
 			route_input_box.pack_start (route_button, false, true, 0);
 			route_input_box.pack_end (traceRouteSpinner, false, true, 0);
-			
+
 			Box route_results_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			Label route_destination_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
 			route_results_label = new Label (" ");
 			route_results_box.pack_start (route_destination_label, false, true, 0);
 			route_results_box.pack_start (route_results_label, false, true, 0);
-							  
+
 			ScrolledWindow route_scroll = new ScrolledWindow (null, null);
 			route_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			route_scroll.add (route_table_treeview);
-			
+
 			Box route_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			route_layout_box.pack_start (speedtest_layout_box, false, true, 0);
 			route_layout_box.pack_start (speed_separator, false, true, 0);
@@ -771,11 +772,11 @@ namespace NuttyApp {
 			//Add route-box to stack
 			stack.add_titled(route_layout_box, "route", Constants.TEXT_FOR_ROUTE_TAB);
 			debug("Speed tab set up completed...");
-			
+
 			//Tab 4 : Ports Tab : Show details of open internet connections and application ports
 			TreeView ports_tcp_table_treeview = new TreeView();
 			ports_tcp_table_treeview.set_fixed_height_mode(true);
-			
+
 			CellRendererText ports_tcp_cell = new CellRendererText ();
 			ports_tcp_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_PORTS_COLUMN_NAME_1, ports_tcp_cell, "text", 0);
 			ports_tcp_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_PORTS_COLUMN_NAME_2, ports_tcp_cell, "text", 1);
@@ -783,11 +784,11 @@ namespace NuttyApp {
 			ports_tcp_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_PORTS_COLUMN_NAME_4, ports_tcp_cell, "text", 3);
 			ports_tcp_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_PORTS_COLUMN_NAME_5, ports_tcp_cell, "text", 4);
 			ports_tcp_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_PORTS_COLUMN_NAME_6, ports_tcp_cell, "text", 5);
-							
+
 			ScrolledWindow ports_tcp_scroll = new ScrolledWindow (null, null);
 			ports_tcp_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			ports_tcp_scroll.add (ports_tcp_table_treeview);
-			
+
 			portsSpinner = new Spinner();
 			Button ports_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
 			ports_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_PORTS_TOOLTIP);
@@ -798,14 +799,14 @@ namespace NuttyApp {
 			ports_results_box.pack_start (ports_results_label, false, true, 0);
 			ports_results_box.pack_end (ports_refresh_button, false, true, 0);
 			ports_results_box.pack_end (portsSpinner, false, true, 0);
-			
+
 			Box ports_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			ports_layout_box.pack_start (ports_results_box, false, true, 0);
 			ports_layout_box.pack_start (ports_tcp_scroll, true, true, 0);
-			
+
 			//Note: the contents of the Ports Tab are loaded when the Ports Tab is clicked
 			//see the Tab Change Event section below
-			
+
 			// Set actions for Ports Refresh Button Clicking
 			ports_refresh_button.clicked.connect (() => {
 				portsSpinner.start();
@@ -816,17 +817,17 @@ namespace NuttyApp {
 			//Add ports-box to stack
 			stack.add_titled(ports_layout_box, "ports", Constants.TEXT_FOR_PORTS_TAB);
 			debug("Ports tab set up completed...");
-							
+
 			//Tab 5 : Devices : Show details of Devices on the network
 			TreeView device_table_treeview = new TreeView();
 			//device_table_treeview.set_fixed_height_mode(true);
 			devicesSpinner = new Gtk.Spinner();
-			
+
 			Button devices_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
 			devices_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_DEVICES_TOOLTIP);
 			//set the devices refresh button to in-active status
 			devices_refresh_button.set_sensitive (false);
-			
+
 			CellRendererText device_cell_txt = new CellRendererText ();
 			CellRendererPixbuf device_cell_pix = new CellRendererPixbuf ();
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_1, device_cell_pix, "pixbuf", 0);
@@ -835,11 +836,11 @@ namespace NuttyApp {
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_4, device_cell_txt, "text", 3);
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_5, device_cell_txt, "text", 4);
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_6, device_cell_txt, "text", 5);
-			
+
 			ScrolledWindow devices_scroll = new ScrolledWindow (null, null);
 			devices_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			devices_scroll.add (device_table_treeview);
-					
+
 			devices_results_label = new Label (" ");
 			Label devices_details_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
 			ComboBoxText devices_combobox = new ComboBoxText();
@@ -851,14 +852,14 @@ namespace NuttyApp {
 				devices_combobox_counter++;
 			}
 			devices_combobox.active = 0;
-			
+
 			Box devices_results_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			devices_results_box.pack_start (devices_combobox, false, true, 0);
 			devices_results_box.pack_start (devices_details_label, false, true, 0);
 			devices_results_box.pack_start (devices_results_label, false, true, 0);
 			devices_results_box.pack_end (devices_refresh_button, false, true, 0);
 			devices_results_box.pack_end (devicesSpinner, false, true, 0);
-					
+
 			Box devices_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			devices_layout_box.set_homogeneous (false);
 			devices_layout_box.pack_start (devices_results_box, false, true, 0);
@@ -883,7 +884,7 @@ namespace NuttyApp {
 					isDevicesViewLoaded = true;
 				}
 			});
-			
+
 			// Set actions for Device Refresh Button Clicking
 			devices_refresh_button.clicked.connect (() => {
 				devicesSpinner.start();
@@ -894,7 +895,7 @@ namespace NuttyApp {
 			//Add devices-box to stack
 			stack.add_titled(devices_layout_box, "devices", Constants.TEXT_FOR_DEVICES_TAB);
 			/* End of all tabs UI set up */
-			
+
 			//Check every time a tab is clicked and perform necessary actions
 			stack.notify["visible-child"].connect ((sender, property) => {
 				if(Constants.TEXT_FOR_SEARCH_HEADERBAR != headerSearchBar.get_text()){
@@ -928,17 +929,17 @@ namespace NuttyApp {
 					isDevicesViewLoaded = true;
 				}
 			});
-			debug("Completed creation of main windows components...");	
+			debug("Completed creation of main windows components...");
 			return main_ui_box;
 		}
-		
+
 		public void saveNuttyState(){
 			debug("Starting to save Nutty state...");
 			StringBuilder stateInfo = new StringBuilder("");
 			//collect all current details of state
 			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_DEVICE_MONITORING_STATE).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(DEVICE_SCHEDULE_STATE.to_string()).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
 			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_DEVICE_MONITORING_SCHEDULE).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(DEVICE_SCHEDULE_SELECTED.to_string()).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-			
+
 			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_SPEEDTEST_DATE).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(SPEEDTESTDATE).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
 			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_SPEEDTEST_UPLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(UPLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
 			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_SPEEDTEST_DOWNLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(DOWNLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
@@ -950,20 +951,20 @@ namespace NuttyApp {
 				warning("Failure in saving nutty state: "+saveNuttyStateResult);
 			}
 		}
-		
+
 		public void loadNuttyState(){
 			debug("Started loading Nutty state...");
 			if("true" == fileOperations("EXISTS",nutty_config_path, Constants.nutty_state_file_name, "")){
 				DEVICE_SCHEDULE_STATE = int.parse(fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_DEVICE_MONITORING_STATE));
 				DEVICE_SCHEDULE_SELECTED = int.parse(fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_DEVICE_MONITORING_SCHEDULE));
-			
+
 				SPEEDTESTDATE = fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_SPEEDTEST_DATE);
 				if(SPEEDTESTDATE == "false") SPEEDTESTDATE = Constants.TEXT_FOR_SPEEDTEST_NOTFOUND;
 				UPLOADSPEED = fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_SPEEDTEST_UPLOADSPEED);
 				if(UPLOADSPEED == "false") UPLOADSPEED = "";
 				DOWNLOADSPEED = fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_SPEEDTEST_DOWNLOADSPEED);
 				if(DOWNLOADSPEED == "false") DOWNLOADSPEED = "";
-				
+
 				debug(new StringBuilder().append("Completed loading Nutty state [")
 					.append(" DEVICE_SCHEDULE_STATE="+DEVICE_SCHEDULE_STATE.to_string())
 					.append(" DEVICE_SCHEDULE_SELECTED="+DEVICE_SCHEDULE_SELECTED.to_string())
@@ -975,13 +976,13 @@ namespace NuttyApp {
 				debug("Could not load Nutty state, Nutty State file does not exist at path :"+nutty_config_path +"/"+ Constants.nutty_state_file_name);
 			}
 		}
-			
+
 		public void saveNuttyInfoToFile (string path, string filename) {
 			debug("Started exporting Nutty information...");
 			StringBuilder printDataText = new StringBuilder("");
 			var now = new DateTime.now_local();
 			printDataText.append("======").append(Constants.TEXT_FOR_NUTTY_EXPORT_HEADER).append(now.to_string()).append("======\n\n");
-			
+
 			Gtk.TreeModelForeachFunc print_row = (model, path, iter) => {
 				int number_of_cols = model.get_n_columns();
 				GLib.Value[] cellArray = new GLib.Value[number_of_cols];
@@ -1001,10 +1002,12 @@ namespace NuttyApp {
 				return false;
 			};
 			//Print Details of the Info Tab
+			printDataText.append(Constants.TEXT_FOR_MYINFO_TAB).append("\n");
 			printDataText.append(Constants.TEXT_FOR_MYINFO_COLUMN_NAME_1).append(",").append(Constants.TEXT_FOR_MYINFO_COLUMN_NAME_2).append("\n");
 			info_list_store.foreach (print_row);
 			printDataText.append("\n");
 			//Print Details of Bandwidth Tab
+			printDataText.append(Constants.TEXT_FOR_BANDWIDTH_TAB).append("\n");
 			printDataText.append(Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_1).append(",").append(Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_2).append(",").append(Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_3).append(",").append(Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_4).append("\n");
 			bandwidth_list_store.foreach (print_row);
 			printDataText.append("\n");
@@ -1012,6 +1015,7 @@ namespace NuttyApp {
 			bandwidth_results_list_store.foreach (print_row);
 			printDataText.append("\n");
 			//Print Details of Speed Tab
+			printDataText.append(Constants.TEXT_FOR_ROUTE_TAB).append("\n");
 			printDataText.append(Constants.TEXT_FOR_SPEEDTEST_COLUMN_NAME_1).append(",").append(Constants.TEXT_FOR_SPEEDTEST_COLUMN_NAME_2).append("\n");
 			speedtest_list_store.foreach (print_row);
 			printDataText.append("\n");
@@ -1019,19 +1023,21 @@ namespace NuttyApp {
 			route_list_store.foreach (print_row);
 			printDataText.append("\n");
 			//Print Details of Devices Tab
+			printDataText.append(Constants.TEXT_FOR_DEVICES_TAB).append("\n");
 			printDataText.append(Constants.TEXT_FOR_DEVICES_COLUMN_NAME_2).append(",").append(Constants.TEXT_FOR_DEVICES_COLUMN_NAME_3).append(",").append(Constants.TEXT_FOR_DEVICES_COLUMN_NAME_4).append(",").append(Constants.TEXT_FOR_DEVICES_COLUMN_NAME_5).append(",").append(Constants.TEXT_FOR_DEVICES_COLUMN_NAME_6).append("\n");
 			device_list_store.foreach (print_row);
 			printDataText.append("\n");
 			//Print Details of Ports Tab
+			printDataText.append(Constants.TEXT_FOR_PORTS_TAB).append("\n");
 			printDataText.append(Constants.TEXT_FOR_PORTS_COLUMN_NAME_1).append(",").append(Constants.TEXT_FOR_PORTS_COLUMN_NAME_2).append(",").append(Constants.TEXT_FOR_PORTS_COLUMN_NAME_3).append(",").append(Constants.TEXT_FOR_PORTS_COLUMN_NAME_4).append(",").append(Constants.TEXT_FOR_PORTS_COLUMN_NAME_5).append(",").append(Constants.TEXT_FOR_PORTS_COLUMN_NAME_6).append("\n");
 			ports_tcp_list_store.foreach (print_row);
 			printDataText.append("\n");
-			//Write Nutty data to file			
+			//Write Nutty data to file
 			fileOperations("WRITE",path, filename, printDataText.str);
-				
+
 			debug("Completed exporting Nutty information...");
 		}
-		
+
 		public bool disclaimerSetGet(int operation) {
 			bool result = false;
 			if(operation == Constants.HAS_DISCLAIMER_BEEN_AGREED){
@@ -1045,7 +1051,7 @@ namespace NuttyApp {
 			debug("Nuty Disclaimer operation completed...");
 			return result;
 		}
-		
+
 		public string fileOperations (string operation, string path, string filename, string contents) {
 			debug("Started file operation["+operation+"]...");
 			StringBuilder result = new StringBuilder("false");
@@ -1167,7 +1173,7 @@ namespace NuttyApp {
 			debug("Completed file operation["+operation+"]...");
 			return result.str;
 		}
-		
+
 		public bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
 			if (condition == IOCondition.HUP) {
 				return false;
@@ -1186,11 +1192,10 @@ namespace NuttyApp {
 			}
 			return true;
 		}
-		
+
 		public int execute_sync_multiarg_command_pipes(string[] spawn_args) {
 			debug("Starting to execute async command: "+string.joinv(" ", spawn_args));
 			spawn_async_with_pipes_output.erase(0, -1); //clear the output buffer
-			spawn_async_with_pipes_error.erase(0, -1); //clear the output buffer
 			MainLoop loop = new MainLoop ();
 			try {
 				string[] spawn_env = Environ.get ();
@@ -1235,7 +1240,7 @@ namespace NuttyApp {
 			debug("Completed executing async command["+string.joinv(" ", spawn_args)+"]...");
 			return 0;
 		}
-		   
+
 		public string execute_sync_command (string cmd){
 			debug("Starting to execute sync command ["+cmd+"]...");
 			string std_out;
@@ -1251,7 +1256,7 @@ namespace NuttyApp {
 			debug("Completed execution of sync command ["+cmd+"]...");
 			return std_out;
 		}
-		
+
 		public Gee.ArrayList<string> getInterfaceList() throws Error{
 			debug("Starting to get Interface list...");
 			Gee.ArrayList <string> interfaceList =  new Gee.ArrayList<string>();
@@ -1266,7 +1271,7 @@ namespace NuttyApp {
 			debug("Completed getting Interface list...");
 			return interfaceList;
 		}
-		
+
 		public void getConnectionsList() {
 			debug("Starting to get connection details...");
 			try{
@@ -1307,7 +1312,7 @@ namespace NuttyApp {
 			}
 			debug("Completed getting connection details...");
 		}
-		   
+
 		private bool filterTree(TreeModel model, TreeIter iter){
 			bool isFilterCriteriaMatch = true;
 			string modelValueString = "";
@@ -1349,14 +1354,14 @@ namespace NuttyApp {
 				aTreeView.get_column(count).set_sort_order(aSortType);
 			}
 		}
-					
+
 		public Gtk.TreeStore processMyInfo(string interfaceName, bool isDetailsRequired){
 			debug("Starting to process MyInfo[interfaceName="+interfaceName+",isDetailsRequired="+isDetailsRequired.to_string()+"]...");
 			info_list_store.clear();
 			try{
 				TreeIter iter;
 				TreeIter iterSecondLevel;
-				
+
 				//Get info which does not require an Interface Name
 				info_list_store.append (out iter, null);
 				info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_HOSTNAME, 1, HostName);
@@ -1375,13 +1380,13 @@ namespace NuttyApp {
 				if(interfaceName != null && interfaceName != "" && interfaceName.length > 0){
 					info_list_store.append (out iter, null);
 					info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_MAC_ADDRESS, 1, interfaceMACMap.get(interfaceName.strip()));
-					
+
 					info_list_store.append (out iter, null);
 					info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_IP_ADDRESS, 1, interfaceIPMap.get(interfaceName.strip()));
-					
+
 					//run minimal interface command if the same has not been executed
 					interfaceCommandOutputMinimal.assign(execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+interfaceName));
-							
+
 					if(interfaceCommandOutputMinimal.str.contains("RUNNING")){
 						info_list_store.append (out iter, null);
 						info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_INTERFACE_STATE, 1, Constants.TEXT_FOR_MYINFO_INTERFACE_ACTIVE);
@@ -1389,7 +1394,25 @@ namespace NuttyApp {
 						info_list_store.append (out iter, null);
 						info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_INTERFACE_STATE, 1, Constants.TEXT_FOR_MYINFO_INTERFACE_INACTIVE);
 					}
-				}					
+				}
+				//Get simple wireless info which requires an interface name
+				if(interfaceName != null && interfaceName != "" && interfaceName.length > 0 && interfaceName.get_char(0) == 'w'){
+					string iwconfigOutput = execute_sync_command(Constants.COMMAND_FOR_WIRELESS_CARD_DETAILS + interfaceName);
+					string frequencyAndChannel = execute_sync_command(Constants.COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS+interfaceName+" channel");
+
+					info_list_store.append (out iter, null);
+					info_list_store.set (iter, 0, _("Network Card"), 1, Utils.extractBetweenTwoStrings(iwconfigOutput,interfaceName, "ESSID:").strip() + _(" Standards with Transmit Power of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Tx-Power=", "Retry short limit:").strip() + _(" [Power Management: ") +Utils.extractBetweenTwoStrings(iwconfigOutput,"Power Management:", "Link Quality=").strip()+"]");
+
+					info_list_store.append (out iter, null);
+					info_list_store.set (iter, 0, _("Connected to"), 1, Utils.extractBetweenTwoStrings(iwconfigOutput,"ESSID:", "Mode:").replace("\"","").strip() + _(" Network at Access Point ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Access Point:", "Bit Rate=").strip() + "(MAC) in "+Utils.extractBetweenTwoStrings(iwconfigOutput,"Mode:", "Frequency:").strip()+_(" Mode"));
+
+					info_list_store.append (out iter, null);
+					info_list_store.set (iter, 0, _("Connected with"), 1, _("Frequency of ")+Utils.extractBetweenTwoStrings(frequencyAndChannel,"Current Frequency:", "\n").strip() + _(" and Bit Rate of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Bit Rate=", "Tx-Power=").strip());
+
+					info_list_store.append (out iter, null);
+					info_list_store.set (iter, 0, _("Connection strength"), 1, _("Link Quality of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Link Quality=", "Signal level=").strip() + _(" and Signal Level of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Signal level=", "Rx invalid nwid:").strip());
+				}
+
 				//Get detailed info which requires an interface name
 				if(interfaceName != null && interfaceName != "" && interfaceName.length > 0 && isDetailsRequired){
 					//run detailed interface command if the same has not been executed
@@ -1456,9 +1479,9 @@ namespace NuttyApp {
 						while(configurationIterator.has_next()) {
 							configurationIterator.next();
 							info_list_store.append (out iterSecondLevel, iter);
-							info_list_store.set (iterSecondLevel, 0, configurationIterator.get_key(), 1, configurationIterator.get_value(),-1);					
+							info_list_store.set (iterSecondLevel, 0, configurationIterator.get_key(), 1, configurationIterator.get_value(),-1);
 						}
-						
+
 						Gee.HashMap<string,string> capabilityDetails = Utils.extractTagAttributes(Utils.extractXMLTag(interfaceNodeXML.str,"<capabilities>", "</capabilities>"), "capability", "id", false);
 						MapIterator<string,string> capabilityIterator = capabilityDetails.map_iterator ();
 						info_list_store.append (out iter, null);
@@ -1466,9 +1489,9 @@ namespace NuttyApp {
 						while(capabilityIterator.has_next()) {
 							capabilityIterator.next();
 							info_list_store.append (out iterSecondLevel, iter);
-							info_list_store.set (iterSecondLevel, 0, capabilityIterator.get_key(), 1, capabilityIterator.get_value(),-1);					
+							info_list_store.set (iterSecondLevel, 0, capabilityIterator.get_key(), 1, capabilityIterator.get_value(),-1);
 						}
-						
+
 						Gee.HashMap<string,string> resourceDetails = Utils.extractTagAttributes(Utils.extractXMLTag(interfaceNodeXML.str,"<resources>", "</resources>"), "resource", "type", true);
 						MapIterator<string,string> resourceIterator = resourceDetails.map_iterator ();
 						info_list_store.append (out iter, null);
@@ -1476,7 +1499,7 @@ namespace NuttyApp {
 						while(resourceIterator.has_next()) {
 							resourceIterator.next();
 							info_list_store.append (out iterSecondLevel, iter);
-							info_list_store.set (iterSecondLevel, 0, resourceIterator.get_key(), 1, resourceIterator.get_value(),-1);					
+							info_list_store.set (iterSecondLevel, 0, resourceIterator.get_key(), 1, resourceIterator.get_value(),-1);
 						}
 					}
 					infoProcessSpinner.stop();
@@ -1498,7 +1521,7 @@ namespace NuttyApp {
 				string[] firstPacket = {" "};
 				string[] secondPacket = {" "};
 				string[] thirdPacket = {" "};
-				
+
 				execute_sync_multiarg_command_pipes({"traceroute", tracerouteCommand});
 				Gee.ArrayList<Gee.ArrayList<string>> tableData =  Utils.convertMultiLinesToTableArray(spawn_async_with_pipes_output.str, 6, "  ");
 				if(exitCodeForCommand != 0){//handle unsucessfull command execution
@@ -1517,7 +1540,7 @@ namespace NuttyApp {
 								if(rowData.size >3){
 									serverIP = Utils.extractBetweenTwoStrings(rowData.get(1), "(", ")").strip();
 									serverName = rowData.get(1).replace("("+serverIP+")", "").strip();
-									
+
 									/* split the information of the packet time from the server they were received
 									 * The information sometimes contains the server name and ip along with the time in the format
 									 * 36.973 ms host-78-151-228-25.as13285.net (78.151.228.25)
@@ -1544,8 +1567,8 @@ namespace NuttyApp {
 			}
 			debug("Completed processing RouteScan["+tracerouteCommand+"]...");
 			return route_list_store;
-		}    
-		
+		}
+
 		public Gtk.ListStore processPortsScan(string[] commandArgs){
 			debug("Starting to process PortsScan["+string.joinv(" ", commandArgs)+"]...");
 			ports_tcp_list_store.clear();
@@ -1560,10 +1583,10 @@ namespace NuttyApp {
 				StringBuilder unixPID = new StringBuilder();
 				StringBuilder unixProgram = new StringBuilder();
 				StringBuilder unixPath = new StringBuilder();
-				
+
 				execute_sync_multiarg_command_pipes (commandArgs);
 				Gee.ArrayList<Gee.ArrayList<string>> tableData =  Utils.convertMultiLinesToTableArray(spawn_async_with_pipes_output.str, 100, "  ");
-				
+
 				foreach(Gee.ArrayList<string> rowData in tableData){
 					if(rowData.get(0).index_of("tcp") != -1){
 						isTCP = true;
@@ -1597,7 +1620,7 @@ namespace NuttyApp {
 								}
 								if(columnCount==7)
 									unixPath.append(columnData);
-								
+
 								columnCount++;
 							}
 						}
@@ -1630,7 +1653,7 @@ namespace NuttyApp {
 						ports_tcp_list_store.append (out iter);
 						ports_tcp_list_store.set (iter, 0, unixProtocol.str, 1, unixState.str, 2, unixPort.str, 3, unixPID.str, 4, unixProgram.str, 5, unixPath.str);
 					}
-					
+
 					unixProtocol.erase(0,-1);
 					unixState.erase(0,-1);
 					unixPort.erase(0,-1);
@@ -1646,14 +1669,14 @@ namespace NuttyApp {
 			debug("Completed processing PortsScan["+string.joinv(" ", commandArgs)+"]...");
 			return ports_tcp_list_store;
 		}
-		
+
 		public Gee.ArrayList<Gee.ArrayList<string>> manageDeviceScanResults (string mode, string nmapOutput, string interfaceName){
 			debug("Starting to manage DeviceScan Results [mode="+mode+",interfaceName="+interfaceName+"]...");
 			Gee.ArrayList<ArrayList<string>> deviceDataArrayList =  new Gee.ArrayList<Gee.ArrayList<string>>();
 			try{
 				string devicePropsData = "";
 				int deviceAttributeCounter = 0;
-				
+
 				/* Read Device Props and create a device data object */
 				devicePropsData = fileOperations("READ", nutty_config_path, Constants.nutty_devices_property_file_name, "");
 				//Add the data from the Device Props to the Device Array Object
@@ -1679,12 +1702,12 @@ namespace NuttyApp {
 							//reset the device attribute counter
 							deviceAttributeCounter = 0;
 						}
-					}			
+					}
 				}else{
 					//This will be the scenario for the first time use of the Devices tab on Nutty
 					//Do Nothing
 				}
-				
+
 				/* Mode: DEVICE_DATA - Return the data from the device props file */
 				if(mode == "DEVICE_DATA"){
 					foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
@@ -1693,20 +1716,20 @@ namespace NuttyApp {
 					}
 					return deviceDataArrayList;
 				}
-				
+
 				/* Mode: DEVICE ALERT - Check and update device props for alerting new devices */
 				if(mode == "DEVICE_ALERT"){
 					foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
 						//check if the alert is pending for the device and process alert
 						if(deviceAttributeArrayList.contains(Constants.DEVICE_ALERT_PENDING)){
 							//alert discovery of new device
-							execute_sync_command(Constants.COMMAND_FOR_DEVICES_ALERT + " '" + TEXT_FOR_DEVICE_FOUND_NOTIFICATION + deviceAttributeArrayList.get(3) + "(" + deviceAttributeArrayList.get(0) + ")'");	
+							execute_sync_command(Constants.COMMAND_FOR_DEVICES_ALERT + " '" + TEXT_FOR_DEVICE_FOUND_NOTIFICATION + deviceAttributeArrayList.get(3) + "(" + deviceAttributeArrayList.get(0) + ")'");
 							//set the device alert status to completed
 							deviceAttributeArrayList.set(5,Constants.DEVICE_ALERT_COMPLETED);
 						}
 					}
 				}
-				 
+
 				/* Mode: DEVICE_SCAN - Use NMap Output to update device props and get combined output */
 				if(mode == "DEVICE_SCAN_UI" || mode == "DEVICE_SCAN_SCHEDULED"){
 					StringBuilder hostDetails = new StringBuilder("");
@@ -1717,7 +1740,7 @@ namespace NuttyApp {
 					int startOfBlock = 0;
 					int endOfBlock = 0;
 					bool isNewDevice = true;
-					
+
 					//parse NMap XML output for fetching device details and update device list object appropriately
 					while(startOfBlock != -1){
 						startOfBlock = nmapOutput.index_of(Constants.IDENTIFIER_FOR_START_OF_HOST_IN_NMAP_OUTPUT,startOfBlock);
@@ -1814,7 +1837,7 @@ namespace NuttyApp {
 									deviceHostName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
 								}
 							}
-							
+
 							//check if the device list object has any data after reading the device props
 							if(deviceDataArrayList.size == 0){
 								//No devices found in the device props - do nothing
@@ -1852,7 +1875,7 @@ namespace NuttyApp {
 								deviceAttributeArrayList.add(Constants.TEXT_FOR_DEVICES_ACTIVE_NOW);
 								deviceDataArrayList.add(deviceAttributeArrayList);
 							}
-							
+
 							//reset variables for capturing the next host details
 							hostDetails.assign("");
 							deviceIPAddress.assign("");
@@ -1863,7 +1886,7 @@ namespace NuttyApp {
 						}
 					}
 				}
-					
+
 				/* Update device props by overwriting it with the latest device details */
 				StringBuilder updatedDevicePropsData = new StringBuilder("");
 				foreach(Gee.ArrayList<string> updatedDeviceAttributeArrayList in deviceDataArrayList){
@@ -1888,13 +1911,13 @@ namespace NuttyApp {
 			debug("Completed managing DeviceScan Results [mode="+mode+",interfaceName="+interfaceName+"]...");
 			return deviceDataArrayList;
 		}
-		
+
 		public Gtk.ListStore processDevicesScan(string interfaceName){
 			debug("Starting to process DevicesScan [interfaceName="+interfaceName+"]...");
 			device_list_store.clear();
 			try{
 				TreeIter iter;
-				
+
 				//Get the IP Address for the selected interface
 				string scanIPAddress = interfaceIPMap.get(interfaceName);
 				if(scanIPAddress == null || scanIPAddress == "" || scanIPAddress == "Not Available" || scanIPAddress == "127.0.0.1"){
@@ -1908,15 +1931,15 @@ namespace NuttyApp {
 							COMMAND_USING_SUDO[6] = Constants.nutty_script_path + "/" + Constants.nutty_devices_file_name + " " + scanIPAddress;
 							execute_sync_multiarg_command_pipes(COMMAND_USING_SUDO);
 							string deviceScanResult = spawn_async_with_pipes_output.str;
-							
+
 							//set the NMap scan result on the Devices Results Label
 							int extractionStartPos = deviceScanResult.index_of(";",deviceScanResult.index_of(Constants.IDENTIFIER_FOR_NMAP_RESULTS,0))+1;
 							int extractionEndPos = deviceScanResult.index_of("\"",extractionStartPos+1);
 							devices_results_label.set_text(deviceScanResult.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-							
+
 							//parse the NMap output and update the devices props file
 							Gee.ArrayList<ArrayList<string>> deviceDataArrayList = manageDeviceScanResults("DEVICE_SCAN_UI", deviceScanResult, interfaceName);
-							
+
 							//populate the Gtk.ListStore for the NMap scan
 							foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
 								device_list_store.append (out iter);
@@ -1931,7 +1954,7 @@ namespace NuttyApp {
 						devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND);
 					}
 				}
-				
+
 				//stop the spinner on the UI
 				devicesSpinner.stop();
 			}catch(Error e){
@@ -1940,7 +1963,7 @@ namespace NuttyApp {
 			debug("Completed processing DevicesScan [interfaceName="+interfaceName+"]...");
 			return device_list_store;
 		}
-		
+
 		public string getHostManufacturerOnline (string MAC){
 			debug("Starting to get Host Manufacturer Name from MAC Id["+MAC+"] by Online search...");
 			string manufacturerName = "";
@@ -1959,7 +1982,7 @@ namespace NuttyApp {
 			debug("Completed getting Host Manufacturer Name from MAC Id["+MAC+"] by Online search...");
 			return manufacturerName;
 		}
-		
+
 		public Gtk.ListStore fetchRecordedDevices() {
 			debug("Starting to fetch recorded devices..." );
 			device_list_store.clear();
@@ -1985,7 +2008,7 @@ namespace NuttyApp {
 			debug("Completed fetching recorded devices...");
 			return device_list_store;
 		}
-		
+
 		public Gtk.ListStore processBandwidthApps(string interface_name){
 			debug("Starting to process bandwidth of apps[interface_name="+interface_name+"]...");
 			bandwidth_results_list_store.clear();
@@ -1995,11 +2018,11 @@ namespace NuttyApp {
 				StringBuilder processNames = new StringBuilder();
 				StringBuilder aProcessName = new StringBuilder();
 				bandwidthProcessSpinner.start();
-				
+
 				COMMAND_USING_SUDO[6] = Constants.nutty_script_path + "/" + Constants.nutty_bandwidth_process_file_name + " " + interface_name;
 				execute_sync_multiarg_command_pipes(COMMAND_USING_SUDO);
 				string process_bandwidth_result = spawn_async_with_pipes_output.str;
-				
+
 				//split the indivudual lines in the output
 				string[] linesWithProcessData = process_bandwidth_result.strip().split ("\n",-1);
 				foreach(string data in linesWithProcessData){
@@ -2025,7 +2048,7 @@ namespace NuttyApp {
 								} catch (Error e) {
 									warning (e.message);
 								}
-							
+
 								bandwidth_results_list_store.append (out iter);
 								bandwidth_results_list_store.set (iter, 0, app_icon, 1, aProcessName.str, 2, processDataAttributes[1], 3, processDataAttributes[2]);
 								processNames.append(aProcessName.str);
@@ -2042,7 +2065,7 @@ namespace NuttyApp {
 			debug("Completed processing bandwidth of apps[interface_name="+interface_name+"]...");
 			return bandwidth_results_list_store;
 		}
-		
+
 		public Gtk.ListStore processBandwidthUsage(string interface_name){
 			debug("Starting to process bandwidth usage[interface_name="+interface_name+"]...");
 			bandwidth_list_store.clear();
@@ -2061,7 +2084,7 @@ namespace NuttyApp {
 					//set header results
 					string interfaceMonitoredFrom = "";
 					string interfaceMonitoredLast = "";
-					
+
 					string monitoredFromDate = Utils.extractXMLTag(bandwidth_usage_result, "<created>", "</created>");
 					if(monitoredFromDate.contains("<day>") && monitoredFromDate.contains("<month>") && monitoredFromDate.contains("<year>")){
 						interfaceMonitoredFrom = Utils.extractXMLTag(monitoredFromDate,"<day>", "</day>")+"-"+Utils.extractXMLTag(monitoredFromDate,"<month>", "</month>")+"-"+Utils.extractXMLTag(monitoredFromDate,"<year>", "</year>");
@@ -2071,10 +2094,10 @@ namespace NuttyApp {
 						interfaceMonitoredLast = Utils.extractXMLTag(lastMonitoredDate,"<day>", "</day>")+"-"+Utils.extractXMLTag(lastMonitoredDate,"<month>", "</month>")+"-"+Utils.extractXMLTag(lastMonitoredDate,"<year>", "</year>");
 					}
 					bandwidth_results_label.set_text(Constants.TEXT_FOR_BANDWIDTH_INTERFACE_RESULTS_1+interfaceMonitoredFrom+Constants.TEXT_FOR_BANDWIDTH_INTERFACE_RESULTS_2+interfaceMonitoredLast);
-					
+
 					//get monthly data
 					string allMonthsData = Utils.extractXMLTag(bandwidth_usage_result, "<months>", "</months>");
-								
+
 					//set data for previous month
 					string previousMonthData = Utils.extractNestedXMLAttribute(allMonthsData, "<month id=\"1\">", "</month>", 2);
 					if("" != previousMonthData && previousMonthData!= null){
@@ -2086,7 +2109,7 @@ namespace NuttyApp {
 						bandwidth_list_store.append (out iter);
 						bandwidth_list_store.set (iter, 0, extractedDate.format ("%b'%y"), 1, Utils.convertKiloByteToHigherUnit(previousMonthReceivedValue), 2, Utils.convertKiloByteToHigherUnit(previousMonthTransmittedValue), 3, Utils.convertKiloByteToHigherUnit((int.parse(previousMonthReceivedValue)+int.parse(previousMonthTransmittedValue)).to_string()));
 					}
-							
+
 					//set data for current month
 					string currentMonthData = Utils.extractNestedXMLAttribute(allMonthsData, "<month id=\"0\">", "</month>", 2);
 					if("" != currentMonthData && currentMonthData != null){
@@ -2098,10 +2121,10 @@ namespace NuttyApp {
 						bandwidth_list_store.append (out iter);
 						bandwidth_list_store.set (iter, 0, extractedDate.format ("%b'%y"), 1, Utils.convertKiloByteToHigherUnit(currentMonthReceivedValue), 2, Utils.convertKiloByteToHigherUnit(currentMonthTransmittedValue), 3, Utils.convertKiloByteToHigherUnit((int.parse(currentMonthReceivedValue)+int.parse(currentMonthTransmittedValue)).to_string()));
 					}
-					
+
 					//get daily data
 					string allDailyData = Utils.extractXMLTag(bandwidth_usage_result, "<days>", "</days>");
-					
+
 					//set data for yesterday
 					string yesterdayData = Utils.extractNestedXMLAttribute(allDailyData, "<day id=\"1\">", "</day>", 2);
 					if("" != yesterdayData || yesterdayData !=null){
@@ -2110,7 +2133,7 @@ namespace NuttyApp {
 						bandwidth_list_store.append (out iter);
 						bandwidth_list_store.set (iter, 0, Constants.TEXT_FOR_BANDWIDTH_YESTERDAY, 1, Utils.convertKiloByteToHigherUnit(yesterdayReceivedValue), 2, Utils.convertKiloByteToHigherUnit(yesterdayTransmittedValue), 3, Utils.convertKiloByteToHigherUnit((int.parse(yesterdayReceivedValue)+int.parse(yesterdayTransmittedValue)).to_string()));
 					}
-					
+
 					//set data for today
 					string todayData = Utils.extractNestedXMLAttribute(allDailyData, "<day id=\"0\">", "</day>", 2);
 					if("" != todayData || todayData !=null){
@@ -2126,7 +2149,7 @@ namespace NuttyApp {
 			debug("Completed processing bandwidth usage[interface_name="+interface_name+"]...");
 			return bandwidth_list_store;
 		}
-		
+
 		/* This function uses the speedtest-cli script to measure internet speed
 		*  Copyright 2012-2015 Matt Martz
 		*  speedtest-cli version used: 0.3.4
@@ -2136,7 +2159,9 @@ namespace NuttyApp {
 			speedtest_list_store.clear();
 			TreeIter iter;
 			if(shouldExecute){
-				COMMAND_FOR_SPEED_TEST[0] = Constants.nutty_script_path+ "/" + COMMAND_FOR_SPEED_TEST[0];
+				if(! COMMAND_FOR_SPEED_TEST[0].contains(Constants.nutty_script_path)){
+					COMMAND_FOR_SPEED_TEST[0] = Constants.nutty_script_path+ "/" + COMMAND_FOR_SPEED_TEST[0];
+				}
 				execute_sync_multiarg_command_pipes(COMMAND_FOR_SPEED_TEST);
 				string speedtest_result = spawn_async_with_pipes_output.str;
 				UPLOADSPEED = speedtest_result.slice(speedtest_result.index_of(Constants.IDENTIFIER_FOR_UPLOAD_IN_SPEED_TEST,0)+Constants.IDENTIFIER_FOR_UPLOAD_IN_SPEED_TEST.length+1, speedtest_result.index_of("\n",speedtest_result.index_of("Upload:",0)));
@@ -2146,6 +2171,7 @@ namespace NuttyApp {
 			speedtest_list_store.append (out iter);
 			speedtest_list_store.set (iter, 0, UPLOADSPEED, 1, DOWNLOADSPEED);
 			speedTestSpinner.stop();
+			speed_test_refresh_button.set_sensitive(true);
 			debug("Completed processing SpeedTest...");
 			return speedtest_list_store;
 		}
@@ -2162,8 +2188,8 @@ namespace NuttyApp {
 				COMMAND_USING_SUDO[6] = new StringBuilder().append(Constants.nutty_script_path).append("/").append(Constants.nutty_monitor_scheduler_file_name).append(" ")
 										.append(DEVICE_SCHEDULE_SELECTED.to_string()).append(" ")
 										.append(Environment.get_home_dir ()).append("/").append(Constants.nutty_monitor_scheduler_backup_file_name).append(" ")
-										.append("/tmp/root_").append(Environment.get_user_name ()).append("_crontab_temp.txt").str;			
-				
+										.append("/tmp/root_").append(Environment.get_user_name ()).append("_crontab_temp.txt").str;
+
 				//execute the command to update root crontab
 				execute_sync_multiarg_command_pipes(COMMAND_USING_SUDO);
 				//build the command to update the user crontab
@@ -2171,9 +2197,9 @@ namespace NuttyApp {
 				userCrontabCommand[0] = Constants.nutty_script_path + "/" + Constants.nutty_alert_scheduler_file_name;
 				userCrontabCommand[1] = DEVICE_SCHEDULE_SELECTED.to_string();
 				userCrontabCommand[2] = new StringBuilder().append(Environment.get_home_dir ()).append("/").append(Constants.nutty_alert_scheduler_backup_file_name).str;
-				userCrontabCommand[3] = new StringBuilder().append("/tmp/user_").append(Environment.get_user_name ()).append("_crontab_temp.txt").str;			
+				userCrontabCommand[3] = new StringBuilder().append("/tmp/user_").append(Environment.get_user_name ()).append("_crontab_temp.txt").str;
 				execute_sync_multiarg_command_pipes(userCrontabCommand);
-				
+
 				//reset the generic text for the password prompt
 				COMMAND_USING_SUDO[5] = Constants.TEXT_FOR_PASSWORD_INPUT_FOR_SUDO;
 			}catch(Error e){
@@ -2181,7 +2207,7 @@ namespace NuttyApp {
 			}
 			debug("Completed setting up device monitoring...");
 		}
-				
+
 		/* functions for command line options : monitoring and alerting */
 		public Gee.ArrayList<string> getInterfaceListForMonitor() {
 			Gee.ArrayList <string> interfaceList =  new Gee.ArrayList<string>();
@@ -2195,7 +2221,7 @@ namespace NuttyApp {
 			interfaceList.remove_at (0); //throw away the first string as that is a header name
 			return interfaceList;
 		}
-		
+
 		public void recordNewDevicesList(string interfaceName){
 			debug("Starting to check new devices on scheduled basis [interfaceName="+interfaceName+"]...");
 			try{
@@ -2231,7 +2257,7 @@ namespace NuttyApp {
 			}
 			debug("Completed checking new devices on scheduled basis [interfaceName="+interfaceName+"]...");
 		}
-		
+
 		public void runDeviceScan(){
 			debug("Starting to run device scan on scheduled mode...");
 			//Get a list of active interfaces
@@ -2242,7 +2268,7 @@ namespace NuttyApp {
 			}
 			debug("Completed running device scan on scheduled mode...");
 		}
-		
+
 		public void alertNewDevices(){
 			debug("Starting check for alerting on new devices found..");
 			//process device props for devices pending alert

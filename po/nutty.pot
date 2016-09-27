@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-25 23:11+0100\n"
+"POT-Creation-Date: 2016-09-26 22:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/nutty.vala:1901
+#: src/nutty.vala:1407
+msgid " Mode"
+msgstr ""
+
+#: src/nutty.vala:1407
+msgid " Network at Access Point "
+msgstr ""
+
+#: src/nutty.vala:1404
+msgid " Standards with Transmit Power of "
+msgstr ""
+
+#: src/nutty.vala:1404
+msgid " [Power Management: "
+msgstr ""
+
+#: src/nutty.vala:1410
+msgid " and Bit Rate of "
+msgstr ""
+
+#: src/nutty.vala:1413
+msgid " and Signal Level of "
+msgstr ""
+
+#: src/nutty.vala:1924
 msgid " for "
 msgstr ""
 
@@ -25,8 +49,24 @@ msgstr ""
 msgid "A Network Utility"
 msgstr ""
 
+#: src/nutty.vala:1407
+msgid "Connected to"
+msgstr ""
+
+#: src/nutty.vala:1410
+msgid "Connected with"
+msgstr ""
+
+#: src/nutty.vala:1413
+msgid "Connection strength"
+msgstr ""
+
 #: src/nutty.vala:139
 msgid "Display version number"
+msgstr ""
+
+#: src/nutty.vala:1410
+msgid "Frequency of "
 msgstr ""
 
 #: src/nutty.vala:35
@@ -43,6 +83,14 @@ msgstr ""
 
 #: src/nutty.vala:135
 msgid "Launchpad Translators"
+msgstr ""
+
+#: src/nutty.vala:1413
+msgid "Link Quality of "
+msgstr ""
+
+#: src/nutty.vala:1404
+msgid "Network Card"
 msgstr ""
 
 #: src/nutty.vala:39

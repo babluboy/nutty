@@ -13,7 +13,7 @@ Homepage: https://launchpad.net/nutty
 
 Package: nutty
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, net-tools, nmap, traceroute, vnstat, nethogs, gksu, curl
+Depends: ${misc:Depends}, ${shlibs:Depends}, net-tools, nmap, traceroute, vnstat, nethogs, gksu, curl, wireless-tools
 Description: Nutty - Network Utility
  Nutty is a network utility with the following features:
  1) Get Basic Information on Network Cards

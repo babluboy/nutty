@@ -15,8 +15,8 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/nutty")
 
 set (EXEC_NAME "nutty")
-set (RELEASE_NAME "nutty v0.8")
-set (VERSION "0.8")
+set (RELEASE_NAME "nutty v0.9")
+set (VERSION "0.9")
 set (VERSION_INFO "Nutty - A Network Information Utility")
 
 # Some definitions
