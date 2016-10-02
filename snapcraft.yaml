@@ -23,6 +23,7 @@ parts:
             - debhelper
             - libgtk-3-dev
             - granite-demo
+            - libgranite-dev
         stage-packages:
             - gnome-keyring
             - gobject-introspection
