@@ -111,7 +111,6 @@ namespace NuttyApp {
 		public static string command_line_option_monitor = "";
 		public new OptionEntry[] options;
 		public static Nutty application;
-		private string[] COMMAND_USING_SUDO = {"gksudo", "-S", "-u", "root"};
 		public string nutty_state_data = "";
 
 		construct {
@@ -476,11 +475,6 @@ namespace NuttyApp {
 			switcher.set_stack(stack);
 			main_ui_box.pack_start(switcher, false, true, 0);
 			main_ui_box.pack_start(stack, true, true, 0);
-
-			//Add a user friendly message to the gksudo prompt
-			COMMAND_USING_SUDO += "-m";
-			COMMAND_USING_SUDO += Constants.TEXT_FOR_PASSWORD_INPUT_FOR_SUDO;
-			COMMAND_USING_SUDO += "";
 
 			//Fetch and persist names of connections and interfaces if it dosent exist already
 			getConnectionsList();
@@ -1198,7 +1192,7 @@ namespace NuttyApp {
 			spawn_async_with_pipes_output.erase(0, -1); //clear the output buffer
 			MainLoop loop = new MainLoop ();
 			try {
-				string[] spawn_env = Environ.get ();
+				string[] spawn_env = Environ.get();
 				Pid child_pid;
 
 				int standard_input;
@@ -1928,8 +1922,7 @@ namespace NuttyApp {
 						scanIPAddress = scanIPAddress.substring(0, scanIPAddress.last_index_of("."))+".1/24";
 						if(scanIPAddress != null || "" != scanIPAddress.strip()){
 							//Run NMap scan and capture output
-							COMMAND_USING_SUDO[6] = Constants.nutty_script_path + "/" + Constants.nutty_devices_file_name + " " + scanIPAddress;
-							execute_sync_multiarg_command_pipes(COMMAND_USING_SUDO);
+							execute_sync_multiarg_command_pipes({"pkexec", Constants.nutty_script_path + "/" + Constants.nutty_devices_file_name, scanIPAddress});
 							string deviceScanResult = spawn_async_with_pipes_output.str;
 
 							//set the NMap scan result on the Devices Results Label
@@ -2019,8 +2012,7 @@ namespace NuttyApp {
 				StringBuilder aProcessName = new StringBuilder();
 				bandwidthProcessSpinner.start();
 
-				COMMAND_USING_SUDO[6] = Constants.nutty_script_path + "/" + Constants.nutty_bandwidth_process_file_name + " " + interface_name;
-				execute_sync_multiarg_command_pipes(COMMAND_USING_SUDO);
+				execute_sync_multiarg_command_pipes({"pkexec", Constants.nutty_script_path + "/" + Constants.nutty_bandwidth_process_file_name, interface_name});
 				string process_bandwidth_result = spawn_async_with_pipes_output.str;
 
 				//split the indivudual lines in the output
@@ -2182,16 +2174,13 @@ namespace NuttyApp {
 				//reset the device scheduled state if device schedule is disabled
 				if(DEVICE_SCHEDULE_STATE == DEVICE_SCHEDULE_DISABLED)
 					DEVICE_SCHEDULE_SELECTED = -1;
-				//set the text for the password prompt specific to crontab
-				COMMAND_USING_SUDO[5] = Constants.TEXT_FOR_PASSWORD_INPUT_FOR_CRONTAB;
-				//build the command to update the root crontab
-				COMMAND_USING_SUDO[6] = new StringBuilder().append(Constants.nutty_script_path).append("/").append(Constants.nutty_monitor_scheduler_file_name).append(" ")
-										.append(DEVICE_SCHEDULE_SELECTED.to_string()).append(" ")
-										.append(Environment.get_home_dir ()).append("/").append(Constants.nutty_monitor_scheduler_backup_file_name).append(" ")
-										.append("/tmp/root_").append(Environment.get_user_name ()).append("_crontab_temp.txt").str;
 
 				//execute the command to update root crontab
-				execute_sync_multiarg_command_pipes(COMMAND_USING_SUDO);
+				execute_sync_multiarg_command_pipes({"pkexec", Constants.nutty_script_path + "/" + Constants.nutty_monitor_scheduler_file_name,
+																							DEVICE_SCHEDULE_SELECTED.to_string(),
+																							Environment.get_home_dir () + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
+																							"/tmp/root_"+Environment.get_user_name () + "_crontab_temp.txt"
+																					  });
 				//build the command to update the user crontab
 				string[] userCrontabCommand = new string[4];
 				userCrontabCommand[0] = Constants.nutty_script_path + "/" + Constants.nutty_alert_scheduler_file_name;
@@ -2199,9 +2188,6 @@ namespace NuttyApp {
 				userCrontabCommand[2] = new StringBuilder().append(Environment.get_home_dir ()).append("/").append(Constants.nutty_alert_scheduler_backup_file_name).str;
 				userCrontabCommand[3] = new StringBuilder().append("/tmp/user_").append(Environment.get_user_name ()).append("_crontab_temp.txt").str;
 				execute_sync_multiarg_command_pipes(userCrontabCommand);
-
-				//reset the generic text for the password prompt
-				COMMAND_USING_SUDO[5] = Constants.TEXT_FOR_PASSWORD_INPUT_FOR_SUDO;
 			}catch(Error e){
 				warning("Failure in setting up device monitoring:"+e.message);
 			}

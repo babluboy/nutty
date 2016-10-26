@@ -28,7 +28,7 @@ set (SOURCE_LIST
     src/utils.vala
     src/constants.vala
 )
-    
+
 # custom command to update pot template files
 set (_pot_file po/${PROJECT_NAME}.pot)
 add_custom_command (OUTPUT ${_pot_file}
@@ -43,12 +43,12 @@ add_custom_target (pot_file ALL DEPENDS ${_pot_file})
 find_package(PkgConfig)
 
 # now let's actually check for the required dependencies
-pkg_check_modules(DEPS REQUIRED 
+pkg_check_modules(DEPS REQUIRED
                   gtk+-3.0
                   gee-0.8
                   granite>=0.3.0
                  )
-                 
+
 add_definitions(${DEPS_CFLAGS})
 link_libraries(${DEPS_LIBRARIES})
 link_directories(${DEPS_LIBRARY_DIRS})
@@ -67,7 +67,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
     src/nutty.vala
     src/utils.vala
     src/constants.vala
-    
+
 # tell what libraries to use when compiling
 PACKAGES
     gtk+-3.0
@@ -107,6 +107,11 @@ install(
     PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ WORLD_READ WORLD_EXECUTE
     DESTINATION /opt/nutty
 )
+install(
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scripts/org.freedesktop.policykit.nutty.policy
+    PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ WORLD_READ
+    DESTINATION /usr/share/polkit-1/actions
+)
 
 # install nutty app icons
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty.png DESTINATION share/icons/hicolor/16x16/apps)
@@ -121,4 +126,4 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-available.
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-application-default-icon.svg DESTINATION share/icons/hicolor/16x16/status)
 
 # install our .desktop file so the Applications menu will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/nutty.desktop DESTINATION ${DATADIR}/applications/) 
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/nutty.desktop DESTINATION ${DATADIR}/applications/)
