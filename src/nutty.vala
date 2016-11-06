@@ -606,7 +606,7 @@ namespace NuttyApp {
 			bandwidth_results_box.pack_start (bandwidth_results_label, false, true, 0);
 
 			TreeView bandwidth_table_treeview = new TreeView();
-			bandwidth_table_treeview.set_fixed_height_mode(true);
+			//bandwidth_table_treeview.set_fixed_height_mode(false);
 			CellRendererText bandwidth_cell = new CellRendererText ();
 			bandwidth_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_1, bandwidth_cell, "text", 0);
 			bandwidth_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_BANDWIDTH_COLUMN_NAME_2, bandwidth_cell, "text", 1);
@@ -644,7 +644,7 @@ namespace NuttyApp {
 			Box bandwidth_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			bandwidth_layout_box.pack_start (bandwidth_results_box, false, true, 0);
 			bandwidth_layout_box.pack_start (bandwidth_scroll, true, true, 0);
-			bandwidth_layout_box.pack_start (bandwidth_separator, true, true, 0);
+			bandwidth_layout_box.pack_start (bandwidth_separator, false, false, 0);
 			bandwidth_layout_box.pack_start (bandwidth_process_result_box, false, false, 0);
 			bandwidth_layout_box.pack_end (bandwidth_process_scroll, true, true, 0);
 
@@ -671,7 +671,7 @@ namespace NuttyApp {
 				bandwidthProcessTreeModelFilter = new Gtk.TreeModelFilter (processBandwidthApps(bandwidth_combobox.get_active_id ()), null);
 				setFilterAndSort(bandwidth_process_table_treeview, bandwidthProcessTreeModelFilter, SortType.DESCENDING);
 			});
-			//Add devices-box to stack
+			//Add bandwidth-box to stack
 			stack.add_titled(bandwidth_layout_box, "bandwidth", Constants.TEXT_FOR_BANDWIDTH_TAB);
 			debug("Bandwidth tab set up completed...");
 
@@ -2031,6 +2031,15 @@ namespace NuttyApp {
 								aProcessName.append(processNameAttributes[0]);
 							}
 							if(!processNames.str.contains(aProcessName.str)){
+								//break the process name further if possible
+								if(aProcessName.str.contains(" ")){
+									processNames.append(aProcessName.str);
+									aProcessName.assign(aProcessName.str.split (" ",-1)[0]);
+								}
+								if(aProcessName.str.contains("--")){
+									processNames.append(aProcessName.str);
+									aProcessName.assign(aProcessName.str.split ("--",-1)[0]);
+								}
 								// Get the icon:
 								try {
 									app_icon = icon_theme.load_icon (aProcessName.str, 16, 0);
