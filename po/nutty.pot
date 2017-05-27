@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-26 22:51+0100\n"
+"POT-Creation-Date: 2017-05-27 19:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,55 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/nutty.vala:1407
+#: src/nutty.vala:1401
 msgid " Mode"
 msgstr ""
 
-#: src/nutty.vala:1407
+#: src/nutty.vala:1401
 msgid " Network at Access Point "
 msgstr ""
 
-#: src/nutty.vala:1404
+#: src/nutty.vala:1398
 msgid " Standards with Transmit Power of "
 msgstr ""
 
-#: src/nutty.vala:1404
+#: src/nutty.vala:1398
 msgid " [Power Management: "
 msgstr ""
 
-#: src/nutty.vala:1410
+#: src/nutty.vala:1404
 msgid " and Bit Rate of "
 msgstr ""
 
-#: src/nutty.vala:1413
+#: src/nutty.vala:1407
 msgid " and Signal Level of "
 msgstr ""
 
-#: src/nutty.vala:1924
+#: src/nutty.vala:1918
 msgid " for "
 msgstr ""
 
-#: src/nutty.vala:134
+#: src/nutty.vala:133
 msgid "A Network Utility"
 msgstr ""
 
-#: src/nutty.vala:1407
+#: src/nutty.vala:1401
 msgid "Connected to"
 msgstr ""
 
-#: src/nutty.vala:1410
+#: src/nutty.vala:1404
 msgid "Connected with"
 msgstr ""
 
-#: src/nutty.vala:1413
+#: src/nutty.vala:1407
 msgid "Connection strength"
 msgstr ""
 
-#: src/nutty.vala:139
+#: src/nutty.vala:138
 msgid "Display version number"
 msgstr ""
 
-#: src/nutty.vala:1410
+#: src/nutty.vala:1404
 msgid "Frequency of "
 msgstr ""
 
@@ -81,15 +81,15 @@ msgid ""
 "or when explicitly authorized by the destination host and/or network. "
 msgstr ""
 
-#: src/nutty.vala:135
+#: src/nutty.vala:134
 msgid "Launchpad Translators"
 msgstr ""
 
-#: src/nutty.vala:1413
+#: src/nutty.vala:1407
 msgid "Link Quality of "
 msgstr ""
 
-#: src/nutty.vala:1404
+#: src/nutty.vala:1398
 msgid "Network Card"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: src/nutty.vala:140
+#: src/nutty.vala:139
 msgid "PATH"
 msgstr ""
 
@@ -111,11 +111,11 @@ msgid ""
 "information: "
 msgstr ""
 
-#: src/nutty.vala:142
+#: src/nutty.vala:141
 msgid "Run Nutty in debug mode"
 msgstr ""
 
-#: src/nutty.vala:141
+#: src/nutty.vala:140
 msgid "Run Nutty in device alert mode"
 msgstr ""
 

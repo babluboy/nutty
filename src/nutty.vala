@@ -114,17 +114,17 @@ namespace NuttyApp {
 		public string nutty_state_data = "";
 
 		construct {
-			application_id = "org.nutty";
+			application_id = "com.github.babluboy.nutty.desktop";
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 
 			program_name = "Nutty";
-			app_years = "2015";
+			app_years = "2015-2017";
 
 			build_version = Constants.nutty_version;
 			app_icon = "nutty";
-			main_url = "https://launchpad.net/nutty";
-			bug_url = "https://bugs.launchpad.net/nutty";
-			help_url = "https://answers.launchpad.net/nutty";
+			main_url = "https://github.com/babluboy/nutty#nutty";
+			bug_url = "https://github.com/babluboy/nutty/issues";
+			help_url = "https://github.com/babluboy/nutty/wiki";
 			translate_url = "https://translations.launchpad.net/nutty";
 
 			about_documenters = { null };
@@ -634,6 +634,7 @@ namespace NuttyApp {
 
 			Box bandwidth_process_result_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			Button bandwidth_process_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
+			bandwidth_process_refresh_button.set_relief (ReliefStyle.NONE);
 			bandwidth_process_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_BANDWIDTH_PROCESS_TOOLTIP);
 			Label bandwidth_process_label = new Label (Constants.TEXT_FOR_BANDWIDTH_PROCESS_LABEL+bandwidth_combobox.get_active_text()+ " connection.");
 
@@ -680,6 +681,7 @@ namespace NuttyApp {
 			Label speed_test_label = new Label (Constants.TEXT_FOR_SPEED_LABEL);
 			speed_test_results_label = new Label (SPEEDTESTDATE);
 			speed_test_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
+			speed_test_refresh_button.set_relief (ReliefStyle.NONE);
 			speed_test_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_SPEEDTEST_TOOLTIP);
 			Gtk.Separator speed_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
 
@@ -708,6 +710,7 @@ namespace NuttyApp {
 			route_entry_text.set_events(Gdk.EventMask.KEY_PRESS_MASK);
 			route_entry_text.set_text("www.google.com");
 			Button route_button = new Button.from_icon_name (Constants.GO_ICON, IconSize.SMALL_TOOLBAR);
+			route_button.set_relief (ReliefStyle.NONE);
 			TreeView route_table_treeview = new TreeView();
 			route_table_treeview.set_fixed_height_mode(true);
 
@@ -785,6 +788,7 @@ namespace NuttyApp {
 
 			portsSpinner = new Spinner();
 			Button ports_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
+			ports_refresh_button.set_relief (ReliefStyle.NONE);
 			ports_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_PORTS_TOOLTIP);
 			Box ports_results_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			Label ports_destination_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
@@ -818,6 +822,7 @@ namespace NuttyApp {
 			devicesSpinner = new Gtk.Spinner();
 
 			Button devices_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
+			devices_refresh_button.set_relief (ReliefStyle.NONE);
 			devices_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_DEVICES_TOOLTIP);
 			//set the devices refresh button to in-active status
 			devices_refresh_button.set_sensitive (false);

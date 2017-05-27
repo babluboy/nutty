@@ -1,6 +1,6 @@
-Source: nutty
-Section: x11
-Priority: extra
+Source: com.github.babluboy.nutty
+Section: utils
+Priority: optional
 Maintainer: Siddhartha Das <bablu.boy@gmail.com>
 Build-Depends: cmake (>= 2.8),
                debhelper (>= 9),
@@ -8,23 +8,10 @@ Build-Depends: cmake (>= 2.8),
                libgtk-3-dev (>= 3.14),
                valac (>= 0.26),
                libgranite-dev (>= 0.3.0)
-Standards-Version: 3.9.5
-Homepage: https://launchpad.net/nutty
 
-Package: nutty
+Standards-Version: 3.9.6
+Package: com.github.babluboy.nutty
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, net-tools, nmap, traceroute, vnstat, nethogs, curl, wireless-tools
 Description: Nutty - Network Utility
- Nutty is a network utility with the following features:
- 1) Get Basic Information on Network Cards
- 2) Get Data Usage information
- 3) Find the hop times on route to an URL or IP
- 4) Check the ports in use
- 5) Find and monitor devices on the network
- Nutty depends on the following packages:
- 1) traceroute
- 2) netstat (found in net-tools)
- 3) nmap
- 4) vnstat
- 5) nethogs
- 6) net-tools and wireless-tools
+ A network utility with a user interface for common command line tools

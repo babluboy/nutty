@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Nutty
+GenericName=Network Utility
+Comment=Displays network information
+Categories=Utility;
+Exec=nutty
+Icon=nutty
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=nutty
+X-GNOME-Keywords=Nutty;Network;Utility;Traceroute;Ports;Devices
+Actions=AboutDialog;
+
+[Desktop Action AboutDialog]
+Exec=nutty --about
+Name=About Nutty

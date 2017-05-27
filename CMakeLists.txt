@@ -19,6 +19,8 @@ set (RELEASE_NAME "nutty v0.9")
 set (VERSION "0.9")
 set (VERSION_INFO "Nutty - A Network Information Utility")
 
+add_subdirectory (po)
+
 # Some definitions
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 
@@ -28,16 +30,6 @@ set (SOURCE_LIST
     src/utils.vala
     src/constants.vala
 )
-
-# custom command to update pot template files
-set (_pot_file po/${PROJECT_NAME}.pot)
-add_custom_command (OUTPUT ${_pot_file}
-    COMMAND xgettext --language=C --keyword=_ --escape --sort-output -o po/nutty.pot src/nutty.vala
-    DEPENDS ${SOURCE_LIST}
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    COMMENT "Extract translatable messages to ${_pot_file}")
-
-add_custom_target (pot_file ALL DEPENDS ${_pot_file})
 
 # we're about to use pkgconfig to make sure dependencies are installed so let's find pkgconfig first
 find_package(PkgConfig)
@@ -58,7 +50,7 @@ find_package(Vala REQUIRED)
 # make sure we use vala
 include(ValaVersion)
 # make sure it's the desired version of vala
-ensure_vala_version("0.16" MINIMUM)
+ensure_vala_version("0.26" MINIMUM)
 
 # files we want to compile
 include(ValaPrecompile)
@@ -126,4 +118,4 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-available.
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-application-default-icon.svg DESTINATION share/icons/hicolor/16x16/status)
 
 # install our .desktop file so the Applications menu will see it
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/nutty.desktop DESTINATION ${DATADIR}/applications/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.babluboy.nutty.desktop DESTINATION ${DATADIR}/applications/)
