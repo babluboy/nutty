@@ -114,7 +114,7 @@ namespace NuttyApp {
 		public string nutty_state_data = "";
 
 		construct {
-			application_id = "com.github.babluboy.nutty.desktop";
+			application_id = "com.github.babluboy.nutty";
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 
 			program_name = "Nutty";

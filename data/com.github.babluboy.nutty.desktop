@@ -2,7 +2,7 @@
 Name=Nutty
 GenericName=Network Utility
 Comment=Displays network information
-Categories=Utility;
+Categories=Utility;Network;System;
 Exec=nutty
 Icon=nutty
 Terminal=false
