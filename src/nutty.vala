@@ -146,7 +146,6 @@ namespace NuttyApp {
 			Intl.setlocale(LocaleCategory.MESSAGES, "");
 			Intl.textdomain(GETTEXT_PACKAGE);
 			Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
-			Intl.bindtextdomain(GETTEXT_PACKAGE, "./locale");
 			debug ("Completed setting Internalization...");
 		}
 
@@ -489,8 +488,7 @@ namespace NuttyApp {
 															   Gtk.DialogFlags.MODAL,
 															   Gtk.MessageType.WARNING,
 															   Gtk.ButtonsType.NONE,
-															   "",
-															   null
+															   ""
 															   );
 				disclaimerDialog.set("text", PRIMARY_TEXT_FOR_DISCLAIMER);
 				disclaimerDialog.set("secondary_text", SECONDARY_TEXT_FOR_DISCLAIMER);

@@ -6,7 +6,6 @@ cmake_minimum_required (VERSION 2.6)
 
 # tell cmake where its modules can be found in our project directory
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-set (GETTEXT_PACKAGE ${CMAKE_PROJECT_NAME})
 
 # where we install data directory (if we have any)
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
@@ -19,10 +18,10 @@ set (RELEASE_NAME "nutty v0.9")
 set (VERSION "0.9")
 set (VERSION_INFO "Nutty - A Network Information Utility")
 
+# Translation files
+set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
+add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"")
 add_subdirectory (po)
-
-# Some definitions
-add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 
 # define variable for sources
 set (SOURCE_LIST
