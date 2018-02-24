@@ -19,12 +19,14 @@
 using Gtk;
 using Gee;
 using Granite.Widgets;
-
+using Granite.Services;
 public const string GETTEXT_PACKAGE = "nutty";
 
 namespace NuttyApp {
 
-	public class Nutty:Granite.Application {
+	public class Nutty : Granite.Application {
+		private static Nutty application;
+		public static string[] commandLineArgs;
 		public Gtk.Window window;
 		public string PRIMARY_TEXT_FOR_DISCLAIMER = _("You have permissions to scan devices on your network.");
 		public string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using.")+ "\n" +
@@ -107,38 +109,37 @@ namespace NuttyApp {
 		public static bool command_line_option_version = false;
 		public static bool command_line_option_alert = false;
 		public static bool command_line_option_debug = false;
+		public static bool command_line_option_info = false;
 		[CCode (array_length = false, array_null_terminated = true)]
 		public static string command_line_option_monitor = "";
 		public new OptionEntry[] options;
-		public static Nutty application;
 		public string nutty_state_data = "";
 
 		construct {
-			application_id = "com.github.babluboy.nutty";
+			application_id = NuttyApp.Constants.nutty_id;
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
-
-			program_name = "Nutty";
-			app_years = "2015-2017";
-
-			build_version = Constants.nutty_version;
-			app_icon = "nutty";
+			program_name = NuttyApp.Constants.program_name;
+			
+			app_years = app_years;
+			build_version = NuttyApp.Constants.nutty_version;
+			app_icon = NuttyApp.Constants.app_icon;
 			main_url = "https://github.com/babluboy/nutty#nutty";
 			bug_url = "https://github.com/babluboy/nutty/issues";
 			help_url = "https://github.com/babluboy/nutty/wiki";
 			translate_url = "https://translations.launchpad.net/nutty";
 
-			about_documenters = { null };
-			about_artists = { "Siddhartha Das <bablu.boy@gmail.com>" };
-			about_authors = { "Siddhartha Das <bablu.boy@gmail.com>" };
-			about_comments = _("A Network Utility");
-			about_translators = _("Launchpad Translators");
+			about_artists =NuttyApp.Constants.about_artists;
+			about_authors = NuttyApp.Constants.about_authors;
+			about_comments = NuttyApp.Constants.about_comments;
+			about_translators = NuttyApp.Constants.translator_credits;
 			about_license_type = Gtk.License.GPL_3_0;
 
-			options = new OptionEntry[4];
+			options = new OptionEntry[5];
 			options[0] = { "version", 0, 0, OptionArg.NONE, ref command_line_option_version, _("Display version number"), null };
 			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("PATH"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
 			options[2] = { "alert", 0, 0, OptionArg.NONE, ref command_line_option_alert, _("Run Nutty in device alert mode"), null };
 			options[3] = { "debug", 0, 0, OptionArg.NONE, ref command_line_option_debug, _("Run Nutty in debug mode"), null };
+			options[4] = { "info", 0, 0, OptionArg.NONE, ref command_line_option_info, _("Run Nutty in info mode"), null };
 			add_main_option_entries (options);
 		}
 
@@ -149,29 +150,23 @@ namespace NuttyApp {
 			debug ("Completed setting Internalization...");
 		}
 
-		public static int main (string[] args) {
-			Log.set_handler ("nutty", GLib.LogLevelFlags.LEVEL_DEBUG, GLib.Log.default_handler);
-			if("--debug" in args){
-				Environment.set_variable ("G_MESSAGES_DEBUG", "all", true);
-				debug ("Nutty Application running in debug mode - all debug messages will be displayed");
+		public static Nutty getAppInstance(){
+			if(application == null){
+				application = new Nutty();
+			}else{
+				//do nothing, return the existing instance
 			}
-			application = new Nutty();
-
-			//Workaround to get Granite's --about & Gtk's --help working together
-			if ("--help" in args || "-h" in args || "--monitor" in args || "--alert" in args || "--version" in args) {
-				return application.processCommandLine (args);
-			} else {
-				Gtk.init (ref args);
-				return application.run(args);
-			}
+			return application;
 		}
 
+
 		public override int command_line (ApplicationCommandLine command_line) {
+			commandLineArgs = command_line.get_arguments ();
 			activate();
 			return 0;
 		}
 
-		private int processCommandLine (string[] args) {
+		public int processCommandLine (string[] args) {
 			try {
 				var opt_context = new OptionContext ("- nutty");
 				opt_context.set_help_enabled (true);
@@ -185,28 +180,33 @@ namespace NuttyApp {
 			}
 			//check and run nutty based on command line option
 			if(command_line_option_debug){
-				debug ("Nutty running in debug mode...");
+				debug ("Nutty running in DEBUG mode...");
+			}
+			if(command_line_option_debug){
+				info ("Nutty running in INFO mode...");
 			}
 			if(command_line_option_version){
-				print("\nnutty version "+Constants.nutty_version+" \n");
-				return 0;
+				print("nutty version "+Constants.nutty_version+" \n");
 			}else if(command_line_option_monitor.length > 0){
 				print("\nRunning Nutty in Device Monitor Mode for config at "+command_line_option_monitor+"\n");
 				application.nutty_config_path = command_line_option_monitor;
 				application.runDeviceScan();
-				return 0;
 			}else if(command_line_option_alert){
 				print("\nRunning Nutty in Device Alert Mode \n");
 				application.alertNewDevices();
-				return 0;
-			}else{
-				activate();
-				return 0;
 			}
+			return 0;
 		}
 
 		public override void activate() {
-			debug("Starting to activate Gtk Window for Nutty...");
+			Logger.initialize("com.github.babluboy.nutty");
+			if(command_line_option_debug){
+				Logger.DisplayLevel = LogLevel.DEBUG;
+			}
+			if(command_line_option_info){
+				Logger.DisplayLevel = LogLevel.INFO;
+			}
+			info("[START] [FUNCTION:activate]");
 			window = new Gtk.Window ();
 			add_window (window);
 			//set window attributes
@@ -222,9 +222,9 @@ namespace NuttyApp {
 			window.show_all();
 			//load pictures
 			try{
-				device_available_pix = new Gdk.Pixbuf.from_file ("/usr/share/icons/hicolor/16x16/status/nutty-device-available.svg");
-				device_offline_pix = new Gdk.Pixbuf.from_file ("/usr/share/icons/hicolor/16x16/status/nutty-device-offline.svg");
-				default_app_pix = new Gdk.Pixbuf.from_file ("/usr/share/icons/hicolor/16x16/status/nutty-application-default-icon.svg");
+				device_available_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_AVAILABLE_ICON_IMAGE_LOCATION);
+				device_offline_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_OFFLINE_ICON_IMAGE_LOCATION);
+				default_app_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEFAULT_APP_ICON_IMAGE_LOCATION);
 				icon_theme = Gtk.IconTheme.get_default ();
 			}catch(GLib.Error e){
 				warning("Failed to load icons/theme: "+e.message);
@@ -238,7 +238,7 @@ namespace NuttyApp {
 				//save state information to file
 				saveNuttyState();
 			});
-			debug("Completed loading Gtk Window for Nutty...");
+			info("[END] [FUNCTION:activate]");
 		}
 
 		private void create_headerbar(Gtk.Window window) {

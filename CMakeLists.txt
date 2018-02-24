@@ -1,8 +1,8 @@
 # the name of the project
-project (nutty)
+project (com.github.babluboy.nutty)
 
 # the oldest stable cmake version we support
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.8)
 
 # tell cmake where its modules can be found in our project directory
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
@@ -12,8 +12,9 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 
 # what to call that directory where we install data too
 set (PKGDATADIR "${DATADIR}/nutty")
+set (ICON_DIR ${PKGDATADIR}/icons/hicolor)
 
-set (EXEC_NAME "nutty")
+set (EXEC_NAME "com.github.babluboy.nutty")
 set (RELEASE_NAME "nutty v0.9")
 set (VERSION "0.9")
 set (VERSION_INFO "Nutty - A Network Information Utility")
@@ -23,8 +24,12 @@ set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"")
 add_subdirectory (po)
 
+# Replace parameters in source code
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/constants.vala.in" "${CMAKE_SOURCE_DIR}/src/constants.vala" @ONLY)
+
 # define variable for sources
 set (SOURCE_LIST
+    src/main.vala
     src/nutty.vala
     src/utils.vala
     src/constants.vala
@@ -55,6 +60,7 @@ ensure_vala_version("0.26" MINIMUM)
 include(ValaPrecompile)
 
 vala_precompile(VALA_C ${EXEC_NAME}
+    src/main.vala
     src/nutty.vala
     src/utils.vala
     src/constants.vala
@@ -105,17 +111,16 @@ install(
 )
 
 # install nutty app icons
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty.png DESTINATION share/icons/hicolor/16x16/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/24/nutty.png DESTINATION share/icons/hicolor/24x24/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/32/nutty.png DESTINATION share/icons/hicolor/32x32/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/48/nutty.png DESTINATION share/icons/hicolor/48x48/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/64/nutty.png DESTINATION share/icons/hicolor/64x64/apps)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/128/nutty.png DESTINATION share/icons/hicolor/128x128/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/16x16/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/24/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/24x24/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/32/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/32x32/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/48/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/48x48/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/64/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/64x64/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/128/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/128x128/apps)
 # install nutty status icons
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-offline.svg DESTINATION share/icons/hicolor/16x16/status)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-available.svg DESTINATION share/icons/hicolor/16x16/status)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-application-default-icon.svg DESTINATION share/icons/hicolor/16x16/status)
-
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-offline.svg DESTINATION ${ICON_DIR}/16x16/status)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-available.svg DESTINATION ${ICON_DIR}/16x16/status)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-application-default-icon.svg DESTINATION ${ICON_DIR}/16x16/status)
 # install our .desktop and .appdata files so the Applications menu will see it
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.babluboy.nutty.desktop DESTINATION ${DATADIR}/applications/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.babluboy.nutty.appdata.xml DESTINATION ${DATADIR}/metainfo/)

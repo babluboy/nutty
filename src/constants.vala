@@ -17,7 +17,28 @@
 */
 
 namespace NuttyApp.Constants{
+	public const string nutty_id = "com.github.babluboy.nutty";
 	public const string nutty_version = "0.9";
+	public const string program_name = "Nutty";
+	public const string app_icon = "com.github.babluboy.nutty.png";
+	public const string app_years = "2015-2018";
+	public const string[] about_authors = {"Siddhartha Das <bablu.boy@gmail.com>", null};
+	public const string[] about_artists = {"Siddhartha Das <bablu.boy@gmail.com>", null};
+	public const string nutty_copyright = "Copyright © 2017-2018 Siddhartha Das (bablu.boy@gmail.com)";
+	public const string about_comments = _("A Network Utility");
+	public const Gtk.License about_license_type = Gtk.License.GPL_3_0;
+	public const string translator_credits = _("Weblate Translators");
+	public const string main_url = "https://babluboy.github.io/bookworm";
+	public const string bug_url = "https://github.com/babluboy/bookworm/issues";
+	public const string help_url = "https://github.com/babluboy/bookworm/wiki";
+	public const string translate_url = "https://hosted.weblate.org/projects/bookworm/bookworm/";
+	
+	//Set paths relative to the install location
+	public const string INSTALL_PREFIX = "/usr";
+	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-available.svg";
+	public const string DEVICE_OFFLINE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-offline.svg";
+	public const string DEFAULT_APP_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-application-default-icon.svg";
+
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public static const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
 	public static const string TEXT_FOR_HEADERBAR_MENU_PREFS = _("Preferences");
@@ -122,7 +143,7 @@ namespace NuttyApp.Constants{
 	public static const string COMMAND_FOR_DEVICES_PREFIX = "/usr/bin/nmap -sn -oX ";
 	public static const string SCRIPT_FOR_DEVICES = "sudo nmap -sn -oX /tmp/nmap.xml $1; cat /tmp/nmap.xml; sudo rm /tmp/nmap.xml";
 	public static const string COMMAND_FOR_DEVICES_SUFFIX = " >/dev/null";
-	public static const string COMMAND_FOR_DEVICES_ALERT = "/usr/bin/notify-send -a nutty -u normal";
+	public static const string COMMAND_FOR_DEVICES_ALERT = "/usr/bin/notify-send -a com.github.babluboy.nutty -u normal";
 	public static const string IDENTIFIER_FOR_MACADDRESS_IN_COMMAND_OUTPUT = "HWaddr";
 	public static const string IDENTIFIER_FOR_IPADDRESS_IN_COMMAND_OUTPUT = "inet addr:";
 	public static const string IDENTIFIER_FOR_START_OF_HOST_IN_NMAP_OUTPUT = "<host>";
