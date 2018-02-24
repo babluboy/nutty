@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2017 Siddhartha Das <bablu.boy@gmail.com> -->
 <component type="desktop">
-  <id>com.github.babluboy.nutty.desktop</id>
-  <metadata_license>CC0-1.0</metadata_license>
-  <project_group>nutty</project_group>
-  <project_license>GPL-3.0+</project_license>
-  <name>Nutty</name>
-  <summary>A simple utility for network information</summary>
-  <description>
-    <p>Nutty provides an intuitive user interface for some commonly used network related command line tools</p>
-    <p>A key feature is the ability to turn on notification when a device enters the user's network</p>
-    <p>Key features for Nutty are:</p>
-    <ul>
-​      <li>My Info: Provides basic and detailed information for the device network card</li>
-​      <li>Usage: Provides network data usage in two views - historical usage and current usage</li>
-      <li>Speed: Check Upload and Download speeds and get route times to a host</li>
-      <li>Ports: Provides information on active ports and application using them on the local device</li>
-      <li>Devices: Monitors and provides information on the other devices connected on the network</li>
-​    </ul>
-  </description>
-  <screenshots>
-      <screenshot type="default">
-          <caption>Nutty Device Monitoring</caption>
-          <image>https://raw.githubusercontent.com/babluboy/nutty/master/screenshots/Nutty_Devices.png</image>
-      </screenshot>
-  </screenshots>
-  <provides>
-    <binary>nutty</binary>
-  </provides>
-  <releases>
-    <release version="0.9" date="2017-05-27">
-      ​<description>
-      ​ <p>Initial release on Appcenter</p>
-      ​</description>
-    ​</release>
-​  </releases>
-  <developer_name>Siddhartha Das</developer_name>
-  <url type="homepage">https://github.com/babluboy/nutty#nutty</url>
-  <url type="bugtracker">https://github.com/babluboy/nutty/issues</url>
-  <url type="help">https://github.com/babluboy/nutty/wiki</url>
-  <update_contact>bablu.boy_AT_gmail.com</update_contact>
+    <id>com.github.babluboy.nutty.desktop</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_group>nutty</project_group>
+    <project_license>GPL-3.0+</project_license>
+    <name>Nutty</name>
+    <summary>A simple utility for network information</summary>
+    <description>
+        <p>Nutty provides an intuitive user interface for some commonly used network related command line tools</p>
+        <p>A key feature is the ability to turn on notification when a device enters the user's network</p>
+        <p>Key features for Nutty are:</p>
+        <ul>
+​           <li>My Info: Provides basic and detailed information for the device network card</li>
+​           <li>Usage: Provides network data usage in two views - historical usage and current usage</li>
+            <li>Speed: Check Upload and Download speeds and get route times to a host</li>
+            <li>Ports: Provides information on active ports and application using them on the local device</li>
+            <li>Devices: Monitors and provides information on the other devices connected on the network</li>
+​       </ul>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <caption>Nutty Device Monitoring</caption>
+            <image>https://raw.githubusercontent.com/babluboy/nutty/master/screenshots/Nutty_Devices.png</image>
+        </screenshot>
+    </screenshots>
+    <provides>
+        <binary>com.github.babluboy.nutty</binary>
+    </provides>
+    <releases>
+        <release version="1.0.0" date="2018-03-31">
+            ​<description>
+      ​         <p>Ability to update and remove discovered devices</p>
+​            </description>
+​       </release>
+    <releases>
+        <release version="0.9" date="2017-05-27">
+            ​<description>
+      ​         <p>Initial release on Appcenter</p>
+      ​     </description>
+        ​</release>
+    </releases>
+    <developer_name>Siddhartha Das</developer_name>
+    <url type="homepage">https://github.com/babluboy/nutty#nutty</url>
+    <url type="bugtracker">https://github.com/babluboy/nutty/issues</url>
+    <url type="help">https://github.com/babluboy/nutty/wiki</url>
+    <update_contact>bablu.boy_AT_gmail.com</update_contact>
 </component>

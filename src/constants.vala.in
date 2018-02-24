@@ -20,7 +20,7 @@ namespace NuttyApp.Constants{
 	public const string nutty_id = "com.github.babluboy.nutty";
 	public const string nutty_version = "1.0.0";
 	public const string program_name = "Nutty";
-	public const string app_icon = "com.github.babluboy.nutty.png";
+	public const string app_icon = "com.github.babluboy.nutty";
 	public const string app_years = "2015-2018";
 	public const string[] about_authors = {"Siddhartha Das <bablu.boy@gmail.com>", null};
 	public const string[] about_artists = {"Siddhartha Das <bablu.boy@gmail.com>", null};
@@ -32,13 +32,17 @@ namespace NuttyApp.Constants{
 	public const string bug_url = "https://github.com/babluboy/bookworm/issues";
 	public const string help_url = "https://github.com/babluboy/bookworm/wiki";
 	public const string translate_url = "https://hosted.weblate.org/projects/bookworm/bookworm/";
+	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = _("Website | Translation | Bug Tracker");
+	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://babluboy.github.io/nutty";
 	
-	//Set paths relative to the install location
+	//Set paths relative to the install location for icons
 	public const string INSTALL_PREFIX = "@CMAKE_INSTALL_PREFIX@";
 	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-available.svg";
 	public const string DEVICE_OFFLINE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-offline.svg";
 	public const string DEFAULT_APP_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-application-default-icon.svg";
+	public const string HEADERBAR_PROPERTIES_IMAGE_LOCATION = INSTALL_PREFIX+"/share/bookworm/icons/hicolor/24x24/actions/nutty-open-menu.svg";
 
+	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public static const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
 	public static const string TEXT_FOR_HEADERBAR_MENU_PREFS = _("Preferences");

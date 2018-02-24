@@ -23,11 +23,10 @@ using Granite.Services;
 public const string GETTEXT_PACKAGE = "nutty";
 
 namespace NuttyApp {
-
 	public class Nutty : Granite.Application {
+		public static Gtk.ApplicationWindow window;
 		private static Nutty application;
 		public static string[] commandLineArgs;
-		public Gtk.Window window;
 		public string PRIMARY_TEXT_FOR_DISCLAIMER = _("You have permissions to scan devices on your network.");
 		public string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using.")+ "\n" +
 										 _("It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network. ") +
@@ -48,34 +47,35 @@ namespace NuttyApp {
 		public static string nutty_executable_path = Environment.find_program_in_path ("nutty");
 		public static string nutty_config_path = GLib.Environment.get_user_config_dir ()+"/nutty";
 		public static Gtk.IconTheme icon_theme;
+		public static Gtk.Image menu_icon;
 		public static Gdk.Pixbuf device_available_pix;
 		public static Gdk.Pixbuf device_offline_pix;
 		public static Gdk.Pixbuf default_app_pix;
-		public int DEVICE_SCHEDULE_ENABLED = 1;
-		public int DEVICE_SCHEDULE_DISABLED = 0;
-		public int DEVICE_SCHEDULE_STATE = -1;
-		public int DEVICE_SCHEDULE_SELECTED = -1;
+		public static int DEVICE_SCHEDULE_ENABLED = 1;
+		public static int DEVICE_SCHEDULE_DISABLED = 0;
+		public static int DEVICE_SCHEDULE_STATE = -1;
+		public static int DEVICE_SCHEDULE_SELECTED = -1;
 		public string UPLOADSPEED = "0";
 		public string DOWNLOADSPEED = "0";
 		public string SPEEDTESTDATE = "";
-		public int exitCodeForCommand = 0;
-		public StringBuilder spawn_async_with_pipes_output = new StringBuilder("");
-		public Stack stack;
+		public static int exitCodeForCommand = 0;
+		public static StringBuilder spawn_async_with_pipes_output = new StringBuilder("");
+		public static Stack stack;
 		public Gee.HashMap<string,string> interfaceConnectionMap;
 		public Gee.HashMap<string,string> interfaceIPMap;
 		public Gee.HashMap<string,string> interfaceMACMap;
 		public StringBuilder interfaceCommandOutputMinimal = new StringBuilder("");
 		public StringBuilder interfaceCommandOutputDetailed = new StringBuilder("");
-		public Gtk.TreeStore info_list_store = new Gtk.TreeStore (2, typeof (string), typeof (string));
-		public Gtk.ListStore route_list_store = new Gtk.ListStore (6, typeof (int), typeof (string), typeof (string), typeof (double), typeof (double), typeof (double));
-		public Gtk.ListStore ports_tcp_list_store = new Gtk.ListStore (6, typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
-		public Gtk.ListStore device_list_store = new Gtk.ListStore (6, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
-		public Gtk.ListStore bandwidth_results_list_store = new Gtk.ListStore (4, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string));
-		public Gtk.ListStore bandwidth_list_store = new Gtk.ListStore (4, typeof (string), typeof (string), typeof (string), typeof (string));
-		public Gtk.ListStore speedtest_list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
+		public static Gtk.TreeStore info_list_store = new Gtk.TreeStore (2, typeof (string), typeof (string));
+		public static Gtk.ListStore route_list_store = new Gtk.ListStore (6, typeof (int), typeof (string), typeof (string), typeof (double), typeof (double), typeof (double));
+		public static Gtk.ListStore ports_tcp_list_store = new Gtk.ListStore (6, typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
+		public static Gtk.ListStore device_list_store = new Gtk.ListStore (6, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
+		public static Gtk.ListStore bandwidth_results_list_store = new Gtk.ListStore (4, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string));
+		public static Gtk.ListStore bandwidth_list_store = new Gtk.ListStore (4, typeof (string), typeof (string), typeof (string), typeof (string));
+		public static Gtk.ListStore speedtest_list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
 		public Spinner infoProcessSpinner;
 		public string HostName;
-		public Gtk.SearchEntry headerSearchBar;
+		public static Gtk.SearchEntry headerSearchBar;
 		public Spinner traceRouteSpinner;
 		public Label route_results_label;
 		public Spinner speedTestSpinner;
@@ -90,22 +90,22 @@ namespace NuttyApp {
 		public Label bandwidth_results_label;
 		public bool isBandwidthViewLoaded = false;
 		public Spinner bandwidthProcessSpinner;
-		public Gtk.RadioButton min15Option;
-		public Gtk.RadioButton min30Option;
-		public Gtk.RadioButton hourOption;
-		public Gtk.RadioButton dayOption;
-		public Gtk.TreeModelFilter infoTreeModelFilter;
-		public Gtk.TreeModelFilter portsTreeModelFilter;
-		public Gtk.TreeModelFilter routeTreeModelFilter;
-		public Gtk.TreeModelFilter speedTestTreeModelFilter;
-		public Gtk.TreeModelFilter devicesTreeModelFilter;
-		public Gtk.TreeModelFilter bandwidthTreeModelFilter;
-		public Gtk.TreeModelFilter bandwidthProcessTreeModelFilter;
-		public StringBuilder infoSearchEntry = new StringBuilder ("");
-		public StringBuilder portsSearchEntry = new StringBuilder ("");
-		public StringBuilder routeSearchEntry = new StringBuilder ("");
-		public StringBuilder devicesSearchEntry = new StringBuilder ("");
-		public StringBuilder bandwidthSearchEntry = new StringBuilder ("");
+		public static Gtk.RadioButton min15Option;
+		public static Gtk.RadioButton min30Option;
+		public static Gtk.RadioButton hourOption;
+		public static Gtk.RadioButton dayOption;
+		public static Gtk.TreeModelFilter infoTreeModelFilter;
+		public static Gtk.TreeModelFilter portsTreeModelFilter;
+		public static Gtk.TreeModelFilter routeTreeModelFilter;
+		public static Gtk.TreeModelFilter speedTestTreeModelFilter;
+		public static Gtk.TreeModelFilter devicesTreeModelFilter;
+		public static Gtk.TreeModelFilter bandwidthTreeModelFilter;
+		public static Gtk.TreeModelFilter bandwidthProcessTreeModelFilter;
+		public static StringBuilder infoSearchEntry = new StringBuilder ("");
+		public static StringBuilder portsSearchEntry = new StringBuilder ("");
+		public static StringBuilder routeSearchEntry = new StringBuilder ("");
+		public static StringBuilder devicesSearchEntry = new StringBuilder ("");
+		public static StringBuilder bandwidthSearchEntry = new StringBuilder ("");
 		public static bool command_line_option_version = false;
 		public static bool command_line_option_alert = false;
 		public static bool command_line_option_debug = false;
@@ -113,26 +113,13 @@ namespace NuttyApp {
 		[CCode (array_length = false, array_null_terminated = true)]
 		public static string command_line_option_monitor = "";
 		public new OptionEntry[] options;
-		public string nutty_state_data = "";
+		public static string nutty_state_data = "";
 
 		construct {
 			application_id = NuttyApp.Constants.nutty_id;
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 			program_name = NuttyApp.Constants.program_name;
-			
-			app_years = app_years;
-			build_version = NuttyApp.Constants.nutty_version;
-			app_icon = NuttyApp.Constants.app_icon;
-			main_url = "https://github.com/babluboy/nutty#nutty";
-			bug_url = "https://github.com/babluboy/nutty/issues";
-			help_url = "https://github.com/babluboy/nutty/wiki";
-			translate_url = "https://translations.launchpad.net/nutty";
-
-			about_artists =NuttyApp.Constants.about_artists;
-			about_authors = NuttyApp.Constants.about_authors;
-			about_comments = NuttyApp.Constants.about_comments;
-			about_translators = NuttyApp.Constants.translator_credits;
-			about_license_type = Gtk.License.GPL_3_0;
+			exec_name = NuttyApp.Constants.nutty_id;
 
 			options = new OptionEntry[5];
 			options[0] = { "version", 0, 0, OptionArg.NONE, ref command_line_option_version, _("Display version number"), null };
@@ -189,7 +176,7 @@ namespace NuttyApp {
 				print("nutty version "+Constants.nutty_version+" \n");
 			}else if(command_line_option_monitor.length > 0){
 				print("\nRunning Nutty in Device Monitor Mode for config at "+command_line_option_monitor+"\n");
-				application.nutty_config_path = command_line_option_monitor;
+				nutty_config_path = command_line_option_monitor;
 				application.runDeviceScan();
 			}else if(command_line_option_alert){
 				print("\nRunning Nutty in Device Alert Mode \n");
@@ -207,8 +194,8 @@ namespace NuttyApp {
 				Logger.DisplayLevel = LogLevel.INFO;
 			}
 			info("[START] [FUNCTION:activate]");
-			window = new Gtk.Window ();
-			add_window (window);
+			window = new Gtk.ApplicationWindow (this);
+			icon_theme = Gtk.IconTheme.get_default ();
 			//set window attributes
 			window.set_default_size(1000, 600);
 			window.set_border_width (Constants.SPACING_WIDGETS);
@@ -216,19 +203,14 @@ namespace NuttyApp {
 			window.window_position = Gtk.WindowPosition.CENTER;
 			//load state information from file
 			loadNuttyState();
-			//add window components
-			create_headerbar(window);
-			window.add(createNuttyUI());
-			window.show_all();
 			//load pictures
-			try{
-				device_available_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_AVAILABLE_ICON_IMAGE_LOCATION);
-				device_offline_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_OFFLINE_ICON_IMAGE_LOCATION);
-				default_app_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEFAULT_APP_ICON_IMAGE_LOCATION);
-				icon_theme = Gtk.IconTheme.get_default ();
-			}catch(GLib.Error e){
-				warning("Failed to load icons/theme: "+e.message);
-			}
+			loadImages();
+			//add window components
+			window.set_titlebar (NuttyApp.AppHeaderBar.create_headerbar(window));
+			window.add(createNuttyUI());
+			//show the app window
+			add_window (window);
+			window.show_all();
 			//Exit Application Event
 			window.destroy.connect (() => {
 				// Manage flags to avoid on load process for tabs not visited
@@ -238,78 +220,33 @@ namespace NuttyApp {
 				//save state information to file
 				saveNuttyState();
 			});
+			
 			info("[END] [FUNCTION:activate]");
 		}
-
-		private void create_headerbar(Gtk.Window window) {
-			debug("Starting creation of header bar..");
-			Gtk.HeaderBar headerbar = new Gtk.HeaderBar();
-			headerbar.set_title(program_name);
-			headerbar.subtitle = Constants.TEXT_FOR_SUBTITLE_HEADERBAR;
-			headerbar.set_show_close_button(true);
-			headerbar.spacing = Constants.SPACING_WIDGETS;
-			window.set_titlebar (headerbar);
-			//add menu items
-			headerbar.pack_end(createNuttyMenu(new Gtk.Menu ()));
-
-			//Add a search entry to the header
-			headerSearchBar = new Gtk.SearchEntry();
-			headerSearchBar.set_text(Constants.TEXT_FOR_SEARCH_HEADERBAR);
-			headerbar.pack_end(headerSearchBar);
-			// Set actions for HeaderBar search
-			headerSearchBar.search_changed.connect (() => {
-				if(Constants.TEXT_FOR_SEARCH_HEADERBAR != headerSearchBar.get_text()){
-					if("my-info"==stack.get_visible_child_name()){
-						infoTreeModelFilter.refilter();
-						infoSearchEntry.erase(0,-1);
-						infoSearchEntry.append(headerSearchBar.get_text());
-					}else if("ports"==stack.get_visible_child_name()){
-						portsTreeModelFilter.refilter();
-						portsSearchEntry.erase(0,-1);
-						portsSearchEntry.append(headerSearchBar.get_text());
-					} else if("route"==stack.get_visible_child_name()){
-						routeTreeModelFilter.refilter();
-						routeSearchEntry.erase(0,-1);
-						routeSearchEntry.append(headerSearchBar.get_text());
-					} else if("devices"==stack.get_visible_child_name()){
-						devicesTreeModelFilter.refilter();
-						devicesSearchEntry.erase(0,-1);
-						devicesSearchEntry.append(headerSearchBar.get_text());
-					} else if("bandwidth"==stack.get_visible_child_name()){
-						bandwidthTreeModelFilter.refilter();
-						bandwidthSearchEntry.erase(0,-1);
-						bandwidthSearchEntry.append(headerSearchBar.get_text());
-					} else{
-					}
-				}
-			});
-			debug("Completed loading HeaderBar sucessfully...");
+		
+		public void loadImages() {
+			info("[START] [FUNCTION:loadImages]");
+			if (Gtk.IconTheme.get_default ().has_icon ("open-menu")) {
+				menu_icon = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+			}else{
+				menu_icon = new Gtk.Image.from_pixbuf (
+							new Gdk.Pixbuf.from_file_at_scale (NuttyApp.Constants.HEADERBAR_PROPERTIES_IMAGE_LOCATION, 
+							24, 24, true)
+				);
+			}
+			try{
+				device_available_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_AVAILABLE_ICON_IMAGE_LOCATION);
+				device_offline_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_OFFLINE_ICON_IMAGE_LOCATION);
+				default_app_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEFAULT_APP_ICON_IMAGE_LOCATION);
+			}catch(GLib.Error e){
+				warning("Failed to load icons/theme: "+e.message);
+			}
+			
+			info("[END] [FUNCTION:loadImages]");
 		}
+		
 
-		public AppMenu createNuttyMenu (Gtk.Menu menu) {
-			debug("Starting creation of Nutty Menu...");
-			Granite.Widgets.AppMenu app_menu;
-			//Add sub menu items
-			Gtk.MenuItem menuItemPrefferences = new Gtk.MenuItem.with_label(Constants.TEXT_FOR_HEADERBAR_MENU_PREFS);
-			menu.add (menuItemPrefferences);
-			Gtk.MenuItem menuItemExportToFile = new Gtk.MenuItem.with_label(Constants.TEXT_FOR_HEADERBAR_MENU_EXPORT);
-			menu.add (menuItemExportToFile);
-			app_menu = new Granite.Widgets.AppMenu.with_app(this, menu);
-
-			//Add actions for menu items
-			menuItemPrefferences.activate.connect(() => {
-				createPrefsDialog();
-			});
-			menuItemExportToFile.activate.connect(() => {
-				createExportDialog();
-			});
-			//Add About option to menu
-			app_menu.show_about.connect (show_about);
-			debug("Completed creation of Nutty Menu sucessfully...");
-			return app_menu;
-		}
-
-		public void createPrefsDialog() {
+		public static void createPrefsDialog() {
 			debug("Started setting up Prefference Dialog ...");
 			Gtk.Dialog prefsDialog = new Gtk.Dialog.with_buttons("Preferences", window, DialogFlags.MODAL);
 			prefsDialog.title = "Preferences";
@@ -395,7 +332,7 @@ namespace NuttyApp {
 			debug("Completed setting up Prefference Dialog sucessfully...");
 		}
 
-		private void prefsDialogResponseHandler(Gtk.Dialog source, int response_id) {
+		private static void prefsDialogResponseHandler(Gtk.Dialog source, int response_id) {
 			switch (response_id) {
 				case Gtk.ResponseType.CLOSE:
 					setupDeviceMonitoring();
@@ -409,7 +346,7 @@ namespace NuttyApp {
 			debug ("Prefference dialog handler response handled ["+response_id.to_string()+"]...");
 		}
 
-		private void exportDialogResponseHandler(Gtk.Dialog source, int response_id) {
+		private static void exportDialogResponseHandler(Gtk.Dialog source, int response_id) {
 			//Set the File Chooser default folder path based on the folder the action was comitted
 			Utils.last_file_chooser_path = ((Gtk.FileChooserDialog) source).get_current_folder();
 			switch (response_id) {
@@ -424,7 +361,7 @@ namespace NuttyApp {
 			debug ("Export dialog handler response handled ["+response_id.to_string()+"]...");
 		}
 
-		private void deviceScheduleSelection (Gtk.ToggleButton button) {
+		private static void deviceScheduleSelection (Gtk.ToggleButton button) {
 			if(Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION == button.label)
 				DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_15MINS;
 			if(Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION == button.label)
@@ -436,7 +373,7 @@ namespace NuttyApp {
 			debug("Completed noting the selection for device monitoring schedule...");
 		}
 
-		private void handleDeviceMonitoring(bool isSwitchSet){
+		public static void handleDeviceMonitoring(bool isSwitchSet){
 			if (isSwitchSet) {
 				min15Option.set_sensitive(true);
 				min30Option.set_sensitive(true);
@@ -451,7 +388,7 @@ namespace NuttyApp {
 			debug("Completed toggling device monitoring UI...");
 		}
 
-		public void createExportDialog() {
+		public static void createExportDialog() {
 			debug("Started setting up Export Dialog ...");
 			Gtk.FileChooserDialog aFileChooserDialog = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, "Export Nutty Data", window, false);
 			aFileChooserDialog.show_all ();
@@ -974,7 +911,7 @@ namespace NuttyApp {
 			}
 		}
 
-		public void saveNuttyInfoToFile (string path, string filename) {
+		public static void saveNuttyInfoToFile (string path, string filename) {
 			debug("Started exporting Nutty information...");
 			StringBuilder printDataText = new StringBuilder("");
 			var now = new DateTime.now_local();
@@ -1049,7 +986,7 @@ namespace NuttyApp {
 			return result;
 		}
 
-		public string fileOperations (string operation, string path, string filename, string contents) {
+		public static string fileOperations (string operation, string path, string filename, string contents) {
 			debug("Started file operation["+operation+"]...");
 			StringBuilder result = new StringBuilder("false");
 			string data = "";
@@ -1171,7 +1108,7 @@ namespace NuttyApp {
 			return result.str;
 		}
 
-		public bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
+		public static bool process_line (IOChannel channel, IOCondition condition, string stream_name) {
 			if (condition == IOCondition.HUP) {
 				return false;
 			}
@@ -1190,7 +1127,7 @@ namespace NuttyApp {
 			return true;
 		}
 
-		public int execute_sync_multiarg_command_pipes(string[] spawn_args) {
+		public static int execute_sync_multiarg_command_pipes(string[] spawn_args) {
 			debug("Starting to execute async command: "+string.joinv(" ", spawn_args));
 			spawn_async_with_pipes_output.erase(0, -1); //clear the output buffer
 			MainLoop loop = new MainLoop ();
@@ -1238,7 +1175,7 @@ namespace NuttyApp {
 			return 0;
 		}
 
-		public string execute_sync_command (string cmd){
+		public static string execute_sync_command (string cmd){
 			debug("Starting to execute sync command ["+cmd+"]...");
 			string std_out;
 			string std_err;
@@ -2180,7 +2117,7 @@ namespace NuttyApp {
 			return speedtest_list_store;
 		}
 
-		public void setupDeviceMonitoring(){
+		public static void setupDeviceMonitoring(){
 			debug("Starting to set up device monitoring...");
 			try{
 				//reset the device scheduled state if device schedule is disabled

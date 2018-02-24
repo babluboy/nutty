@@ -31,6 +31,7 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/constants.vala.in" "${CMAKE_SOUR
 set (SOURCE_LIST
     src/main.vala
     src/nutty.vala
+    src/headerbar.vala
     src/utils.vala
     src/constants.vala
 )
@@ -62,6 +63,7 @@ include(ValaPrecompile)
 vala_precompile(VALA_C ${EXEC_NAME}
     src/main.vala
     src/nutty.vala
+    src/headerbar.vala
     src/utils.vala
     src/constants.vala
 
@@ -117,6 +119,7 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/32/com.github.babluboy.nut
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/48/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/48x48/apps)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/64/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/64x64/apps)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/128/com.github.babluboy.nutty.png DESTINATION share/icons/hicolor/128x128/apps)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/24/nutty-open-menu.svg DESTINATION ${ICON_DIR}/24x24/actions/)
 # install nutty status icons
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-offline.svg DESTINATION ${ICON_DIR}/16x16/status)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-available.svg DESTINATION ${ICON_DIR}/16x16/status)
