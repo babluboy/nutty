@@ -42,7 +42,7 @@ find_package(PkgConfig)
 pkg_check_modules(DEPS REQUIRED
                   gtk+-3.0
                   gee-0.8
-                  granite>=0.3.0
+                  granite>=0.5
                  )
 
 add_definitions(${DEPS_CFLAGS})
@@ -69,7 +69,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
 PACKAGES
     gtk+-3.0
     gee-0.8
-    granite>=0.3.0
+    granite>=0.5
 )
 
 # tell cmake what to call the executable we just made
