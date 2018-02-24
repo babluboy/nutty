@@ -15,8 +15,8 @@ set (PKGDATADIR "${DATADIR}/nutty")
 set (ICON_DIR ${PKGDATADIR}/icons/hicolor)
 
 set (EXEC_NAME "com.github.babluboy.nutty")
-set (RELEASE_NAME "nutty v0.9")
-set (VERSION "0.9")
+set (RELEASE_NAME "nutty v1.0.0")
+set (VERSION "1.0.0")
 set (VERSION_INFO "Nutty - A Network Information Utility")
 
 # Translation files
@@ -54,7 +54,7 @@ find_package(Vala REQUIRED)
 # make sure we use vala
 include(ValaVersion)
 # make sure it's the desired version of vala
-ensure_vala_version("0.26" MINIMUM)
+ensure_vala_version("0.36" MINIMUM)
 
 # files we want to compile
 include(ValaPrecompile)

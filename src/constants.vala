@@ -18,7 +18,7 @@
 
 namespace NuttyApp.Constants{
 	public const string nutty_id = "com.github.babluboy.nutty";
-	public const string nutty_version = "0.9";
+	public const string nutty_version = "1.0.0";
 	public const string program_name = "Nutty";
 	public const string app_icon = "com.github.babluboy.nutty.png";
 	public const string app_years = "2015-2018";

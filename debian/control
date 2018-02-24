@@ -13,5 +13,5 @@ Standards-Version: 3.9.6
 Package: com.github.babluboy.nutty
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}, net-tools, nmap, traceroute, vnstat, nethogs, curl, wireless-tools
-Description: Nutty - Network Utility
+Description: Nutty
  A network utility with a user interface for common command line tools

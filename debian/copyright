@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: nutty
-Source: https://code.launchpad.net/~bablu-boy/nutty/trunk
+Upstream-Name: com.github.babluboy.nutty
+Source: https://github.com/babluboy/nutty
 
 Files: src/* data/* cmake/* debian/*
 Copyright: 2015 Siddhartha Das <bablu.boy@gmail.com>
