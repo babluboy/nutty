@@ -2,7 +2,16 @@ name: nutty
 version: 0.9
 summary: A Network Information Utility
 description: A simple application to provide essential information on network related aspects. Nutty provides basic network information, internet usage and speed and monitors devices connected to the network.
-confinement: strict
+
+icon: data/icons/24/com.github.babluboy.nutty.png
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+slots:
+  dbus-nutty:
+    interface: dbus
+    bus: session
+    name: com.github.babluboy.nutty
 
 apps:
   nutty:

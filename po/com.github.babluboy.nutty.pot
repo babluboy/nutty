@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-24 23:19+0000\n"
+"POT-Creation-Date: 2018-02-27 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -497,54 +497,54 @@ msgstr ""
 msgid "Run Nutty in info mode"
 msgstr ""
 
-#: ../src/nutty.vala:1340
+#: ../src/nutty.vala:1338
 msgid "Network Card"
 msgstr ""
 
-#: ../src/nutty.vala:1340
+#: ../src/nutty.vala:1338
 msgid " Standards with Transmit Power of "
 msgstr ""
 
-#: ../src/nutty.vala:1340
+#: ../src/nutty.vala:1338
 msgid " [Power Management: "
 msgstr ""
 
-#: ../src/nutty.vala:1343
+#: ../src/nutty.vala:1341
 msgid "Connected to"
 msgstr ""
 
-#: ../src/nutty.vala:1343
+#: ../src/nutty.vala:1341
 msgid " Network at Access Point "
 msgstr ""
 
-#: ../src/nutty.vala:1343
+#: ../src/nutty.vala:1341
 msgid " Mode"
 msgstr ""
 
-#: ../src/nutty.vala:1346
+#: ../src/nutty.vala:1344
 msgid "Connected with"
 msgstr ""
 
-#: ../src/nutty.vala:1346
+#: ../src/nutty.vala:1344
 msgid "Frequency of "
 msgstr ""
 
-#: ../src/nutty.vala:1346
+#: ../src/nutty.vala:1344
 msgid " and Bit Rate of "
 msgstr ""
 
-#: ../src/nutty.vala:1349
+#: ../src/nutty.vala:1347
 msgid "Connection strength"
 msgstr ""
 
-#: ../src/nutty.vala:1349
+#: ../src/nutty.vala:1347
 msgid "Link Quality of "
 msgstr ""
 
-#: ../src/nutty.vala:1349
+#: ../src/nutty.vala:1347
 msgid " and Signal Level of "
 msgstr ""
 
-#: ../src/nutty.vala:1860
+#: ../src/nutty.vala:1858
 msgid " for "
 msgstr ""
