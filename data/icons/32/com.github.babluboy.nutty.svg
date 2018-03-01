@@ -13,7 +13,7 @@
    width="32"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="nutty.svg">
+   sodipodi:docname="com.github.babluboy.nutty.svg">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -27,9 +27,9 @@
      inkscape:window-height="1017"
      id="namedview49"
      showgrid="true"
-     inkscape:zoom="2"
-     inkscape:cx="50.027622"
-     inkscape:cy="29.788442"
+     inkscape:zoom="1"
+     inkscape:cx="-197.68943"
+     inkscape:cy="190.52185"
      inkscape:window-x="0"
      inkscape:window-y="30"
      inkscape:window-maximized="1"
@@ -306,7 +306,8 @@
        y1="3"
        x2="16"
        y2="5"
-       gradientUnits="userSpaceOnUse" />
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.6666666,0,0,1.6666666,-10.666665,-1.6666667)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4311"
@@ -316,7 +317,7 @@
        y1="3"
        x2="16"
        y2="5"
-       gradientTransform="translate(9.9966978,6.0032978)" />
+       gradientTransform="matrix(1.6666667,0,0,1.6666667,-0.66666878,3.3333361)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4311"
@@ -326,7 +327,7 @@
        y1="3"
        x2="16"
        y2="5"
-       gradientTransform="translate(0,12)" />
+       gradientTransform="matrix(1.6666666,0,0,1.6666666,-10.666665,9.3333333)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4311"
@@ -336,7 +337,7 @@
        y1="3"
        x2="16"
        y2="5"
-       gradientTransform="translate(0,24.000032)" />
+       gradientTransform="matrix(1.6666667,0,0,1.6666667,-10.66667,20.33336)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4311"
@@ -346,7 +347,7 @@
        y1="3"
        x2="16"
        y2="5"
-       gradientTransform="translate(9.9999987,17.999999)" />
+       gradientTransform="matrix(1.6666668,0,0,1.6666668,-0.66666163,15.333329)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4311"
@@ -356,7 +357,7 @@
        y1="3"
        x2="16"
        y2="5"
-       gradientTransform="translate(-9.9999991,5.9999989)" />
+       gradientTransform="matrix(1.6666666,0,0,1.6666666,-20.666668,3.3333359)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4311"
@@ -366,7 +367,7 @@
        y1="3"
        x2="16"
        y2="5"
-       gradientTransform="translate(-10.000334,18.000332)" />
+       gradientTransform="matrix(1.6666667,0,0,1.6666667,-20.66667,15.333334)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4343"
@@ -377,7 +378,7 @@
        fy="1.5"
        r="2.5"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0,1,-2.8,0,20.2,-14.5)" />
+       gradientTransform="matrix(0,1.4,-3.92,0,21.88,-20.9)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4351"
@@ -388,7 +389,7 @@
        fy="-8.9461527"
        r="2.5"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.1999999,2.0784611,-1.5588457,0.89999993,-14.644711,-8.159234)" />
+       gradientTransform="matrix(1.6799999,2.9098456,-2.1823841,1.2599999,-22.766693,-7.3444655)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4359"
@@ -399,7 +400,7 @@
        fy="-18.766661"
        r="2.5"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.732051,1.0000005,-1.2000006,2.0784611,-36.791477,0.74391274)" />
+       gradientTransform="matrix(2.4248715,1.4000008,-1.6800009,2.9098456,-60.173856,8.0418342)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4367"
@@ -410,7 +411,7 @@
        fy="13.5"
        r="2.5001068"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(2.1999059e-7,1.9999146,-3.1998633,3.5198493e-7,59.19815,-18.498638)" />
+       gradientTransform="matrix(3.0798307e-7,2.7998463,-4.4797539,4.9277289e-7,76.476672,-32.297504)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4375"
@@ -421,7 +422,7 @@
        fy="4.8041387"
        r="2.5"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-1.1999327,2.0783454,-1.5588459,-0.89999973,52.192295,-33.104827)" />
+       gradientTransform="matrix(-1.6799058,2.9096836,-2.1823843,-1.2599996,64.248021,-48.668931)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4391"
@@ -432,7 +433,7 @@
        fy="-32.266659"
        r="2.499815"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.7321788,-1.0000734,1.2000886,2.0786157,35.87651,38.691103)" />
+       gradientTransform="matrix(2.4252299,-1.4002064,1.6802484,2.9102774,47.809177,67.581688)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4399"
@@ -443,7 +444,7 @@
        fy="25.5"
        r="2.4999681"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.2000153e-6,2.0000252,-3.600046,2.160028e-6,107.80115,-6.5004579)" />
+       gradientTransform="matrix(1.6800429e-6,2.8000711,-5.0401288,3.0240778e-6,144.52325,-21.301274)" />
     <radialGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3820-7-2-2"
@@ -537,12 +538,12 @@
          style="opacity:1;fill:url(#radialGradient4349);fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4259"
          cx="16"
-         cy="4"
-         r="2.5" />
+         cy="5"
+         r="3.5" />
       <circle
-         r="2.4999681"
-         cy="28.000032"
-         cx="16"
+         r="3.5"
+         cy="27.000029"
+         cx="15.999997"
          id="circle4261"
          style="opacity:1;fill:url(#radialGradient4405);fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
@@ -550,126 +551,126 @@
          id="circle4263"
          cx="16"
          cy="16"
-         r="2.5001068" />
+         r="3.5001068" />
       <circle
          transform="matrix(0.5,0.8660254,-0.8660254,0.5,0,0)"
          style="opacity:1;fill:url(#radialGradient4365);fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4265"
-         cx="21.661459"
-         cy="-17.512152"
-         r="2.5" />
+         cx="21.660255"
+         cy="-17.516657"
+         r="3.5" />
       <circle
          transform="matrix(0.5,0.8660254,-0.8660254,0.5,0,0)"
-         r="2.5"
-         cy="5.8043032"
-         cx="22.052679"
+         r="3.5"
+         cy="5.8038516"
+         cx="22.052559"
          id="circle4267"
          style="opacity:1;fill:url(#radialGradient4381);fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
          transform="matrix(-0.5,0.8660254,-0.8660254,-0.5,0,0)"
-         r="2.499815"
-         cy="-33.516659"
-         cx="6.0525584"
+         r="3.5"
+         cy="-33.516663"
+         cx="6.0525527"
          id="circle4269"
          style="opacity:1;fill:url(#radialGradient4397);fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
          transform="matrix(-0.5,0.8660254,-0.8660254,-0.5,0,0)"
          style="opacity:1;fill:url(#radialGradient4357);fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4271"
-         cx="5.6602526"
-         cy="-10.196153"
-         r="2.5" />
+         cx="5.6602573"
+         cy="-10.196152"
+         r="3.5" />
     </g>
     <g
        id="g4248">
       <circle
-         r="2.5"
-         cy="4"
+         r="3.5"
+         cy="5"
          cx="16"
          id="path4170"
-         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#3a9104;stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#3a9104;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
-         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:0.99999988;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4172"
-         cx="15.999999"
-         cy="28.000031"
-         r="2.4999681" />
+         cx="15.999997"
+         cy="27.000029"
+         r="3.4999681" />
       <circle
-         r="2.5001068"
+         r="3.5"
          cy="16"
          cx="16"
          id="circle4174"
          style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
-         r="2.5019319"
-         cy="-17.512152"
-         cx="21.661459"
+         r="3.5017633"
+         cy="-17.516657"
+         cx="21.660255"
          id="circle4182"
-         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:0.99999988;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:0.99999982;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          transform="matrix(0.50000001,0.8660254,-0.8660254,0.50000001,0,0)" />
       <circle
-         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:0.99999988;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4184"
-         cx="22.052679"
-         cy="5.8043032"
-         r="2.5019324"
-         transform="matrix(0.5,0.8660254,-0.8660254,0.5,0,0)" />
+         cx="22.052559"
+         cy="5.8038516"
+         r="3.5017636"
+         transform="matrix(0.50000001,0.8660254,-0.8660254,0.50000001,0,0)" />
       <circle
-         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="circle4188"
-         cx="6.0525575"
-         cy="-33.516659"
-         r="2.5019326"
-         transform="matrix(-0.50000001,0.8660254,-0.8660254,-0.50000001,0,0)" />
-      <circle
-         r="2.5017664"
-         cy="-10.196153"
-         cx="5.6602526"
-         id="circle4190"
          style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         transform="matrix(-0.5,0.8660254,-0.8660254,-0.5,0,0)" />
+         id="circle4188"
+         cx="6.0525532"
+         cy="-33.516663"
+         r="3.5017707"
+         transform="matrix(-0.49999999,0.86602541,-0.86602541,-0.49999999,0,0)" />
+      <circle
+         r="3.5017633"
+         cy="-10.196152"
+         cx="5.6602573"
+         id="circle4190"
+         style="opacity:0.5;fill:none;fill-opacity:1;stroke:#206b00;stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="matrix(-0.50000001,0.8660254,-0.8660254,-0.50000001,0,0)" />
       <circle
          style="opacity:1;fill:none;fill-opacity:1;stroke:url(#linearGradient4317);stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4289"
          cx="16"
-         cy="4"
-         r="1.5" />
+         cy="5"
+         r="2.5" />
       <circle
-         r="1.5"
-         cy="22.000332"
-         cx="5.9996657"
+         r="2.5"
+         cy="22.000002"
+         cx="5.9999967"
          id="circle4319"
          style="opacity:0.3;fill:none;fill-opacity:1;stroke:url(#linearGradient4341);stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
-         style="opacity:0.6;fill:none;fill-opacity:1;stroke:url(#linearGradient4339);stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:0.6;fill:none;fill-opacity:1;stroke:url(#linearGradient4339);stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4321"
-         cx="6.000001"
-         cy="9.999999"
-         r="1.5" />
+         cx="5.9999976"
+         cy="10.000003"
+         r="2.5" />
       <circle
-         r="1.5"
-         cy="21.999998"
-         cx="25.999998"
+         r="2.5"
+         cy="21.999996"
+         cx="26.000006"
          id="circle4323"
          style="opacity:0.3;fill:none;fill-opacity:1;stroke:url(#linearGradient4337);stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
          style="opacity:0.25;fill:none;fill-opacity:1;stroke:url(#linearGradient4335);stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4325"
-         cx="16"
-         cy="28.000032"
-         r="1.5" />
+         cx="15.999997"
+         cy="27.000029"
+         r="2.5" />
       <circle
-         r="1.5"
+         r="2.5"
          cy="16"
          cx="16"
          id="circle4327"
-         style="opacity:0.5;fill:none;fill-opacity:1;stroke:url(#linearGradient4333);stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:0.5;fill:none;fill-opacity:1;stroke:url(#linearGradient4333);stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <circle
          style="opacity:0.6;fill:none;fill-opacity:1;stroke:url(#linearGradient4331);stroke-width:0.99999994;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="circle4329"
-         cx="25.996698"
-         cy="10.003298"
-         r="1.5" />
+         cx="25.999998"
+         cy="10.000003"
+         r="2.5000002" />
     </g>
   </g>
 </svg>
