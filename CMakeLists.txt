@@ -34,6 +34,10 @@ set (SOURCE_LIST
     src/headerbar.vala
     src/utils.vala
     src/constants.vala
+    src/devices.vala
+    src/database.vala
+    src/entities.vala
+    src/xmlHandler.vala
 )
 
 # we're about to use pkgconfig to make sure dependencies are installed so let's find pkgconfig first
@@ -41,10 +45,12 @@ find_package(PkgConfig)
 
 # now let's actually check for the required dependencies
 pkg_check_modules(DEPS REQUIRED
-                  gtk+-3.0
-                  gee-0.8
-                  granite>=0.5
-                 )
+      gtk+-3.0
+      gee-0.8
+      granite>=0.5
+      sqlite3>=3.5.9
+      libxml-2.0
+)
 
 add_definitions(${DEPS_CFLAGS})
 link_libraries(${DEPS_LIBRARIES})
@@ -66,12 +72,18 @@ vala_precompile(VALA_C ${EXEC_NAME}
     src/headerbar.vala
     src/utils.vala
     src/constants.vala
+    src/devices.vala
+    src/database.vala
+    src/entities.vala
+    src/xmlHandler.vala
 
 # tell what libraries to use when compiling
 PACKAGES
     gtk+-3.0
     gee-0.8
     granite>=0.5
+    sqlite3>=3.5.9
+    libxml-2.0
 )
 
 # tell cmake what to call the executable we just made

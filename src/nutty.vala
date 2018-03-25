@@ -37,10 +37,10 @@ namespace NuttyApp {
 		public string TEXT_FOR_WIRED_CONNECTION = _("Wired");
 		public string TEXT_FOR_WIRELESS_CONNECTION = _("Wireless");
 		public string TEXT_FOR_OTHER_CONNECTION = _("Other");
-		public string TEXT_FOR_DEVICE_FOUND_NOTIFICATION = _("New Device found on network:\n");
+		public static string TEXT_FOR_DEVICE_FOUND_NOTIFICATION = _("New Device found on network:\n");
 		public string[] COMMAND_FOR_INTERFACE_HARDWARE_DETAILED = {"lshw", "-xml", "-class", "network"};
 		public string[] COMMAND_FOR_BANDWIDTH_USAGE = {"vnstat", "--xml", "-i", "<interface goes here>"};
-		public string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {"curl", "-d", "test", "http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"};
+		public static string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {"curl", "-d", "test", "http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"};
 		public string[] COMMAND_FOR_SPEED_TEST = {"speedtest-cli", "--simple", "--bytes"};
 		public bool hasDisclaimerBeenAgreed = false;
 		public string crontabContents = "";
@@ -59,24 +59,25 @@ namespace NuttyApp {
 		public string DOWNLOADSPEED = "0";
 		public string SPEEDTESTDATE = "";
 		public static int exitCodeForCommand = 0;
+		public static int info_combobox_counter = 0;
 		public static StringBuilder spawn_async_with_pipes_output = new StringBuilder("");
 		public static Stack stack;
-		public Gee.HashMap<string,string> interfaceConnectionMap;
-		public Gee.HashMap<string,string> interfaceIPMap;
+		public static Gee.HashMap<string,string> interfaceConnectionMap;
+		public static Gee.HashMap<string,string> interfaceIPMap;
 		public Gee.HashMap<string,string> interfaceMACMap;
 		public StringBuilder interfaceCommandOutputMinimal = new StringBuilder("");
 		public StringBuilder interfaceCommandOutputDetailed = new StringBuilder("");
 		public static Gtk.TreeStore info_list_store = new Gtk.TreeStore (2, typeof (string), typeof (string));
 		public static Gtk.ListStore route_list_store = new Gtk.ListStore (6, typeof (int), typeof (string), typeof (string), typeof (double), typeof (double), typeof (double));
 		public static Gtk.ListStore ports_tcp_list_store = new Gtk.ListStore (6, typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
-		public static Gtk.ListStore device_list_store = new Gtk.ListStore (6, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
+		public static Gtk.ListStore device_list_store = new Gtk.ListStore (7, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
 		public static Gtk.ListStore bandwidth_results_list_store = new Gtk.ListStore (4, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string));
 		public static Gtk.ListStore bandwidth_list_store = new Gtk.ListStore (4, typeof (string), typeof (string), typeof (string), typeof (string));
 		public static Gtk.ListStore speedtest_list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
 		public Spinner infoProcessSpinner;
 		public string HostName;
 		public static Gtk.SearchEntry headerSearchBar;
-		public Spinner traceRouteSpinner;
+		public static Spinner traceRouteSpinner;
 		public Label route_results_label;
 		public Spinner speedTestSpinner;
 		public Button speed_test_refresh_button;
@@ -84,9 +85,9 @@ namespace NuttyApp {
 		public bool isPortsViewLoaded = false;
 		public Label ports_results_label;
 		public Spinner portsSpinner;
-		public Label devices_results_label;
-		public Spinner devicesSpinner;
-		public bool isDevicesViewLoaded = false;
+		public static Label devices_results_label;
+		public static Spinner devicesSpinner;
+		public static bool isDevicesViewLoaded = false;
 		public Label bandwidth_results_label;
 		public bool isBandwidthViewLoaded = false;
 		public Spinner bandwidthProcessSpinner;
@@ -114,6 +115,8 @@ namespace NuttyApp {
 		public static string command_line_option_monitor = "";
 		public new OptionEntry[] options;
 		public static string nutty_state_data = "";
+		public static ArrayList<NuttyApp.Entities.Device> deviceDataArrayList;
+		public static StringBuilder device_mac_found_in_scan = new StringBuilder("");
 
 		construct {
 			application_id = NuttyApp.Constants.nutty_id;
@@ -197,7 +200,7 @@ namespace NuttyApp {
 			window = new Gtk.ApplicationWindow (this);
 			icon_theme = Gtk.IconTheme.get_default ();
 			//set window attributes
-			window.set_default_size(1000, 600);
+			window.set_default_size(1100, 600);
 			window.set_border_width (Constants.SPACING_WIDGETS);
 			window.set_position (Gtk.WindowPosition.CENTER);
 			window.window_position = Gtk.WindowPosition.CENTER;
@@ -458,7 +461,7 @@ namespace NuttyApp {
 			infoProcessSpinner = new Spinner();
 			//Set connection values into combobox
 			info_combobox.insert(0,Constants.TEXT_FOR_INTERFACE_LABEL,Constants.TEXT_FOR_INTERFACE_LABEL);
-			int info_combobox_counter = 1;
+			info_combobox_counter = 1;
 			foreach (var entry in interfaceConnectionMap.entries) {
 				info_combobox.insert(info_combobox_counter, entry.key, entry.value);
 				info_combobox_counter++;
@@ -751,83 +754,8 @@ namespace NuttyApp {
 			stack.add_titled(ports_layout_box, "ports", Constants.TEXT_FOR_PORTS_TAB);
 			debug("Ports tab set up completed...");
 
-			//Tab 5 : Devices : Show details of Devices on the network
-			TreeView device_table_treeview = new TreeView();
-			//device_table_treeview.set_fixed_height_mode(true);
-			devicesSpinner = new Gtk.Spinner();
-
-			Button devices_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
-			devices_refresh_button.set_relief (ReliefStyle.NONE);
-			devices_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_DEVICES_TOOLTIP);
-			//set the devices refresh button to in-active status
-			devices_refresh_button.set_sensitive (false);
-
-			CellRendererText device_cell_txt = new CellRendererText ();
-			CellRendererPixbuf device_cell_pix = new CellRendererPixbuf ();
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_1, device_cell_pix, "pixbuf", 0);
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_2, device_cell_txt, "text", 1);
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_3, device_cell_txt, "text", 2);
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_4, device_cell_txt, "text", 3);
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_5, device_cell_txt, "text", 4);
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_6, device_cell_txt, "text", 5);
-
-			ScrolledWindow devices_scroll = new ScrolledWindow (null, null);
-			devices_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
-			devices_scroll.add (device_table_treeview);
-
-			devices_results_label = new Label (" ");
-			Label devices_details_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
-			ComboBoxText devices_combobox = new ComboBoxText();
-			//Set connection values into combobox
-			devices_combobox.insert(0,Constants.TEXT_FOR_INTERFACE_LABEL,Constants.TEXT_FOR_INTERFACE_LABEL);
-			int devices_combobox_counter = 1;
-			foreach (var entry in interfaceConnectionMap.entries) {
-				devices_combobox.insert(info_combobox_counter, entry.key, entry.value);
-				devices_combobox_counter++;
-			}
-			devices_combobox.active = 0;
-
-			Box devices_results_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
-			devices_results_box.pack_start (devices_combobox, false, true, 0);
-			devices_results_box.pack_start (devices_details_label, false, true, 0);
-			devices_results_box.pack_start (devices_results_label, false, true, 0);
-			devices_results_box.pack_end (devices_refresh_button, false, true, 0);
-			devices_results_box.pack_end (devicesSpinner, false, true, 0);
-
-			Box devices_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			devices_layout_box.set_homogeneous (false);
-			devices_layout_box.pack_start (devices_results_box, false, true, 0);
-			devices_layout_box.pack_start (devices_scroll, true, true, 0);
-			debug("Devices tab set up completed...");
-			// Set actions for Interface DropDown change
-			devices_combobox.changed.connect (() => {
-				if(devices_combobox.get_active_id () != Constants.TEXT_FOR_INTERFACE_LABEL){//valid interface connection is set
-					//set the devices refresh button to active status
-					devices_refresh_button.set_sensitive (true);
-					//process device scan for selected interface
-					devicesSpinner.start();
-					devicesTreeModelFilter = new Gtk.TreeModelFilter (processDevicesScan(devices_combobox.get_active_id ()), null);
-					setFilterAndSort(device_table_treeview, devicesTreeModelFilter, SortType.DESCENDING);
-					isDevicesViewLoaded = true;
-				}else{// no interface connection is set
-					//set the devices refresh button to in-active status
-					devices_refresh_button.set_sensitive (false);
-					//populate device data recorded earlier
-					devicesTreeModelFilter = new Gtk.TreeModelFilter (fetchRecordedDevices(), null);
-					setFilterAndSort(device_table_treeview, devicesTreeModelFilter, SortType.DESCENDING);
-					isDevicesViewLoaded = true;
-				}
-			});
-
-			// Set actions for Device Refresh Button Clicking
-			devices_refresh_button.clicked.connect (() => {
-				devicesSpinner.start();
-				devicesTreeModelFilter = new Gtk.TreeModelFilter (processDevicesScan(devices_combobox.get_active_id ()), null);
-				setFilterAndSort(device_table_treeview, devicesTreeModelFilter, SortType.DESCENDING);
-				isDevicesViewLoaded = true;
-			});
-			//Add devices-box to stack
-			stack.add_titled(devices_layout_box, "devices", Constants.TEXT_FOR_DEVICES_TAB);
+			//Tab 5: Add devices-box to stack
+			stack.add_titled(NuttyApp.Devices.createDeviceUI(), "devices", Constants.TEXT_FOR_DEVICES_TAB);
 			/* End of all tabs UI set up */
 
 			//Check every time a tab is clicked and perform necessary actions
@@ -858,8 +786,8 @@ namespace NuttyApp {
 					isPortsViewLoaded = true;
 				}
 				if(!isDevicesViewLoaded && "devices"==stack.get_visible_child_name()){
-					devicesTreeModelFilter = new Gtk.TreeModelFilter (fetchRecordedDevices(), null);
-					setFilterAndSort(device_table_treeview, devicesTreeModelFilter, SortType.DESCENDING);
+					devicesTreeModelFilter = new Gtk.TreeModelFilter (NuttyApp.Devices.fetchRecordedDevices(), null);
+					setFilterAndSort(NuttyApp.Devices.device_table_treeview, devicesTreeModelFilter, SortType.DESCENDING);
 					isDevicesViewLoaded = true;
 				}
 			});
@@ -888,6 +816,8 @@ namespace NuttyApp {
 
 		public void loadNuttyState(){
 			debug("Started loading Nutty state...");
+			//check if the database exists otherwise create database and required tables
+			NuttyApp.DB.initializeNuttyDB(nutty_config_path);
 			if("true" == fileOperations("EXISTS",nutty_config_path, Constants.nutty_state_file_name, "")){
 				DEVICE_SCHEDULE_STATE = int.parse(fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_DEVICE_MONITORING_STATE));
 				DEVICE_SCHEDULE_SELECTED = int.parse(fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_DEVICE_MONITORING_SCHEDULE));
@@ -1247,7 +1177,7 @@ namespace NuttyApp {
 			debug("Completed getting connection details...");
 		}
 
-		private bool filterTree(TreeModel model, TreeIter iter){
+		public static bool filterTree(TreeModel model, TreeIter iter){
 			bool isFilterCriteriaMatch = true;
 			string modelValueString = "";
 			//If there is nothing to filter or the default help text then make the data visible
@@ -1278,7 +1208,7 @@ namespace NuttyApp {
 			return isFilterCriteriaMatch;
 		}
 
-		public void setFilterAndSort(TreeView aTreeView, Gtk.TreeModelFilter aTreeModelFilter, SortType aSortType){
+		public static void setFilterAndSort(TreeView aTreeView, Gtk.TreeModelFilter aTreeModelFilter, SortType aSortType){
 			aTreeModelFilter.set_visible_func(filterTree);
 			Gtk.TreeModelSort aTreeModelSort = new TreeModelSort.with_model (aTreeModelFilter);
 			aTreeView.set_model(aTreeModelSort);
@@ -1604,300 +1534,9 @@ namespace NuttyApp {
 			return ports_tcp_list_store;
 		}
 
-		public Gee.ArrayList<Gee.ArrayList<string>> manageDeviceScanResults (string mode, string nmapOutput, string interfaceName){
-			debug("Starting to manage DeviceScan Results [mode="+mode+",interfaceName="+interfaceName+"]...");
-			Gee.ArrayList<ArrayList<string>> deviceDataArrayList =  new Gee.ArrayList<Gee.ArrayList<string>>();
-			try{
-				string devicePropsData = "";
-				int deviceAttributeCounter = 0;
+		
 
-				/* Read Device Props and create a device data object */
-				devicePropsData = fileOperations("READ", nutty_config_path, Constants.nutty_devices_property_file_name, "");
-				//Add the data from the Device Props to the Device Array Object
-				if("false" != devicePropsData && devicePropsData.length>10){
-					//fetch the individual device details
-					string[] recordedDeviceList = Utils.multiExtractBetweenTwoStrings(devicePropsData, Constants.IDENTIFIER_FOR_PROPERTY_START, Constants.IDENTIFIER_FOR_PROPERTY_END);
-					foreach(string aDeviceDetails in recordedDeviceList){
-						//fetch the attributes of each device
-						string[] recordedDeviceAttributes = aDeviceDetails.split("==");
-						//Add the device into the Device Object only if the number of device attributes is 7
-						if(recordedDeviceAttributes.length ==7){
-							//create a single device object
-							Gee.ArrayList<string> recordedDeviceAttributesArrayList = new Gee.ArrayList<string>();
-							//set the device attributes into the single device object
-							foreach(string aRecordedDeviceAttribute in recordedDeviceAttributes){
-								recordedDeviceAttributesArrayList.insert(deviceAttributeCounter,aRecordedDeviceAttribute);
-								deviceAttributeCounter++;
-							}
-							//set the device status as not active initially
-							recordedDeviceAttributesArrayList.set(6,Constants.TEXT_FOR_DEVICES_NONACTIVE_NOW);
-							//add the single device object into the device list object
-							deviceDataArrayList.add(recordedDeviceAttributesArrayList);
-							//reset the device attribute counter
-							deviceAttributeCounter = 0;
-						}
-					}
-				}else{
-					//This will be the scenario for the first time use of the Devices tab on Nutty
-					//Do Nothing
-				}
-
-				/* Mode: DEVICE_DATA - Return the data from the device props file */
-				if(mode == "DEVICE_DATA"){
-					foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-						//set the device status as recorded earlier
-						deviceAttributeArrayList.set(6,Constants.TEXT_FOR_DEVICES_RECORDED);
-					}
-					return deviceDataArrayList;
-				}
-
-				/* Mode: DEVICE ALERT - Check and update device props for alerting new devices */
-				if(mode == "DEVICE_ALERT"){
-					foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-						//check if the alert is pending for the device and process alert
-						if(deviceAttributeArrayList.contains(Constants.DEVICE_ALERT_PENDING)){
-							//alert discovery of new device
-							execute_sync_command(Constants.COMMAND_FOR_DEVICES_ALERT + " '" + TEXT_FOR_DEVICE_FOUND_NOTIFICATION + deviceAttributeArrayList.get(3) + "(" + deviceAttributeArrayList.get(0) + ")'");
-							//set the device alert status to completed
-							deviceAttributeArrayList.set(5,Constants.DEVICE_ALERT_COMPLETED);
-						}
-					}
-				}
-
-				/* Mode: DEVICE_SCAN - Use NMap Output to update device props and get combined output */
-				if(mode == "DEVICE_SCAN_UI" || mode == "DEVICE_SCAN_SCHEDULED"){
-					StringBuilder hostDetails = new StringBuilder("");
-					StringBuilder deviceIPAddress = new StringBuilder("");
-					StringBuilder deviceMACAddress = new StringBuilder("");
-					StringBuilder deviceVendorName = new StringBuilder("");
-					StringBuilder deviceHostName = new StringBuilder("");
-					int startOfBlock = 0;
-					int endOfBlock = 0;
-					bool isNewDevice = true;
-
-					//parse NMap XML output for fetching device details and update device list object appropriately
-					while(startOfBlock != -1){
-						startOfBlock = nmapOutput.index_of(Constants.IDENTIFIER_FOR_START_OF_HOST_IN_NMAP_OUTPUT,startOfBlock);
-						endOfBlock = nmapOutput.index_of(Constants.IDENTIFIER_FOR_END_OF_HOST_IN_NMAP_OUTPUT,startOfBlock);
-						//get the xml content for a single device
-						hostDetails.assign(nmapOutput.substring(startOfBlock, (endOfBlock-startOfBlock)));
-						startOfBlock = endOfBlock;
-						if(hostDetails.str.strip().length > 10){
-							int extractionStartPos = 0;
-							int extractionEndPos = 0;
-							//check for local device or remote device
-							if(hostDetails.str.contains("localhost-response")){ //localhost device: details adjustments
-								//get IP Address of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("<address addr=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceIPAddress.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceIPAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-								//get MAC Address of Device
-								string MACCommandOutput = execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+interfaceName);
-								deviceMACAddress.assign(Utils.extractBetweenTwoStrings(MACCommandOutput,Constants.IDENTIFIER_FOR_MACADDRESS_IN_COMMAND_OUTPUT," ").up(-1));
-								if(deviceMACAddress.str.length < 5){
-									//Assign no data available for MAC Address
-									deviceMACAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE).append(deviceIPAddress.str);
-								}
-								//get vendor name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("vendor=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceVendorName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Attempt an online search for vendor name for scheduled process only
-									if(mode == "DEVICE_SCAN_SCHEDULED"){
-										deviceVendorName.assign(getHostManufacturerOnline(deviceMACAddress.str));
-									}
-									if(deviceVendorName.str.length < 1){
-										//Assign no data available for vendor name
-										deviceVendorName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-									}
-								}
-								//get host name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("name=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceHostName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for host name
-									deviceHostName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-							}else{ //remote device: parse device details from nmap output
-								//get IP Address of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("<address addr=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceIPAddress.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceIPAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-								//get MAC Address of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("<address addr=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceMACAddress.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceMACAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE).append(deviceIPAddress.str);
-								}
-								//get vendor name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("vendor=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceVendorName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Attempt an online search for vendor name
-									if(mode == "DEVICE_SCAN_SCHEDULED"){
-										deviceVendorName.assign(getHostManufacturerOnline(deviceMACAddress.str));
-									}
-									if(deviceVendorName.str.length < 1){
-										//Assign no data available for vendor name
-										deviceVendorName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-									}
-								}
-								//get host name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("name=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceHostName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceHostName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-							}
-
-							//check if the device list object has any data after reading the device props
-							if(deviceDataArrayList.size == 0){
-								//No devices found in the device props - do nothing
-							}else{
-								//check if the MAC address of the device is present in device list object
-								foreach(Gee.ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-									if(deviceAttributeArrayList.size != 0){
-										if(deviceAttributeArrayList.contains(deviceMACAddress.str)){
-											//This device already exists - update IP Address
-											deviceAttributeArrayList.set(0,deviceIPAddress.str);
-											//update the device status as active
-											deviceAttributeArrayList.set(6,Constants.TEXT_FOR_DEVICES_ACTIVE_NOW);
-											//Attempt an online search for vendor name if the vendor name is not recorded for this device
-											if(deviceAttributeArrayList.get(2) == Constants.TEXT_FOR_NOT_AVAILABLE){
-												if(mode == "DEVICE_SCAN_SCHEDULED"){
-													deviceAttributeArrayList.set(2,getHostManufacturerOnline(deviceAttributeArrayList.get(1)));
-												}
-											}
-											isNewDevice = false;
-										}else{
-											//do nothing
-										}
-									}
-								}
-							}
-							//add details of the device to the device object list if it is a new one
-							if(isNewDevice){
-								Gee.ArrayList<string> deviceAttributeArrayList = new Gee.ArrayList<string> ();
-								deviceAttributeArrayList.add(deviceIPAddress.str);
-								deviceAttributeArrayList.add(deviceMACAddress.str);
-								deviceAttributeArrayList.add(deviceVendorName.str);
-								deviceAttributeArrayList.add(deviceHostName.str);
-								deviceAttributeArrayList.add(new DateTime.now_local().format("%d-%b-%Y %H:%M:%S"));
-								deviceAttributeArrayList.add(Constants.DEVICE_ALERT_PENDING);
-								deviceAttributeArrayList.add(Constants.TEXT_FOR_DEVICES_ACTIVE_NOW);
-								deviceDataArrayList.add(deviceAttributeArrayList);
-							}
-
-							//reset variables for capturing the next host details
-							hostDetails.assign("");
-							deviceIPAddress.assign("");
-							deviceMACAddress.assign("");
-							deviceVendorName.assign("");
-							deviceHostName.assign("");
-							isNewDevice = true;
-						}
-					}
-				}
-
-				/* Update device props by overwriting it with the latest device details */
-				StringBuilder updatedDevicePropsData = new StringBuilder("");
-				foreach(Gee.ArrayList<string> updatedDeviceAttributeArrayList in deviceDataArrayList){
-					if(updatedDeviceAttributeArrayList.size != 0){
-						updatedDevicePropsData.append(Constants.IDENTIFIER_FOR_PROPERTY_START);
-						foreach(string updatedDeviceAttribute in updatedDeviceAttributeArrayList){
-							updatedDevicePropsData.append(updatedDeviceAttribute);
-							updatedDevicePropsData.append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE);
-						}
-						//remove the last attribute seperator - last two bytes
-						updatedDevicePropsData.erase(updatedDevicePropsData.str.length-2,2);
-						updatedDevicePropsData.append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-					}
-				}
-				//overwrite the device data to the devices props file
-				fileOperations("WRITE", nutty_config_path, Constants.nutty_devices_property_file_name, updatedDevicePropsData.str);
-				//set permissions on device props
-				fileOperations("SET_PERMISSIONS", nutty_config_path, Constants.nutty_devices_property_file_name, "777");
-			}catch(Error e){
-				warning("Failure in managing DeviceScan Results:"+e.message);
-			}
-			debug("Completed managing DeviceScan Results [mode="+mode+",interfaceName="+interfaceName+"]...");
-			return deviceDataArrayList;
-		}
-
-		public Gtk.ListStore processDevicesScan(string interfaceName){
-			debug("Starting to process DevicesScan [interfaceName="+interfaceName+"]...");
-			device_list_store.clear();
-			try{
-				TreeIter iter;
-
-				//Get the IP Address for the selected interface
-				string scanIPAddress = interfaceIPMap.get(interfaceName);
-				if(scanIPAddress == null || scanIPAddress == "" || scanIPAddress == "Not Available" || scanIPAddress == "127.0.0.1"){
-					devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND+_(" for ")+interfaceName);
-				}else{
-					//set up the IP Address to scan the network : This should be of the form 192.168.1.1/24
-					if(scanIPAddress.length>0 && scanIPAddress.last_index_of(".") > -1){
-						scanIPAddress = scanIPAddress.substring(0, scanIPAddress.last_index_of("."))+".1/24";
-						if(scanIPAddress != null || "" != scanIPAddress.strip()){
-							//Run NMap scan and capture output
-							execute_sync_multiarg_command_pipes({"pkexec", Constants.nutty_script_path + "/" + Constants.nutty_devices_file_name, scanIPAddress});
-							string deviceScanResult = spawn_async_with_pipes_output.str;
-
-							//set the NMap scan result on the Devices Results Label
-							int extractionStartPos = deviceScanResult.index_of(";",deviceScanResult.index_of(Constants.IDENTIFIER_FOR_NMAP_RESULTS,0))+1;
-							int extractionEndPos = deviceScanResult.index_of("\"",extractionStartPos+1);
-							devices_results_label.set_text(deviceScanResult.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-
-							//parse the NMap output and update the devices props file
-							Gee.ArrayList<ArrayList<string>> deviceDataArrayList = manageDeviceScanResults("DEVICE_SCAN_UI", deviceScanResult, interfaceName);
-
-							//populate the Gtk.ListStore for the NMap scan
-							foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-								device_list_store.append (out iter);
-								if(deviceAttributeArrayList.get(6).contains(Constants.TEXT_FOR_DEVICES_NONACTIVE_NOW)){
-									device_list_store.set (iter, 0, device_offline_pix, 1, deviceAttributeArrayList.get(3), 2, deviceAttributeArrayList.get(2), 3, deviceAttributeArrayList.get(4), 4, deviceAttributeArrayList.get(0), 5, deviceAttributeArrayList.get(1));
-								}else{
-									device_list_store.set (iter, 0, device_available_pix, 1, deviceAttributeArrayList.get(3), 2, deviceAttributeArrayList.get(2), 3, deviceAttributeArrayList.get(4), 4, deviceAttributeArrayList.get(0), 5, deviceAttributeArrayList.get(1));
-								}
-							}
-						}
-					}else{
-						devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND);
-					}
-				}
-
-				//stop the spinner on the UI
-				devicesSpinner.stop();
-			}catch(Error e){
-				warning("Failure in processing DevicesScan:"+e.message);
-			}
-			debug("Completed processing DevicesScan [interfaceName="+interfaceName+"]...");
-			return device_list_store;
-		}
-
-		public string getHostManufacturerOnline (string MAC){
+		public static string getHostManufacturerOnline (string MAC){
 			debug("Starting to get Host Manufacturer Name from MAC Id["+MAC+"] by Online search...");
 			string manufacturerName = "";
 			try{
@@ -1914,32 +1553,6 @@ namespace NuttyApp {
 			}
 			debug("Completed getting Host Manufacturer Name from MAC Id["+MAC+"] by Online search...");
 			return manufacturerName;
-		}
-
-		public Gtk.ListStore fetchRecordedDevices() {
-			debug("Starting to fetch recorded devices..." );
-			device_list_store.clear();
-			try{
-				TreeIter iter;
-				//Read the devices props file for recorded data
-				Gee.ArrayList<ArrayList<string>> deviceDataArrayList = manageDeviceScanResults("DEVICE_DATA", "", "");
-				if(deviceDataArrayList.size > 0){
-					//populate the Gtk.ListStore for the recorded data
-					foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-						device_list_store.append (out iter);
-						device_list_store.set (iter, 0, device_offline_pix, 1, deviceAttributeArrayList.get(3), 2, deviceAttributeArrayList.get(2), 3, deviceAttributeArrayList.get(4), 4, deviceAttributeArrayList.get(0), 5, deviceAttributeArrayList.get(1));
-					}
-					//Set results label
-					devices_results_label.set_text(Constants.TEXT_FOR_RECORDED_DEVICES);
-				}else{
-					//Set results label
-					devices_results_label.set_text(Constants.TEXT_FOR_NO_RECORDED_DEVICES_FOUND);
-				}
-			}catch(Error e){
-				warning("Failure to fetch recorded devices:"+e.message);
-			}
-			debug("Completed fetching recorded devices...");
-			return device_list_store;
 		}
 
 		public Gtk.ListStore processBandwidthApps(string interface_name){
@@ -2183,7 +1796,7 @@ namespace NuttyApp {
 							//Remove temporary NMap results file
 							fileOperations("DELETE", Constants.nmap_output_path, Constants.nmap_output_filename, "");
 							//parse the NMap output and update the devices props file
-							manageDeviceScanResults("DEVICE_SCAN_SCHEDULED", deviceScanResult, interfaceName);
+							NuttyApp.Devices.manageDeviceScanResults("DEVICE_SCAN_SCHEDULED", deviceScanResult, interfaceName);
 						}
 					}
 				}
@@ -2207,7 +1820,7 @@ namespace NuttyApp {
 		public void alertNewDevices(){
 			debug("Starting check for alerting on new devices found..");
 			//process device props for devices pending alert
-			manageDeviceScanResults("DEVICE_ALERT", "", "");
+			NuttyApp.Devices.manageDeviceScanResults("DEVICE_ALERT", "", "");
 			debug("Completed check for alerting on new devices found..");
 		}
 	}

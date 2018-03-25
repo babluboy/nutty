@@ -257,4 +257,245 @@ namespace NuttyApp.Utils{
         aFileChooserDialog.set_filter (text_files_filter);
         return aFileChooserDialog;
     }
+
+	public static string fileOperations (string operation, string path, string filename, string contents) {
+		debug("Started file operation["+operation+"], for path="+path+", filename="+filename);
+		StringBuilder result = new StringBuilder("false");
+		string data = "";
+		File fileDir = null;
+		File file = null;
+		try{
+			if(path != null || path.length > 1){
+				fileDir = File.new_for_commandline_arg(path);
+			}
+			if(filename != null && filename.length > 1){
+				file = File.new_for_path(path+"/"+filename);
+			}else{
+				file = File.new_for_path(path);
+			}
+			if("CREATEDIR" == operation){
+				//check if directory does not exists
+				if(!fileDir.query_exists ()){
+					//create the directory
+					fileDir.make_directory();
+					result.assign("true");
+					//close and release the file
+					FileUtils.close(new IOChannel.file(path, "r").unix_get_fd());
+					debug("Directory created:"+fileDir.get_path());
+				}else{
+					//do nothing
+					result.assign("true");
+				}
+			}
+			if("WRITE" == operation){
+				//check if directory does not exists
+				if(!fileDir.query_exists ()){
+					//create the directory
+					fileDir.make_directory();
+					//write the contents to file
+					FileUtils.set_contents (path+"/"+filename, contents);
+					result.assign("true");
+				}else{
+					//write or overwrite contents to file
+					FileUtils.set_data (path+"/"+filename, contents.data);
+					result.assign("true");
+				}
+			}
+			if("WRITE_PROPS" == operation){
+				//check if directory does not exists
+				if(!fileDir.query_exists ()){
+					//create the directory
+					fileDir.make_directory();
+					//write the contents to file
+					FileUtils.set_contents (path+"/"+filename, contents);
+				}
+				bool wasRead = FileUtils.get_contents(path+"/"+filename, out data);
+				if(wasRead){
+					string[] name_value = contents.split(Constants.IDENTIFIER_FOR_PROPERTY_VALUE, -1);
+					//get the contents of the file
+					result.assign(data);
+					//check if the property (name/value) exists
+					if(data.contains(name_value[0])){
+						//extract the data before the property name
+						string dataBeforeProp = result.str.split(Constants.IDENTIFIER_FOR_PROPERTY_START+
+																   contents.split(Constants.IDENTIFIER_FOR_PROPERTY_VALUE,2)[0],2)[0];
+						//extract the data after the property name/value
+						string dataAfterProp = result.str.split(contents+Constants.IDENTIFIER_FOR_PROPERTY_END)[1];
+						//name/value exists - update the same
+						result.append(dataBeforeProp+contents+dataAfterProp);
+						//update the modified contents to file
+						FileUtils.set_contents (path+"/"+filename, result.str);
+					}else{
+						//name/value does not exists - write the same
+						result.append(Constants.IDENTIFIER_FOR_PROPERTY_START+contents+Constants.IDENTIFIER_FOR_PROPERTY_END);
+						FileUtils.set_contents (path+"/"+filename, result.str);
+					}
+				}else
+					result.assign("false");
+				}
+			if("READ" == operation){
+				if(file.query_exists ()){
+					bool wasRead = FileUtils.get_contents(path+"/"+filename, out data);
+					if(wasRead){
+						result.assign(data);
+					}else{
+						result.assign("false");
+					}
+				}else{
+					result.assign("false");
+				}
+			}
+			if("READ_FILE" == operation){
+				bool wasRead = FileUtils.get_contents(path, out data);
+				if(wasRead){
+					result.assign(data);
+				}else{
+					result.assign("false");
+				}
+			}
+			if("READ_PROPS" == operation){
+				if(NuttyApp.Nutty.nutty_state_data.length > 5){ //nutty state data exists - no need to read the nutty state file
+					data  = NuttyApp.Nutty.nutty_state_data;
+				}else{ //nutty state data is not available - read the nutty state file
+					if(file.query_exists ()){
+						bool wasRead = FileUtils.get_contents(path+"/"+filename, out data);
+						if(wasRead){
+							//set the global variable for the nutty state data to avoid reading the contents again
+							NuttyApp.Nutty.nutty_state_data = data;
+						}else{
+							result.assign("false");
+						}
+						//close and release the file
+						FileUtils.close(new IOChannel.file(path+"/"+filename, "r").unix_get_fd());
+					}else{
+						result.assign("false");
+					}
+				}
+				//get the part of the contents starting with the value of the props
+				result.assign(data.split(Constants.IDENTIFIER_FOR_PROPERTY_START+contents+Constants.IDENTIFIER_FOR_PROPERTY_VALUE,2)[1]);
+				//get the value of the prop
+				result.assign(result.str.split(Constants.IDENTIFIER_FOR_PROPERTY_END,2)[0]);
+			}
+			if("DELETE" == operation){
+				FileUtils.remove(path+"/"+filename);
+			}
+			if("EXISTS" == operation){
+				if(file.query_exists ()){
+					result.assign("true");
+				}
+			}
+			if("DIR_EXISTS" == operation){
+				if(fileDir.query_exists ()){
+					result.assign("true");
+				}
+			}
+			if("IS_EXECUTABLE" == operation){
+				if(FileUtils.test (path+"/"+filename, FileTest.IS_EXECUTABLE)){
+					result.assign("true");
+				}
+			}
+			if("MAKE_EXECUTABLE" == operation){
+				NuttyApp.Nutty.execute_sync_command ("chmod +x "+path+"/"+filename);
+				result.assign("true");
+			}
+			if("SET_PERMISSIONS" == operation){
+				NuttyApp.Nutty.execute_sync_command ("chmod "+contents+" "+path+"/"+filename);
+				result.assign("true");
+			}
+		}catch (Error e){
+			warning("Failure in File Operation [operation="+operation+",path="+path+", filename="+filename+"]: "+e.message);
+			result.assign("false:"+e.message);
+		}
+		debug("Completed file operation["+operation+"]...");
+		return result.str;
+	}
+
+	public static DateTime getDateFromString(string dateString){
+		//expecting date in format : 10-Sep-2016 19:49:04
+		char[] dateChars = dateString.strip().to_utf8 ();
+		if(dateChars.length == 20){
+			int day = int.parse(dateChars[0].to_string()+dateChars[1].to_string());
+			string monthString = dateChars[3].to_string()+dateChars[4].to_string()+dateChars[5].to_string();
+			int month = 1;
+			switch (monthString) {
+				case "Jan" : 
+						month = 1;
+						break;
+				case "Feb" : 
+						month = 2;
+						break;
+				case "Mar" : 
+						month = 3;
+						break;
+				case "Apr" : 
+						month = 4;
+						break;
+				case "May" : 
+						month = 5;
+						break;
+				case "Jun" : 
+						month = 6;
+						break;
+				case "Jul" : 
+						month = 7;
+						break;
+				case "Aug" : 
+						month = 8;
+						break;
+				case "Sep" : 
+						month = 9;
+						break;
+				case "Oct" : 
+						month = 10;
+						break;
+				case "Nov" : 
+						month = 11;
+						break;
+				case "Dec" : 
+						month = 12;
+						break;
+				default:
+						month = 1;
+						break;
+			}
+			int year = int.parse(dateChars[7].to_string()+dateChars[8].to_string()+dateChars[9].to_string()+dateChars[10].to_string());
+			int hour = int.parse(dateChars[12].to_string()+dateChars[13].to_string());
+			int min = int.parse(dateChars[15].to_string()+dateChars[16].to_string());
+			int sec = int.parse(dateChars[18].to_string()+dateChars[19].to_string());
+			return new DateTime.local (year, month, day, hour, min, sec); 
+		}else{
+			return new DateTime.now_local(); 
+		}
+	}
+	
+	public static string getFormattedDate (string dateString, string dateFormatString, bool considerElapsedTIme){
+		string modifiedElapsedTime = "";
+		if(considerElapsedTIme){
+			//calculate the time elapsed from last modified DateTime
+			TimeSpan timespan = (new DateTime.now_local()).difference (
+					                                        new DateTime.from_unix_local(int64.parse(dateString))
+					                                );
+			int64 daysElapsed = timespan/(86400000000);
+			if( timespan < TimeSpan.DAY){
+			  modifiedElapsedTime = NuttyApp.Constants.TEXT_FOR_TIME_TODAY;
+			}else if(timespan < 2 * TimeSpan.DAY){
+			  modifiedElapsedTime = NuttyApp.Constants.TEXT_FOR_TIME_YESTERDAY;
+			}else if(timespan < 30 * TimeSpan.DAY){
+			  modifiedElapsedTime = daysElapsed.to_string()+ " " + NuttyApp.Constants.TEXT_FOR_TIME_DAYS;
+			}else{
+			  modifiedElapsedTime = new DateTime.from_unix_local(int64.parse(dateString)).format(dateFormatString);
+			}
+		}else{
+			modifiedElapsedTime = new DateTime.from_unix_local(int64.parse(dateString)).format(dateFormatString);
+		}
+		return modifiedElapsedTime;
+	}
+
+	public static string limitStringLength (owned string inputString, int length) {
+		if(inputString != null && inputString.length > length && inputString.length > length){
+			return inputString.slice(0, length) + "...";
+		}else{
+			return inputString;
+		}
+	}
 }
