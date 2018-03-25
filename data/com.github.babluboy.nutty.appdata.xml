@@ -34,6 +34,7 @@
       ​         <p>Ability to update and remove discovered devices</p>
 ​            </description>
 ​       </release>
+    </releases>
     <releases>
         <release version="0.9" date="2017-05-27">
             ​<description>
