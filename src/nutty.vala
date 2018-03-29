@@ -126,7 +126,7 @@ namespace NuttyApp {
 
 			options = new OptionEntry[5];
 			options[0] = { "version", 0, 0, OptionArg.NONE, ref command_line_option_version, _("Display version number"), null };
-			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("PATH"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
+			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("Run Nutty to discover devices"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
 			options[2] = { "alert", 0, 0, OptionArg.NONE, ref command_line_option_alert, _("Run Nutty in device alert mode"), null };
 			options[3] = { "debug", 0, 0, OptionArg.NONE, ref command_line_option_debug, _("Run Nutty in debug mode"), null };
 			options[4] = { "info", 0, 0, OptionArg.NONE, ref command_line_option_info, _("Run Nutty in info mode"), null };
@@ -179,11 +179,17 @@ namespace NuttyApp {
 				print("nutty version "+Constants.nutty_version+" \n");
 			}else if(command_line_option_monitor.length > 0){
 				print("\nRunning Nutty in Device Monitor Mode for config at "+command_line_option_monitor+"\n");
+				//initialize the DB
+				NuttyApp.DB.initializeNuttyDB(nutty_config_path);
 				nutty_config_path = command_line_option_monitor;
-				application.runDeviceScan();
+				//run device discovery as a background task
+				NuttyApp.Devices.runDeviceDiscovery();
 			}else if(command_line_option_alert){
 				print("\nRunning Nutty in Device Alert Mode \n");
-				application.alertNewDevices();
+				//initialize the DB
+				NuttyApp.DB.initializeNuttyDB(nutty_config_path);
+				//alert devices pending alerting
+				NuttyApp.Devices.alertNewDevices();
 			}
 			return 0;
 		}
@@ -1754,74 +1760,6 @@ namespace NuttyApp {
 				warning("Failure in setting up device monitoring:"+e.message);
 			}
 			debug("Completed setting up device monitoring...");
-		}
-
-		/* functions for command line options : monitoring and alerting */
-		public Gee.ArrayList<string> getInterfaceListForMonitor() {
-			Gee.ArrayList <string> interfaceList =  new Gee.ArrayList<string>();
-			string commandOutput = execute_sync_command(Constants.COMMAND_FOR_INTERFACE_NAMES); //get command output for interface details
-			string[] linesArray = commandOutput.strip().split ("\n",-1); //split the indivudual lines in the output
-			//In each line split the strings and record the first string only
-			foreach(string dataElement in linesArray){
-				string[] dataArray = dataElement.split (" ",-1);
-				interfaceList.add ((string)dataArray[0].strip());
-			}
-			interfaceList.remove_at (0); //throw away the first string as that is a header name
-			return interfaceList;
-		}
-
-		public void recordNewDevicesList(string interfaceName){
-			debug("Starting to check new devices on scheduled basis [interfaceName="+interfaceName+"]...");
-			try{
-				StringBuilder commandOutput = new StringBuilder();
-				StringBuilder IPAddress = new StringBuilder();
-				//execute command for IP and MAC
-				commandOutput.assign(execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+interfaceName));
-				//find an IP address for each interface name
-				string scanIPAddress = Utils.extractBetweenTwoStrings(commandOutput.str,Constants.IDENTIFIER_FOR_IPADDRESS_IN_COMMAND_OUTPUT," ");
-				debug("Found IPAddress ="+IPAddress.str);
-				if(scanIPAddress == null || scanIPAddress == "" || scanIPAddress == "Not Available" || scanIPAddress == "127.0.0.1"){
-					//Local IP or No IP Available, so no scanning required
-					debug("No scanning required as scanIPAddress="+scanIPAddress);
-				}else{
-					//set NMap scan on IP of the form: 192.168.1.1/24
-					if(scanIPAddress.length>0 && scanIPAddress.last_index_of(".") > -1){
-						scanIPAddress = scanIPAddress.substring(0, scanIPAddress.last_index_of("."))+".1/24";
-						debug("Starting scanning with scanIPAddress="+scanIPAddress);
-						if(scanIPAddress != null || "" != scanIPAddress.strip()){
-							//Run NMap scan and capture output
-							execute_sync_command(Constants.COMMAND_FOR_DEVICES_PREFIX + Constants.nmap_output_path + "/" + Constants.nmap_output_filename + Constants.COMMAND_FOR_DEVICES_SUFFIX + " " + scanIPAddress);
-							//Read NMap Output from temporary file
-							string deviceScanResult = fileOperations("READ", Constants.nmap_output_path, Constants.nmap_output_filename, "");
-							//Remove temporary NMap results file
-							fileOperations("DELETE", Constants.nmap_output_path, Constants.nmap_output_filename, "");
-							//parse the NMap output and update the devices props file
-							NuttyApp.Devices.manageDeviceScanResults("DEVICE_SCAN_SCHEDULED", deviceScanResult, interfaceName);
-						}
-					}
-				}
-			}catch(Error e){
-				warning("Failure in checking new devices on scheduled basis [interfaceName="+interfaceName+"]:"+e.message);
-			}
-			debug("Completed checking new devices on scheduled basis [interfaceName="+interfaceName+"]...");
-		}
-
-		public void runDeviceScan(){
-			debug("Starting to run device scan on scheduled mode...");
-			//Get a list of active interfaces
-			Gee.ArrayList <string> interfaceList = getInterfaceListForMonitor();
-			foreach (string inteface in interfaceList) {
-				//Get a list of all new devices and record them in the props file
-				recordNewDevicesList(inteface);
-			}
-			debug("Completed running device scan on scheduled mode...");
-		}
-
-		public void alertNewDevices(){
-			debug("Starting check for alerting on new devices found..");
-			//process device props for devices pending alert
-			NuttyApp.Devices.manageDeviceScanResults("DEVICE_ALERT", "", "");
-			debug("Completed check for alerting on new devices found..");
 		}
 	}
 }

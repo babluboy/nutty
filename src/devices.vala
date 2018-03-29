@@ -21,8 +21,7 @@ using Gee;
 
 public class NuttyApp.Devices {
 	public static TreeView device_table_treeview;
-	//public static StringBuilder device_mac_found_in_scan = new StringBuilder("");
-
+	
 	public static Box createDeviceUI(){
 			info("[START] [FUNCTION:createDeviceUI]");
 			Box devices_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
@@ -117,7 +116,10 @@ public class NuttyApp.Devices {
 				//populate the Gtk.ListStore for the recorded data
 				foreach(NuttyApp.Entities.Device aDevice in NuttyApp.Nutty.deviceDataArrayList){
 					NuttyApp.Nutty.device_list_store.append (out iter);
-					if(NuttyApp.Nutty.device_mac_found_in_scan.str.index_of(aDevice.device_mac) != -1){
+					if(	aDevice.device_mac != null &&
+						aDevice.device_mac != "" && 
+						NuttyApp.Nutty.device_mac_found_in_scan.str.index_of(aDevice.device_mac) != -1
+					){
 						isDeviceOnline = true;
 					}else{
 						isDeviceOnline = false;
@@ -160,7 +162,7 @@ public class NuttyApp.Devices {
 					scanIPAddress = scanIPAddress.substring(0, scanIPAddress.last_index_of("."))+".1/24";
 					if(scanIPAddress != null || "" != scanIPAddress.strip()){
 						//parse the NMap output and update the devices on DB
-						runDeviceScan(interfaceName);
+						runDeviceScan(scanIPAddress);
 						//refresh the UI for the device list
 						Gtk.ListStore currentdevice_list_store = fetchRecordedDevices();
 						//set the label for devices search
@@ -182,281 +184,80 @@ public class NuttyApp.Devices {
 		return NuttyApp.Nutty.device_list_store;
 	}
 
-	public static void runDeviceScan (string interfaceName) {
-		info("[START] [FUNCTION:runDeviceScan] [interfaceName="+interfaceName+"]");
-		
-		//Get the IP Address for the selected interface
-		string scanIPAddress = NuttyApp.Nutty.interfaceIPMap.get(interfaceName);
-		//Quit if no valid IP is found
-		if(scanIPAddress == null || scanIPAddress == "" || scanIPAddress == "Not Available" || scanIPAddress == "127.0.0.1"){
-			NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND+_(" for ")+interfaceName);
-			return;
+	public static void runDeviceScan (string scanIPAddress) {
+		info("[START] [FUNCTION:runDeviceScan] [scanIPAddress="+scanIPAddress+"]");
+		//Run NMap scan and capture output
+		NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
+						"pkexec", 
+						Constants.nutty_script_path + "/" + Constants.nutty_devices_file_name, scanIPAddress
+		});
+		string deviceScanResult = NuttyApp.Nutty.spawn_async_with_pipes_output.str;
+		deviceScanResult = deviceScanResult.splice(0, deviceScanResult.index_of("<nmaprun"), "");
+		NuttyApp.XmlParser thisParser = new NuttyApp.XmlParser();
+		ArrayList<NuttyApp.Entities.Device> extractedDeviceList = thisParser.extractDeviceDataFromXML("/tmp/nutty_nmap.xml");
+		NuttyApp.Nutty.device_mac_found_in_scan.assign("");
+		foreach(NuttyApp.Entities.Device aExtractedDevice in extractedDeviceList){
+			NuttyApp.DB.addDeviceToDB(aExtractedDevice);
+			NuttyApp.Nutty.device_mac_found_in_scan.append(aExtractedDevice.device_mac).append(",");
 		}
-		//set up the IP Address to scan the network : This should be of the form 192.168.1.1/24
-		if(scanIPAddress.length>0 && scanIPAddress.last_index_of(".") > -1){
-			scanIPAddress = scanIPAddress.substring(0, scanIPAddress.last_index_of("."))+".1/24";
-			if(scanIPAddress != null || "" != scanIPAddress.strip()){
-				//Run NMap scan and capture output
-				NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
-								"pkexec", 
-								Constants.nutty_script_path + "/" + Constants.nutty_devices_file_name, scanIPAddress
-				});
-				string deviceScanResult = NuttyApp.Nutty.spawn_async_with_pipes_output.str;
-				deviceScanResult = deviceScanResult.splice(0, deviceScanResult.index_of("<nmaprun"), "");
-				NuttyApp.XmlParser thisParser = new NuttyApp.XmlParser();
-				ArrayList<NuttyApp.Entities.Device> extractedDeviceList = thisParser.extractDeviceDataFromXML("/tmp/nutty_nmap.xml");
-				NuttyApp.Nutty.device_mac_found_in_scan.assign("");
-				foreach(NuttyApp.Entities.Device aExtractedDevice in extractedDeviceList){
-					NuttyApp.DB.addDeviceToDB(aExtractedDevice);
-					NuttyApp.Nutty.device_mac_found_in_scan.append(aExtractedDevice.device_mac).append(",");
-				}
-			}
-		}
-		info("[END] [FUNCTION:runDeviceScan] [interfaceName="+interfaceName+"]");
+		info("[END] [FUNCTION:runDeviceScan] [scanIPAddress="+scanIPAddress+"]");
 	}
 
-	public static Gee.ArrayList<Gee.ArrayList<string>> manageDeviceScanResults (
-		string mode, 
-		string nmapOutput, 
-		string interfaceName)
-	{
-		info("[START] [FUNCTION:manageDeviceScanResults] mode="+mode+",interfaceName="+interfaceName+"]");			
-		Gee.ArrayList<ArrayList<string>> deviceDataArrayList =  new Gee.ArrayList<Gee.ArrayList<string>>();
-		try{
-			string devicePropsData = "";
-			int deviceAttributeCounter = 0;
-			/* Read Device Props and create a device data object */
-			devicePropsData = NuttyApp.Utils.fileOperations("READ", NuttyApp.Nutty.nutty_config_path, Constants.nutty_devices_property_file_name, "");
-				//Add the data from the Device Props to the Device Array Object
-				if("false" != devicePropsData && devicePropsData.length>10){
-					//fetch the individual device details
-					string[] recordedDeviceList = Utils.multiExtractBetweenTwoStrings(devicePropsData, Constants.IDENTIFIER_FOR_PROPERTY_START, Constants.IDENTIFIER_FOR_PROPERTY_END);
-					foreach(string aDeviceDetails in recordedDeviceList){
-						//fetch the attributes of each device
-						string[] recordedDeviceAttributes = aDeviceDetails.split("==");
-						//Add the device into the Device Object only if the number of device attributes is 7
-						if(recordedDeviceAttributes.length ==7){
-							//create a single device object
-							Gee.ArrayList<string> recordedDeviceAttributesArrayList = new Gee.ArrayList<string>();
-							//set the device attributes into the single device object
-							foreach(string aRecordedDeviceAttribute in recordedDeviceAttributes){
-								recordedDeviceAttributesArrayList.insert(deviceAttributeCounter,aRecordedDeviceAttribute);
-								deviceAttributeCounter++;
-							}
-							//set the device status as not active initially
-							recordedDeviceAttributesArrayList.set(6,Constants.TEXT_FOR_DEVICES_NONACTIVE_NOW);
-							//add the single device object into the device list object
-							deviceDataArrayList.add(recordedDeviceAttributesArrayList);
-							//reset the device attribute counter
-							deviceAttributeCounter = 0;
-						}
-					}
-				}else{
-					//This will be the scenario for the first time use of the Devices tab on Nutty
-					//Do Nothing
-				}
-
-				/* Mode: DEVICE_DATA - Return the data from the device props file */
-				if(mode == "DEVICE_DATA"){
-					foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-						//set the device status as recorded earlier
-						deviceAttributeArrayList.set(6,Constants.TEXT_FOR_DEVICES_RECORDED);
-					}
-					return deviceDataArrayList;
-				}
-
-				/* Mode: DEVICE ALERT - Check and update device props for alerting new devices */
-				if(mode == "DEVICE_ALERT"){
-					foreach(ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-						//check if the alert is pending for the device and process alert
-						if(deviceAttributeArrayList.contains(Constants.DEVICE_ALERT_PENDING)){
-							//alert discovery of new device
-							NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_DEVICES_ALERT + " '" + NuttyApp.Nutty.TEXT_FOR_DEVICE_FOUND_NOTIFICATION + deviceAttributeArrayList.get(3) + "(" + deviceAttributeArrayList.get(0) + ")'");
-							//set the device alert status to completed
-							deviceAttributeArrayList.set(5,Constants.DEVICE_ALERT_COMPLETED);
-						}
-					}
-				}
-
-				/* Mode: DEVICE_SCAN - Use NMap Output to update device props and get combined output */
-				if(mode == "DEVICE_SCAN_UI" || mode == "DEVICE_SCAN_SCHEDULED"){
-					StringBuilder hostDetails = new StringBuilder("");
-					StringBuilder deviceIPAddress = new StringBuilder("");
-					StringBuilder deviceMACAddress = new StringBuilder("");
-					StringBuilder deviceVendorName = new StringBuilder("");
-					StringBuilder deviceHostName = new StringBuilder("");
-					int startOfBlock = 0;
-					int endOfBlock = 0;
-					bool isNewDevice = true;
-
-					//parse NMap XML output for fetching device details and update device list object appropriately
-					while(startOfBlock != -1){
-						startOfBlock = nmapOutput.index_of(Constants.IDENTIFIER_FOR_START_OF_HOST_IN_NMAP_OUTPUT,startOfBlock);
-						endOfBlock = nmapOutput.index_of(Constants.IDENTIFIER_FOR_END_OF_HOST_IN_NMAP_OUTPUT,startOfBlock);
-						//get the xml content for a single device
-						hostDetails.assign(nmapOutput.substring(startOfBlock, (endOfBlock-startOfBlock)));
-						startOfBlock = endOfBlock;
-						if(hostDetails.str.strip().length > 10){
-							int extractionStartPos = 0;
-							int extractionEndPos = 0;
-							//check for local device or remote device
-							if(hostDetails.str.contains("localhost-response")){ //localhost device: details adjustments
-								//get IP Address of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("<address addr=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceIPAddress.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceIPAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-								//get MAC Address of Device
-								string MACCommandOutput = NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+interfaceName);
-								deviceMACAddress.assign(Utils.extractBetweenTwoStrings(MACCommandOutput,Constants.IDENTIFIER_FOR_MACADDRESS_IN_COMMAND_OUTPUT," ").up(-1));
-								if(deviceMACAddress.str.length < 5){
-									//Assign no data available for MAC Address
-									deviceMACAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE).append(deviceIPAddress.str);
-								}
-								//get vendor name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("vendor=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceVendorName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Attempt an online search for vendor name for scheduled process only
-									if(mode == "DEVICE_SCAN_SCHEDULED"){
-										deviceVendorName.assign(NuttyApp.Nutty.getHostManufacturerOnline(deviceMACAddress.str));
-									}
-									if(deviceVendorName.str.length < 1){
-										//Assign no data available for vendor name
-										deviceVendorName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-									}
-								}
-								//get host name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("name=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceHostName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for host name
-									deviceHostName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-							}else{ //remote device: parse device details from nmap output
-								//get IP Address of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("<address addr=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceIPAddress.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceIPAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-								//get MAC Address of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("<address addr=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceMACAddress.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceMACAddress.assign(Constants.TEXT_FOR_NOT_AVAILABLE).append(deviceIPAddress.str);
-								}
-								//get vendor name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("vendor=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceVendorName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Attempt an online search for vendor name
-									if(mode == "DEVICE_SCAN_SCHEDULED"){
-										deviceVendorName.assign(NuttyApp.Nutty.getHostManufacturerOnline(deviceMACAddress.str));
-									}
-									if(deviceVendorName.str.length < 1){
-										//Assign no data available for vendor name
-										deviceVendorName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-									}
-								}
-								//get host name of Device
-								extractionStartPos = hostDetails.str.index_of("\"",hostDetails.str.index_of("name=",extractionStartPos))+1;
-								extractionEndPos = hostDetails.str.index_of("\"",extractionStartPos+1);
-								if(extractionStartPos != -1 && extractionEndPos != -1 && extractionStartPos != 0){
-									deviceHostName.assign(hostDetails.str.substring(extractionStartPos, extractionEndPos-extractionStartPos));
-								}else{
-									//Assign no data available for IP Address
-									deviceHostName.assign(Constants.TEXT_FOR_NOT_AVAILABLE);
-								}
-							}
-
-							//check if the device list object has any data after reading the device props
-							if(deviceDataArrayList.size == 0){
-								//No devices found in the device props - do nothing
-							}else{
-								//check if the MAC address of the device is present in device list object
-								foreach(Gee.ArrayList<string> deviceAttributeArrayList in deviceDataArrayList){
-									if(deviceAttributeArrayList.size != 0){
-										if(deviceAttributeArrayList.contains(deviceMACAddress.str)){
-											//This device already exists - update IP Address
-											deviceAttributeArrayList.set(0,deviceIPAddress.str);
-											//update the device status as active
-											deviceAttributeArrayList.set(6,Constants.TEXT_FOR_DEVICES_ACTIVE_NOW);
-											//Attempt an online search for vendor name if the vendor name is not recorded for this device
-											if(deviceAttributeArrayList.get(2) == Constants.TEXT_FOR_NOT_AVAILABLE){
-												if(mode == "DEVICE_SCAN_SCHEDULED"){
-													deviceAttributeArrayList.set(2,NuttyApp.Nutty.getHostManufacturerOnline(deviceAttributeArrayList.get(1)));
-												}
-											}
-											isNewDevice = false;
-										}else{
-											//do nothing
-										}
-									}
-								}
-							}
-							//add details of the device to the device object list if it is a new one
-							if(isNewDevice){
-								Gee.ArrayList<string> deviceAttributeArrayList = new Gee.ArrayList<string> ();
-								deviceAttributeArrayList.add(deviceIPAddress.str);
-								deviceAttributeArrayList.add(deviceMACAddress.str);
-								deviceAttributeArrayList.add(deviceVendorName.str);
-								deviceAttributeArrayList.add(deviceHostName.str);
-								deviceAttributeArrayList.add(new DateTime.now_local().format("%d-%b-%Y %H:%M:%S"));
-								deviceAttributeArrayList.add(Constants.DEVICE_ALERT_PENDING);
-								deviceAttributeArrayList.add(Constants.TEXT_FOR_DEVICES_ACTIVE_NOW);
-								deviceDataArrayList.add(deviceAttributeArrayList);
-							}
-
-							//reset variables for capturing the next host details
-							hostDetails.assign("");
-							deviceIPAddress.assign("");
-							deviceMACAddress.assign("");
-							deviceVendorName.assign("");
-							deviceHostName.assign("");
-							isNewDevice = true;
-						}
-					}
-				}
-
-				/* Update device props by overwriting it with the latest device details */
-				StringBuilder updatedDevicePropsData = new StringBuilder("");
-				foreach(Gee.ArrayList<string> updatedDeviceAttributeArrayList in deviceDataArrayList){
-					if(updatedDeviceAttributeArrayList.size != 0){
-						updatedDevicePropsData.append(Constants.IDENTIFIER_FOR_PROPERTY_START);
-						foreach(string updatedDeviceAttribute in updatedDeviceAttributeArrayList){
-							updatedDevicePropsData.append(updatedDeviceAttribute);
-							updatedDevicePropsData.append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE);
-						}
-						//remove the last attribute seperator - last two bytes
-						updatedDevicePropsData.erase(updatedDevicePropsData.str.length-2,2);
-						updatedDevicePropsData.append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-					}
-				}
-				//overwrite the device data to the devices props file
-				NuttyApp.Utils.fileOperations("WRITE", NuttyApp.Nutty.nutty_config_path, Constants.nutty_devices_property_file_name, updatedDevicePropsData.str);
-				//set permissions on device props
-				NuttyApp.Utils.fileOperations("SET_PERMISSIONS", NuttyApp.Nutty.nutty_config_path, Constants.nutty_devices_property_file_name, "777");
-			}catch(Error e){
-				warning("Failure in managing DeviceScan Results:"+e.message);
-			}
-			debug("Completed managing DeviceScan Results [mode="+mode+",interfaceName="+interfaceName+"]...");
-			return deviceDataArrayList;
+	public static void alertNewDevices () {
+		print("\n[START] [FUNCTION:alertNewDevices]");
+		//get data for all devices recorded in the DB  
+        ArrayList<NuttyApp.Entities.Device> listOfDevices = NuttyApp.DB.getDevicesFromDB();
+		//Loop over all devices and check if any device has not been alerted
+		foreach(NuttyApp.Entities.Device aDevice in listOfDevices){
+			print("\nChecking Alert condition for Device with IP: "+aDevice.device_ip + "and alert status:"+aDevice.device_alert);
+			if(aDevice.device_alert != NuttyApp.Constants.DEVICE_ALERT_COMPLETED){
+				//push an alert for the device
+				NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_DEVICES_ALERT + " '" + 
+				NuttyApp.Nutty.TEXT_FOR_DEVICE_FOUND_NOTIFICATION + 
+				aDevice.device_hostname_custom + "(" + aDevice.device_ip + ")'");
+				//update the device status as alert complete in the DB
+				aDevice.device_alert = NuttyApp.Constants.DEVICE_ALERT_COMPLETED;
+				NuttyApp.DB.addDeviceToDB(aDevice);
+				print("\nAlert completed for Device with IP: "+aDevice.device_ip);
+			}			
 		}
+		print("\n[END] [FUNCTION:alertNewDevices]");
+	}
+
+	public static void runDeviceDiscovery(){
+		print("\n[START] [FUNCTION:runDeviceDiscovery]");
+		StringBuilder commandOutput = new StringBuilder("");
+		StringBuilder IPAddress = new StringBuilder("");
+		Gee.ArrayList <string> interfaceList =  new Gee.ArrayList<string>();
+		//get command output for interface details
+		commandOutput.assign(NuttyApp.Nutty.execute_sync_command(NuttyApp.Constants.COMMAND_FOR_INTERFACE_NAMES)); 
+		string[] linesArray = commandOutput.str.strip().split ("\n",-1); //split the indivudual lines in the output
+		//In each line split the strings and record the first string only
+		foreach(string dataElement in linesArray){
+			string[] dataArray = dataElement.split (" ",-1);
+			interfaceList.add ((string)dataArray[0].strip());
+		}
+		interfaceList.remove_at (0); //throw away the first string as that is a header name
+		foreach (string aInterface in interfaceList) {
+			print("\ninterface name: "+aInterface);
+			//execute command for IP
+			commandOutput.assign(NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+aInterface));
+			//find an IP address for each interface name
+			IPAddress.assign(Utils.extractBetweenTwoStrings(
+													commandOutput.str,
+													NuttyApp.Constants.IDENTIFIER_FOR_IPADDRESS_IN_COMMAND_OUTPUT,
+													" ")
+											);
+            //set up the IP Address to scan the network : This should be of the form 192.168.1.1/24
+			if(IPAddress.str.length>0 && IPAddress.str.last_index_of(".") > -1){
+				IPAddress.assign(IPAddress.str.substring(0, IPAddress.str.last_index_of("."))+".1/24");
+                if(IPAddress != null || "" != IPAddress.str.strip()){
+		            print("\nRunning scan for IP Address: "+ IPAddress.str);
+		            //scan for devices for each IPAddress
+		            runDeviceScan (IPAddress.str);
+                }
+            }
+		}
+		print("\n[END] [FUNCTION:runDeviceDiscovery]");
+	}
 }

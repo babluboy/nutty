@@ -33,6 +33,7 @@ public class NuttyApp.XmlParser {
     public XmlParser(){
         string mode = "";
         currentTagName = "";
+        charBuffer = new StringBuilder("");
     }    
     /*
     public static void main(string args[]){

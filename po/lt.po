@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 23:15+0100\n"
+"POT-Creation-Date: 2018-03-29 00:25+0100\n"
 "PO-Revision-Date: 2018-03-25 22:09+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
@@ -15,7 +15,7 @@ msgstr ""
 "1 : 2);\n"
 "X-Generator: Weblate 2.20-dev\n"
 
-#: ../src/devices.vala:156 ../src/devices.vala:192
+#: ../src/devices.vala:158
 msgid " for "
 msgstr ""
 
@@ -508,8 +508,9 @@ msgid "Display version number"
 msgstr "Rodyti versijos numerį"
 
 #: ../src/nutty.vala:129
-msgid "PATH"
-msgstr ""
+#, fuzzy
+msgid "Run Nutty to discover devices"
+msgstr "Paleisti Nutty informacinėje veiksenoje"
 
 #: ../src/nutty.vala:130
 msgid "Run Nutty in device alert mode"
@@ -523,50 +524,50 @@ msgstr "Paleisti Nutty derinimo veiksenoje"
 msgid "Run Nutty in info mode"
 msgstr "Paleisti Nutty informacinėje veiksenoje"
 
-#: ../src/nutty.vala:1268
+#: ../src/nutty.vala:1274
 msgid "Network Card"
 msgstr "Tinklo plokštė"
 
-#: ../src/nutty.vala:1268
+#: ../src/nutty.vala:1274
 msgid " Standards with Transmit Power of "
 msgstr ""
 
-#: ../src/nutty.vala:1268
+#: ../src/nutty.vala:1274
 msgid " [Power Management: "
 msgstr ""
 
-#: ../src/nutty.vala:1271
+#: ../src/nutty.vala:1277
 msgid "Connected to"
 msgstr "Prisijungta prie"
 
-#: ../src/nutty.vala:1271
+#: ../src/nutty.vala:1277
 msgid " Network at Access Point "
 msgstr ""
 
-#: ../src/nutty.vala:1271
+#: ../src/nutty.vala:1277
 msgid " Mode"
 msgstr ""
 
-#: ../src/nutty.vala:1274
+#: ../src/nutty.vala:1280
 msgid "Connected with"
 msgstr ""
 
-#: ../src/nutty.vala:1274
+#: ../src/nutty.vala:1280
 msgid "Frequency of "
 msgstr ""
 
-#: ../src/nutty.vala:1274
+#: ../src/nutty.vala:1280
 msgid " and Bit Rate of "
 msgstr ""
 
-#: ../src/nutty.vala:1277
+#: ../src/nutty.vala:1283
 msgid "Connection strength"
 msgstr ""
 
-#: ../src/nutty.vala:1277
+#: ../src/nutty.vala:1283
 msgid "Link Quality of "
 msgstr ""
 
-#: ../src/nutty.vala:1277
+#: ../src/nutty.vala:1283
 msgid " and Signal Level of "
 msgstr ""

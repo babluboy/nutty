@@ -91,7 +91,7 @@ public class NuttyApp.DB{
                     aDevice.device_hostname_custom = deviceAttributesList[3];
                     aDevice.device_creation_date = NuttyApp.Utils.getDateFromString(deviceAttributesList[4]).to_unix().to_string();
                     aDevice.device_last_seen_date = aDevice.device_creation_date;
-                    aDevice.device_alert = deviceAttributesList[5];
+                    aDevice.device_alert = NuttyApp.Constants.DEVICE_ALERT_COMPLETED; //deviceAttributesList[5]; Assumes all devices are alerted
                     aDevice.device_status = deviceAttributesList[6];
                     addDeviceToDB(aDevice);
                 }
@@ -110,7 +110,7 @@ public class NuttyApp.DB{
         bool isDevicePresent = false;
         
          //Check if the device is present in the DB
-         queryString = "SELECT DEVICE_IP, DEVICE_MAC FROM " 
+         queryString = "SELECT DEVICE_IP, DEVICE_MAC, IS_ALERT_COMPLETED FROM " 
                                     + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
                                     " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'";
          executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
@@ -122,13 +122,18 @@ public class NuttyApp.DB{
 
         while (stmt.step () == ROW) {
             isDevicePresent = true; //Device is present as a result is available
+            if(aDevice.device_alert == null || aDevice.device_alert == ""){
+                aDevice.device_alert = stmt.column_text(2);
+            }
             debug("Checked that device is present in DB based on: DEVICE_IP=\'"+aDevice.device_ip+
                         "\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'");
         }
         stmt.reset ();
     
         if(isDevicePresent){ //device present, update device table
-            debug("Found device [DEVICE_IP=\'"+aDevice.device_ip+"\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'] in table, device details will be updated");
+            debug("Found device [DEVICE_IP=\'"+aDevice.device_ip+
+                        "\' OR DEVICE_MAC=\'"+aDevice.device_mac+
+                        "\'] in table, device details will be updated");
             queryString = "UPDATE "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION + " 
                                     SET DEVICE_IP = ?, 
                                     DEVICE_MAC = ?, 
@@ -159,7 +164,9 @@ public class NuttyApp.DB{
             stmt.step ();
             stmt.reset ();
         } else { //device not present, add to device table
-            debug("Did not find device [DEVICE_IP=\'"+aDevice.device_ip+"\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'] in table, device details will be inserted");
+            debug("Did not find device [DEVICE_IP=\'"+aDevice.device_ip+
+                        "\' OR DEVICE_MAC=\'"+aDevice.device_mac+
+                        "\'] in table, device details will be inserted");
             queryString = "INSERT INTO "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION+
                                     "( DEVICE_IP,
                                         DEVICE_MAC,
@@ -195,9 +202,16 @@ public class NuttyApp.DB{
             }
             stmt.bind_text (7, aDevice.device_alert);
             stmt.bind_text (8, aDevice.device_status);
-            stmt.bind_text (9, aDevice.device_creation_date);
-            stmt.bind_text (10, aDevice.device_last_seen_date);
-
+            if(aDevice.device_creation_date != ""){
+                stmt.bind_text (9, aDevice.device_creation_date);
+            }else{
+                stmt.bind_text (9, NuttyApp.Utils.getDateFromString("").to_unix().to_string());
+            }
+            if(aDevice.device_last_seen_date != ""){
+                stmt.bind_text (10, aDevice.device_last_seen_date);
+            }else{
+                 stmt.bind_text (10, NuttyApp.Utils.getDateFromString("").to_unix().to_string());
+            }
             stmt.step ();
             stmt.reset ();
         }   
