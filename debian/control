@@ -9,6 +9,7 @@ Build-Depends: cmake (>= 2.8),
                valac (>= 0.26),
                libgranite-dev (>= 0.3.0),
                libxml2-dev
+                
 
 Standards-Version: 3.9.6
 Package: com.github.babluboy.nutty
