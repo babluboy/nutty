@@ -82,7 +82,7 @@ PACKAGES
     gtk+-3.0
     gee-0.8
     granite>=0.5
-    sqlite3>=3.5.9
+    sqlite3
     libxml-2.0
 )
 
