@@ -8,6 +8,7 @@ Build-Depends: cmake (>= 2.8),
                libgtk-3-dev (>= 3.14),
                valac (>= 0.26),
                libgranite-dev (>= 0.3.0),
+               libsqlite3-dev,
                libxml2
 
 Standards-Version: 3.9.6
