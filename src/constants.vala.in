@@ -35,12 +35,13 @@ namespace NuttyApp.Constants{
 	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = _("Website | Translation | Bug Tracker");
 	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://babluboy.github.io/nutty";
 	
-	//Set paths relative to the install location for icons
+	//Set paths relative to the install location (i.e. /usr)
 	public const string INSTALL_PREFIX = "@CMAKE_INSTALL_PREFIX@";
 	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-available.svg";
 	public const string DEVICE_OFFLINE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-offline.svg";
 	public const string DEFAULT_APP_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-application-default-icon.svg";
 	public const string HEADERBAR_PROPERTIES_IMAGE_LOCATION = INSTALL_PREFIX+"/share/bookworm/icons/hicolor/24x24/actions/nutty-open-menu.svg";
+	public static const string nutty_script_path = INSTALL_PREFIX+"/share/nutty/scripts";
 
 	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
@@ -180,7 +181,6 @@ namespace NuttyApp.Constants{
 	public static const string nutty_monitor_scheduler_backup_file_name = "root_crontab_backup.txt";
 	public static const string nutty_alert_scheduler_file_name = "nutty_device_alert.sh";
 	public static const string nutty_alert_scheduler_backup_file_name = "user_crontab_backup.txt";
-	public static const string nutty_script_path = "/opt/nutty";
 	public static const string REFRESH_ICON = "view-refresh-symbolic";
 	public static const string GO_ICON = "go-next";
 	public static const int NUMBER_OF_DEVICE_ATTRIBUTES_IN_DEVICEPROPS = 6;
