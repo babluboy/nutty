@@ -93,13 +93,11 @@ public class NuttyApp.XmlParser {
                 if(attributeList.length >3 && noOfTagsMatched == 2) {
                     aDevice.device_mac = attributeList[1];
                     aDevice.device_manufacturer = attributeList[5];
-                    aDevice.device_manufacturer_custom = attributeList[5];
                 }
             }
             if(shouldExtractionStart && ("hostname" == currentTagName) ) {
                  if(attributeList.length >1) {
                     aDevice.device_hostname = attributeList[1];
-                    aDevice.device_hostname_custom = attributeList[1];
                 }
             }
         }

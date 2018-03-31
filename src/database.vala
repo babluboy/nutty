@@ -108,11 +108,38 @@ public class NuttyApp.DB{
     public static int addDeviceToDB(NuttyApp.Entities.Device aDevice){
         Sqlite.Statement stmt = null;
         bool isDevicePresent = false;
+        string whereClauseForDeviceCheck = "";
         
-         //Check if the device is present in the DB
-         queryString = "SELECT DEVICE_IP, DEVICE_MAC, IS_ALERT_COMPLETED FROM " 
-                                    + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
-                                    " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'";
+         //Form the where clause on the basis of MAC and IP of the device
+         if(aDevice.device_mac != null && aDevice.device_mac.length>0){
+            if(aDevice.device_ip != null && aDevice.device_ip.length>0){
+                //Both IP and MAC are present
+                whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
+            }else{
+                //IP is absent but MAC is present
+                whereClauseForDeviceCheck = " WHERE DEVICE_MAC=\'"+aDevice.device_mac+"\'";
+            }
+         }else{
+             if(aDevice.device_ip != null && aDevice.device_ip.length>0){
+                //MAC is absent but IP is present
+                whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\'";
+            }else{
+                //Both IP and MAC are not present - the device should be added. make the where clause random
+                whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'ABC\' AND DEVICE_MAC=\'123\'";    
+            }   
+         }
+         //Check if the device is present in the DB based on MAC and/or IP
+         queryString = "SELECT 
+                                        DEVICE_IP, 
+                                        DEVICE_MAC,
+                                        DEVICE_HOST_MANUFACTURER,
+                                        DEVICE_HOST_NAME,
+                                        DEVICE_HOST_MANUFACTURER_CUSTOM,
+                                        DEVICE_HOST_NAME_CUSTOM,
+                                        IS_ALERT_COMPLETED,
+                                        DEVICE_STATUS
+                                    FROM " + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
+                                    whereClauseForDeviceCheck;
          executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
          if (executionStatus != Sqlite.OK) {
             debug("Error on executing Query:"+queryString);
@@ -121,12 +148,32 @@ public class NuttyApp.DB{
         }
 
         while (stmt.step () == ROW) {
-            isDevicePresent = true; //Device is present as a result is available
-            if(aDevice.device_alert == null || aDevice.device_alert == ""){
-                aDevice.device_alert = stmt.column_text(2);
+            isDevicePresent = true; //Device is already present
+            if(aDevice.device_ip == null || aDevice.device_ip == ""){
+                aDevice.device_ip = stmt.column_text(0);
             }
-            debug("Checked that device is present in DB based on: DEVICE_IP=\'"+aDevice.device_ip+
-                        "\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'");
+            if(aDevice.device_mac == null || aDevice.device_mac == ""){
+                aDevice.device_mac = stmt.column_text(1);
+            }
+            if(aDevice.device_manufacturer == null || aDevice.device_manufacturer == ""){
+                aDevice.device_manufacturer = stmt.column_text(2);
+            }
+            if(aDevice.device_hostname == null || aDevice.device_hostname == ""){
+                aDevice.device_hostname = stmt.column_text(3);
+            }
+            if(aDevice.device_manufacturer_custom == null || aDevice.device_manufacturer_custom == ""){
+                aDevice.device_manufacturer_custom = stmt.column_text(4);
+            }
+            if(aDevice.device_hostname_custom == null || aDevice.device_hostname_custom == ""){
+                aDevice.device_hostname_custom = stmt.column_text(5);
+            }
+            if(aDevice.device_alert == null || aDevice.device_alert == ""){
+                aDevice.device_alert = stmt.column_text(6);
+            }
+            if(aDevice.device_status == null || aDevice.device_status == ""){
+                aDevice.device_status = stmt.column_text(7);
+            }
+            debug("Device is present in DB based on: DEVICE_IP=\'"+aDevice.device_ip+ "\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'");
         }
         stmt.reset ();
     

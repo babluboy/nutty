@@ -26,6 +26,7 @@ public class NuttyApp.Devices {
 			info("[START] [FUNCTION:createDeviceUI]");
 			Box devices_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
         	device_table_treeview = new TreeView();
+			device_table_treeview.activate_on_single_click = true;
 			NuttyApp.Nutty.devicesSpinner = new Gtk.Spinner();
             Button devices_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
 			devices_refresh_button.set_relief (ReliefStyle.NONE);
@@ -33,10 +34,14 @@ public class NuttyApp.Devices {
 			//set the devices refresh button to in-active status
 			devices_refresh_button.set_sensitive (false);
 			CellRendererText device_cell_txt = new CellRendererText ();
+			CellRendererText device_hostname_cell_txt = new CellRendererText ();
+			device_hostname_cell_txt.editable = true;
+			CellRendererText device_manufacture_cell_txt = new CellRendererText ();
+			device_manufacture_cell_txt.editable = true;
 			CellRendererPixbuf device_cell_pix = new CellRendererPixbuf ();
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_1, device_cell_pix, "pixbuf", 0);
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_2, device_cell_txt, "text", 1);
-			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_3, device_cell_txt, "text", 2);
+			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_2, device_hostname_cell_txt, "text", 1);
+			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_3, device_manufacture_cell_txt, "text", 2);
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_4, device_cell_txt, "text", 3);
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_5, device_cell_txt, "text", 4);
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_6, device_cell_txt, "text", 5);
@@ -100,9 +105,62 @@ public class NuttyApp.Devices {
 				NuttyApp.Nutty.setFilterAndSort(device_table_treeview, NuttyApp.Nutty.devicesTreeModelFilter, SortType.DESCENDING);
 				NuttyApp.Nutty.isDevicesViewLoaded = true;
 			});
+
+			//Add action to update tree view when editing is Completed
+        	device_hostname_cell_txt.edited.connect((path, new_text) => {
+				updateDeviceListViewData(path, new_text, 1);
+        	});
+        	device_manufacture_cell_txt.edited.connect((path, new_text) => {
+				updateDeviceListViewData(path, new_text, 2);
+        	});		
+
 			info("[END] [FUNCTION:createDeviceUI]");
 			return devices_layout_box;
     }
+
+	public static bool updateDeviceListViewData(string path, string new_text, int column){
+		info("[START] [FUNCTION:updateDeviceListViewData] updating device data in List View on row:"+path+
+                                                        " for change:"+new_text+" on column:"+column.to_string());
+        //Determine IP and MAC of the device which is being updated
+        Gtk.TreeIter sortedIter;
+        Value deviceIP;
+		Value deviceMAC;
+        TreeModel aTreeModel =  device_table_treeview.get_model ();
+        Gtk.TreePath aTreePath = new Gtk.TreePath.from_string (path);
+        aTreeModel.get_iter (out sortedIter, aTreePath);
+        aTreeModel.get_value (sortedIter, 5, out deviceIP);
+		aTreeModel.get_value (sortedIter, 6, out deviceMAC);
+
+        //iterate over the list store
+        Gtk.TreeIter iter;
+        string deviceIPforCurrentRow;
+		string deviceMACforCurrentRow;
+        bool iterExists = true;
+        iterExists = NuttyApp.Nutty.device_list_store.get_iter_first (out iter);
+        while(iterExists){
+            NuttyApp.Nutty.device_list_store.get (iter, 5, out deviceIPforCurrentRow);
+			NuttyApp.Nutty.device_list_store.get (iter, 6, out deviceMACforCurrentRow);
+            if((string)deviceIP == deviceIPforCurrentRow && (string)deviceMAC == deviceMACforCurrentRow) {
+                NuttyApp.Nutty.device_list_store.set (iter, column, new_text);
+				//update the device details in the DB
+				NuttyApp.Entities.Device aDevice = new NuttyApp.Entities.Device();
+				aDevice.device_ip = deviceIPforCurrentRow;
+				aDevice.device_mac = deviceMACforCurrentRow;
+				if(column == 1){
+					aDevice.device_hostname_custom = new_text;
+				}
+				if(column == 2){
+					aDevice.device_manufacturer_custom = new_text;
+				}
+				NuttyApp.DB.addDeviceToDB(aDevice);
+                debug("Completed updating device data into DB for IP:"+deviceIPforCurrentRow + "and MAC:"+deviceMACforCurrentRow);
+                return true; //break out of the iterations
+            }
+            iterExists = NuttyApp.Nutty.device_list_store.iter_next (ref iter);
+        }
+        info("[END] [FUNCTION:updateDeviceListViewData] ");
+		return true;
+	}
 
 	public static Gtk.ListStore fetchRecordedDevices() {
 		info("[START] [FUNCTION:fetchRecordedDevices]");
