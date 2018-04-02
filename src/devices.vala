@@ -18,10 +18,15 @@
 */
 using Gtk;
 using Gee;
-
+using Gdk;
 public class NuttyApp.Devices {
 	public static TreeView device_table_treeview;
-	
+	public static Popover aContextMenu;
+	public static Label deviceContentMenuTitleLabel;
+	public static Label deviceContentMACLabel;
+	public static Label deviceContentIPLabel;
+	public static Button deviceRemoveButton;
+
 	public static Box createDeviceUI(){
 			info("[START] [FUNCTION:createDeviceUI]");
 			Box devices_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
@@ -46,7 +51,7 @@ public class NuttyApp.Devices {
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_5, device_cell_txt, "text", 4);
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_6, device_cell_txt, "text", 5);
 			device_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_DEVICES_COLUMN_NAME_7, device_cell_txt, "text", 6);
-
+			
 			ScrolledWindow devices_scroll = new ScrolledWindow (null, null);
 			devices_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			devices_scroll.add (device_table_treeview);
@@ -69,6 +74,26 @@ public class NuttyApp.Devices {
 			devices_results_box.pack_end (devices_refresh_button, false, true, 0);
 			devices_results_box.pack_end (NuttyApp.Nutty.devicesSpinner, false, true, 0);
 
+			device_table_treeview.set_activate_on_single_click (true);
+			
+			//Create the device popover menu
+			deviceContentMenuTitleLabel = new Label("");
+			deviceContentIPLabel = new Label("");
+			deviceContentMACLabel = new Label("");
+			deviceContentIPLabel.set_halign(Align.START);
+			deviceContentMACLabel.set_halign(Align.START);
+			deviceRemoveButton = new Button.with_label(NuttyApp.Constants.TEXT_FOR_DEVICES_REMOVAL);
+			aContextMenu = new Gtk.Popover (device_table_treeview);
+			Gtk.Box deviceContextMenuBox = new Gtk.Box(Orientation.VERTICAL, NuttyApp.Constants.SPACING_BUTTONS);
+    		deviceContextMenuBox.set_border_width(NuttyApp.Constants.SPACING_WIDGETS);
+    		deviceContextMenuBox.pack_start(deviceContentMenuTitleLabel, false, false);
+    		deviceContextMenuBox.pack_start(new Gtk.Separator (Gtk.Orientation.HORIZONTAL) , true, true, 0);
+			deviceContextMenuBox.pack_start(deviceContentIPLabel, false, false);
+			deviceContextMenuBox.pack_start(deviceContentMACLabel, false, false);
+			deviceContextMenuBox.pack_start(new Gtk.Separator (Gtk.Orientation.HORIZONTAL) , true, true, 0);
+			deviceContextMenuBox.pack_start(deviceRemoveButton, false, false);
+			aContextMenu.add(deviceContextMenuBox);
+						
 			//Add components to the device box
 			devices_layout_box.set_homogeneous (false);
 			devices_layout_box.pack_start (devices_results_box, false, true, 0);
@@ -112,11 +137,75 @@ public class NuttyApp.Devices {
         	});
         	device_manufacture_cell_txt.edited.connect((path, new_text) => {
 				updateDeviceListViewData(path, new_text, 2);
-        	});		
-
+        	});	
+			
+			//add mouse click listener
+            device_table_treeview.button_press_event.connect ((widget, event) => {
+                //capture which mouse button
+                uint mouseButtonClicked;
+                event.get_button(out mouseButtonClicked);
+				//handle right button click for context menu
+                if (event.get_event_type ()  == Gdk.EventType.BUTTON_PRESS  &&  mouseButtonClicked == 3){
+					debug("Show Context Menu");					
+					TreeSelection aTreeSelection = device_table_treeview.get_selection ();
+					if(aTreeSelection.count_selected_rows() == 1){
+						TreeModel model;
+						TreeIter iter;
+						aTreeSelection.get_selected (out model, out iter);
+						deviceContextMenu(model, iter);
+					}
+				}
+				return false;
+            });
 			info("[END] [FUNCTION:createDeviceUI]");
 			return devices_layout_box;
     }
+
+	public static void deviceContextMenu (TreeModel aTreeModel, TreeIter iter){
+		//Determine IP and MAC of the device for the context menu
+        Value deviceIP;	Value deviceMAC;Value deviceHostName;
+        aTreeModel.get_value (iter, 5, out deviceIP);
+		aTreeModel.get_value (iter, 6, out deviceMAC);
+        aTreeModel.get_value (iter, 1, out deviceHostName);
+		//determine the position where the device context menu will be shown
+		TreePath path;
+		TreeViewColumn focus_column;
+		device_table_treeview.get_cursor (out path, out focus_column);
+		Rectangle rect;
+		device_table_treeview.get_cell_area(path, focus_column, out rect); 
+		//set the position of the device context menu
+		aContextMenu.set_pointing_to (rect);
+		//setup the context menu for the selected device
+		deviceContentMenuTitleLabel.set_label(
+				new StringBuilder(NuttyApp.Constants.TEXT_FOR_DEVICES_ACTION).append( (string)deviceHostName).str
+		);
+		deviceContentMACLabel.set_label(
+				new StringBuilder(NuttyApp.Constants.TEXT_FOR_DEVICES_COLUMN_NAME_7).append(" : ").append( (string)deviceMAC).str
+		);
+		deviceContentIPLabel.set_label(
+				new StringBuilder(NuttyApp.Constants.TEXT_FOR_DEVICES_COLUMN_NAME_6).append(" : ").append( (string)deviceIP).str
+		);
+		
+		aContextMenu.set_visible (true);
+        aContextMenu.show_all();
+        
+        //set up the action for the click of the Device Remove button
+		deviceRemoveButton.clicked.connect (() => {
+			NuttyApp.Entities.Device aDevice = new NuttyApp.Entities.Device();
+			aDevice.device_ip = (string)deviceIP;
+			aDevice.device_mac = (string)deviceMAC;
+			bool isDeviceRemoved = NuttyApp.DB.removeDeviceFromDB(aDevice);
+			if(isDeviceRemoved){
+				fetchRecordedDevices();//refresh the device list
+			}
+			aContextMenu.hide();
+		});
+
+		//catch the event when device popover menu is closed is closed
+		aContextMenu.closed.connect(() => {
+			//TODO
+		});
+	}
 
 	public static bool updateDeviceListViewData(string path, string new_text, int column){
 		info("[START] [FUNCTION:updateDeviceListViewData] updating device data in List View on row:"+path+
@@ -141,20 +230,34 @@ public class NuttyApp.Devices {
             NuttyApp.Nutty.device_list_store.get (iter, 5, out deviceIPforCurrentRow);
 			NuttyApp.Nutty.device_list_store.get (iter, 6, out deviceMACforCurrentRow);
             if((string)deviceIP == deviceIPforCurrentRow && (string)deviceMAC == deviceMACforCurrentRow) {
+				string deviceHostNameCustomforCurrentRow;
+				string deviceManufacturerNameCustomforCurrentRow;
+				NuttyApp.Nutty.device_list_store.get (iter, 1, out deviceHostNameCustomforCurrentRow);
+				NuttyApp.Nutty.device_list_store.get (iter, 2, out deviceManufacturerNameCustomforCurrentRow);
                 NuttyApp.Nutty.device_list_store.set (iter, column, new_text);
-				//update the device details in the DB
-				NuttyApp.Entities.Device aDevice = new NuttyApp.Entities.Device();
-				aDevice.device_ip = deviceIPforCurrentRow;
-				aDevice.device_mac = deviceMACforCurrentRow;
 				if(column == 1){
-					aDevice.device_hostname_custom = new_text;
+					if(deviceHostNameCustomforCurrentRow != new_text){ //check if any edits have happened
+						//update the custom host name changes in the DB
+						NuttyApp.Entities.Device aDevice = new NuttyApp.Entities.Device();
+						aDevice.device_ip = deviceIPforCurrentRow;
+						aDevice.device_mac = deviceMACforCurrentRow;
+						aDevice.device_hostname_custom = new_text;
+						NuttyApp.DB.addDeviceToDB(aDevice);
+						debug("Completed updating device data into DB for IP:"+deviceIPforCurrentRow);
+					}
 				}
 				if(column == 2){
-					aDevice.device_manufacturer_custom = new_text;
+					if(deviceManufacturerNameCustomforCurrentRow != new_text){ //check if any edits have happened
+						//update the custom manufacturer name changes in the DB
+						NuttyApp.Entities.Device aDevice = new NuttyApp.Entities.Device();
+						aDevice.device_ip = deviceIPforCurrentRow;
+						aDevice.device_mac = deviceMACforCurrentRow;
+						aDevice.device_manufacturer_custom = new_text;
+						NuttyApp.DB.addDeviceToDB(aDevice);
+						debug("Completed updating device data into DB for MAC:"+deviceMACforCurrentRow);
+					}
 				}
-				NuttyApp.DB.addDeviceToDB(aDevice);
-                debug("Completed updating device data into DB for IP:"+deviceIPforCurrentRow + "and MAC:"+deviceMACforCurrentRow);
-                return true; //break out of the iterations
+                break; //break out of the iterations
             }
             iterExists = NuttyApp.Nutty.device_list_store.iter_next (ref iter);
         }

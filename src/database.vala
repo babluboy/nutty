@@ -109,10 +109,10 @@ public class NuttyApp.DB{
         Sqlite.Statement stmt = null;
         bool isDevicePresent = false;
         string whereClauseForDeviceCheck = "";
-        
+         
          //Form the where clause on the basis of MAC and IP of the device
-         if(aDevice.device_mac != null && aDevice.device_mac.length>0){
-            if(aDevice.device_ip != null && aDevice.device_ip.length>0){
+         if(aDevice.device_mac != null && aDevice.device_mac.length>0 && aDevice.device_mac.strip() != ""){
+            if(aDevice.device_ip != null && aDevice.device_ip.length>0 && aDevice.device_ip.strip() != ""){
                 //Both IP and MAC are present
                 whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
             }else{
@@ -120,12 +120,12 @@ public class NuttyApp.DB{
                 whereClauseForDeviceCheck = " WHERE DEVICE_MAC=\'"+aDevice.device_mac+"\'";
             }
          }else{
-             if(aDevice.device_ip != null && aDevice.device_ip.length>0){
+             if(aDevice.device_ip != null && aDevice.device_ip.length>0 && aDevice.device_ip.strip() != ""){
                 //MAC is absent but IP is present
                 whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\'";
             }else{
                 //Both IP and MAC are not present - the device should be added. make the where clause random
-                whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'ABC\' AND DEVICE_MAC=\'123\'";    
+                whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'ABC\'  AND DEVICE_MAC=\'123\'";    
             }   
          }
          //Check if the device is present in the DB based on MAC and/or IP
@@ -173,7 +173,8 @@ public class NuttyApp.DB{
             if(aDevice.device_status == null || aDevice.device_status == ""){
                 aDevice.device_status = stmt.column_text(7);
             }
-            debug("Device is present in DB based on: DEVICE_IP=\'"+aDevice.device_ip+ "\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'");
+            debug("Device is present in DB based on the WHERE clause: " + whereClauseForDeviceCheck);
+            break;
         }
         stmt.reset ();
     
@@ -191,8 +192,8 @@ public class NuttyApp.DB{
                                     IS_ALERT_COMPLETED = ?,
                                     DEVICE_STATUS = ?,
                                     last_seen_date = CAST(strftime('%s', 'now') AS INT), 
-                                    modification_date = CAST(strftime('%s', 'now') AS INT) 
-                                    WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' OR DEVICE_MAC=\'"+aDevice.device_mac+"\'";
+                                    modification_date = CAST(strftime('%s', 'now') AS INT)
+                                    WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";;
             executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
             if (executionStatus != Sqlite.OK) {
                 debug("Error on executing Query:"+queryString);
@@ -323,5 +324,27 @@ public class NuttyApp.DB{
         }
         info("[END] [FUNCTION:getDevicesFromDB] listOfDevices.size="+listOfDevices.size.to_string());
         return listOfDevices;
+    }
+
+    public static bool removeDeviceFromDB(NuttyApp.Entities.Device aDevice){
+        info("[START] [FUNCTION:removeDeviceFromDB] IP="+aDevice.device_ip + ", MAC="+aDevice.device_mac);
+        Sqlite.Statement stmt;
+        //delete device from device table
+        queryString = "DELETE FROM "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION+
+                                 " WHERE DEVICE_IP = ? AND DEVICE_MAC = ?";
+        executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
+        if (executionStatus != Sqlite.OK) {
+          debug("Error on executing Query:"+queryString);
+          warning ("Error details: %d: %s\n", nuttyDB.errcode (), nuttyDB.errmsg ());
+          return false;
+        }else{
+            stmt.bind_text (1, aDevice.device_ip);
+            stmt.bind_text (2, aDevice.device_mac);
+            stmt.step ();
+            stmt.reset ();
+            debug("Removed this device from device table: IP=" + aDevice.device_ip+", MAC=" + aDevice.device_mac);
+        }
+        info("[END] [FUNCTION:removeDeviceFromDB] IP=" + aDevice.device_ip + ", MAC=" + aDevice.device_mac);
+        return true;
     }
 }

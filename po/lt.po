@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-30 23:48+0100\n"
+"POT-Creation-Date: 2018-04-02 19:01+0100\n"
 "PO-Revision-Date: 2018-03-25 22:09+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
@@ -15,7 +15,7 @@ msgstr ""
 "1 : 2);\n"
 "X-Generator: Weblate 2.20-dev\n"
 
-#: ../src/devices.vala:216
+#: ../src/devices.vala:319
 msgid " for "
 msgstr ""
 
@@ -68,11 +68,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../src/constants.vala:53 ../src/constants.vala:123
+#: ../src/constants.vala:53 ../src/constants.vala:125
 msgid "Today"
 msgstr "Šiandien"
 
-#: ../src/constants.vala:54 ../src/constants.vala:122
+#: ../src/constants.vala:54 ../src/constants.vala:124
 msgid "Yesterday"
 msgstr "Vakar"
 
@@ -329,106 +329,114 @@ msgid "devices found on this connection"
 msgstr "Tinkle rastas naujas įrenginys:\n"
 
 #: ../src/constants.vala:118
+msgid "Actions for : "
+msgstr ""
+
+#: ../src/constants.vala:119
+msgid "Forget device"
+msgstr ""
+
+#: ../src/constants.vala:120
 msgid "Usage"
 msgstr "Naudojimas"
 
-#: ../src/constants.vala:119
+#: ../src/constants.vala:121
 msgid "Connection monitored from "
 msgstr "Ryšys stebimas nuo "
 
-#: ../src/constants.vala:120
+#: ../src/constants.vala:122
 msgid " and last updated on "
 msgstr " , o paskutinį kartą atnaujintas "
 
-#: ../src/constants.vala:121
+#: ../src/constants.vala:123
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
 
-#: ../src/constants.vala:124
+#: ../src/constants.vala:126
 msgid "Time Period"
 msgstr "Laikotarpis"
 
-#: ../src/constants.vala:125
+#: ../src/constants.vala:127
 msgid "Data Received"
 msgstr "Gauta duomenų"
 
-#: ../src/constants.vala:126
+#: ../src/constants.vala:128
 msgid "Data Sent"
 msgstr "Išsiųsta duomenų"
 
-#: ../src/constants.vala:127
+#: ../src/constants.vala:129
 msgid "Total Data"
 msgstr "Viso duomenų"
 
-#: ../src/constants.vala:128
+#: ../src/constants.vala:130
 msgid "Select a connection to view data usage"
 msgstr "Norėdami žiūrėti duomenų naudojimą, pasirinkite ryšį"
 
-#: ../src/constants.vala:129
+#: ../src/constants.vala:131
 msgid "Click refresh to see current Apps using "
 msgstr "Spustelėkite įkelti iš naujo, norėdami matyti programas, naudojančias "
 
-#: ../src/constants.vala:130
+#: ../src/constants.vala:132
 msgid "Refresh Apps bandwidth usage"
 msgstr ""
 
-#: ../src/constants.vala:131
+#: ../src/constants.vala:133
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: ../src/constants.vala:132
+#: ../src/constants.vala:134
 msgid "Data Sent (Kb/sec)"
 msgstr "Išsiųsta duomenų (Kb/s)"
 
-#: ../src/constants.vala:133
+#: ../src/constants.vala:135
 msgid "Data Received (Kb/sec)"
 msgstr "Gauta duomenų (Kb/s)"
 
-#: ../src/constants.vala:134
+#: ../src/constants.vala:136
 msgid "Background Device Monitoring"
 msgstr ""
 
-#: ../src/constants.vala:135
+#: ../src/constants.vala:137
 msgid "Monitor devices every 15 minutes"
 msgstr ""
 
-#: ../src/constants.vala:136
+#: ../src/constants.vala:138
 msgid "Monitor devices every 30 minutes"
 msgstr ""
 
-#: ../src/constants.vala:137
+#: ../src/constants.vala:139
 msgid "Monitor devices every hour"
 msgstr ""
 
-#: ../src/constants.vala:138
+#: ../src/constants.vala:140
 msgid "Monitor devices once a day"
 msgstr ""
 
-#: ../src/constants.vala:139
+#: ../src/constants.vala:141
 msgid "Close"
 msgstr "Užverti"
 
-#: ../src/constants.vala:140
+#: ../src/constants.vala:142
 msgid "DEVICE_MONITORING_STATE"
 msgstr ""
 
-#: ../src/constants.vala:141
+#: ../src/constants.vala:143
 msgid "DEVICE_MONITORING_SCHEDULE"
 msgstr ""
 
-#: ../src/constants.vala:142
+#: ../src/constants.vala:144
 msgid "SPEEDTEST_DATE"
 msgstr ""
 
-#: ../src/constants.vala:143
+#: ../src/constants.vala:145
 msgid "SPEEDTEST_UPLOADSPEED"
 msgstr ""
 
-#: ../src/constants.vala:144
+#: ../src/constants.vala:146
 msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr ""
 
-#: ../src/constants.vala:145
+#: ../src/constants.vala:147
 msgid "Nutty Information Exported on "
 msgstr ""
 

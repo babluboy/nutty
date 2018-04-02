@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-30 23:48+0100\n"
+"POT-Creation-Date: 2018-04-02 19:01+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../src/devices.vala:216
+#: ../src/devices.vala:319
 msgid " for "
 msgstr ""
 
@@ -57,11 +57,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../src/constants.vala:53 ../src/constants.vala:123
+#: ../src/constants.vala:53 ../src/constants.vala:125
 msgid "Today"
 msgstr ""
 
-#: ../src/constants.vala:54 ../src/constants.vala:122
+#: ../src/constants.vala:54 ../src/constants.vala:124
 msgid "Yesterday"
 msgstr ""
 
@@ -316,106 +316,114 @@ msgid "devices found on this connection"
 msgstr ""
 
 #: ../src/constants.vala:118
-msgid "Usage"
+msgid "Actions for : "
 msgstr ""
 
 #: ../src/constants.vala:119
-msgid "Connection monitored from "
+msgid "Forget device"
 msgstr ""
 
 #: ../src/constants.vala:120
-msgid " and last updated on "
+msgid "Usage"
 msgstr ""
 
 #: ../src/constants.vala:121
+msgid "Connection monitored from "
+msgstr ""
+
+#: ../src/constants.vala:122
+msgid " and last updated on "
+msgstr ""
+
+#: ../src/constants.vala:123
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
 
-#: ../src/constants.vala:124
+#: ../src/constants.vala:126
 msgid "Time Period"
 msgstr ""
 
-#: ../src/constants.vala:125
+#: ../src/constants.vala:127
 msgid "Data Received"
 msgstr ""
 
-#: ../src/constants.vala:126
+#: ../src/constants.vala:128
 msgid "Data Sent"
 msgstr ""
 
-#: ../src/constants.vala:127
+#: ../src/constants.vala:129
 msgid "Total Data"
 msgstr ""
 
-#: ../src/constants.vala:128
+#: ../src/constants.vala:130
 msgid "Select a connection to view data usage"
 msgstr ""
 
-#: ../src/constants.vala:129
+#: ../src/constants.vala:131
 msgid "Click refresh to see current Apps using "
 msgstr ""
 
-#: ../src/constants.vala:130
+#: ../src/constants.vala:132
 msgid "Refresh Apps bandwidth usage"
 msgstr ""
 
-#: ../src/constants.vala:131
+#: ../src/constants.vala:133
 msgid "Name"
 msgstr ""
 
-#: ../src/constants.vala:132
+#: ../src/constants.vala:134
 msgid "Data Sent (Kb/sec)"
 msgstr ""
 
-#: ../src/constants.vala:133
+#: ../src/constants.vala:135
 msgid "Data Received (Kb/sec)"
 msgstr ""
 
-#: ../src/constants.vala:134
+#: ../src/constants.vala:136
 msgid "Background Device Monitoring"
 msgstr ""
 
-#: ../src/constants.vala:135
+#: ../src/constants.vala:137
 msgid "Monitor devices every 15 minutes"
 msgstr ""
 
-#: ../src/constants.vala:136
+#: ../src/constants.vala:138
 msgid "Monitor devices every 30 minutes"
 msgstr ""
 
-#: ../src/constants.vala:137
+#: ../src/constants.vala:139
 msgid "Monitor devices every hour"
 msgstr ""
 
-#: ../src/constants.vala:138
+#: ../src/constants.vala:140
 msgid "Monitor devices once a day"
 msgstr ""
 
-#: ../src/constants.vala:139
+#: ../src/constants.vala:141
 msgid "Close"
 msgstr ""
 
-#: ../src/constants.vala:140
+#: ../src/constants.vala:142
 msgid "DEVICE_MONITORING_STATE"
 msgstr ""
 
-#: ../src/constants.vala:141
+#: ../src/constants.vala:143
 msgid "DEVICE_MONITORING_SCHEDULE"
 msgstr ""
 
-#: ../src/constants.vala:142
+#: ../src/constants.vala:144
 msgid "SPEEDTEST_DATE"
 msgstr ""
 
-#: ../src/constants.vala:143
+#: ../src/constants.vala:145
 msgid "SPEEDTEST_UPLOADSPEED"
 msgstr ""
 
-#: ../src/constants.vala:144
+#: ../src/constants.vala:146
 msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr ""
 
-#: ../src/constants.vala:145
+#: ../src/constants.vala:147
 msgid "Nutty Information Exported on "
 msgstr ""
 

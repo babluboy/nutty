@@ -115,6 +115,8 @@ namespace NuttyApp.Constants{
 	public static const string TEXT_FOR_NO_RECORDED_DEVICES_FOUND = _("No devices have been recorded earlier. Select a connection to update results.");
 	public static const string TEXT_FOR_DEVICES_SCAN_IN_PROGRESS = _("Device scan in progress ...");
 	public static const string TEXT_FOR_DEVICES_FOUND = _("devices found on this connection");
+	public static const string TEXT_FOR_DEVICES_ACTION = _("Actions for : ");
+	public static const string TEXT_FOR_DEVICES_REMOVAL = _("Forget device");
 	public static const string TEXT_FOR_BANDWIDTH_TAB = _("Usage");
 	public static const string TEXT_FOR_BANDWIDTH_INTERFACE_RESULTS_1 = _("Connection monitored from ");
 	public static const string TEXT_FOR_BANDWIDTH_INTERFACE_RESULTS_2 = _(" and last updated on ");

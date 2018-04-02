@@ -180,8 +180,8 @@ namespace NuttyApp {
 			}else if(command_line_option_monitor.length > 0){
 				print("\nRunning Nutty in Device Monitor Mode for config at "+command_line_option_monitor+"\n");
 				//initialize the DB
-				NuttyApp.DB.initializeNuttyDB(nutty_config_path);
 				nutty_config_path = command_line_option_monitor;
+				NuttyApp.DB.initializeNuttyDB(nutty_config_path);
 				//run device discovery as a background task
 				NuttyApp.Devices.runDeviceDiscovery();
 			}else if(command_line_option_alert){
@@ -1187,7 +1187,7 @@ namespace NuttyApp {
 			bool isFilterCriteriaMatch = true;
 			string modelValueString = "";
 			//If there is nothing to filter or the default help text then make the data visible
-			if ((headerSearchBar.get_text() == "") || (Constants.TEXT_FOR_SEARCH_HEADERBAR == headerSearchBar.get_text())){
+			if ((headerSearchBar.get_text() == "")){
 					isFilterCriteriaMatch = true;
 			//extract data from the tree model and match againt the filter input
 			}else{

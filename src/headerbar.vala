@@ -35,7 +35,7 @@ public class NuttyApp.AppHeaderBar {
 
 		//Add a search entry to the header
 		NuttyApp.Nutty.headerSearchBar = new Gtk.SearchEntry();
-		NuttyApp.Nutty.headerSearchBar.set_text(Constants.TEXT_FOR_SEARCH_HEADERBAR);
+		NuttyApp.Nutty.headerSearchBar.set_placeholder_text(Constants.TEXT_FOR_SEARCH_HEADERBAR);
 		headerbar.pack_end(NuttyApp.Nutty.headerSearchBar);
 		// Set actions for HeaderBar search
 		NuttyApp.Nutty.headerSearchBar.search_changed.connect (() => {
