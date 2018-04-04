@@ -146,7 +146,13 @@ public class NuttyApp.Devices {
                 event.get_button(out mouseButtonClicked);
 				//handle right button click for context menu
                 if (event.get_event_type ()  == Gdk.EventType.BUTTON_PRESS  &&  mouseButtonClicked == 3){
-					debug("Show Context Menu");					
+					debug("Show Context Menu");
+					//determine the position on which the right click has happened			
+					TreePath path; TreeViewColumn column; int cell_x; int cell_y;
+					device_table_treeview.get_path_at_pos ((int)event.x, (int)event.y, out path, out column, out cell_x, out cell_y);
+					device_table_treeview.grab_focus();
+               		device_table_treeview.set_cursor(path,column,false);
+					//get details of the selected row and display the context menu
 					TreeSelection aTreeSelection = device_table_treeview.get_selection ();
 					if(aTreeSelection.count_selected_rows() == 1){
 						TreeModel model;

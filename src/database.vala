@@ -109,9 +109,14 @@ public class NuttyApp.DB{
         Sqlite.Statement stmt = null;
         bool isDevicePresent = false;
         string whereClauseForDeviceCheck = "";
+
+        //avoid adding loopback devices
+        if(aDevice.device_ip.contains ("127.0.0")){
+            return 0;
+        }
          
-         //Form the where clause on the basis of MAC and IP of the device
-         if(aDevice.device_mac != null && aDevice.device_mac.length>0 && aDevice.device_mac.strip() != ""){
+        //Form the where clause on the basis of MAC and IP of the device
+        if(aDevice.device_mac != null && aDevice.device_mac.length>0 && aDevice.device_mac.strip() != ""){
             if(aDevice.device_ip != null && aDevice.device_ip.length>0 && aDevice.device_ip.strip() != ""){
                 //Both IP and MAC are present
                 whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
@@ -119,7 +124,7 @@ public class NuttyApp.DB{
                 //IP is absent but MAC is present
                 whereClauseForDeviceCheck = " WHERE DEVICE_MAC=\'"+aDevice.device_mac+"\'";
             }
-         }else{
+        }else{
              if(aDevice.device_ip != null && aDevice.device_ip.length>0 && aDevice.device_ip.strip() != ""){
                 //MAC is absent but IP is present
                 whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\'";
@@ -127,9 +132,9 @@ public class NuttyApp.DB{
                 //Both IP and MAC are not present - the device should be added. make the where clause random
                 whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'ABC\'  AND DEVICE_MAC=\'123\'";    
             }   
-         }
-         //Check if the device is present in the DB based on MAC and/or IP
-         queryString = "SELECT 
+        }
+        //Check if the device is present in the DB based on MAC and/or IP
+        queryString = "SELECT 
                                         DEVICE_IP, 
                                         DEVICE_MAC,
                                         DEVICE_HOST_MANUFACTURER,
@@ -140,8 +145,8 @@ public class NuttyApp.DB{
                                         DEVICE_STATUS
                                     FROM " + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
                                     whereClauseForDeviceCheck;
-         executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
-         if (executionStatus != Sqlite.OK) {
+        executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
+        if (executionStatus != Sqlite.OK) {
             debug("Error on executing Query:"+queryString);
             warning ("Error details: %d: %s\n", nuttyDB.errcode (), nuttyDB.errmsg ());
             return -1;
