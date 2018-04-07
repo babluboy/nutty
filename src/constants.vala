@@ -42,6 +42,8 @@ namespace NuttyApp.Constants{
 	public const string DEFAULT_APP_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-application-default-icon.svg";
 	public const string HEADERBAR_PROPERTIES_IMAGE_LOCATION = INSTALL_PREFIX+"/share/bookworm/icons/hicolor/24x24/actions/nutty-open-menu.svg";
 	public static const string nutty_script_path = INSTALL_PREFIX+"/share/nutty/scripts";
+	//Scripts used by Nutty
+	public static const string COMMAND_FOR_INTERFACES = nutty_script_path + "/" + "nutty_cli_script.sh";
 
 	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
@@ -57,6 +59,9 @@ namespace NuttyApp.Constants{
 	public static const string TEXT_FOR_NO_DATA_FOUND = _("No data found");
 	public static const string TEXT_FOR_NOT_AVAILABLE = _("Not Available");
 	public static const string TEXT_FOR_DISCLAIMER_AGREE_BUTTON = _("I Agree");
+	public static const string TEXT_FOR_WIRED_CONNECTION = _("Wired");
+	public static const string TEXT_FOR_WIRELESS_CONNECTION = _("Wireless");
+	public static const string TEXT_FOR_OTHER_CONNECTION = _("Other");
 	public static const string TEXT_FOR_MYINFO_TAB = _("My Info");
 	public static const string TEXT_FOR_INTERFACE_LABEL = _("Select a connection");
 	public static const string TEXT_FOR_MYINFO_DETAILS_LABEL = _("View Details");
@@ -66,8 +71,6 @@ namespace NuttyApp.Constants{
 	public static const string TEXT_FOR_MYINFO_MAC_ADDRESS = _("MAC Address");
 	public static const string TEXT_FOR_MYINFO_IP_ADDRESS = _("IP Address");
 	public static const string TEXT_FOR_MYINFO_INTERFACE_STATE = _("Interface State");
-	public static const string TEXT_FOR_MYINFO_INTERFACE_ACTIVE = _("Active");
-	public static const string TEXT_FOR_MYINFO_INTERFACE_INACTIVE = _("In-Active");
 	public static const string TEXT_FOR_MYINFO_INTERFACE_HARDWARE = _("Interface Hardware");
 	public static const string TEXT_FOR_MYINFO_PRODUCT = _("Product");
 	public static const string TEXT_FOR_MYINFO_VENDOR = _("Vendor");
@@ -151,8 +154,7 @@ namespace NuttyApp.Constants{
 	public static const string[] COMMAND_FOR_PORTS = {"netstat", "-p", "-e"};
 	public static const string COMMAND_FOR_WIRELESS_CARD_DETAILS = "iwconfig ";
 	public static const string COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS = "iwlist ";
-	public static const string COMMAND_FOR_INTERFACE_NAMES = "/sbin/ifconfig -s";
-	public static const string COMMAND_FOR_INTERFACE_DETAILS = "/sbin/ifconfig -a ";
+
 	public static const string COMMAND_FOR_DEVICES_PREFIX = "/usr/bin/nmap -sn -oX ";
 	public static const string SCRIPT_FOR_DEVICES = "sudo nmap -sn -oX /tmp/nmap.xml $1; cat /tmp/nmap.xml; sudo rm /tmp/nmap.xml";
 	public static const string COMMAND_FOR_DEVICES_SUFFIX = " >/dev/null";

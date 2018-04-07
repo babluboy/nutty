@@ -34,11 +34,9 @@ namespace NuttyApp {
 										 _("Please read the following disclaimer on Nmap (used by Nutty) for further information: ") + "\n" +
 										 "<a href='http://nmap.org/book/legal-issues.html'>http://nmap.org/book/legal-issues.html</a> \n\n" +
 										 _("If you have read and understood the above, click the \"I Agree\" button below to proceed");
-		public string TEXT_FOR_WIRED_CONNECTION = _("Wired");
-		public string TEXT_FOR_WIRELESS_CONNECTION = _("Wireless");
-		public string TEXT_FOR_OTHER_CONNECTION = _("Other");
+		
 		public static string TEXT_FOR_DEVICE_FOUND_NOTIFICATION = _("New Device found on network:\n");
-		public string[] COMMAND_FOR_INTERFACE_HARDWARE_DETAILED = {"lshw", "-xml", "-class", "network"};
+		public static string[] COMMAND_FOR_INTERFACE_HARDWARE_DETAILED = {"lshw", "-xml", "-class", "network"};
 		public string[] COMMAND_FOR_BANDWIDTH_USAGE = {"vnstat", "--xml", "-i", "<interface goes here>"};
 		public static string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {"curl", "-d", "test", "http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"};
 		public string[] COMMAND_FOR_SPEED_TEST = {"speedtest-cli", "--simple", "--bytes"};
@@ -64,9 +62,9 @@ namespace NuttyApp {
 		public static Stack stack;
 		public static Gee.HashMap<string,string> interfaceConnectionMap;
 		public static Gee.HashMap<string,string> interfaceIPMap;
-		public Gee.HashMap<string,string> interfaceMACMap;
-		public StringBuilder interfaceCommandOutputMinimal = new StringBuilder("");
-		public StringBuilder interfaceCommandOutputDetailed = new StringBuilder("");
+		public static Gee.HashMap<string,string> interfaceMACMap;
+		public static StringBuilder interfaceCommandOutputMinimal = new StringBuilder("");
+		public static StringBuilder interfaceCommandOutputDetailed = new StringBuilder("");
 		public static Gtk.TreeStore info_list_store = new Gtk.TreeStore (2, typeof (string), typeof (string));
 		public static Gtk.ListStore route_list_store = new Gtk.ListStore (6, typeof (int), typeof (string), typeof (string), typeof (double), typeof (double), typeof (double));
 		public static Gtk.ListStore ports_tcp_list_store = new Gtk.ListStore (6, typeof (string), typeof (string), typeof (string), typeof (string), typeof (string), typeof (string));
@@ -74,8 +72,8 @@ namespace NuttyApp {
 		public static Gtk.ListStore bandwidth_results_list_store = new Gtk.ListStore (4, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string));
 		public static Gtk.ListStore bandwidth_list_store = new Gtk.ListStore (4, typeof (string), typeof (string), typeof (string), typeof (string));
 		public static Gtk.ListStore speedtest_list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
-		public Spinner infoProcessSpinner;
-		public string HostName;
+		public static Spinner infoProcessSpinner;
+		public static string HostName;
 		public static Gtk.SearchEntry headerSearchBar;
 		public static Spinner traceRouteSpinner;
 		public Label route_results_label;
@@ -422,7 +420,7 @@ namespace NuttyApp {
 			main_ui_box.pack_start(stack, true, true, 0);
 
 			//Fetch and persist names of connections and interfaces if it dosent exist already
-			getConnectionsList();
+			NuttyApp.Info.getConnectionsList();
 			debug("Obtained the list of connections...");
 
 			/* Start of tabs UI set up */
@@ -465,7 +463,7 @@ namespace NuttyApp {
 			Gtk.Switch detailsInfoSwitch = new Gtk.Switch ();
 			detailsInfoSwitch.set_sensitive (false);
 			infoProcessSpinner = new Spinner();
-			//Set connection values into combobox
+			//Set connection values into connections combobox
 			info_combobox.insert(0,Constants.TEXT_FOR_INTERFACE_LABEL,Constants.TEXT_FOR_INTERFACE_LABEL);
 			info_combobox_counter = 1;
 			foreach (var entry in interfaceConnectionMap.entries) {
@@ -479,7 +477,7 @@ namespace NuttyApp {
 			info_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_MYINFO_COLUMN_NAME_1, info_cell, "text", 0);
 			info_table_treeview.insert_column_with_attributes (-1, Constants.TEXT_FOR_MYINFO_COLUMN_NAME_2, info_cell, "text", 1);
 			//Fetch and minimal info with no interface selected
-			infoTreeModelFilter = new Gtk.TreeModelFilter (processMyInfo("", false), null);
+			infoTreeModelFilter = new Gtk.TreeModelFilter (NuttyApp.Info.processMyInfo("", false), null);
 			setFilterAndSort(info_table_treeview, infoTreeModelFilter, SortType.DESCENDING);
 			// Set actions for Interface DropDown change
 			info_combobox.changed.connect (() => {
@@ -488,17 +486,17 @@ namespace NuttyApp {
 					detailsInfoSwitch.set_sensitive (true);
 					if (detailsInfoSwitch.active) {
 						infoProcessSpinner.start();
-						infoTreeModelFilter = new Gtk.TreeModelFilter (processMyInfo(info_combobox.get_active_id (), true), null);
+						infoTreeModelFilter = new Gtk.TreeModelFilter (NuttyApp.Info.processMyInfo(info_combobox.get_active_id (), true), null);
 						setFilterAndSort(info_table_treeview, infoTreeModelFilter, SortType.DESCENDING);
 					} else {
-						infoTreeModelFilter = new Gtk.TreeModelFilter (processMyInfo(info_combobox.get_active_id (), false), null);
+						infoTreeModelFilter = new Gtk.TreeModelFilter (NuttyApp.Info.processMyInfo(info_combobox.get_active_id (), false), null);
 						setFilterAndSort(info_table_treeview, infoTreeModelFilter, SortType.DESCENDING);
 					}
 				}else{
 					//set the detailsInfoSwitch to in-active status
 					detailsInfoSwitch.set_sensitive (false);
 					//Fetch and minimal info with no interface selected
-					infoTreeModelFilter = new Gtk.TreeModelFilter (processMyInfo("", false), null);
+					infoTreeModelFilter = new Gtk.TreeModelFilter (NuttyApp.Info.processMyInfo("", false), null);
 					setFilterAndSort(info_table_treeview, infoTreeModelFilter, SortType.DESCENDING);
 				}
 			});
@@ -506,10 +504,10 @@ namespace NuttyApp {
 			detailsInfoSwitch.notify["active"].connect (() => {
 				if (detailsInfoSwitch.active) {
 					infoProcessSpinner.start();
-					infoTreeModelFilter = new Gtk.TreeModelFilter (processMyInfo(info_combobox.get_active_id (), true), null);
+					infoTreeModelFilter = new Gtk.TreeModelFilter (NuttyApp.Info.processMyInfo(info_combobox.get_active_id (), true), null);
 					setFilterAndSort(info_table_treeview, infoTreeModelFilter, SortType.DESCENDING);
 				} else {
-					infoTreeModelFilter = new Gtk.TreeModelFilter (processMyInfo(info_combobox.get_active_id (), false), null);
+					infoTreeModelFilter = new Gtk.TreeModelFilter (NuttyApp.Info.processMyInfo(info_combobox.get_active_id (), false), null);
 					setFilterAndSort(info_table_treeview, infoTreeModelFilter, SortType.DESCENDING);
 				}
 			});
@@ -1127,62 +1125,6 @@ namespace NuttyApp {
 			return std_out;
 		}
 
-		public Gee.ArrayList<string> getInterfaceList() throws Error{
-			debug("Starting to get Interface list...");
-			Gee.ArrayList <string> interfaceList =  new Gee.ArrayList<string>();
-			string commandOutput = execute_sync_command(Constants.COMMAND_FOR_INTERFACE_NAMES); //get command output for interface details
-			string[] linesArray = commandOutput.strip().split ("\n",-1); //split the indivudual lines in the output
-			//In each line split the strings and record the first string only
-			foreach(string dataElement in linesArray){
-				string[] dataArray = dataElement.split (" ",-1);
-				interfaceList.add ((string)dataArray[0].strip());
-			}
-			interfaceList.remove_at (0); //throw away the first string as that is a header name
-			debug("Completed getting Interface list...");
-			return interfaceList;
-		}
-
-		public void getConnectionsList() {
-			debug("Starting to get connection details...");
-			try{
-				if(interfaceConnectionMap != null) {
-					//do nothing as the connections map is already populated
-				}else{
-					Gee.ArrayList<string> interfaceList = getInterfaceList();
-					interfaceConnectionMap = new HashMap <string,string>();
-					interfaceIPMap = new HashMap <string,string>();
-					interfaceMACMap = new HashMap <string,string>();
-					StringBuilder commandOutput = new StringBuilder();
-					StringBuilder IPAddress = new StringBuilder();
-					StringBuilder MACAddress = new StringBuilder();
-					//Get interface names to populate the dropdown list and find corresponding IP addresses
-					foreach(string data in interfaceList){
-						//create a connection name for each interface name and hold in a HashMap
-						if(data.down().get_char(0) == 'e'){
-							interfaceConnectionMap.set(data, TEXT_FOR_WIRED_CONNECTION +" (" +data+ ")");
-						}else if(data.down().get_char(0) == 'w'){
-							interfaceConnectionMap.set(data, TEXT_FOR_WIRELESS_CONNECTION +" (" +data+ ")");
-						}else{
-							interfaceConnectionMap.set(data, TEXT_FOR_OTHER_CONNECTION +" (" +data+ ")");
-						}
-						//execute command for IP and MAC
-						commandOutput.assign(execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+data));
-						//find an IP address for each interface name and hold in a HashMap
-						IPAddress.assign(Utils.extractBetweenTwoStrings(commandOutput.str,Constants.IDENTIFIER_FOR_IPADDRESS_IN_COMMAND_OUTPUT," "));
-						interfaceIPMap.set(data,IPAddress.str);
-						//find an MAC Address for each interface name and hold in a HashMap
-						MACAddress.assign(Utils.extractBetweenTwoStrings(commandOutput.str,Constants.IDENTIFIER_FOR_MACADDRESS_IN_COMMAND_OUTPUT," ").up(-1));
-						interfaceMACMap.set(data,MACAddress.str);
-						//Record Host Name
-						HostName = execute_sync_command(Constants.COMMAND_FOR_HOST_NAMES).strip();
-					}
-				}
-			}catch(Error e){
-				warning("Failure in getting connection list:"+e.message);
-			}
-			debug("Completed getting connection details...");
-		}
-
 		public static bool filterTree(TreeModel model, TreeIter iter){
 			bool isFilterCriteriaMatch = true;
 			string modelValueString = "";
@@ -1223,162 +1165,6 @@ namespace NuttyApp {
 				aTreeView.get_column(count).set_sort_column_id(count);
 				aTreeView.get_column(count).set_sort_order(aSortType);
 			}
-		}
-
-		public Gtk.TreeStore processMyInfo(string interfaceName, bool isDetailsRequired){
-			debug("Starting to process MyInfo[interfaceName="+interfaceName+",isDetailsRequired="+isDetailsRequired.to_string()+"]...");
-			info_list_store.clear();
-			try{
-				TreeIter iter;
-				TreeIter iterSecondLevel;
-
-				//Get info which does not require an Interface Name
-				info_list_store.append (out iter, null);
-				info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_HOSTNAME, 1, HostName);
-				string[] interfaceDetails = Utils.multiExtractBetweenTwoStrings(execute_sync_command(Constants.COMMAND_FOR_INTERFACE_HARDWARE).strip(), "Ethernet controller:", "\n");
-				int interfaceDetailsCounter = 0;
-				foreach(string data in interfaceDetails){
-					info_list_store.append (out iter, null);
-					if(interfaceDetailsCounter ==0){
-						info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_INTERFACE_HARDWARE, 1, data);
-					} else {
-						info_list_store.set (iter, 0, "", 1, data);
-					}
-					interfaceDetailsCounter++;
-				}
-				//Get simple info which requires an interface name
-				if(interfaceName != null && interfaceName != "" && interfaceName.length > 0){
-					info_list_store.append (out iter, null);
-					info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_MAC_ADDRESS, 1, interfaceMACMap.get(interfaceName.strip()));
-
-					info_list_store.append (out iter, null);
-					info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_IP_ADDRESS, 1, interfaceIPMap.get(interfaceName.strip()));
-
-					//run minimal interface command if the same has not been executed
-					interfaceCommandOutputMinimal.assign(execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+interfaceName));
-
-					if(interfaceCommandOutputMinimal.str.contains("RUNNING")){
-						info_list_store.append (out iter, null);
-						info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_INTERFACE_STATE, 1, Constants.TEXT_FOR_MYINFO_INTERFACE_ACTIVE);
-					}else{
-						info_list_store.append (out iter, null);
-						info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_INTERFACE_STATE, 1, Constants.TEXT_FOR_MYINFO_INTERFACE_INACTIVE);
-					}
-				}
-				//Get simple wireless info which requires an interface name
-				if(interfaceName != null && interfaceName != "" && interfaceName.length > 0 && interfaceName.get_char(0) == 'w'){
-					string iwconfigOutput = execute_sync_command(Constants.COMMAND_FOR_WIRELESS_CARD_DETAILS + interfaceName);
-					string frequencyAndChannel = execute_sync_command(Constants.COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS+interfaceName+" channel");
-
-					info_list_store.append (out iter, null);
-					info_list_store.set (iter, 0, _("Network Card"), 1, Utils.extractBetweenTwoStrings(iwconfigOutput,interfaceName, "ESSID:").strip() + _(" Standards with Transmit Power of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Tx-Power=", "Retry short limit:").strip() + _(" [Power Management: ") +Utils.extractBetweenTwoStrings(iwconfigOutput,"Power Management:", "Link Quality=").strip()+"]");
-
-					info_list_store.append (out iter, null);
-					info_list_store.set (iter, 0, _("Connected to"), 1, Utils.extractBetweenTwoStrings(iwconfigOutput,"ESSID:", "Mode:").replace("\"","").strip() + _(" Network at Access Point ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Access Point:", "Bit Rate=").strip() + "(MAC) in "+Utils.extractBetweenTwoStrings(iwconfigOutput,"Mode:", "Frequency:").strip()+_(" Mode"));
-
-					info_list_store.append (out iter, null);
-					info_list_store.set (iter, 0, _("Connected with"), 1, _("Frequency of ")+Utils.extractBetweenTwoStrings(frequencyAndChannel,"Current Frequency:", "\n").strip() + _(" and Bit Rate of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Bit Rate=", "Tx-Power=").strip());
-
-					info_list_store.append (out iter, null);
-					info_list_store.set (iter, 0, _("Connection strength"), 1, _("Link Quality of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Link Quality=", "Signal level=").strip() + _(" and Signal Level of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Signal level=", "Rx invalid nwid:").strip());
-				}
-
-				//Get detailed info which requires an interface name
-				if(interfaceName != null && interfaceName != "" && interfaceName.length > 0 && isDetailsRequired){
-					//run detailed interface command if the same has not been executed
-					if("" == interfaceCommandOutputDetailed.str){
-						execute_sync_multiarg_command_pipes(COMMAND_FOR_INTERFACE_HARDWARE_DETAILED);
-						interfaceCommandOutputDetailed.assign(spawn_async_with_pipes_output.str);
-					}
-					bool isNodeLeftToScan = true;
-					int startPos = 0;
-					int endPos = 0;
-					StringBuilder interfaceNodeXML = new StringBuilder("");
-					while (isNodeLeftToScan){
-						startPos = interfaceCommandOutputDetailed.str.index_of("<node id=\"network\"",startPos+1);
-						endPos = interfaceCommandOutputDetailed.str.index_of("</node>",startPos);
-						if(startPos != -1 && endPos != -1 && endPos>startPos){ //xml Nodes found to process
-							interfaceNodeXML.assign(interfaceCommandOutputDetailed.str.slice(startPos,endPos));
-							if(interfaceName == Utils.extractXMLTag(interfaceNodeXML.str,"<logicalname>", "</logicalname>").strip()){
-								//do nothing the extracted node is for the selected interface
-								break;
-							}else{
-								//empty the node as it is not for the selected interface
-								interfaceNodeXML.assign("");
-							}
-							startPos = endPos;
-						}else{
-							if(startPos != -1 && endPos != -1 && endPos>startPos){ //process last xml Nodes{
-								interfaceNodeXML.assign(interfaceCommandOutputDetailed.str.slice(startPos,endPos));
-								if(interfaceName == Utils.extractXMLTag(interfaceNodeXML.str,"<logicalname>", "</logicalname>").strip()){
-									//do nothing the extracted node is for the selected interface
-									break;
-								}else{
-									//empty the node as it is not for the selected interface
-									interfaceNodeXML.assign("");
-								}
-							}
-							isNodeLeftToScan = false; //No more xml Nodes left to scan
-						}
-					}
-					//extract data from node and add to ListStore
-					if(interfaceNodeXML.str != ""){
-						info_list_store.append (out iter, null);
-						info_list_store.set (iter, 0, "NIC Info", -1);
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_PRODUCT, 1, Utils.extractXMLTag(interfaceNodeXML.str,"<product>", "</product>"));
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_VENDOR, 1, Utils.extractXMLTag(interfaceNodeXML.str,"<vendor>", "</vendor>"));
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_PHYSICALID, 1, Utils.extractXMLTag(interfaceNodeXML.str,"<physid>", "</physid>"));
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_BUSINFO, 1, Utils.extractXMLTag(interfaceNodeXML.str,"<businfo>", "</businfo>"));
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_VERSION, 1, Utils.extractXMLTag(interfaceNodeXML.str,"<version>", "</version>"));
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_CAPACITY, 1, Utils.extractXMLTag(interfaceNodeXML.str,"<capacity>", "</capacity>"));
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_BUSWIDTH, 1, Utils.extractXMLAttribute(interfaceNodeXML.str,"width", "units", "bits")+ " bits");
-						info_list_store.append (out iterSecondLevel, iter);
-						info_list_store.set (iterSecondLevel, 0, Constants.TEXT_FOR_MYINFO_CLOCKSPEED, 1, (int.parse(Utils.extractXMLAttribute(interfaceNodeXML.str,"clock", "units", "Hz"))/1000000).to_string()+ " MHz");
-
-						Gee.HashMap<string,string> configurationDetails = Utils.extractTagAttributes(Utils.extractXMLTag(interfaceNodeXML.str,"<configuration>", "</configuration>"), "setting", "id", true);
-						MapIterator<string,string> configurationIterator = configurationDetails.map_iterator ();
-						info_list_store.append (out iter, null);
-						info_list_store.set (iter, 0, "Configuration", -1);
-						while(configurationIterator.has_next()) {
-							configurationIterator.next();
-							info_list_store.append (out iterSecondLevel, iter);
-							info_list_store.set (iterSecondLevel, 0, configurationIterator.get_key(), 1, configurationIterator.get_value(),-1);
-						}
-
-						Gee.HashMap<string,string> capabilityDetails = Utils.extractTagAttributes(Utils.extractXMLTag(interfaceNodeXML.str,"<capabilities>", "</capabilities>"), "capability", "id", false);
-						MapIterator<string,string> capabilityIterator = capabilityDetails.map_iterator ();
-						info_list_store.append (out iter, null);
-						info_list_store.set (iter, 0, "Capability", -1);
-						while(capabilityIterator.has_next()) {
-							capabilityIterator.next();
-							info_list_store.append (out iterSecondLevel, iter);
-							info_list_store.set (iterSecondLevel, 0, capabilityIterator.get_key(), 1, capabilityIterator.get_value(),-1);
-						}
-
-						Gee.HashMap<string,string> resourceDetails = Utils.extractTagAttributes(Utils.extractXMLTag(interfaceNodeXML.str,"<resources>", "</resources>"), "resource", "type", true);
-						MapIterator<string,string> resourceIterator = resourceDetails.map_iterator ();
-						info_list_store.append (out iter, null);
-						info_list_store.set (iter, 0, "Resources", -1);
-						while(resourceIterator.has_next()) {
-							resourceIterator.next();
-							info_list_store.append (out iterSecondLevel, iter);
-							info_list_store.set (iterSecondLevel, 0, resourceIterator.get_key(), 1, resourceIterator.get_value(),-1);
-						}
-					}
-					infoProcessSpinner.stop();
-				}
-			}catch(Error e){
-				warning("Failure to process MyInfo:"+e.message);
-			}
-			debug("Completed processing MyInfo[interfaceName="+interfaceName+",isDetailsRequired="+isDetailsRequired.to_string()+"]...");
-			return info_list_store;
 		}
 
 		public Gtk.ListStore processRouteScan(string tracerouteCommand){

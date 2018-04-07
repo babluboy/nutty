@@ -26,6 +26,7 @@ add_subdirectory (po)
 
 # Replace parameters in source code
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/src/constants.vala.in" "${CMAKE_SOURCE_DIR}/src/constants.vala" @ONLY)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/data/scripts/org.freedesktop.policykit.nutty.policy.in" "${CMAKE_SOURCE_DIR}/data/scripts/org.freedesktop.policykit.nutty.policy" @ONLY)
 
 # define variable for sources
 set (SOURCE_LIST
@@ -38,6 +39,7 @@ set (SOURCE_LIST
     src/database.vala
     src/entities.vala
     src/xmlHandler.vala
+    src/info.vala
 )
 
 # we're about to use pkgconfig to make sure dependencies are installed so let's find pkgconfig first
@@ -85,6 +87,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
     src/database.vala
     src/entities.vala
     src/xmlHandler.vala
+    src/info.vala
 
 # tell what libraries to use when compiling
 PACKAGES
@@ -147,6 +150,11 @@ install(
 )
 install(
     FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scripts/nutty_nethogs_script.sh
+    PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ WORLD_READ WORLD_EXECUTE
+    DESTINATION ${SCRIPTS_DIR}
+)
+install(
+    FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scripts/nutty_cli_script.sh
     PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ WORLD_READ WORLD_EXECUTE
     DESTINATION ${SCRIPTS_DIR}
 )

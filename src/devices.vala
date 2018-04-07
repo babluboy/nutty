@@ -1,7 +1,7 @@
 /* Copyright 2018 Siddhartha Das (bablu.boy@gmail.com)
 *
-* This file is part of Nutty and creates the headerbar widget
-* and all the widgets associated with the headerbar
+* This file is part of Nutty and provides the details of the Devices tab
+* The device alert function is also provided in this class
 *
 * Nutty is free software: you can redistribute it
 * and/or modify it under the terms of the GNU General Public License as
@@ -376,7 +376,7 @@ public class NuttyApp.Devices {
         ArrayList<NuttyApp.Entities.Device> listOfDevices = NuttyApp.DB.getDevicesFromDB();
 		//Loop over all devices and check if any device has not been alerted
 		foreach(NuttyApp.Entities.Device aDevice in listOfDevices){
-			print("\nChecking Alert condition for Device with IP: "+aDevice.device_ip + "and alert status:"+aDevice.device_alert);
+			print("\nChecking Alert condition for Device with IP: "+aDevice.device_ip + " and alert status:"+aDevice.device_alert);
 			if(aDevice.device_alert != NuttyApp.Constants.DEVICE_ALERT_COMPLETED){
 				//push an alert for the device
 				NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_DEVICES_ALERT + " '" + 
@@ -393,29 +393,27 @@ public class NuttyApp.Devices {
 
 	public static void runDeviceDiscovery(){
 		print("\n[START] [FUNCTION:runDeviceDiscovery]");
-		StringBuilder commandOutput = new StringBuilder("");
-		StringBuilder IPAddress = new StringBuilder("");
-		Gee.ArrayList <string> interfaceList =  new Gee.ArrayList<string>();
-		//get command output for interface details
-		commandOutput.assign(NuttyApp.Nutty.execute_sync_command(NuttyApp.Constants.COMMAND_FOR_INTERFACE_NAMES)); 
-		string[] linesArray = commandOutput.str.strip().split ("\n",-1); //split the indivudual lines in the output
+		//get the list of all interfaces
+        ArrayList<string> interfaceList = new ArrayList<string>();
+        StringBuilder commandOutput = new StringBuilder("");
+        commandOutput.assign(NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_INTERFACES + " INTERFACE"));
+		string[] interfaces = commandOutput.str.strip().split (" ",-1);
 		//In each line split the strings and record the first string only
-		foreach(string dataElement in linesArray){
-			string[] dataArray = dataElement.split (" ",-1);
-			interfaceList.add ((string)dataArray[0].strip());
+		foreach(string interface in interfaces){
+            if(interface.strip().length > 0){
+				interfaceList.add (interface.strip());
+			}
 		}
-		interfaceList.remove_at (0); //throw away the first string as that is a header name
-		foreach (string aInterface in interfaceList) {
-			print("\ninterface name: "+aInterface);
+		//Get the IP addresses corresponding to each interface name
+		StringBuilder IPAddress = new StringBuilder("");
+		foreach(string data in interfaceList) {
 			//execute command for IP
-			commandOutput.assign(NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_INTERFACE_DETAILS+aInterface));
-			//find an IP address for each interface name
-			IPAddress.assign(Utils.extractBetweenTwoStrings(
-													commandOutput.str,
-													NuttyApp.Constants.IDENTIFIER_FOR_IPADDRESS_IN_COMMAND_OUTPUT,
-													" ")
-											);
-            //set up the IP Address to scan the network : This should be of the form 192.168.1.1/24
+			IPAddress.assign(commandOutput.assign(
+        			NuttyApp.Nutty.execute_sync_command(
+						Constants.COMMAND_FOR_INTERFACES + " IP " + data.strip()
+					)).str.replace("\n","").strip()
+			);
+			//set up the IP Address to scan the network : This should be of the form 192.168.1.1/24
 			if(IPAddress.str.length>0 && IPAddress.str.last_index_of(".") > -1){
 				IPAddress.assign(IPAddress.str.substring(0, IPAddress.str.last_index_of("."))+".1/24");
                 if(IPAddress != null || "" != IPAddress.str.strip()){
