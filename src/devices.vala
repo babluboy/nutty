@@ -372,16 +372,27 @@ public class NuttyApp.Devices {
 
 	public static void alertNewDevices () {
 		print("\n[START] [FUNCTION:alertNewDevices]");
-		//get data for all devices recorded in the DB  
+		
+		//get data for all devices recorded in the DB 
         ArrayList<NuttyApp.Entities.Device> listOfDevices = NuttyApp.DB.getDevicesFromDB();
 		//Loop over all devices and check if any device has not been alerted
 		foreach(NuttyApp.Entities.Device aDevice in listOfDevices){
 			print("\nChecking Alert condition for Device with IP: "+aDevice.device_ip + " and alert status:"+aDevice.device_alert);
 			if(aDevice.device_alert != NuttyApp.Constants.DEVICE_ALERT_COMPLETED){
 				//push an alert for the device
-				NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_DEVICES_ALERT + " '" + 
-				NuttyApp.Nutty.TEXT_FOR_DEVICE_FOUND_NOTIFICATION + 
-				aDevice.device_hostname_custom + "(" + aDevice.device_ip + ")'");
+				Notify.init (NuttyApp.Constants.nutty_id);
+				try {
+					Notify.Notification notification = new Notify.Notification (
+							NuttyApp.Nutty.TEXT_FOR_DEVICE_FOUND_NOTIFICATION, 
+							aDevice.device_hostname_custom + "(" + aDevice.device_ip + ")'", 
+							NuttyApp.Constants.app_icon
+					);
+					notification.app_name =  NuttyApp.Constants.program_name;
+					notification.show ();
+				} catch (Error e) {
+					print ("\nError while sending notification: %s", e.message);
+				}
+
 				//update the device status as alert complete in the DB
 				aDevice.device_alert = NuttyApp.Constants.DEVICE_ALERT_COMPLETED;
 				NuttyApp.DB.addDeviceToDB(aDevice);
@@ -424,5 +435,35 @@ public class NuttyApp.Devices {
             }
 		}
 		print("\n[END] [FUNCTION:runDeviceDiscovery]");
+	}
+
+	public static void setupDeviceMonitoring(){
+		info("[START] [FUNCTION:setupDeviceMonitoring]");
+		try{
+			//reset the device scheduled state if device schedule is disabled
+			if(NuttyApp.Nutty.DEVICE_SCHEDULE_STATE == NuttyApp.Nutty.DEVICE_SCHEDULE_DISABLED)
+				NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED = -1;
+
+			//execute the command to update root crontab for monitoring
+			NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
+						"pkexec",
+						Constants.nutty_script_path + "/" + Constants.nutty_monitor_scheduler_file_name,
+						NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
+						NuttyApp.Nutty.nutty_config_path, 
+						Environment.get_home_dir () + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
+						"/tmp/root_"+Environment.get_user_name () + "_crontab_temp.txt"
+		  	});
+			//execute the command to update user crontab for alerting
+			NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
+						Constants.nutty_script_path + "/" + Constants.nutty_alert_scheduler_file_name,
+						NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
+						NuttyApp.Nutty.nutty_config_path, 
+						Environment.get_home_dir ()+ "/" + Constants.nutty_alert_scheduler_backup_file_name,
+						"/tmp/user_"+Environment.get_user_name () + "_crontab_temp.txt"
+		  	});
+		}catch(Error e){
+			warning("Failure in setting up device monitoring:"+e.message);
+		}
+		info("[END] [FUNCTION:setupDeviceMonitoring]");
 	}
 }

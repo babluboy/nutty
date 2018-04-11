@@ -26,13 +26,13 @@ public class NuttyApp.AppHeaderBar {
     public static Gtk.HeaderBar create_headerbar(Gtk.Window window) {
 		info("[START] [FUNCTION:create_headerbar]");
 		Gtk.HeaderBar headerbar = new Gtk.HeaderBar();
+		headerbar.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 		headerbar.set_title(NuttyApp.Constants.program_name);
-		headerbar.subtitle = Constants.TEXT_FOR_SUBTITLE_HEADERBAR;
+		//headerbar.subtitle = Constants.TEXT_FOR_SUBTITLE_HEADERBAR;
 		headerbar.set_show_close_button(true);
 		headerbar.spacing = Constants.SPACING_WIDGETS;
 		//add menu items
 		headerbar.pack_end(createNuttyMenu());
-
 		//Add a search entry to the header
 		NuttyApp.Nutty.headerSearchBar = new Gtk.SearchEntry();
 		NuttyApp.Nutty.headerSearchBar.set_placeholder_text(Constants.TEXT_FOR_SEARCH_HEADERBAR);

@@ -25,7 +25,7 @@ public const string GETTEXT_PACKAGE = "nutty";
 namespace NuttyApp {
 	public class Nutty : Granite.Application {
 		public static Gtk.ApplicationWindow window;
-		private static Nutty application;
+		public static Nutty application;
 		public static string[] commandLineArgs;
 		public string PRIMARY_TEXT_FOR_DISCLAIMER = _("You have permissions to scan devices on your network.");
 		public string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using.")+ "\n" +
@@ -106,17 +106,19 @@ namespace NuttyApp {
 		public static StringBuilder devicesSearchEntry = new StringBuilder ("");
 		public static StringBuilder bandwidthSearchEntry = new StringBuilder ("");
 		public static bool command_line_option_version = false;
-		public static bool command_line_option_alert = false;
 		public static bool command_line_option_debug = false;
 		public static bool command_line_option_info = false;
 		[CCode (array_length = false, array_null_terminated = true)]
 		public static string command_line_option_monitor = "";
+		public static string command_line_option_alert = "";
 		public new OptionEntry[] options;
 		public static string nutty_state_data = "";
 		public static ArrayList<NuttyApp.Entities.Device> deviceDataArrayList;
 		public static StringBuilder device_mac_found_in_scan = new StringBuilder("");
 
 		construct {
+			build_version = NuttyApp.Constants.nutty_version;
+			
 			application_id = NuttyApp.Constants.nutty_id;
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 			program_name = NuttyApp.Constants.program_name;
@@ -125,7 +127,7 @@ namespace NuttyApp {
 			options = new OptionEntry[5];
 			options[0] = { "version", 0, 0, OptionArg.NONE, ref command_line_option_version, _("Display version number"), null };
 			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("Run Nutty to discover devices"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
-			options[2] = { "alert", 0, 0, OptionArg.NONE, ref command_line_option_alert, _("Run Nutty in device alert mode"), null };
+			options[2] = { "alert", 0, 0, OptionArg.STRING, ref command_line_option_alert, _("Run Nutty in device alert mode"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
 			options[3] = { "debug", 0, 0, OptionArg.NONE, ref command_line_option_debug, _("Run Nutty in debug mode"), null };
 			options[4] = { "info", 0, 0, OptionArg.NONE, ref command_line_option_info, _("Run Nutty in info mode"), null };
 			add_main_option_entries (options);
@@ -182,8 +184,10 @@ namespace NuttyApp {
 				NuttyApp.DB.initializeNuttyDB(nutty_config_path);
 				//run device discovery as a background task
 				NuttyApp.Devices.runDeviceDiscovery();
-			}else if(command_line_option_alert){
+			}else if(command_line_option_alert.length  > 0){
 				print("\nRunning Nutty in Device Alert Mode \n");
+				//initialize the DB
+				nutty_config_path = command_line_option_alert;
 				//initialize the DB
 				NuttyApp.DB.initializeNuttyDB(nutty_config_path);
 				//alert devices pending alerting
@@ -193,6 +197,7 @@ namespace NuttyApp {
 		}
 
 		public override void activate() {
+			application.register (null);
 			Logger.initialize("com.github.babluboy.nutty");
 			if(command_line_option_debug){
 				Logger.DisplayLevel = LogLevel.DEBUG;
@@ -342,11 +347,11 @@ namespace NuttyApp {
 		private static void prefsDialogResponseHandler(Gtk.Dialog source, int response_id) {
 			switch (response_id) {
 				case Gtk.ResponseType.CLOSE:
-					setupDeviceMonitoring();
+					NuttyApp.Devices.setupDeviceMonitoring();
 					source.destroy();
 					break;
 				case Gtk.ResponseType.DELETE_EVENT:
-					setupDeviceMonitoring();
+					NuttyApp.Devices.setupDeviceMonitoring();
 					source.destroy();
 					break;
 			}
@@ -1520,32 +1525,6 @@ namespace NuttyApp {
 			speed_test_refresh_button.set_sensitive(true);
 			debug("Completed processing SpeedTest...");
 			return speedtest_list_store;
-		}
-
-		public static void setupDeviceMonitoring(){
-			debug("Starting to set up device monitoring...");
-			try{
-				//reset the device scheduled state if device schedule is disabled
-				if(DEVICE_SCHEDULE_STATE == DEVICE_SCHEDULE_DISABLED)
-					DEVICE_SCHEDULE_SELECTED = -1;
-
-				//execute the command to update root crontab
-				execute_sync_multiarg_command_pipes({"pkexec", Constants.nutty_script_path + "/" + Constants.nutty_monitor_scheduler_file_name,
-																							DEVICE_SCHEDULE_SELECTED.to_string(),
-																							Environment.get_home_dir () + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
-																							"/tmp/root_"+Environment.get_user_name () + "_crontab_temp.txt"
-																					  });
-				//build the command to update the user crontab
-				string[] userCrontabCommand = new string[4];
-				userCrontabCommand[0] = Constants.nutty_script_path + "/" + Constants.nutty_alert_scheduler_file_name;
-				userCrontabCommand[1] = DEVICE_SCHEDULE_SELECTED.to_string();
-				userCrontabCommand[2] = new StringBuilder().append(Environment.get_home_dir ()).append("/").append(Constants.nutty_alert_scheduler_backup_file_name).str;
-				userCrontabCommand[3] = new StringBuilder().append("/tmp/user_").append(Environment.get_user_name ()).append("_crontab_temp.txt").str;
-				execute_sync_multiarg_command_pipes(userCrontabCommand);
-			}catch(Error e){
-				warning("Failure in setting up device monitoring:"+e.message);
-			}
-			debug("Completed setting up device monitoring...");
 		}
 	}
 }

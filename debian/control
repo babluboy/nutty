@@ -10,7 +10,8 @@ Build-Depends: cmake (>= 2.8),
                libgranite-dev (>= 0.3.0),
                libsqlite3-dev,
                libxml2,
-               libxml2-dev
+               libxml2-dev,
+               libnotify-dev
 
 Standards-Version: 3.9.6
 Package: com.github.babluboy.nutty

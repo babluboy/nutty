@@ -52,6 +52,7 @@ pkg_check_modules(DEPS REQUIRED
                   granite>=0.5
                   sqlite3>=3.5.9
                   libxml-2.0
+                  libnotify
 )
 
 add_definitions(${DEPS_CFLAGS})
@@ -96,6 +97,7 @@ PACKAGES
     granite>=0.5
     sqlite3
     libxml-2.0
+    libnotify
 )
 
 # tell cmake what to call the executable we just made

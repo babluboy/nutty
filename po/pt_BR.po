@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 00:13+0100\n"
+"POT-Creation-Date: 2018-04-08 21:27+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Filipe de Almeida Garrett <filipe.garrett@gmail.com>\n"
 "Language-Team: \n"
@@ -576,23 +576,23 @@ msgstr ""
 msgid "New Device found on network:\n"
 msgstr "Novo dispositivo encontrado na rede:\n"
 
-#: ../src/nutty.vala:126
+#: ../src/nutty.vala:128
 msgid "Display version number"
 msgstr "Mostrar o número da versão"
 
-#: ../src/nutty.vala:127
+#: ../src/nutty.vala:129
 msgid "Run Nutty to discover devices"
 msgstr "Executar o Nutty para encontrar dispositivos"
 
-#: ../src/nutty.vala:128
+#: ../src/nutty.vala:130
 msgid "Run Nutty in device alert mode"
 msgstr "Executar o Nutty no modo alerta de dispositivos"
 
-#: ../src/nutty.vala:129
+#: ../src/nutty.vala:131
 msgid "Run Nutty in debug mode"
 msgstr "Executar o Nutty em modo debug"
 
-#: ../src/nutty.vala:130
+#: ../src/nutty.vala:132
 msgid "Run Nutty in info mode"
 msgstr "Executar o Nutty no modo informações"
 

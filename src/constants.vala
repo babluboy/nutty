@@ -44,7 +44,7 @@ namespace NuttyApp.Constants{
 	public static const string nutty_script_path = INSTALL_PREFIX+"/share/nutty/scripts";
 	//Scripts used by Nutty
 	public static const string COMMAND_FOR_INTERFACES = nutty_script_path + "/" + "nutty_cli_script.sh";
-
+	
 	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public static const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
