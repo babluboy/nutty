@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-11 10:00+0200\n"
-"PO-Revision-Date: 2018-04-11 14:08+0000\n"
+"PO-Revision-Date: 2018-04-11 14:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -24,7 +24,7 @@ msgstr "Netkort"
 
 #: ../src/info.vala:148
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " Staðlar með sendistyrk "
 
 #: ../src/info.vala:148
 msgid " [Power Management: "
@@ -233,7 +233,7 @@ msgstr "Hraði"
 
 #: ../src/constants.vala:84
 msgid "Route times to Host (in milliseconds): "
-msgstr ""
+msgstr "Beiningartími til hýsilvélar (í millisekúndum): "
 
 #: ../src/constants.vala:85
 msgid "Hop#"
@@ -367,12 +367,12 @@ msgstr "Fannst fyrr"
 #: ../src/constants.vala:117
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
-msgstr ""
+msgstr "Birti tæki sem fundust áður. Veldu tengingu til að uppfæra stöðu."
 
 #: ../src/constants.vala:118
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
-msgstr ""
+msgstr "Engin tæki hafa fundist áður. Veldu tengingu til að uppfæra stöðu."
 
 #: ../src/constants.vala:119
 msgid "Device scan in progress ..."
@@ -396,7 +396,7 @@ msgstr "Notkun"
 
 #: ../src/constants.vala:124
 msgid "Connection monitored from "
-msgstr ""
+msgstr "Tenging vöktuð frá"
 
 #: ../src/constants.vala:125
 msgid " and last updated on "
@@ -404,7 +404,7 @@ msgstr " og síðast uppfært "
 
 #: ../src/constants.vala:126
 msgid "Please add this connection interface to vnstat using command line."
-msgstr ""
+msgstr "Bættu þessu tengiviðmóti við vnstat með því að nota skipanalínuna."
 
 #: ../src/constants.vala:129
 msgid "Time Period"
@@ -472,23 +472,23 @@ msgstr "Loka"
 
 #: ../src/constants.vala:145
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "VÖKTUNARSTAÐA_TÆKIS"
 
 #: ../src/constants.vala:146
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "VÖKTUNARÁÆTLUN_TÆKIS"
 
 #: ../src/constants.vala:147
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "HRAÐASTA_DAGSETNING"
 
 #: ../src/constants.vala:148
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "HRAÐAPRÓF_ÚTSENDING"
 
 #: ../src/constants.vala:149
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "HRAÐAPRÓF_NIÐURHAL"
 
 #: ../src/constants.vala:150
 msgid "Nutty Information Exported on "
@@ -516,7 +516,7 @@ msgstr "Textaskrár"
 
 #: ../src/nutty.vala:30
 msgid "You have permissions to scan devices on your network."
-msgstr ""
+msgstr "Þú ert með heimildir til að leita að tækjum á netinu þínu."
 
 #: ../src/nutty.vala:31
 msgid ""
@@ -548,6 +548,8 @@ msgid ""
 "If you have read and understood the above, click the \"I Agree\" button "
 "below to proceed"
 msgstr ""
+"Ef þú hefur lesið og skilið ofangreint, smelltu á 'Ég samþykki' hnappinn hér "
+"fyrir neðan til að halda áfram"
 
 #: ../src/nutty.vala:38
 msgid "New Device found on network:\n"
