@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-11 10:00+0200\n"
-"PO-Revision-Date: 2018-04-11 14:09+0000\n"
+"PO-Revision-Date: 2018-04-11 22:22+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -396,7 +396,7 @@ msgstr "Notkun"
 
 #: ../src/constants.vala:124
 msgid "Connection monitored from "
-msgstr "Tenging vöktuð frá"
+msgstr "Tenging vöktuð frá "
 
 #: ../src/constants.vala:125
 msgid " and last updated on "
