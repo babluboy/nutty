@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-11 10:00+0200\n"
-"PO-Revision-Date: 2018-04-11 09:06+0000\n"
+"PO-Revision-Date: 2018-04-11 14:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -40,7 +40,7 @@ msgstr " Net á aðgangspunkti "
 
 #: ../src/info.vala:151
 msgid " Mode"
-msgstr "Hamur"
+msgstr " Hamur"
 
 #: ../src/info.vala:154
 msgid "Connected with"
@@ -428,7 +428,7 @@ msgstr "Veldu tengingu til að skoða gagnanotkun fyrir"
 
 #: ../src/constants.vala:134
 msgid "Click refresh to see current Apps using "
-msgstr "Smelltu á Endurlesa til að sjá núverandi forrit nota"
+msgstr "Smelltu á Endurlesa til að sjá núverandi forrit nota "
 
 #: ../src/constants.vala:135
 msgid "Refresh Apps bandwidth usage"
