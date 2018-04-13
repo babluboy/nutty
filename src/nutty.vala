@@ -115,6 +115,7 @@ namespace NuttyApp {
 		public static string nutty_state_data = "";
 		public static ArrayList<NuttyApp.Entities.Device> deviceDataArrayList;
 		public static StringBuilder device_mac_found_in_scan = new StringBuilder("");
+		public static CssProvider cssProvider;
 
 		construct {
 			build_version = NuttyApp.Constants.nutty_version;
@@ -217,6 +218,9 @@ namespace NuttyApp {
 			loadNuttyState();
 			//load pictures
 			loadImages();
+			//set css provider
+			cssProvider = new Gtk.CssProvider();
+			loadCSSProvider(cssProvider);
 			//add window components
 			window.set_titlebar (NuttyApp.AppHeaderBar.create_headerbar(window));
 			window.add(createNuttyUI());
@@ -1526,5 +1530,22 @@ namespace NuttyApp {
 			debug("Completed processing SpeedTest...");
 			return speedtest_list_store;
 		}
+	}
+	public static void loadCSSProvider(Gtk.CssProvider cssProvider){
+		info("[START] [FUNCTION:loadCSSProvider] cssProvider="+cssProvider.to_string());
+		try{															;
+			cssProvider.load_from_data(	NuttyApp.Constants.DYNAMIC_CSS_CONTENT,
+																NuttyApp.Constants.DYNAMIC_CSS_CONTENT.length);
+		}catch(GLib.Error e){
+			warning("Stylesheet could not be loaded from CSS Content["+
+							 NuttyApp.Constants.DYNAMIC_CSS_CONTENT+"]. Error:"+
+						     e.message);
+		}
+		Gtk.StyleContext.add_provider_for_screen(
+			Gdk.Screen.get_default(),
+			cssProvider,
+			Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+		);
+		info("[END] [FUNCTION:loadCSSProvider]");
 	}
 }

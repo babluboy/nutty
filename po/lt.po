@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 21:27+0100\n"
+"POT-Creation-Date: 2018-04-13 14:03+0100\n"
 "PO-Revision-Date: 2018-03-25 22:09+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
@@ -555,23 +555,23 @@ msgstr ""
 msgid "New Device found on network:\n"
 msgstr "Tinkle rastas naujas įrenginys:\n"
 
-#: ../src/nutty.vala:128
+#: ../src/nutty.vala:129
 msgid "Display version number"
 msgstr "Rodyti versijos numerį"
 
-#: ../src/nutty.vala:129
+#: ../src/nutty.vala:130
 #, fuzzy
 msgid "Run Nutty to discover devices"
 msgstr "Paleisti Nutty informacinėje veiksenoje"
 
-#: ../src/nutty.vala:130
+#: ../src/nutty.vala:131
 msgid "Run Nutty in device alert mode"
 msgstr ""
 
-#: ../src/nutty.vala:131
+#: ../src/nutty.vala:132
 msgid "Run Nutty in debug mode"
 msgstr "Paleisti Nutty derinimo veiksenoje"
 
-#: ../src/nutty.vala:132
+#: ../src/nutty.vala:133
 msgid "Run Nutty in info mode"
 msgstr "Paleisti Nutty informacinėje veiksenoje"

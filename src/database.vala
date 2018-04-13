@@ -119,7 +119,8 @@ public class NuttyApp.DB{
         if(aDevice.device_mac != null && aDevice.device_mac.length>0 && aDevice.device_mac.strip() != ""){
             if(aDevice.device_ip != null && aDevice.device_ip.length>0 && aDevice.device_ip.strip() != ""){
                 //Both IP and MAC are present
-                whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
+                whereClauseForDeviceCheck = " WHERE DEVICE_IP=\'"+aDevice.device_ip+
+                                                                          "\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
             }else{
                 //IP is absent but MAC is present
                 whereClauseForDeviceCheck = " WHERE DEVICE_MAC=\'"+aDevice.device_mac+"\'";
@@ -239,19 +240,36 @@ public class NuttyApp.DB{
                 warning ("Error details: %d: %s\n", nuttyDB.errcode (), nuttyDB.errmsg ());
                 return -1;
             }
-            stmt.bind_text (1, aDevice.device_ip);
-            stmt.bind_text (2, aDevice.device_mac);
+
+            if(aDevice.device_ip != null && aDevice.device_ip.length > 0){
+                stmt.bind_text (1, aDevice.device_ip);
+            }else{
+                stmt.bind_text (1, NuttyApp.Constants.TEXT_FOR_NOT_AVAILABLE);
+            }
+            if(aDevice.device_mac != null && aDevice.device_mac.length > 0){
+                stmt.bind_text (2, aDevice.device_mac);
+            }else{
+                stmt.bind_text (2, NuttyApp.Constants.TEXT_FOR_NOT_AVAILABLE);
+            }
             stmt.bind_text (3, aDevice.device_manufacturer);
             stmt.bind_text (4, aDevice.device_hostname); 
-            if(aDevice.device_manufacturer_custom.length > 0){
+            if(aDevice.device_manufacturer_custom != null && aDevice.device_manufacturer_custom.length > 0){
                 stmt.bind_text (5, aDevice.device_manufacturer_custom);
             }else{
-                stmt.bind_text (5, aDevice.device_manufacturer);
+                if(aDevice.device_manufacturer != null && aDevice.device_manufacturer.length > 0){
+                    stmt.bind_text (5, aDevice.device_manufacturer);
+                }else{
+                    stmt.bind_text (5, NuttyApp.Constants.TEXT_FOR_NOT_AVAILABLE);
+                } 
             }
-            if(aDevice.device_hostname_custom.length > 0){
+            if(aDevice.device_hostname_custom !=null && aDevice.device_hostname_custom.length > 0){
                 stmt.bind_text (6, aDevice.device_hostname_custom);
             }else{
-                stmt.bind_text (6, aDevice.device_hostname);
+                 if(aDevice.device_hostname != null && aDevice.device_hostname.length > 0){
+                    stmt.bind_text (6, aDevice.device_hostname);
+                }else{
+                    stmt.bind_text (6, NuttyApp.Constants.TEXT_FOR_NOT_AVAILABLE);
+                } 
             }
             stmt.bind_text (7, aDevice.device_alert);
             stmt.bind_text (8, aDevice.device_status);

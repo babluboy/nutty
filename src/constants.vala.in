@@ -34,7 +34,7 @@ namespace NuttyApp.Constants{
 	public const string translate_url = "https://hosted.weblate.org/projects/bookworm/bookworm/";
 	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = _("Website | Translation | Bug Tracker");
 	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://babluboy.github.io/nutty";
-	
+
 	//Set paths relative to the install location (i.e. /usr)
 	public const string INSTALL_PREFIX = "@CMAKE_INSTALL_PREFIX@";
 	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-available.svg";
@@ -44,7 +44,7 @@ namespace NuttyApp.Constants{
 	public static const string nutty_script_path = INSTALL_PREFIX+"/share/nutty/scripts";
 	//Scripts used by Nutty
 	public static const string COMMAND_FOR_INTERFACES = nutty_script_path + "/" + "nutty_cli_script.sh";
-	
+
 	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public static const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
@@ -155,10 +155,6 @@ namespace NuttyApp.Constants{
 	public static const string COMMAND_FOR_WIRELESS_CARD_DETAILS = "iwconfig ";
 	public static const string COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS = "iwlist ";
 
-	public static const string COMMAND_FOR_DEVICES_PREFIX = "/usr/bin/nmap -sn -oX ";
-	public static const string SCRIPT_FOR_DEVICES = "sudo nmap -sn -oX /tmp/nmap.xml $1; cat /tmp/nmap.xml; sudo rm /tmp/nmap.xml";
-	public static const string COMMAND_FOR_DEVICES_SUFFIX = " >/dev/null";
-	public static const string COMMAND_FOR_DEVICES_ALERT = "/usr/bin/notify-send -a com.github.babluboy.nutty -u normal";
 	public static const string IDENTIFIER_FOR_MACADDRESS_IN_COMMAND_OUTPUT = "HWaddr";
 	public static const string IDENTIFIER_FOR_IPADDRESS_IN_COMMAND_OUTPUT = "inet addr:";
 	public static const string IDENTIFIER_FOR_START_OF_HOST_IN_NMAP_OUTPUT = "<host>";
@@ -194,4 +190,6 @@ namespace NuttyApp.Constants{
 	public static const int DEVICE_SCHEDULE_30MINS = 30;
 	public static const int DEVICE_SCHEDULE_1HOUR = 60;
 	public static const int DEVICE_SCHEDULE_1DAY = 1440;
+	public const string DYNAMIC_CSS_CONTENT = "@define-color colorPrimary #9BDB4D; @define-color textColorPrimary shade (@colorPrimary, 0.50); @define-color textColorPrimaryShadow alpha (shade (@colorPrimary, 1.4), 0.6);";
+
 }

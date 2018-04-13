@@ -47,4 +47,9 @@
     <url type="bugtracker">https://github.com/babluboy/nutty/issues</url>
     <url type="help">https://github.com/babluboy/nutty/wiki</url>
     <update_contact>bablu.boy_AT_gmail.com</update_contact>
+     <custom>
+     <value key="x-appcenter-color-primary">#9BDB4D</value>
+     <value key="x-appcenter-color-primary-text">#260063</value>
+     <value key="x-appcenter-suggested-price">1</value>
+  </custom>
 </component>

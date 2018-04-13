@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-08 21:27+0100\n"
+"POT-Creation-Date: 2018-04-13 14:03+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
@@ -543,22 +543,22 @@ msgstr ""
 msgid "New Device found on network:\n"
 msgstr ""
 
-#: ../src/nutty.vala:128
+#: ../src/nutty.vala:129
 msgid "Display version number"
 msgstr ""
 
-#: ../src/nutty.vala:129
+#: ../src/nutty.vala:130
 msgid "Run Nutty to discover devices"
 msgstr ""
 
-#: ../src/nutty.vala:130
+#: ../src/nutty.vala:131
 msgid "Run Nutty in device alert mode"
 msgstr ""
 
-#: ../src/nutty.vala:131
+#: ../src/nutty.vala:132
 msgid "Run Nutty in debug mode"
 msgstr ""
 
-#: ../src/nutty.vala:132
+#: ../src/nutty.vala:133
 msgid "Run Nutty in info mode"
 msgstr ""
