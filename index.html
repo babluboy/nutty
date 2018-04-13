@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nutty is a Network Utility made for elementary OS">
+    <meta name="keywords" content="nutty, ip address, device, speed, bandwidth, ports, route, network">
+    <meta name="author" content="Siddhartha Das">
+
+    <title>Nutty</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/simpleLightbox.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link href="css/header.css" rel="stylesheet">
+
+
+    <link href="css/gridstack-demo.css" rel="stylesheet">
+</head>
+
+<body id="page-top" class="index">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <a class="navbar-brand" href="#top">
+                        <image src="images/nutty.svg" style="vertical-align:top">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" >
+                            Features
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="page-scroll">
+                                <a tabindex="-1" href="#devices">Devices</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="page-scroll">
+                                <a tabindex="-1" href="#usage">Usage</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="page-scroll">
+                                <a tabindex="-1" href="#speed">Speed</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="page-scroll">
+                                <a tabindex="-1" href="#ports">Ports</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="page-scroll">
+                                <a tabindex="-1" href="#interface">Interface</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="page-scroll">
+                                <a tabindex="-1" href="#shortcuts">Shortcuts</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#install">Install</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contribute">Contribute</a>
+                    </li>
+                    <li>
+                        <a target="_blank"href="https://github.com/babluboy/nutty/issues">Issues</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Introduction Section -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <span class="name">Nutty</span>
+                        <p>
+                            A network utility for linux
+                        </p>
+                        <hr class="star-dark">
+                    </div>
+                </div>
+                <div class="col-lg-30">
+                    <div class="text-center jumbo-images">
+                        <img align="center" src="images/Nutty_Device_Alert.png">
+                    </div>
+                    <p>
+                        Monitor the devices on your network and check bandwidth and speed details 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <div class="col-lg-12 text-center">
+                <h2>Features</h2>
+                <hr class="star-primary">
+            </div>
+            <section id="devices">
+                <p>The Devices tab presents a tabular view of the devices on the network discovered by Nutty. The device host name and manufacturer name can be edited to make it more familiar. When a scan is run the devices found in that instant are shown as live. Any discovered device can be removed by a right click context menu.</p>
+                <p>
+                    <div class="text-center jumbo-images">
+                        <img src="images/Nutty_Devices.png">
+                    </div>
+                </p>
+                <p>Using the preferences menu under the gear icon in the header, a monitoring schedule can be set to allow Nutty to run at desired intervals to scan for devices. When a new device is found an alert is shown on the desktop.
+                    <div align="center">
+                        <img src="images/Nutty_Device_Monitoring_Frequency.png">
+                    </div>
+               </p>
+            </section>
+            <section id="usage">
+                <p>The Usage tab presents two key information related to bandwidth of the device on which Nutty is running. The top section shows the data sent/received on the current day, yesterday, the current month and the last month. The bottom section shows the applications running at the current time and the data sent/received by them.</p>
+                <div class="text-center jumbo-images">
+                        <img src="images/Nutty_Usage.png">
+                </div>
+               </section>
+            <section id="speed">
+                <p>The Speed tab presents information related to upload/download internet speeds of the device on which Nutty is running. The top section shows the upload/download speeds recorded using speedtest.net. The bottom section shows a traceroute to a given remote host name with the average time for the network hops for three different packets.</p>
+                <div class="text-center jumbo-images">
+                        <img src="images/Nutty_Speed.png">
+                    </div>
+           </section>
+            <section id="ports">
+                <p>The Ports tab shows a simple tabular view of the ports in use and the programs using those ports</p>
+                    <div class="text-center jumbo-images">
+                        <img src="images/Nutty_Ports.png">
+                    </div>
+            </section>
+            <section id="interface">
+                <p>The My Info tab shows some basic information on the selected network interface. More details like the NIC, driver, etc can be found on enabling the toggle swich for details</p>
+                    <div class="text-center jumbo-images">
+                        <img src="images/Nutty_Info.png">
+                    </div>
+            </section>
+            <section id="shortcuts">
+                <p> Nutty has the following shortcuts
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Shortcut</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Anywhere</td>
+                                <td>Ctrl + Q</td>
+                                <td>Close Bookworm</td>
+                            </tr>
+                             <tr>
+                                <td>Anywhere</td>
+                                <td>Ctrl + F</td>
+                                <td>Focus the Search Bar</td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </p>
+            </section>
+        </div>
+    </section>
+    <!-- Install Section -->
+    <section id="install" class="darklue">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Install</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <p>Nutty is currently developed for Elementary OS but the roadmap is to make it distro agnostic in the future</p>
+            <p>
+                <img src="images/eos-logo.png" class="img-circle" width="50" height="50">
+                If you are using Elementary OS then Nutty is available on Appcenter for installation <br>
+                <a href="https://appcenter.elementary.io/com.github.babluboy.nutty"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter"></a>
+            </p>
+            <p>&nbsp; </p>
+            <p>
+                <img src="images/ubuntu-logo.png" class="img-circle" width="35" height="35">
+                Nutty is available as a PPA for Ubuntu (16.04 upwards) and other Ubuntu based systems. Open Terminal and run the following   comands for installation
+                <pre>
+sudo apt-add-repository ppa:bablu-boy/nutty
+sudo apt-get update
+sudo apt-get install com.github.babluboy.nutty</pre>
+In case of issues related to missing libgranite package, add the Elementary PPA as shown below and re-try. The Elementary PPA can be removed after Nutty is installed.
+                <pre>
+sudo add-apt-repository ppa:elementary-os/stable
+sudo apt-get update
+sudo apt-get install com.github.babluboy.nutty</pre>
+            </p>
+            <p>If you want to build Nutty from source on Ubuntu/Debian, open terminal and execute the following commands
+                <pre>sudo apt-get build-dep granite-demo
+git clone https://github.com/babluboy/nutty.git
+sudo apt-get install cmake debhelper libgee-0.8-dev libgtk-3-dev valac libgranite-dev libsqlite3-dev  libxml2 libxml2-dev libnotify-dev
+cd nutty
+mkdir build && cd build 
+cmake -DCMAKE_INSTALL_PREFIX=/usr ../
+make
+sudo make install</pre>
+            </p>
+            <p>&nbsp; </p>
+            <p>
+                <img src="images/opensuse-logo.png" class="img-circle" width="35" height="35">
+                Use this link to install Nutty on openSUSE <br>
+                <a href="https://software.opensuse.org/package/nutty">openSUSE package for Nutty</a>
+            </p>
+            <p>&nbsp; </p>
+            <p>
+            <img src="images/flatpak-logo.png" class="img-circle" width="40" height="40">
+            If you have Flatpak on your system, then install Nutty as a Flatpak application by running the following command in terminal</p>
+             <pre> flatpak install --from https://flathub.org/repo/appstream/com.github.babluboy.nutty.flatpakref</pre>
+            <a href="https://flathub.org/apps/details/com.github.babluboy.nutty"><img src="images/flathub-logo.svg"></a>
+        </div>
+    </section>
+
+    <!-- Translation Section -->
+    <section id="contribute">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Contribute</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <p>
+                Nutty uses Weblate translation. You can contribute by translating Nutty to your favourite languages and make the user
+                experience better. Use the badge below to navigate to the Weblate site for simple browser based translation.
+                <div align="center">
+                    <a href="https://hosted.weblate.org/engage/nutty/?utm_source=widget">
+                        <img src="https://hosted.weblate.org/widgets/nutty/-/287x66-grey.png" alt="Translation status" />
+                    </a>
+                </div>
+            </p>
+
+            <p>
+                Nutty is open source on <a target="_blank" href="https://github.com/babluboy/nutty"> GitHub</a>.
+                If you can find your way around in Vala and GTK then Pull Requests are welcome. Otherwise you can raise an issue for a feature request.
+                <div align="center">
+                    <a target="_blank" href="https://github.com/babluboy/nutty" class="btn btn-large"><i class="fa fa-github fa-5x" aria-hidden="true"></i></a>
+                </div>
+            </p>
+
+            <p>
+                ...Or you can buy me a coffee to keep me hacking away at Nutty &nbsp;<i class="fa fa-smile-o" aria-hidden="true"></i>
+                <div align="center">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="FZP8GK839VGQC">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12" align="center">
+                        Copyright &copy; Siddhartha Das 2015
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll visible-xs visble-sm">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/simpleLightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+</body>
+
+</html>
