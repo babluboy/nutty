@@ -1,4 +1,4 @@
-# Nutty [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FZP8GK839VGQC)
+# Nutty [![Translation status](https://hosted.weblate.org/widgets/nutty/-/svg-badge.svg)](https://hosted.weblate.org/engage/nutty/?utm_source=widget) [![Build Status](https://travis-ci.org/babluboy/nutty.svg?branch=master)](https://travis-ci.org/babluboy/nutty) [![Snap Status](https://build.snapcraft.io/badge/babluboy/nutty.svg)](https://build.snapcraft.io/user/babluboy/nutty) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FZP8GK839VGQC)
 A Network Utility
 
 Author: Siddhartha Das
@@ -28,16 +28,17 @@ sudo add-apt-repository ppa:bablu-boy/nutty-daily
 sudo apt update
 sudo apt install com.github.babluboy.nutty
   ```
-## How to build nutty:
+## How to build nutty from source:
 
 ```shell
-sudo apt-get build-dep granite-demo 
-sudo apt-get install libgranite-dev libsqlite3-dev libxml2 libxml2-dev libgee-0.8-dev libgtk-3-dev valac
+sudo apt-get build-dep granite-demo
 git clone https://github.com/babluboy/nutty.git
+sudo apt-get install cmake debhelper libgee-0.8-dev libgtk-3-dev valac libgranite-dev libsqlite3-dev  libxml2 libxml2-dev libnotify-dev
 cd nutty
 mkdir build && cd build 
 cmake -DCMAKE_INSTALL_PREFIX=/usr ../
 make
+sudo make install
 ```
 ## Screenshot
 
