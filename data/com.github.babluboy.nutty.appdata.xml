@@ -21,17 +21,30 @@
     </description>
     <screenshots>
         <screenshot type="default">
-            <caption>Nutty Device Monitoring</caption>
-            <image>https://raw.githubusercontent.com/babluboy/nutty/master/screenshots/Nutty_Devices.png</image>
+            <caption>Device Monitoring</caption>
+            <image>https://raw.githubusercontent.com/babluboy/nutty/gh-pages/images/Nutty_Devices.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Bandwidth Usage</caption>
+            <image>https://raw.githubusercontent.com/babluboy/nutty/gh-pages/images/Nutty_Usage.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Speed Test</caption>
+            <image>https://raw.githubusercontent.com/babluboy/nutty/gh-pages/images/Nutty_Speed.png</image>
         </screenshot>
     </screenshots>
     <provides>
         <binary>com.github.babluboy.nutty</binary>
     </provides>
     <releases>
-        <release version="1.0.0" date="2018-03-31">
+        <release version="1.0.0" date="2018-04-31">
             ​<description>
       ​         <p>Ability to update and remove discovered devices</p>
+               <ul>
+                    <li>Support for editing and removing discovered devices</li>
+                    <li>A shiny new icon and branding</li>
+                    <li>New shortcuts (check homepage for details)</li>
+               </ul>
 ​            </description>
 ​       </release>
     </releases>
@@ -43,7 +56,7 @@
         ​</release>
     </releases>
     <developer_name>Siddhartha Das</developer_name>
-    <url type="homepage">https://github.com/babluboy/nutty#nutty</url>
+    <url type="homepage">https://babluboy.github.io/nutty</url>
     <url type="bugtracker">https://github.com/babluboy/nutty/issues</url>
     <url type="help">https://github.com/babluboy/nutty/wiki</url>
     <update_contact>bablu.boy_AT_gmail.com</update_contact>

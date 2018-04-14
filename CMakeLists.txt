@@ -40,6 +40,7 @@ set (SOURCE_LIST
     src/entities.vala
     src/xmlHandler.vala
     src/info.vala
+    src/window.vala
 )
 
 # we're about to use pkgconfig to make sure dependencies are installed so let's find pkgconfig first
@@ -89,6 +90,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
     src/entities.vala
     src/xmlHandler.vala
     src/info.vala
+    src/window.vala
 
 # tell what libraries to use when compiling
 PACKAGES

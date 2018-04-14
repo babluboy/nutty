@@ -27,19 +27,12 @@ namespace NuttyApp {
 		public static Gtk.ApplicationWindow window;
 		public static Nutty application;
 		public static string[] commandLineArgs;
-		public string PRIMARY_TEXT_FOR_DISCLAIMER = _("You have permissions to scan devices on your network.");
-		public string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using.")+ "\n" +
-										 _("It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network. ") +
-										 _("While using port scan (Devices tab) on a network which you do not own please consult and get approval of the Network Administrator or other competent network authority. ") + "\n\n" +
-										 _("Please read the following disclaimer on Nmap (used by Nutty) for further information: ") + "\n" +
-										 "<a href='http://nmap.org/book/legal-issues.html'>http://nmap.org/book/legal-issues.html</a> \n\n" +
-										 _("If you have read and understood the above, click the \"I Agree\" button below to proceed");
-		
+				
 		public static string TEXT_FOR_DEVICE_FOUND_NOTIFICATION = _("New Device found on network:\n");
 		public static string[] COMMAND_FOR_INTERFACE_HARDWARE_DETAILED = {"lshw", "-xml", "-class", "network"};
-		public string[] COMMAND_FOR_BANDWIDTH_USAGE = {"vnstat", "--xml", "-i", "<interface goes here>"};
+		public static string[] COMMAND_FOR_BANDWIDTH_USAGE = {"vnstat", "--xml", "-i", "<interface goes here>"};
 		public static string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {"curl", "-d", "test", "http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"};
-		public string[] COMMAND_FOR_SPEED_TEST = {"speedtest-cli", "--simple", "--bytes"};
+		public static string[] COMMAND_FOR_SPEED_TEST = {"speedtest-cli", "--simple", "--bytes"};
 		public bool hasDisclaimerBeenAgreed = false;
 		public string crontabContents = "";
 		public static string nutty_executable_path = Environment.find_program_in_path ("nutty");
@@ -53,9 +46,9 @@ namespace NuttyApp {
 		public static int DEVICE_SCHEDULE_DISABLED = 0;
 		public static int DEVICE_SCHEDULE_STATE = -1;
 		public static int DEVICE_SCHEDULE_SELECTED = -1;
-		public string UPLOADSPEED = "0";
-		public string DOWNLOADSPEED = "0";
-		public string SPEEDTESTDATE = "";
+		public static string UPLOADSPEED = "0";
+		public static string DOWNLOADSPEED = "0";
+		public static string SPEEDTESTDATE = "";
 		public static int exitCodeForCommand = 0;
 		public static int info_combobox_counter = 0;
 		public static StringBuilder spawn_async_with_pipes_output = new StringBuilder("");
@@ -76,19 +69,19 @@ namespace NuttyApp {
 		public static string HostName;
 		public static Gtk.SearchEntry headerSearchBar;
 		public static Spinner traceRouteSpinner;
-		public Label route_results_label;
-		public Spinner speedTestSpinner;
-		public Button speed_test_refresh_button;
-		public Label speed_test_results_label;
-		public bool isPortsViewLoaded = false;
-		public Label ports_results_label;
-		public Spinner portsSpinner;
+		public static Label route_results_label;
+		public static Spinner speedTestSpinner;
+		public static Button speed_test_refresh_button;
+		public static Label speed_test_results_label;
+		public static bool isPortsViewLoaded = false;
+		public static Label ports_results_label;
+		public static Spinner portsSpinner;
 		public static Label devices_results_label;
 		public static Spinner devicesSpinner;
 		public static bool isDevicesViewLoaded = false;
-		public Label bandwidth_results_label;
-		public bool isBandwidthViewLoaded = false;
-		public Spinner bandwidthProcessSpinner;
+		public static Label bandwidth_results_label;
+		public static bool isBandwidthViewLoaded = false;
+		public static Spinner bandwidthProcessSpinner;
 		public static Gtk.RadioButton min15Option;
 		public static Gtk.RadioButton min30Option;
 		public static Gtk.RadioButton hourOption;
@@ -223,7 +216,12 @@ namespace NuttyApp {
 			loadCSSProvider(cssProvider);
 			//add window components
 			window.set_titlebar (NuttyApp.AppHeaderBar.create_headerbar(window));
-			window.add(createNuttyUI());
+			//check if the disclaimer has been agreed
+			if(! disclaimerSetGet(Constants.HAS_DISCLAIMER_BEEN_AGREED)){
+				window.add(NuttyApp.AppWindow.createNuttyWelcomeView()); //add the first time welcome UI Box
+			}else{
+				window.add(createNuttyUI()); //add the main UI Box
+			}
 			//show the app window
 			add_window (window);
 			window.show_all();
@@ -236,7 +234,6 @@ namespace NuttyApp {
 				//save state information to file
 				saveNuttyState();
 			});
-			
 			info("[END] [FUNCTION:activate]");
 		}
 		
@@ -405,17 +402,16 @@ namespace NuttyApp {
 		}
 
 		public static void createExportDialog() {
-			debug("Started setting up Export Dialog ...");
+			info("[START] [FUNCTION:createExportDialog]");
 			Gtk.FileChooserDialog aFileChooserDialog = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, "Export Nutty Data", window, false);
 			aFileChooserDialog.show_all ();
 			aFileChooserDialog.response.connect(exportDialogResponseHandler);
 			debug("Completed setting up Export Dialog sucessfully...");
 		}
-
-		public Box createNuttyUI() {
+		
+		public static Box createNuttyUI() {
 			debug("Starting to create main window components...");
 			Gtk.Box main_ui_box = new Gtk.Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-
 			//define the stack for the tabbed view
 			stack = new Gtk.Stack();
 			stack.set_transition_type(StackTransitionType.SLIDE_LEFT_RIGHT);
@@ -434,38 +430,6 @@ namespace NuttyApp {
 
 			/* Start of tabs UI set up */
 
-			//Show the Disclaimer only if the Disclaimer has not been agreed earlier
-			if(!disclaimerSetGet(Constants.HAS_DISCLAIMER_BEEN_AGREED)){
-				debug("Starting to Modal Dialog for Nutty Disclaimer...");
-				Gtk.MessageDialog disclaimerDialog = new Gtk.MessageDialog(window,
-															   Gtk.DialogFlags.MODAL,
-															   Gtk.MessageType.WARNING,
-															   Gtk.ButtonsType.NONE,
-															   ""
-															   );
-				disclaimerDialog.set("text", PRIMARY_TEXT_FOR_DISCLAIMER);
-				disclaimerDialog.set("secondary_text", SECONDARY_TEXT_FOR_DISCLAIMER);
-				disclaimerDialog.add_button(Constants.TEXT_FOR_PREFS_DIALOG_CLOSE_BUTTON,Gtk.ResponseType.CLOSE);
-				disclaimerDialog.add_button(Constants.TEXT_FOR_DISCLAIMER_AGREE_BUTTON,Gtk.ResponseType.OK);
-				disclaimerDialog.set("secondary_use_markup", true);
-				disclaimerDialog.response.connect ((response_id) => {
-					switch (response_id) {
-						case Gtk.ResponseType.OK:
-							disclaimerSetGet(Constants.REMEMBER_DISCLAIMER_AGREEMENT);
-							break;
-						case Gtk.ResponseType.CLOSE:
-							window.destroy();
-							break;
-						case Gtk.ResponseType.DELETE_EVENT:
-							window.destroy();
-							break;
-					}
-					debug("Completed handling Modal Dialog for Nutty Disclaimer [Dialog Response Id="+response_id.to_string()+"]");
-					disclaimerDialog.destroy();
-				});
-				disclaimerDialog.show ();
-				debug("Completed showing Modal Dialog for Nutty Disclaimer...");
-			}
 			// Tab 1 : MyInfo Tab: This Tab displays info on the computer and network interface hardware
 			Label info_details_combobox_label = new Label (Constants.TEXT_FOR_MYINFO_DETAILS_LABEL);
 			ComboBoxText info_combobox = new ComboBoxText();
@@ -804,7 +768,7 @@ namespace NuttyApp {
 					isDevicesViewLoaded = true;
 				}
 			});
-			debug("Completed creation of main windows components...");
+			info("[END] [FUNCTION:createExportDialog]");
 			return main_ui_box;
 		}
 
@@ -915,17 +879,29 @@ namespace NuttyApp {
 			debug("Completed exporting Nutty information...");
 		}
 
-		public bool disclaimerSetGet(int operation) {
+		public static bool disclaimerSetGet(int operation) {
 			bool result = false;
 			if(operation == Constants.HAS_DISCLAIMER_BEEN_AGREED){
-				if("true" == fileOperations("EXISTS",nutty_config_path, Constants.nutty_agreement_file_name, ""))
+				if("true" == NuttyApp.Utils.fileOperations(
+											"EXISTS",
+											nutty_config_path, 
+											Constants.nutty_agreement_file_name, 
+											"")
+				)
 					result=true; //Disclaimer has been agreed before
 			}
 			if(operation == Constants.REMEMBER_DISCLAIMER_AGREEMENT){
-				fileOperations("WRITE",nutty_config_path, Constants.nutty_agreement_file_name, "Nutty disclaimer agreed by user["+GLib.Environment.get_user_name()+"] on machine["+GLib.Environment.get_host_name()+"]");
-				result=true; //Disclaimer agreement file is created
+				NuttyApp.Utils.fileOperations(
+											"WRITE",
+											nutty_config_path, 
+											Constants.nutty_agreement_file_name, 
+											"Nutty disclaimer agreed by user["+
+														GLib.Environment.get_user_name()+
+														"] on machine["+GLib.Environment.get_host_name()+"]"
+				);
+				result=true;
 			}
-			debug("Nuty Disclaimer operation completed...");
+			debug("Nuty Disclaimer operation completed [for operation="+operation.to_string()+"] with result:"+result.to_string());
 			return result;
 		}
 
@@ -1176,7 +1152,7 @@ namespace NuttyApp {
 			}
 		}
 
-		public Gtk.ListStore processRouteScan(string tracerouteCommand){
+		public static Gtk.ListStore processRouteScan(string tracerouteCommand){
 			debug("Starting to process RouteScan["+tracerouteCommand+"]...");
 			route_list_store.clear();
 			try{
@@ -1234,7 +1210,7 @@ namespace NuttyApp {
 			return route_list_store;
 		}
 
-		public Gtk.ListStore processPortsScan(string[] commandArgs){
+		public static Gtk.ListStore processPortsScan(string[] commandArgs){
 			debug("Starting to process PortsScan["+string.joinv(" ", commandArgs)+"]...");
 			ports_tcp_list_store.clear();
 			try{
@@ -1356,7 +1332,7 @@ namespace NuttyApp {
 			return manufacturerName;
 		}
 
-		public Gtk.ListStore processBandwidthApps(string interface_name){
+		public static Gtk.ListStore processBandwidthApps(string interface_name){
 			debug("Starting to process bandwidth of apps[interface_name="+interface_name+"]...");
 			bandwidth_results_list_store.clear();
 			try{
@@ -1421,7 +1397,7 @@ namespace NuttyApp {
 			return bandwidth_results_list_store;
 		}
 
-		public Gtk.ListStore processBandwidthUsage(string interface_name){
+		public static Gtk.ListStore processBandwidthUsage(string interface_name){
 			debug("Starting to process bandwidth usage[interface_name="+interface_name+"]...");
 			bandwidth_list_store.clear();
 			try{
@@ -1509,7 +1485,7 @@ namespace NuttyApp {
 		*  Copyright 2012-2015 Matt Martz
 		*  speedtest-cli version used: 0.3.4
 		*/
-		public Gtk.ListStore processSpeedTest(bool shouldExecute){
+		public static Gtk.ListStore processSpeedTest(bool shouldExecute){
 			debug("Starting to process SpeedTest...");
 			speedtest_list_store.clear();
 			TreeIter iter;

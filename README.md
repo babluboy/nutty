@@ -42,4 +42,4 @@ sudo make install
 ```
 ## Screenshot
 
-![screenshot](https://github.com/babluboy/nutty/blob/gh-pages/images/Nutty_Device_Alert.png)
+![screenshot](https://github.com/babluboy/nutty/blob/gh-pages/screenshots/Nutty_Device_Alert.png)

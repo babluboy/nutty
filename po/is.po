@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-13 14:03+0100\n"
+"POT-Creation-Date: 2018-04-14 17:01+0100\n"
 "PO-Revision-Date: 2018-04-11 22:22+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
@@ -17,6 +17,24 @@ msgstr ""
 #: ../src/devices.vala:325
 msgid " for "
 msgstr " fyrir "
+
+#: ../src/window.vala:33
+msgid "Nutty Disclaimer"
+msgstr ""
+
+#: ../src/window.vala:34
+msgid ""
+"Click to read the legal disclaimer on Nmap (used by Nutty) for further "
+"information"
+msgstr ""
+
+#: ../src/window.vala:49
+msgid "Use Nutty"
+msgstr ""
+
+#: ../src/window.vala:50
+msgid "Exit"
+msgstr ""
 
 #: ../src/info.vala:148
 msgid "Network Card"
@@ -79,26 +97,42 @@ msgid "Website | Translation | Bug Tracker"
 msgstr "Vefsvæði | Þýðingar | Villuskrásetjari"
 
 #: ../src/constants.vala:48
+msgid "Network Scan Agreement"
+msgstr ""
+
+#: ../src/constants.vala:49
+msgid ""
+"This application has features to perform port scanning and provide "
+"information on devices on the network you are using. It is perfectly OK to "
+"scan for devices on your own residential home network or when explicitly "
+"authorized by the destination host and/or network.While using port scan "
+"(Devices tab) on a network which you do not own please consult and get "
+"approval of the Network Administrator or other competent network authority. "
+msgstr ""
+
+#. //nmap.org/book/legal-issues.html'>http://nmap.org/book/legal-issues.html</a> \n\n" +
+#. _("If you have read and understood the above, click the \"I Agree\" button below to proceed");
+#: ../src/constants.vala:56
 msgid "About"
 msgstr "Um hugbúnaðinn"
 
-#: ../src/constants.vala:49
+#: ../src/constants.vala:57
 msgid "Network Utility"
 msgstr "Netkerfistól"
 
-#: ../src/constants.vala:50
+#: ../src/constants.vala:58
 msgid "Filter results..."
 msgstr "Sía niðurstöður..."
 
-#: ../src/constants.vala:51
+#: ../src/constants.vala:59
 msgid "Preferences"
 msgstr "Kjörstillingar"
 
-#: ../src/constants.vala:52
+#: ../src/constants.vala:60
 msgid "Export to File"
 msgstr "Flytja út í skrá"
 
-#: ../src/constants.vala:53
+#: ../src/constants.vala:61
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
@@ -106,7 +140,7 @@ msgstr ""
 "Nutty þarf auknar heimildir til að framkvæma þessa aðgerð, gefðu upp "
 "lykilorðið þitt til að halda áfram."
 
-#: ../src/constants.vala:54
+#: ../src/constants.vala:62
 msgid ""
 "Nutty needs authentication to update the root scheduler(crontab) for device "
 "monitoring. Please provide your password to complete this change. \n"
@@ -115,382 +149,382 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../src/constants.vala:55 ../src/constants.vala:128
+#: ../src/constants.vala:63 ../src/constants.vala:136
 msgid "Today"
 msgstr "Í dag"
 
-#: ../src/constants.vala:56 ../src/constants.vala:127
+#: ../src/constants.vala:64 ../src/constants.vala:135
 msgid "Yesterday"
 msgstr "Í gær"
 
-#: ../src/constants.vala:57
+#: ../src/constants.vala:65
 msgid "days ago"
 msgstr "dögum síðan"
 
-#: ../src/constants.vala:58
+#: ../src/constants.vala:66
 msgid "Results: "
 msgstr "Niðurstöður: "
 
-#: ../src/constants.vala:59
+#: ../src/constants.vala:67
 msgid "No data found"
 msgstr "Engin gögn fundust"
 
-#: ../src/constants.vala:60
+#: ../src/constants.vala:68
 msgid "Not Available"
 msgstr "Ekki tiltækt"
 
-#: ../src/constants.vala:61
+#: ../src/constants.vala:69
 msgid "I Agree"
 msgstr "Ég samþykki"
 
-#: ../src/constants.vala:62
+#: ../src/constants.vala:70
 msgid "Wired"
 msgstr "Um kapal"
 
-#: ../src/constants.vala:63
+#: ../src/constants.vala:71
 msgid "Wireless"
 msgstr "Þráðlaust"
 
-#: ../src/constants.vala:64
+#: ../src/constants.vala:72
 msgid "Other"
 msgstr "Annað"
 
-#: ../src/constants.vala:65
+#: ../src/constants.vala:73
 msgid "My Info"
 msgstr "Mínar upplýsingar"
 
-#: ../src/constants.vala:66
+#: ../src/constants.vala:74
 msgid "Select a connection"
 msgstr "Veldu tengingu"
 
-#: ../src/constants.vala:67
+#: ../src/constants.vala:75
 msgid "View Details"
 msgstr "Skoða nánar"
 
-#: ../src/constants.vala:68
+#: ../src/constants.vala:76
 msgid "Attribute"
 msgstr "Eigindi"
 
-#: ../src/constants.vala:69
+#: ../src/constants.vala:77
 msgid "Details"
 msgstr "Nánar"
 
-#: ../src/constants.vala:70
+#: ../src/constants.vala:78
 msgid "Host Name"
 msgstr "Vélarheiti"
 
-#: ../src/constants.vala:71
+#: ../src/constants.vala:79
 msgid "MAC Address"
 msgstr "MAC-vistfang"
 
-#: ../src/constants.vala:72
+#: ../src/constants.vala:80
 msgid "IP Address"
 msgstr "IP-vistfang"
 
-#: ../src/constants.vala:73
+#: ../src/constants.vala:81
 msgid "Interface State"
 msgstr "Ástand viðmótsins"
 
-#: ../src/constants.vala:74
+#: ../src/constants.vala:82
 msgid "Interface Hardware"
 msgstr "Vélbúnaðarviðmót"
 
-#: ../src/constants.vala:75
+#: ../src/constants.vala:83
 msgid "Product"
 msgstr "Vara"
 
-#: ../src/constants.vala:76
+#: ../src/constants.vala:84
 msgid "Vendor"
 msgstr "Framleiðandi"
 
-#: ../src/constants.vala:77
+#: ../src/constants.vala:85
 msgid "Physical ID"
 msgstr "Raunauðkenni"
 
-#: ../src/constants.vala:78
+#: ../src/constants.vala:86
 msgid "Bus Info"
 msgstr "Upplýsingar um tengibraut"
 
-#: ../src/constants.vala:79
+#: ../src/constants.vala:87
 msgid "Version"
 msgstr "Útgáfa"
 
-#: ../src/constants.vala:80
+#: ../src/constants.vala:88
 msgid "Capacity"
 msgstr "Afkastageta"
 
-#: ../src/constants.vala:81
+#: ../src/constants.vala:89
 msgid "Bus Width"
 msgstr "Afköst tengibrautar (bus)"
 
-#: ../src/constants.vala:82
+#: ../src/constants.vala:90
 msgid "Clock Speed"
 msgstr "Tiftíðni"
 
-#: ../src/constants.vala:83
+#: ../src/constants.vala:91
 msgid "Speed"
 msgstr "Hraði"
 
-#: ../src/constants.vala:84
+#: ../src/constants.vala:92
 msgid "Route times to Host (in milliseconds): "
 msgstr "Beiningartími til hýsilvélar (í millisekúndum): "
 
-#: ../src/constants.vala:85
+#: ../src/constants.vala:93
 msgid "Hop#"
 msgstr "Hopp#"
 
-#: ../src/constants.vala:86
+#: ../src/constants.vala:94
 msgid "Server IP"
 msgstr "IP-vistfang þjóns"
 
-#: ../src/constants.vala:87
+#: ../src/constants.vala:95
 msgid "Server Name"
 msgstr "Heiti þjóns"
 
-#: ../src/constants.vala:88
+#: ../src/constants.vala:96
 msgid "1st Packet Time"
 msgstr "Tími 1. pakka"
 
-#: ../src/constants.vala:89
+#: ../src/constants.vala:97
 msgid "2nd Packet Time"
 msgstr "Tími 2. pakka"
 
-#: ../src/constants.vala:90
+#: ../src/constants.vala:98
 msgid "3rd Packet Time"
 msgstr "Tími 3. pakka"
 
-#: ../src/constants.vala:91
+#: ../src/constants.vala:99
 msgid "Internet Speed : Results from test on"
 msgstr "Hraði internets: Niðurstöður prófunar"
 
-#: ../src/constants.vala:92
+#: ../src/constants.vala:100
 msgid "Upload Speed"
 msgstr "Sendingarhraði"
 
-#: ../src/constants.vala:93
+#: ../src/constants.vala:101
 msgid "Download Speed"
 msgstr "Niðurhalshraði"
 
-#: ../src/constants.vala:94
+#: ../src/constants.vala:102
 msgid "Refresh Speed Test Results"
 msgstr "Endurlesa niðurstöður hraðaprófa"
 
-#: ../src/constants.vala:95
+#: ../src/constants.vala:103
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr ""
 "Óþekkt dagsetning. Smelltu á Endurlesa-hnappinn til að framkvæma hraðaprófun"
 
-#: ../src/constants.vala:96
+#: ../src/constants.vala:104
 msgid "Ports"
 msgstr "Gáttir"
 
-#: ../src/constants.vala:97
+#: ../src/constants.vala:105
 msgid "All active ports scanned."
 msgstr "Allar virkar gáttir skannaðar."
 
-#: ../src/constants.vala:98
+#: ../src/constants.vala:106
 msgid "Refresh Ports results"
 msgstr "Endurlesa niðurstöður gáttaprófa"
 
-#: ../src/constants.vala:99
+#: ../src/constants.vala:107
 msgid "Protocol"
 msgstr "Samskiptamáti"
 
-#: ../src/constants.vala:100
+#: ../src/constants.vala:108
 msgid "State"
 msgstr "Staða"
 
-#: ../src/constants.vala:101
+#: ../src/constants.vala:109
 msgid "Port"
 msgstr "Gátt"
 
-#: ../src/constants.vala:102
+#: ../src/constants.vala:110
 msgid "Process ID"
 msgstr "Auðkenni ferils PID"
 
-#: ../src/constants.vala:103
+#: ../src/constants.vala:111
 msgid "Program Name"
 msgstr "Heiti forrits"
 
-#: ../src/constants.vala:104
+#: ../src/constants.vala:112
 msgid "Path"
 msgstr "Slóð"
 
-#: ../src/constants.vala:105
+#: ../src/constants.vala:113
 msgid "Devices"
 msgstr "Tæki"
 
-#: ../src/constants.vala:106
+#: ../src/constants.vala:114
 msgid "Refresh device scan results"
 msgstr "Endurlesa niðurstöður tækjaskönnunar"
 
-#: ../src/constants.vala:107
+#: ../src/constants.vala:115
 msgid "Status"
 msgstr "Staða"
 
-#: ../src/constants.vala:108
+#: ../src/constants.vala:116
 msgid "Device Name"
 msgstr "Heiti tækis"
 
-#: ../src/constants.vala:109
+#: ../src/constants.vala:117
 msgid "Device Manufacturer"
 msgstr "Framleiðandi tækis"
 
-#: ../src/constants.vala:110
+#: ../src/constants.vala:118
 msgid "Last Seen"
 msgstr "Sást síðast"
 
-#: ../src/constants.vala:111
+#: ../src/constants.vala:119
 msgid "Discovered On"
 msgstr "Fannst"
 
-#: ../src/constants.vala:112
+#: ../src/constants.vala:120
 msgid "Host IP"
 msgstr "IP-vistfang hýsitölvu"
 
-#: ../src/constants.vala:113
+#: ../src/constants.vala:121
 msgid "Host MAC"
 msgstr "MAC-vistfang hýsitölvu"
 
-#: ../src/constants.vala:114
+#: ../src/constants.vala:122
 msgid "Active"
 msgstr "Virkt"
 
-#: ../src/constants.vala:115
+#: ../src/constants.vala:123
 msgid "Non Active"
 msgstr "Ekki virkt"
 
-#: ../src/constants.vala:116
+#: ../src/constants.vala:124
 msgid "Discovered Earlier"
 msgstr "Fannst fyrr"
 
-#: ../src/constants.vala:117
+#: ../src/constants.vala:125
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr "Birti tæki sem fundust áður. Veldu tengingu til að uppfæra stöðu."
 
-#: ../src/constants.vala:118
+#: ../src/constants.vala:126
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr "Engin tæki hafa fundist áður. Veldu tengingu til að uppfæra stöðu."
 
-#: ../src/constants.vala:119
+#: ../src/constants.vala:127
 msgid "Device scan in progress ..."
 msgstr "Skoðun tækja í gangi ..."
 
-#: ../src/constants.vala:120
+#: ../src/constants.vala:128
 msgid "devices found on this connection"
 msgstr "tæki fundust á þessari tengingu"
 
-#: ../src/constants.vala:121
+#: ../src/constants.vala:129
 msgid "Actions for : "
 msgstr "Aðgerðir fyrir: "
 
-#: ../src/constants.vala:122
+#: ../src/constants.vala:130
 msgid "Forget device"
 msgstr "Gleyma tæki"
 
-#: ../src/constants.vala:123
+#: ../src/constants.vala:131
 msgid "Usage"
 msgstr "Notkun"
 
-#: ../src/constants.vala:124
+#: ../src/constants.vala:132
 msgid "Connection monitored from "
 msgstr "Tenging vöktuð frá "
 
-#: ../src/constants.vala:125
+#: ../src/constants.vala:133
 msgid " and last updated on "
 msgstr " og síðast uppfært "
 
-#: ../src/constants.vala:126
+#: ../src/constants.vala:134
 msgid "Please add this connection interface to vnstat using command line."
 msgstr "Bættu þessu tengiviðmóti við vnstat með því að nota skipanalínuna."
 
-#: ../src/constants.vala:129
+#: ../src/constants.vala:137
 msgid "Time Period"
 msgstr "Tímabil"
 
-#: ../src/constants.vala:130
+#: ../src/constants.vala:138
 msgid "Data Received"
 msgstr "Gögn móttekin"
 
-#: ../src/constants.vala:131
+#: ../src/constants.vala:139
 msgid "Data Sent"
 msgstr "Gögn send"
 
-#: ../src/constants.vala:132
+#: ../src/constants.vala:140
 msgid "Total Data"
 msgstr "Gögn alls"
 
-#: ../src/constants.vala:133
+#: ../src/constants.vala:141
 msgid "Select a connection to view data usage"
 msgstr "Veldu tengingu til að skoða gagnanotkun fyrir"
 
-#: ../src/constants.vala:134
+#: ../src/constants.vala:142
 msgid "Click refresh to see current Apps using "
 msgstr "Smelltu á Endurlesa til að sjá núverandi forrit nota "
 
-#: ../src/constants.vala:135
+#: ../src/constants.vala:143
 msgid "Refresh Apps bandwidth usage"
 msgstr "Endurlesa bandbreiddarnotkun forrita"
 
-#: ../src/constants.vala:136
+#: ../src/constants.vala:144
 msgid "Name"
 msgstr "Heiti"
 
-#: ../src/constants.vala:137
+#: ../src/constants.vala:145
 msgid "Data Sent (Kb/sec)"
 msgstr "Gögn send (Kb/sek)"
 
-#: ../src/constants.vala:138
+#: ../src/constants.vala:146
 msgid "Data Received (Kb/sec)"
 msgstr "Gögn móttekin (Kb/sek)"
 
-#: ../src/constants.vala:139
+#: ../src/constants.vala:147
 msgid "Background Device Monitoring"
 msgstr "Vöktun tækja í bakgrunni"
 
-#: ../src/constants.vala:140
+#: ../src/constants.vala:148
 msgid "Monitor devices every 15 minutes"
 msgstr "Vakta tæki á 15 mínútna fresti"
 
-#: ../src/constants.vala:141
+#: ../src/constants.vala:149
 msgid "Monitor devices every 30 minutes"
 msgstr "Vakta tæki á 30 mínútna fresti"
 
-#: ../src/constants.vala:142
+#: ../src/constants.vala:150
 msgid "Monitor devices every hour"
 msgstr "Vakta tæki á klukkustundar fresti"
 
-#: ../src/constants.vala:143
+#: ../src/constants.vala:151
 msgid "Monitor devices once a day"
 msgstr "Vakta tæki einu sinni á dag"
 
-#: ../src/constants.vala:144
+#: ../src/constants.vala:152
 msgid "Close"
 msgstr "Loka"
 
-#: ../src/constants.vala:145
+#: ../src/constants.vala:153
 msgid "DEVICE_MONITORING_STATE"
 msgstr "VÖKTUNARSTAÐA_TÆKIS"
 
-#: ../src/constants.vala:146
+#: ../src/constants.vala:154
 msgid "DEVICE_MONITORING_SCHEDULE"
 msgstr "VÖKTUNARÁÆTLUN_TÆKIS"
 
-#: ../src/constants.vala:147
+#: ../src/constants.vala:155
 msgid "SPEEDTEST_DATE"
 msgstr "HRAÐASTA_DAGSETNING"
 
-#: ../src/constants.vala:148
+#: ../src/constants.vala:156
 msgid "SPEEDTEST_UPLOADSPEED"
 msgstr "HRAÐAPRÓF_ÚTSENDING"
 
-#: ../src/constants.vala:149
+#: ../src/constants.vala:157
 msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr "HRAÐAPRÓF_NIÐURHAL"
 
-#: ../src/constants.vala:150
+#: ../src/constants.vala:158
 msgid "Nutty Information Exported on "
 msgstr "Upplýsingar úr Nutty fluttar út "
 
@@ -514,63 +548,36 @@ msgstr "Allar skrár"
 msgid "Text files"
 msgstr "Textaskrár"
 
-#: ../src/nutty.vala:30
-msgid "You have permissions to scan devices on your network."
-msgstr "Þú ert með heimildir til að leita að tækjum á netinu þínu."
-
 #: ../src/nutty.vala:31
-msgid ""
-"This application has features to perform port scanning and provide "
-"information on devices on the network you are using."
-msgstr ""
-
-#: ../src/nutty.vala:32
-msgid ""
-"It is perfectly OK to scan for devices on your own residential home network "
-"or when explicitly authorized by the destination host and/or network. "
-msgstr ""
-
-#: ../src/nutty.vala:33
-msgid ""
-"While using port scan (Devices tab) on a network which you do not own please "
-"consult and get approval of the Network Administrator or other competent "
-"network authority. "
-msgstr ""
-
-#: ../src/nutty.vala:34
-msgid ""
-"Please read the following disclaimer on Nmap (used by Nutty) for further "
-"information: "
-msgstr ""
-
-#: ../src/nutty.vala:36
-msgid ""
-"If you have read and understood the above, click the \"I Agree\" button "
-"below to proceed"
-msgstr ""
-"Ef þú hefur lesið og skilið ofangreint, smelltu á 'Ég samþykki' hnappinn hér "
-"fyrir neðan til að halda áfram"
-
-#: ../src/nutty.vala:38
 msgid "New Device found on network:\n"
 msgstr "Nýtt tæki fannst á netkerfinu:\n"
 
-#: ../src/nutty.vala:129
+#: ../src/nutty.vala:122
 msgid "Display version number"
 msgstr "Birta útgáfunúmer"
 
-#: ../src/nutty.vala:130
+#: ../src/nutty.vala:123
 msgid "Run Nutty to discover devices"
 msgstr "Keyra Nutty til að leita að tækjum"
 
-#: ../src/nutty.vala:131
+#: ../src/nutty.vala:124
 msgid "Run Nutty in device alert mode"
 msgstr "Keyra Nutty í viðvörunarham vegna tækja"
 
-#: ../src/nutty.vala:132
+#: ../src/nutty.vala:125
 msgid "Run Nutty in debug mode"
 msgstr "Keyra Nutty í aflúsunarham"
 
-#: ../src/nutty.vala:133
+#: ../src/nutty.vala:126
 msgid "Run Nutty in info mode"
 msgstr "Keyra Nutty í upplýsingaham"
+
+#~ msgid "You have permissions to scan devices on your network."
+#~ msgstr "Þú ert með heimildir til að leita að tækjum á netinu þínu."
+
+#~ msgid ""
+#~ "If you have read and understood the above, click the \"I Agree\" button "
+#~ "below to proceed"
+#~ msgstr ""
+#~ "Ef þú hefur lesið og skilið ofangreint, smelltu á 'Ég samþykki' hnappinn "
+#~ "hér fyrir neðan til að halda áfram"

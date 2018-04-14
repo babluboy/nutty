@@ -45,6 +45,14 @@ namespace NuttyApp.Constants{
 	//Scripts used by Nutty
 	public static const string COMMAND_FOR_INTERFACES = nutty_script_path + "/" + "nutty_cli_script.sh";
 
+	public const string PRIMARY_TEXT_FOR_DISCLAIMER = _("Network Scan Agreement");
+	public const string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using. It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network.While using port scan (Devices tab) on a network which you do not own please consult and get approval of the Network Administrator or other competent network authority. "); 
+
+
+	/*_("Please read the following disclaimer on Nmap (used by Nutty) for further information: ") + "\n" +
+										 "<a href='http://nmap.org/book/legal-issues.html'>http://nmap.org/book/legal-issues.html</a> \n\n" +
+										 _("If you have read and understood the above, click the \"I Agree\" button below to proceed");*/
+
 	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public static const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
