@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-16 20:07+0100\n"
-"PO-Revision-Date: 2018-04-16 13:19+0000\n"
+"PO-Revision-Date: 2018-04-16 19:52+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -103,7 +103,6 @@ msgid "Network Scan Agreement"
 msgstr "Samkomulag um skönnun netkerfis"
 
 #: ../src/constants.vala:65
-#, fuzzy
 msgid ""
 "This application has features to perform port scanning and provide "
 "information on devices on the network you are using. It is perfectly OK to "
@@ -117,7 +116,7 @@ msgstr ""
 "tæki á þínu eigin heimaneti eða þegar það er sérstaklega heimilað af eiganda "
 "úttaksvélar og/eða netkerfis. Þegar verið er að nota gáttaskönnun (Tæki-"
 "flipinn) á netkerfi sem þú átt ekki sjálf(ur), vertu þá viss um að þú fáir "
-"leyfi hjá netstjóra kerfisins eða öðrum til þess bærum aðila. "
+"leyfi hjá netstjóra kerfisins eða öðrum til þess bærum aðila."
 
 #: ../src/constants.vala:66
 msgid "About"
@@ -437,9 +436,8 @@ msgid "Forget device"
 msgstr "Gleyma tæki"
 
 #: ../src/constants.vala:141
-#, fuzzy
 msgid "New Device found on network:"
-msgstr "Nýtt tæki fannst á netkerfinu:\n"
+msgstr "Nýtt tæki fannst á netkerfinu:"
 
 #: ../src/constants.vala:142
 msgid "Usage"
