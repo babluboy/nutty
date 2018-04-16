@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-11 10:00+0200\n"
-"PO-Revision-Date: 2018-04-16 13:15+0000\n"
+"PO-Revision-Date: 2018-04-16 13:19+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -20,21 +20,23 @@ msgstr " fyrir "
 
 #: ../src/window.vala:33
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Fyrirvari vegna Nutty"
 
 #: ../src/window.vala:34
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"Smelltu til að lesa lögfræðilega yfirlýsingu varðandi Nmap (sem er notað af "
+"Nutty) til að skilja betur hvernig þetta virkar"
 
 #: ../src/window.vala:49
 msgid "Use Nutty"
-msgstr ""
+msgstr "Nota Nutty"
 
 #: ../src/window.vala:50
 msgid "Exit"
-msgstr ""
+msgstr "Hætta"
 
 #: ../src/info.vala:148
 msgid "Network Card"
@@ -98,7 +100,7 @@ msgstr "Vefsvæði | Þýðingar | Villuskrásetjari"
 
 #: ../src/constants.vala:48
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Samkomulag um skönnun netkerfis"
 
 #: ../src/constants.vala:49
 msgid ""
@@ -109,6 +111,12 @@ msgid ""
 "(Devices tab) on a network which you do not own please consult and get "
 "approval of the Network Administrator or other competent network authority. "
 msgstr ""
+"Þetta forrit er með eiginleika til að skanna gáttir og gefa upplýsingar um "
+"tæki á netkerfinu sem þú ert að nota. Það er fullkomlega löglegt að skanna "
+"tæki á þínu eigin heimaneti eða þegar það er sérstaklega heimilað af eiganda "
+"úttaksvélar og/eða netkerfis. Þegar verið er að nota gáttaskönnun (Tæki-"
+"flipinn) á netkerfi sem þú átt ekki sjálf(ur), vertu þá viss um að þú fáir "
+"leyfi hjá netstjóra kerfisins eða öðrum til þess bærum aðila. "
 
 #. //nmap.org/book/legal-issues.html'>http://nmap.org/book/legal-issues.html</a> \n\n" +
 #. _("If you have read and understood the above, click the \"I Agree\" button below to proceed");
@@ -435,7 +443,7 @@ msgstr "Notkun"
 
 #: ../src/constants.vala:132
 msgid "Connection monitored from "
-msgstr "Tenging vöktuð frá"
+msgstr "Tenging vöktuð frá "
 
 #: ../src/constants.vala:133
 msgid " and last updated on "
