@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-14 17:01+0100\n"
-"PO-Revision-Date: 2018-04-11 22:22+0000\n"
+"POT-Creation-Date: 2018-04-11 10:00+0200\n"
+"PO-Revision-Date: 2018-04-16 13:15+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 2.20\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ../src/devices.vala:325
 msgid " for "
@@ -148,6 +148,11 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
+"Nutty þarf auknar heimildir til að uppfæra rótaráætlun (crontab) fyrir "
+"vöktun tækja. Settu inn lykilorðið þitt til að ljúka þessum breytingum. \n"
+"\n"
+"Athugaðu: Gert verður öryggisafrit af fyrirliggjandi rótaráætlun (crontab) í "
+"heimamöppunni."
 
 #: ../src/constants.vala:63 ../src/constants.vala:136
 msgid "Today"
@@ -430,7 +435,7 @@ msgstr "Notkun"
 
 #: ../src/constants.vala:132
 msgid "Connection monitored from "
-msgstr "Tenging vöktuð frá "
+msgstr "Tenging vöktuð frá"
 
 #: ../src/constants.vala:133
 msgid " and last updated on "
