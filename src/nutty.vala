@@ -28,10 +28,11 @@ namespace NuttyApp {
 		public static Nutty application;
 		public static string[] commandLineArgs;
 				
-		public static string TEXT_FOR_DEVICE_FOUND_NOTIFICATION = _("New Device found on network:\n");
 		public static string[] COMMAND_FOR_INTERFACE_HARDWARE_DETAILED = {"lshw", "-xml", "-class", "network"};
 		public static string[] COMMAND_FOR_BANDWIDTH_USAGE = {"vnstat", "--xml", "-i", "<interface goes here>"};
-		public static string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {"curl", "-d", "test", "http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"};
+		public static string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {
+												"curl", "-d", "test", "http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"
+											};
 		public static string[] COMMAND_FOR_SPEED_TEST = {"speedtest-cli", "--simple", "--bytes"};
 		public bool hasDisclaimerBeenAgreed = false;
 		public string crontabContents = "";
@@ -243,18 +244,18 @@ namespace NuttyApp {
 				menu_icon = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
 			}else{
 				menu_icon = new Gtk.Image.from_pixbuf (
-							new Gdk.Pixbuf.from_file_at_scale (NuttyApp.Constants.HEADERBAR_PROPERTIES_IMAGE_LOCATION, 
-							24, 24, true)
+							new Gdk.Pixbuf.from_resource_at_scale(
+								NuttyApp.Constants.HEADERBAR_PROPERTIES_IMAGE_LOCATION,24, 24, true
+							)
 				);
 			}
 			try{
-				device_available_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_AVAILABLE_ICON_IMAGE_LOCATION);
-				device_offline_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEVICE_OFFLINE_ICON_IMAGE_LOCATION);
-				default_app_pix = new Gdk.Pixbuf.from_file (NuttyApp.Constants.DEFAULT_APP_ICON_IMAGE_LOCATION);
+				device_available_pix = new Gdk.Pixbuf.from_resource (NuttyApp.Constants.DEVICE_AVAILABLE_ICON_IMAGE_LOCATION);
+				device_offline_pix = new Gdk.Pixbuf.from_resource (NuttyApp.Constants.DEVICE_OFFLINE_ICON_IMAGE_LOCATION);
+				default_app_pix=new Gdk.Pixbuf.from_resource (NuttyApp.Constants.DEFAULT_APP_ICON_IMAGE_LOCATION);
 			}catch(GLib.Error e){
 				warning("Failed to load icons/theme: "+e.message);
 			}
-			
 			info("[END] [FUNCTION:loadImages]");
 		}
 		
@@ -1342,7 +1343,11 @@ namespace NuttyApp {
 				StringBuilder aProcessName = new StringBuilder();
 				bandwidthProcessSpinner.start();
 
-				execute_sync_multiarg_command_pipes({"pkexec", Constants.nutty_script_path + "/" + Constants.nutty_bandwidth_process_file_name, interface_name});
+				execute_sync_multiarg_command_pipes({
+					"pkexec", 
+					Constants.COMMAND_FOR_PROCESS_BANDWIDTH, 
+					interface_name
+				});
 				string process_bandwidth_result = spawn_async_with_pipes_output.str;
 
 				//split the indivudual lines in the output

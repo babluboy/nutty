@@ -356,12 +356,15 @@ public class NuttyApp.Devices {
 		//Run NMap scan and capture output
 		NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
 						"pkexec", 
-						Constants.nutty_script_path + "/" + Constants.nutty_devices_file_name, scanIPAddress
+						NuttyApp.Constants.COMMAND_FOR_DEVICE_SCAN,
+						Constants.nmap_output_filename,
+						scanIPAddress
 		});
 		string deviceScanResult = NuttyApp.Nutty.spawn_async_with_pipes_output.str;
 		deviceScanResult = deviceScanResult.splice(0, deviceScanResult.index_of("<nmaprun"), "");
 		NuttyApp.XmlParser thisParser = new NuttyApp.XmlParser();
-		ArrayList<NuttyApp.Entities.Device> extractedDeviceList = thisParser.extractDeviceDataFromXML("/tmp/nutty_nmap.xml");
+		ArrayList<NuttyApp.Entities.Device> extractedDeviceList = 
+								thisParser.extractDeviceDataFromXML(Constants.nmap_output_filename);
 		NuttyApp.Nutty.device_mac_found_in_scan.assign("");
 		foreach(NuttyApp.Entities.Device aExtractedDevice in extractedDeviceList){
 			NuttyApp.DB.addDeviceToDB(aExtractedDevice);
@@ -383,7 +386,7 @@ public class NuttyApp.Devices {
 				Notify.init (NuttyApp.Constants.nutty_id);
 				try {
 					Notify.Notification notification = new Notify.Notification (
-							NuttyApp.Nutty.TEXT_FOR_DEVICE_FOUND_NOTIFICATION, 
+							NuttyApp.Constants.TEXT_FOR_DEVICE_FOUND_NOTIFICATION, 
 							aDevice.device_hostname_custom + "(" + aDevice.device_ip + ")'", 
 							NuttyApp.Constants.app_icon
 					);
@@ -447,7 +450,7 @@ public class NuttyApp.Devices {
 			//execute the command to update root crontab for monitoring
 			NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
 						"pkexec",
-						Constants.nutty_script_path + "/" + Constants.nutty_monitor_scheduler_file_name,
+						Constants.COMMAND_FOR_SCHEDULED_DEVICE_SCAN,
 						NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
 						NuttyApp.Nutty.nutty_config_path, 
 						Environment.get_home_dir () + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
@@ -455,7 +458,7 @@ public class NuttyApp.Devices {
 		  	});
 			//execute the command to update user crontab for alerting
 			NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
-						Constants.nutty_script_path + "/" + Constants.nutty_alert_scheduler_file_name,
+						Constants.COMMAND_FOR_SCHEDULED_DEVICE_ALERT,
 						NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
 						NuttyApp.Nutty.nutty_config_path, 
 						Environment.get_home_dir ()+ "/" + Constants.nutty_alert_scheduler_backup_file_name,

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+
+	<gresource prefix="/com/github/babluboy/nutty">
+		<file alias="14-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/14/com.github.babluboy.nutty.svg</file>
+
+		<file alias="16-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/16/com.github.babluboy.nutty.svg</file>
+		<file alias="16-nutty-application-default-icon" compressed="true" preprocess="xml-stripblanks">icons/16/nutty-application-default-icon.svg</file>
+		<file alias="16-nutty-device-available" compressed="true" preprocess="xml-stripblanks">icons/16/nutty-device-available.svg</file>
+		<file alias="16-nutty-device-offline" compressed="true" preprocess="xml-stripblanks">icons/16/nutty-device-offline.svg</file>
+		
+		<file alias="24-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/24/com.github.babluboy.nutty.svg</file>
+		<file alias="24-nutty-open-menu.svg" compressed="true" preprocess="xml-stripblanks">icons/24/nutty-open-menu.svg</file>
+
+		<file alias="32-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/32/com.github.babluboy.nutty.svg</file>
+
+		<file alias="48-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/48/com.github.babluboy.nutty.svg</file>
+
+		<file alias="64-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/64/com.github.babluboy.nutty.svg</file>
+
+		<file alias="128-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/128/com.github.babluboy.nutty.svg</file>
+
+		<file alias="192-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/192/com.github.babluboy.nutty.svg</file>
+
+		<file alias="256-com.github.babluboy.nutty.svg" compressed="true" preprocess="xml-stripblanks">icons/256/com.github.babluboy.nutty.svg</file>
+	</gresource>
+  
+</gresources>

@@ -35,24 +35,34 @@ namespace NuttyApp.Constants{
 	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE = _("Website | Translation | Bug Tracker");
 	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://babluboy.github.io/nutty";
 
-	//Set paths relative to the install location (i.e. /usr)
+	//Set resource paths
 	public const string INSTALL_PREFIX = "/usr";
-	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-available.svg";
-	public const string DEVICE_OFFLINE_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-device-offline.svg";
-	public const string DEFAULT_APP_ICON_IMAGE_LOCATION = INSTALL_PREFIX+"/share/nutty/icons/hicolor/16x16/status/nutty-application-default-icon.svg";
-	public const string HEADERBAR_PROPERTIES_IMAGE_LOCATION = INSTALL_PREFIX+"/share/bookworm/icons/hicolor/24x24/actions/nutty-open-menu.svg";
+	public const string RESOURCE_PREFIX = "/com/github/babluboy/nutty/";
 	public static const string nutty_script_path = INSTALL_PREFIX+"/share/nutty/scripts";
+
+	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-device-available";
+	public const string DEVICE_OFFLINE_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-device-offline";
+	public const string DEFAULT_APP_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-application-default-icon";
+	public const string HEADERBAR_PROPERTIES_IMAGE_LOCATION = RESOURCE_PREFIX+"24-nutty-open-menu.svg";
+	
 	//Scripts used by Nutty
 	public static const string COMMAND_FOR_INTERFACES = nutty_script_path + "/" + "nutty_cli_script.sh";
+	public static const string COMMAND_FOR_PROCESS_BANDWIDTH = nutty_script_path + "/" + "nutty_nethogs_script.sh";
+	public static const string COMMAND_FOR_DEVICE_SCAN = nutty_script_path + "/" + "nutty_nmap_script.sh";
+	public static const string COMMAND_FOR_SCHEDULED_DEVICE_SCAN = nutty_script_path + "/" + "nutty_device_monitor.sh";
+	public static const string COMMAND_FOR_SCHEDULED_DEVICE_ALERT = nutty_script_path + "/" + "nutty_device_alert.sh";
+
+	//Temp files used for Nutty
+	public static const string temp_path = "/tmp";
+	public static const string nmap_output_filename = temp_path + "/" + "nutty_nmap_device_scan_results.xml";
+	public static const string nutty_agreement_file_name = "nutty_disclaimer_agreement.txt";	
+	public static const string nutty_devices_property_file_name = "nutty_devices_props.txt";
+	public static const string nutty_state_file_name = "nutty_state_info.txt";
+	public static const string nutty_monitor_scheduler_backup_file_name = "root_crontab_backup.txt";
+	public static const string nutty_alert_scheduler_backup_file_name = "user_crontab_backup.txt";
 
 	public const string PRIMARY_TEXT_FOR_DISCLAIMER = _("Network Scan Agreement");
-	public const string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using. It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network.While using port scan (Devices tab) on a network which you do not own please consult and get approval of the Network Administrator or other competent network authority. "); 
-
-
-	/*_("Please read the following disclaimer on Nmap (used by Nutty) for further information: ") + "\n" +
-										 "<a href='http://nmap.org/book/legal-issues.html'>http://nmap.org/book/legal-issues.html</a> \n\n" +
-										 _("If you have read and understood the above, click the \"I Agree\" button below to proceed");*/
-
+	public const string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using. It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network.While using port scan (Devices tab) on a network which you do not own please consult and get approval of the Network Administrator or other competent network authority.");
 	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public static const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public static const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
@@ -128,6 +138,7 @@ namespace NuttyApp.Constants{
 	public static const string TEXT_FOR_DEVICES_FOUND = _("devices found on this connection");
 	public static const string TEXT_FOR_DEVICES_ACTION = _("Actions for : ");
 	public static const string TEXT_FOR_DEVICES_REMOVAL = _("Forget device");
+	public static const string TEXT_FOR_DEVICE_FOUND_NOTIFICATION = _("New Device found on network:");
 	public static const string TEXT_FOR_BANDWIDTH_TAB = _("Usage");
 	public static const string TEXT_FOR_BANDWIDTH_INTERFACE_RESULTS_1 = _("Connection monitored from ");
 	public static const string TEXT_FOR_BANDWIDTH_INTERFACE_RESULTS_2 = _(" and last updated on ");
@@ -178,17 +189,7 @@ namespace NuttyApp.Constants{
 	public static const string IDENTIFIER_FOR_PROPERTY_VALUE = "==";
 	public static const string IDENTIFIER_FOR_UPLOAD_IN_SPEED_TEST = "Upload:";
 	public static const string IDENTIFIER_FOR_DOWNLOAD_IN_SPEED_TEST = "Download:";
-	public static const string nmap_output_path = "/tmp";
-	public static const string nmap_output_filename = "nutty_nmap_device_monitor_results.xml";
-	public static const string nutty_agreement_file_name = "nutty_disclaimer_agreement.txt";
-	public static const string nutty_devices_file_name = "nutty_nmap_script.sh";
-	public static const string nutty_bandwidth_process_file_name = "nutty_nethogs_script.sh";
-	public static const string nutty_devices_property_file_name = "nutty_devices_props.txt";
-	public static const string nutty_state_file_name = "nutty_state_info.txt";
-	public static const string nutty_monitor_scheduler_file_name = "nutty_device_monitor.sh";
-	public static const string nutty_monitor_scheduler_backup_file_name = "root_crontab_backup.txt";
-	public static const string nutty_alert_scheduler_file_name = "nutty_device_alert.sh";
-	public static const string nutty_alert_scheduler_backup_file_name = "user_crontab_backup.txt";
+
 	public static const string REFRESH_ICON = "view-refresh-symbolic";
 	public static const string GO_ICON = "go-next";
 	public static const int NUMBER_OF_DEVICE_ATTRIBUTES_IN_DEVICEPROPS = 6;

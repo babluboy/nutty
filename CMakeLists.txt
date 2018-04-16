@@ -69,6 +69,7 @@ ensure_vala_version("0.36" MINIMUM)
 
 # files we want to compile
 include(ValaPrecompile)
+include(GResource)
 
 set (BASIC_VALAC_OPTIONS
    -g
@@ -102,8 +103,10 @@ PACKAGES
     libnotify
 )
 
+GLIB_COMPILE_RESOURCES(GRESOURCES SOURCE data/com.github.babluboy.nutty.gresource.xml)
+
 # tell cmake what to call the executable we just made
-add_executable(${EXEC_NAME} ${VALA_C})
+add_executable(${EXEC_NAME} ${VALA_C} ${GRESOURCES})
 
 # set linking libraries
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
@@ -115,12 +118,6 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/32/com.github.babluboy.nut
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/48/com.github.babluboy.nutty.svg DESTINATION ${DATADIR}/icons/hicolor/48x48/apps)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/64/com.github.babluboy.nutty.svg DESTINATION ${DATADIR}/icons/hicolor/64x64/apps)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/128/com.github.babluboy.nutty.svg DESTINATION ${DATADIR}/icons/hicolor/128x128/apps)
-
-# install nutty specific icons in application specific folder - /usr/share/nutty/icons
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/24/nutty-open-menu.svg DESTINATION ${ICON_DIR}/24x24/actions/)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-offline.svg DESTINATION ${ICON_DIR}/16x16/status)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-device-available.svg DESTINATION ${ICON_DIR}/16x16/status)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/icons/16/nutty-application-default-icon.svg DESTINATION ${ICON_DIR}/16x16/status)
 
 # install .desktop and .appdata files so the Applications menu will see it
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/com.github.babluboy.nutty.desktop DESTINATION ${DATADIR}/applications/)

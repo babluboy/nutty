@@ -47,7 +47,9 @@ public class NuttyApp.AppWindow {
 		Gtk.Box disclaimer_agreement_box = new Gtk.Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 
 		Button continueButton = new Button.with_label(_("Use Nutty"));
+		continueButton.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 		Button exitButton = new Button.with_label(_("Exit"));
+		exitButton.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 		disclaimer_agreement_box.pack_end (continueButton, false, false, 0);
 		disclaimer_agreement_box.pack_end (exitButton, false, false, 0);
 		
