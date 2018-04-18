@@ -1,6 +1,7 @@
 /* Copyright 2015 Siddhartha Das (bablu.boy@gmail.com)
 *
-* This file is part of Nutty.
+* This file is part of Nutty. This clas is responsible for the implementation  
+*  of the window and other command line options
 *
 * Nutty is free software: you can redistribute it
 * and/or modify it under the terms of the GNU General Public License as
@@ -25,6 +26,7 @@ public const string GETTEXT_PACKAGE = "nutty";
 namespace NuttyApp {
 	public class Nutty : Granite.Application {
 		public static Gtk.ApplicationWindow window;
+		public static Gtk.IconTheme default_theme;
 		public static Nutty application;
 		public static string[] commandLineArgs;
 				
@@ -83,10 +85,12 @@ namespace NuttyApp {
 		public static Label bandwidth_results_label;
 		public static bool isBandwidthViewLoaded = false;
 		public static Spinner bandwidthProcessSpinner;
+		public static Gtk.RadioButton NoOption;
 		public static Gtk.RadioButton min15Option;
 		public static Gtk.RadioButton min30Option;
 		public static Gtk.RadioButton hourOption;
 		public static Gtk.RadioButton dayOption;
+		public static bool isMonitorScheduleReadyForChange = false;
 		public static Gtk.TreeModelFilter infoTreeModelFilter;
 		public static Gtk.TreeModelFilter portsTreeModelFilter;
 		public static Gtk.TreeModelFilter routeTreeModelFilter;
@@ -110,6 +114,7 @@ namespace NuttyApp {
 		public static ArrayList<NuttyApp.Entities.Device> deviceDataArrayList;
 		public static StringBuilder device_mac_found_in_scan = new StringBuilder("");
 		public static CssProvider cssProvider;
+		public static NuttyApp.Settings settings;
 
 		construct {
 			build_version = NuttyApp.Constants.nutty_version;
@@ -193,7 +198,7 @@ namespace NuttyApp {
 
 		public override void activate() {
 			application.register (null);
-			Logger.initialize("com.github.babluboy.nutty");
+			Logger.initialize(NuttyApp.Constants.nutty_id);
 			if(command_line_option_debug){
 				Logger.DisplayLevel = LogLevel.DEBUG;
 			}
@@ -201,14 +206,18 @@ namespace NuttyApp {
 				Logger.DisplayLevel = LogLevel.INFO;
 			}
 			info("[START] [FUNCTION:activate]");
+			default_theme = Gtk.IconTheme.get_default();
 			window = new Gtk.ApplicationWindow (this);
+			//retrieve Settings
+			settings = NuttyApp.Settings.get_instance();
 			icon_theme = Gtk.IconTheme.get_default ();
 			//set window attributes
-			window.set_default_size(1100, 600);
+			window.set_border_width (0);
+			window.get_style_context ().add_class ("rounded");
 			window.set_border_width (Constants.SPACING_WIDGETS);
 			window.set_position (Gtk.WindowPosition.CENTER);
 			window.window_position = Gtk.WindowPosition.CENTER;
-			//load state information from file
+			//load state information from last saved settings
 			loadNuttyState();
 			//load pictures
 			loadImages();
@@ -226,6 +235,10 @@ namespace NuttyApp {
 			//show the app window
 			add_window (window);
 			window.show_all();
+			//capture window re-size events and save the window size
+			window.size_allocate.connect(() => {
+				saveWindowState();
+			});
 			//Exit Application Event
 			window.destroy.connect (() => {
 				// Manage flags to avoid on load process for tabs not visited
@@ -277,18 +290,22 @@ namespace NuttyApp {
 			// trigger action for change of device schedule
 			deviceMonitoringSwitch.notify["active"].connect (() => {
 				if (deviceMonitoringSwitch.active) {
-					DEVICE_SCHEDULE_STATE = DEVICE_SCHEDULE_ENABLED;
+					settings.is_device_monitoring_enabled = true;
 					handleDeviceMonitoring(true);
 				}else{
-					DEVICE_SCHEDULE_STATE = DEVICE_SCHEDULE_DISABLED;
+					settings.is_device_monitoring_enabled = false;
 					handleDeviceMonitoring(false);
 				}
 			});
+			
+			NoOption = new Gtk.RadioButton.with_label_from_widget (null, Constants.TEXT_FOR_PREFS_DIALOG_0MIN_OPTION);
+			NoOption.set_sensitive (false);
+			NoOption.toggled.connect (deviceScheduleSelection);
 
-			min15Option = new Gtk.RadioButton.with_label_from_widget (null, Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION);
+			min15Option = new Gtk.RadioButton.with_label_from_widget (NoOption, Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION);
 			min15Option.set_sensitive (false);
 			min15Option.toggled.connect (deviceScheduleSelection);
-
+			
 			min30Option = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION);
 			min30Option.set_sensitive (false);
 			min30Option.toggled.connect (deviceScheduleSelection);
@@ -302,7 +319,7 @@ namespace NuttyApp {
 			dayOption.toggled.connect (deviceScheduleSelection);
 
 			//set the option for device monitoring - based on saved state
-			if(DEVICE_SCHEDULE_STATE == DEVICE_SCHEDULE_ENABLED){
+			if(settings.is_device_monitoring_enabled){
 				deviceMonitoringSwitch.set_active(true);
 				handleDeviceMonitoring(true);
 			}else{
@@ -311,7 +328,9 @@ namespace NuttyApp {
 			}
 
 			//set the active option for device schedule - based on saved state
-			if(DEVICE_SCHEDULE_SELECTED == Constants.DEVICE_SCHEDULE_15MINS){
+			if(DEVICE_SCHEDULE_SELECTED == Constants.DEVICE_SCHEDULE_0MINS){
+				NoOption.set_active (true);
+			}else if(DEVICE_SCHEDULE_SELECTED == Constants.DEVICE_SCHEDULE_15MINS){
 				min15Option.set_active (true);
 			}else if(DEVICE_SCHEDULE_SELECTED == Constants.DEVICE_SCHEDULE_30MINS){
 				min30Option.set_active (true);
@@ -320,8 +339,10 @@ namespace NuttyApp {
 			}else if(DEVICE_SCHEDULE_SELECTED == Constants.DEVICE_SCHEDULE_1DAY){
 				dayOption.set_active (true);
 			}else{
-				hourOption.set_active (true);
+				//do nothing
 			}
+			//make the prefernce window ready to change the cron schedule
+			isMonitorScheduleReadyForChange = true;
 
 			Gtk.Box monitorIntervalBox = new Gtk.Box (Gtk.Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 			monitorIntervalBox.pack_start (min15Option, false, false, 0);
@@ -346,14 +367,71 @@ namespace NuttyApp {
 			debug("Completed setting up Prefference Dialog sucessfully...");
 		}
 
+		private static void deviceScheduleSelection (Gtk.ToggleButton button) {
+			//isMonitorScheduleReadyForChange - this flag prevents triggering the crontab change 
+			//when one of the radio buttons is made active per the saved state
+			if(isMonitorScheduleReadyForChange){
+				if(Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION == button.label){
+					//check if a change is observed and change the crontab
+					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
+						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_15MINS;
+						NuttyApp.Devices.setupDeviceMonitoring();	
+					}
+				}
+				if(Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION == button.label){
+					//check if a change is observed and change the crontab
+					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_30MINS){
+						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_30MINS;
+						NuttyApp.Devices.setupDeviceMonitoring();	
+					}
+				}
+				if(Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION == button.label){
+					//check if a change is observed and change the crontab
+					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
+						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1HOUR;
+						NuttyApp.Devices.setupDeviceMonitoring();	
+					}
+				}
+				if(Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION == button.label) {
+					//check if a change is observed and change the crontab
+					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
+						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1DAY;
+						NuttyApp.Devices.setupDeviceMonitoring();	
+					}
+				}
+			}
+			debug("Completed noting the selection for device monitoring schedule...");
+		}
+
+		public static void handleDeviceMonitoring(bool isSwitchSet){
+			if (isSwitchSet) {
+				min15Option.set_sensitive(true);
+				min30Option.set_sensitive(true);
+				hourOption.set_sensitive(true);
+				dayOption.set_sensitive(true);
+			} else {
+				min15Option.set_sensitive(false);
+				min30Option.set_sensitive(false);
+				hourOption.set_sensitive(false);
+				dayOption.set_sensitive(false);
+				if(isMonitorScheduleReadyForChange){
+					//set monitoring frequency to zero and call crontab routine,
+					//this will remove cron job for both monitoring and alerting
+					DEVICE_SCHEDULE_SELECTED = 0;
+					NuttyApp.Devices.setupDeviceMonitoring();
+				}
+			}
+			debug("Completed toggling device monitoring UI...");
+		}
+
 		private static void prefsDialogResponseHandler(Gtk.Dialog source, int response_id) {
 			switch (response_id) {
 				case Gtk.ResponseType.CLOSE:
-					NuttyApp.Devices.setupDeviceMonitoring();
+					isMonitorScheduleReadyForChange = false;
 					source.destroy();
 					break;
 				case Gtk.ResponseType.DELETE_EVENT:
-					NuttyApp.Devices.setupDeviceMonitoring();
+					isMonitorScheduleReadyForChange = false;
 					source.destroy();
 					break;
 			}
@@ -373,33 +451,6 @@ namespace NuttyApp {
 					break;
 			}
 			debug ("Export dialog handler response handled ["+response_id.to_string()+"]...");
-		}
-
-		private static void deviceScheduleSelection (Gtk.ToggleButton button) {
-			if(Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION == button.label)
-				DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_15MINS;
-			if(Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION == button.label)
-				DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_30MINS;
-			if(Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION == button.label)
-				DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1HOUR;
-			if(Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION == button.label)
-				DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1DAY;
-			debug("Completed noting the selection for device monitoring schedule...");
-		}
-
-		public static void handleDeviceMonitoring(bool isSwitchSet){
-			if (isSwitchSet) {
-				min15Option.set_sensitive(true);
-				min30Option.set_sensitive(true);
-				hourOption.set_sensitive(true);
-				dayOption.set_sensitive(true);
-			} else {
-				min15Option.set_sensitive(false);
-				min30Option.set_sensitive(false);
-				hourOption.set_sensitive(false);
-				dayOption.set_sensitive(false);
-			}
-			debug("Completed toggling device monitoring UI...");
 		}
 
 		public static void createExportDialog() {
@@ -594,7 +645,12 @@ namespace NuttyApp {
 
 			//Tab 3 : Speed Tab : Show internet speed or speed of routing to a remote host
 			speedTestSpinner = new Spinner();
-			Label speed_test_label = new Label (Constants.TEXT_FOR_SPEED_LABEL);
+			Label speed_test_label = new Label ("");
+			if(SPEEDTESTDATE != null && SPEEDTESTDATE.length > 1){
+				speed_test_label.set_text (Constants.TEXT_FOR_SPEED_LABEL);
+			}else{
+				speed_test_label.set_text (NuttyApp.Constants.TEXT_FOR_SPEED_TEST_NOT_DONE_LABEL);
+			}
 			speed_test_results_label = new Label (SPEEDTESTDATE);
 			speed_test_refresh_button = new Button.from_icon_name (Constants.REFRESH_ICON, IconSize.SMALL_TOOLBAR);
 			speed_test_refresh_button.set_relief (ReliefStyle.NONE);
@@ -657,6 +713,7 @@ namespace NuttyApp {
 				speed_test_refresh_button.set_sensitive(false);
 				speedTestTreeModelFilter = new Gtk.TreeModelFilter (processSpeedTest(true), null);
 				setFilterAndSort(speedtest_table_treeview, speedTestTreeModelFilter, SortType.DESCENDING);
+				speed_test_label.set_text (Constants.TEXT_FOR_SPEED_LABEL);
 				speed_test_results_label.set_text(SPEEDTESTDATE);
 			});
 
@@ -773,50 +830,83 @@ namespace NuttyApp {
 			return main_ui_box;
 		}
 
-		public void saveNuttyState(){
-			debug("Starting to save Nutty state...");
-			StringBuilder stateInfo = new StringBuilder("");
-			//collect all current details of state
-			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_DEVICE_MONITORING_STATE).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(DEVICE_SCHEDULE_STATE.to_string()).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_DEVICE_MONITORING_SCHEDULE).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(DEVICE_SCHEDULE_SELECTED.to_string()).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-
-			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_SPEEDTEST_DATE).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(SPEEDTESTDATE).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_SPEEDTEST_UPLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(UPLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-			stateInfo.append(Constants.IDENTIFIER_FOR_PROPERTY_START).append(Constants.TEXT_FOR_STATE_SPEEDTEST_DOWNLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_VALUE).append(DOWNLOADSPEED).append(Constants.IDENTIFIER_FOR_PROPERTY_END);
-			//overwrite (or write if not exists) the current state info
-			string saveNuttyStateResult = fileOperations("WRITE",nutty_config_path, Constants.nutty_state_file_name, stateInfo.str);
-			if("true" == saveNuttyStateResult){
-				debug("Completed saving Nutty state [ "+stateInfo.str+" ] in file:"+nutty_config_path+"/"+Constants.nutty_state_file_name);
+		public void loadNuttyState(){
+			info("[START] [FUNCTION:loadNuttyState]");
+			//Set the window to the last saved position
+			if(settings.pos_x == 0 && settings.pos_y == 0){
+				window.set_position (Gtk.WindowPosition.CENTER);
 			}else{
-				warning("Failure in saving nutty state: "+saveNuttyStateResult);
+				window.move(settings.pos_x, settings.pos_y);
+			}
+			//set window size to the last saved height/width
+			if(settings.window_is_maximized){
+				window.maximize();
+			}else{
+				if(settings.window_width > 0 && settings.window_height > 0){
+					window.set_default_size(settings.window_width, settings.window_height);
+				}else{
+					window.set_default_size(1100, 600);
+				}
+			}
+			//check if the database exists otherwise create database and required tables
+			NuttyApp.DB.initializeNuttyDB(nutty_config_path);
+			//Load state of various settings from last saved state
+			DEVICE_SCHEDULE_SELECTED = settings.device_monitoring_scheduled;
+			SPEEDTESTDATE = settings.last_speed_test_date;
+			UPLOADSPEED = settings.last_recorded_upload_speed;
+			DOWNLOADSPEED = settings.last_recorded_download_speed;
+			debug("Loaded Nutty state with: " +
+						"Window Position: x=" + settings.pos_x.to_string() + " and y="+settings.pos_y.to_string() +
+						", Is the Window To be Maximized=" + settings.window_is_maximized.to_string() +
+						", Window Sixe: width=" + settings.window_width.to_string() + " and height="+settings.window_height.to_string() +
+						", Monitoring Schedule="+settings.device_monitoring_scheduled.to_string()+
+						", Speed Test Date="+ settings.last_speed_test_date +
+						", Last Upload Speed="+ settings.last_recorded_upload_speed +
+						", Last Download Speed="+			settings.last_recorded_download_speed
+			);
+			info("[END] [FUNCTION:loadNuttyState]");
+		}
+	
+		public void saveWindowState(){
+			int width;
+			int height;
+			int x;
+			int y;
+			window.get_size (out width, out height);
+			window.get_position (out x, out y);
+			if(settings.pos_x != x || settings.pos_y != y){
+				settings.pos_x = x;
+				settings.pos_y = y;
+				debug("Saved window position: x="+settings.pos_x.to_string()+
+																	  ", y="+settings.pos_y.to_string());
+			}
+			if(settings.window_width != width || settings.window_height != height){
+				settings.window_width = width;
+				settings.window_height = height;
+				debug("Saved window dimension: width="+settings.window_width.to_string()+
+																		  ", height="+settings.window_height.to_string());
+			}
+			if(window.is_maximized == true){
+				settings.window_is_maximized = true;
+			}else{
+				settings.window_is_maximized = false;
 			}
 		}
 
-		public void loadNuttyState(){
-			debug("Started loading Nutty state...");
-			//check if the database exists otherwise create database and required tables
-			NuttyApp.DB.initializeNuttyDB(nutty_config_path);
-			if("true" == fileOperations("EXISTS",nutty_config_path, Constants.nutty_state_file_name, "")){
-				DEVICE_SCHEDULE_STATE = int.parse(fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_DEVICE_MONITORING_STATE));
-				DEVICE_SCHEDULE_SELECTED = int.parse(fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_DEVICE_MONITORING_SCHEDULE));
-
-				SPEEDTESTDATE = fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_SPEEDTEST_DATE);
-				if(SPEEDTESTDATE == "false") SPEEDTESTDATE = Constants.TEXT_FOR_SPEEDTEST_NOTFOUND;
-				UPLOADSPEED = fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_SPEEDTEST_UPLOADSPEED);
-				if(UPLOADSPEED == "false") UPLOADSPEED = "";
-				DOWNLOADSPEED = fileOperations("READ_PROPS",nutty_config_path, Constants.nutty_state_file_name, Constants.TEXT_FOR_STATE_SPEEDTEST_DOWNLOADSPEED);
-				if(DOWNLOADSPEED == "false") DOWNLOADSPEED = "";
-
-				debug(new StringBuilder().append("Completed loading Nutty state [")
-					.append(" DEVICE_SCHEDULE_STATE="+DEVICE_SCHEDULE_STATE.to_string())
-					.append(" DEVICE_SCHEDULE_SELECTED="+DEVICE_SCHEDULE_SELECTED.to_string())
-					.append(" SPEEDTESTDATE="+SPEEDTESTDATE)
-					.append(" UPLOADSPEED="+UPLOADSPEED)
-					.append(" DOWNLOADSPEED="+DOWNLOADSPEED)
-					.append("] from file:"+nutty_config_path+"/"+Constants.nutty_state_file_name).str);
-			}else{
-				debug("Could not load Nutty state, Nutty State file does not exist at path :"+nutty_config_path +"/"+ Constants.nutty_state_file_name);
-			}
+		public void saveNuttyState(){
+			info("[START] [FUNCTION:saveNuttyState]");
+			//Save state of various settings
+			settings.device_monitoring_scheduled = DEVICE_SCHEDULE_SELECTED;
+			settings.last_speed_test_date = SPEEDTESTDATE;
+			settings.last_recorded_upload_speed = UPLOADSPEED;
+			settings.last_recorded_download_speed = DOWNLOADSPEED;
+			debug("Saving Nutty state with: " +
+						"Monitoring Schedule="+settings.device_monitoring_scheduled.to_string()+
+						", Speed Test Date="+ settings.last_speed_test_date +
+						", Last Upload Speed="+ settings.last_recorded_upload_speed +
+						", Last Download Speed="+			settings.last_recorded_download_speed
+			);
+			info("[END] [FUNCTION:saveNuttyState]");
 		}
 
 		public static void saveNuttyInfoToFile (string path, string filename) {

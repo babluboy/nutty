@@ -55,9 +55,9 @@ namespace NuttyApp.Constants{
 	//Temp files used for Nutty
 	public static const string temp_path = "/tmp";
 	public static const string nmap_output_filename = temp_path + "/" + "nutty_nmap_device_scan_results.xml";
-	public static const string nutty_agreement_file_name = "nutty_disclaimer_agreement.txt";	
+	public static const string nutty_agreement_file_name = "nutty_disclaimer_agreement.txt";
+	//nutty_devices_props.txt: Not used any more, just for backwards compatibility for v0.9
 	public static const string nutty_devices_property_file_name = "nutty_devices_props.txt";
-	public static const string nutty_state_file_name = "nutty_state_info.txt";
 	public static const string nutty_monitor_scheduler_backup_file_name = "root_crontab_backup.txt";
 	public static const string nutty_alert_scheduler_backup_file_name = "user_crontab_backup.txt";
 
@@ -107,6 +107,7 @@ namespace NuttyApp.Constants{
 	public static const string TEXT_FOR_ROUTE_COLUMN_NAME_5 = _("2nd Packet Time");
 	public static const string TEXT_FOR_ROUTE_COLUMN_NAME_6 = _("3rd Packet Time");
 	public static const string TEXT_FOR_SPEED_LABEL = _("Internet Speed : Results from test on");
+	public static const string TEXT_FOR_SPEED_TEST_NOT_DONE_LABEL = _("No speed test has been done");
 	public static const string TEXT_FOR_SPEEDTEST_COLUMN_NAME_1 = _("Upload Speed");
 	public static const string TEXT_FOR_SPEEDTEST_COLUMN_NAME_2 = _("Download Speed");
 	public static const string TEXT_FOR_SPEEDTEST_TOOLTIP = _("Refresh Speed Test Results");
@@ -156,6 +157,7 @@ namespace NuttyApp.Constants{
 	public static const string TEXT_FOR_BANDWIDTH_PROCESS_COLUMN_NAME_2 = _("Data Sent (Kb/sec)");
 	public static const string TEXT_FOR_BANDWIDTH_PROCESS_COLUMN_NAME_3 = _("Data Received (Kb/sec)");
 	public static const string TEXT_FOR_PREFS_DIALOG_DEVICE_MONITORING = _("Background Device Monitoring");
+	public static const string TEXT_FOR_PREFS_DIALOG_0MIN_OPTION = _("No monitoring of devices");
 	public static const string TEXT_FOR_PREFS_DIALOG_15MIN_OPTION = _("Monitor devices every 15 minutes");
 	public static const string TEXT_FOR_PREFS_DIALOG_30MIN_OPTION = _("Monitor devices every 30 minutes");
 	public static const string TEXT_FOR_PREFS_DIALOG_HOUR_OPTION = _("Monitor devices every hour");
@@ -195,6 +197,7 @@ namespace NuttyApp.Constants{
 	public static const int NUMBER_OF_DEVICE_ATTRIBUTES_IN_DEVICEPROPS = 6;
 	public static const int SPACING_WIDGETS = 12;
 	public static const int SPACING_BUTTONS = 6;
+	public static const int DEVICE_SCHEDULE_0MINS = 0;
 	public static const int DEVICE_SCHEDULE_15MINS = 15;
 	public static const int DEVICE_SCHEDULE_30MINS = 30;
 	public static const int DEVICE_SCHEDULE_1HOUR = 60;

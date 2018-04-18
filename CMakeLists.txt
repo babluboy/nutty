@@ -41,7 +41,11 @@ set (SOURCE_LIST
     src/xmlHandler.vala
     src/info.vala
     src/window.vala
+    src/settings.vala
 )
+
+include (GSettings)
+add_schema ("schemas/com.github.babluboy.nutty.gschema.xml")
 
 # we're about to use pkgconfig to make sure dependencies are installed so let's find pkgconfig first
 find_package(PkgConfig)
@@ -92,6 +96,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
     src/xmlHandler.vala
     src/info.vala
     src/window.vala
+    src/settings.vala  
 
 # tell what libraries to use when compiling
 PACKAGES

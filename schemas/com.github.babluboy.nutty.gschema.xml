@@ -1,0 +1,52 @@
+<schemalist>
+	<schema id="com.github.babluboy.nutty" path="/com/github/babluboy/nutty/" gettext-domain="nutty">
+		<key name="pos-x" type="i">
+			<default>0</default>
+			<summary>Save x co-ordinate of window position</summary>
+		</key>
+		<key name="pos-y" type="i">
+			<default>0</default>
+			<summary>Save x co-ordinate of window position</summary>
+		</key>
+		<key name="window-width" type="i">
+			<default>1100</default>
+			<summary>The saved width of the window.</summary>
+		</key>
+		<key name="window-height" type="i">
+			<default>600</default>
+			<summary>The saved height of the window.</summary>
+    </key>
+		<key name="window-is-maximized" type="b">
+				<default>false</default>
+				<summary>Save maximized state of window</summary>
+		</key>
+		<key name="window-position-x" type="i">
+				<default>0</default>
+				<summary>Save x co-ordinate of window position</summary>
+		</key>
+		<key name="window-position-y" type="i">
+				<default>0</default>
+				<summary>Save y co-ordinate of window position</summary>
+		</key>
+		<key name="is-device-monitoring-enabled" type="b">
+				<default>false</default>
+				<summary>Save device monitoring enablement</summary>
+		</key>
+		<key name="device-monitoring-scheduled" type="i">
+				<default>0</default>
+				<summary>Save scheduled frequency for device monitoring</summary>
+		</key>
+		<key name="last-speed-test-date" type="s">
+				<default>""</default>
+				<summary>Save the date when speed test was carried out</summary>
+		</key>
+		<key name="last-recorded-upload-speed" type="s">
+				<default>""</default>
+				<summary>Save y co-ordinate of window position</summary>
+		</key>
+		<key name="last-recorded-download-speed" type="s">
+				<default>""</default>
+				<summary>Save y co-ordinate of window position</summary>
+		</key>
+  </schema>
+</schemalist>
