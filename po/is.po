@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-18 17:12+0100\n"
-"PO-Revision-Date: 2018-04-16 19:52+0000\n"
+"PO-Revision-Date: 2018-04-18 16:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -310,7 +310,7 @@ msgstr "Hraði internets: Niðurstöður prófunar"
 
 #: ../src/constants.vala:110
 msgid "No speed test has been done"
-msgstr ""
+msgstr "Engin hraðaprófun hefur verið gerð"
 
 #: ../src/constants.vala:111
 msgid "Upload Speed"
@@ -505,7 +505,7 @@ msgstr "Vöktun tækja í bakgrunni"
 
 #: ../src/constants.vala:160
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "Engin vöktun á tækjum"
 
 #: ../src/constants.vala:161
 msgid "Monitor devices every 15 minutes"
