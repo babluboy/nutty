@@ -42,6 +42,7 @@ set (SOURCE_LIST
     src/info.vala
     src/window.vala
     src/settings.vala
+    src/shortcuts.vala
 )
 
 include (GSettings)
@@ -96,7 +97,8 @@ vala_precompile(VALA_C ${EXEC_NAME}
     src/xmlHandler.vala
     src/info.vala
     src/window.vala
-    src/settings.vala  
+    src/settings.vala
+    src/shortcuts.vala
 
 # tell what libraries to use when compiling
 PACKAGES

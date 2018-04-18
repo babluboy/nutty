@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 17:12+0100\n"
+"POT-Creation-Date: 2018-04-18 20:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -558,22 +558,22 @@ msgstr ""
 msgid "Text files"
 msgstr ""
 
-#: ../src/nutty.vala:128
+#: ../src/nutty.vala:129
 msgid "Display version number"
 msgstr ""
 
-#: ../src/nutty.vala:129
+#: ../src/nutty.vala:130
 msgid "Run Nutty to discover devices"
 msgstr ""
 
-#: ../src/nutty.vala:130
+#: ../src/nutty.vala:131
 msgid "Run Nutty in device alert mode"
 msgstr ""
 
-#: ../src/nutty.vala:131
+#: ../src/nutty.vala:132
 msgid "Run Nutty in debug mode"
 msgstr ""
 
-#: ../src/nutty.vala:132
+#: ../src/nutty.vala:133
 msgid "Run Nutty in info mode"
 msgstr ""

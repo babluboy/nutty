@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 17:12+0100\n"
+"POT-Creation-Date: 2018-04-18 20:20+0100\n"
 "PO-Revision-Date: 2018-04-18 16:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
@@ -571,23 +571,23 @@ msgstr "Allar skrár"
 msgid "Text files"
 msgstr "Textaskrár"
 
-#: ../src/nutty.vala:128
+#: ../src/nutty.vala:129
 msgid "Display version number"
 msgstr "Birta útgáfunúmer"
 
-#: ../src/nutty.vala:129
+#: ../src/nutty.vala:130
 msgid "Run Nutty to discover devices"
 msgstr "Keyra Nutty til að leita að tækjum"
 
-#: ../src/nutty.vala:130
+#: ../src/nutty.vala:131
 msgid "Run Nutty in device alert mode"
 msgstr "Keyra Nutty í viðvörunarham vegna tækja"
 
-#: ../src/nutty.vala:131
+#: ../src/nutty.vala:132
 msgid "Run Nutty in debug mode"
 msgstr "Keyra Nutty í aflúsunarham"
 
-#: ../src/nutty.vala:132
+#: ../src/nutty.vala:133
 msgid "Run Nutty in info mode"
 msgstr "Keyra Nutty í upplýsingaham"
 

@@ -25,6 +25,7 @@ public const string GETTEXT_PACKAGE = "nutty";
 
 namespace NuttyApp {
 	public class Nutty : Granite.Application {
+		public static bool isNuttyRunning = false;
 		public static Gtk.ApplicationWindow window;
 		public static Gtk.IconTheme default_theme;
 		public static Nutty application;
@@ -206,48 +207,62 @@ namespace NuttyApp {
 				Logger.DisplayLevel = LogLevel.INFO;
 			}
 			info("[START] [FUNCTION:activate]");
-			default_theme = Gtk.IconTheme.get_default();
-			window = new Gtk.ApplicationWindow (this);
-			//retrieve Settings
-			settings = NuttyApp.Settings.get_instance();
-			icon_theme = Gtk.IconTheme.get_default ();
-			//set window attributes
-			window.set_border_width (0);
-			window.get_style_context ().add_class ("rounded");
-			window.set_border_width (Constants.SPACING_WIDGETS);
-			window.set_position (Gtk.WindowPosition.CENTER);
-			window.window_position = Gtk.WindowPosition.CENTER;
-			//load state information from last saved settings
-			loadNuttyState();
-			//load pictures
-			loadImages();
-			//set css provider
-			cssProvider = new Gtk.CssProvider();
-			loadCSSProvider(cssProvider);
-			//add window components
-			window.set_titlebar (NuttyApp.AppHeaderBar.create_headerbar(window));
-			//check if the disclaimer has been agreed
-			if(! disclaimerSetGet(Constants.HAS_DISCLAIMER_BEEN_AGREED)){
-				window.add(NuttyApp.AppWindow.createNuttyWelcomeView()); //add the first time welcome UI Box
+			//proceed if Bookworm is not running already
+			if(!isNuttyRunning) {
+				debug("No instance of Nutty found");
+				default_theme = Gtk.IconTheme.get_default();
+				window = new Gtk.ApplicationWindow (this);
+				//retrieve Settings
+				settings = NuttyApp.Settings.get_instance();
+				icon_theme = Gtk.IconTheme.get_default ();
+				//set window attributes
+				window.set_border_width (0);
+				window.get_style_context ().add_class ("rounded");
+				window.set_border_width (Constants.SPACING_WIDGETS);
+				window.set_position (Gtk.WindowPosition.CENTER);
+				window.window_position = Gtk.WindowPosition.CENTER;
+				//load state information from last saved settings
+				loadNuttyState();
+				//load pictures
+				loadImages();
+				//set css provider
+				cssProvider = new Gtk.CssProvider();
+				loadCSSProvider(cssProvider);
+				//add window components
+				window.set_titlebar (NuttyApp.AppHeaderBar.create_headerbar(window));
+				//check if the disclaimer has been agreed
+				if(! disclaimerSetGet(Constants.HAS_DISCLAIMER_BEEN_AGREED)){
+					window.add(NuttyApp.AppWindow.createNuttyWelcomeView()); //add the first time welcome UI Box
+				}else{
+					window.add(createNuttyUI()); //add the main UI Box
+				}
+				//show the app window
+				add_window (window);
+				window.show_all();
+				//capture window re-size events and save the window size
+				window.size_allocate.connect(() => {
+					saveWindowState();
+				});
+				//Exit Application Event
+				window.destroy.connect (() => {
+					// Manage flags to avoid on load process for tabs not visited
+					isDevicesViewLoaded = true;
+					isBandwidthViewLoaded = true;
+					isPortsViewLoaded = true;
+					//save state information to file
+					saveNuttyState();
+				});
+				//Add keyboard shortcuts on the window
+				window.add_events (Gdk.EventMask.KEY_PRESS_MASK);
+				window.key_press_event.connect (NuttyApp.Shortcuts.handleKeyPress);
+				window.key_release_event.connect (NuttyApp.Shortcuts.handleKeyRelease);
+
+				isNuttyRunning = true;
+				debug("Completed creating an instance of Nutty");
 			}else{
-				window.add(createNuttyUI()); //add the main UI Box
+				window.present();
+				debug("An instance of Nutty is already running");
 			}
-			//show the app window
-			add_window (window);
-			window.show_all();
-			//capture window re-size events and save the window size
-			window.size_allocate.connect(() => {
-				saveWindowState();
-			});
-			//Exit Application Event
-			window.destroy.connect (() => {
-				// Manage flags to avoid on load process for tabs not visited
-				isDevicesViewLoaded = true;
-				isBandwidthViewLoaded = true;
-				isPortsViewLoaded = true;
-				//save state information to file
-				saveNuttyState();
-			});
 			info("[END] [FUNCTION:activate]");
 		}
 		
