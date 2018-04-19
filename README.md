@@ -10,24 +10,14 @@ A simple application made for elementary OS to provide essential information on 
 4. Ports: Provides information on active ports and application using them on the local device<br>
 5. Devices: Monitors, alerts and provides information on the other devices connected on the network<br>
 
+Check the Nutty website for details on features, shortcuts, installation guides for Ubuntu and other supported distros, etc. : <br>
+https://babluboy.github.io/nutty/
+
 ## How to install nutty:
-if you are using Elementary OS, get Nutty from elementary OS AppCenter
+if you are using Elementary OS, get Nutty from elementary OS AppCenter by clicking on the badge below <br>
 
 <a href="https://appcenter.elementary.io/com.github.babluboy.nutty"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter"></a>
-  
-PPA for Stable Build
-```shell
-sudo apt-add-repository ppa:bablu-boy/nutty
-sudo apt-get update
-sudo apt-get install nutty
-  ```
 
-PPA for Daily Build(Unstable):
-```shell
-sudo add-apt-repository ppa:bablu-boy/nutty-daily
-sudo apt update
-sudo apt install com.github.babluboy.nutty
-  ```
 ## How to build nutty from source:
 
 ```shell

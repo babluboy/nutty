@@ -14,9 +14,9 @@
         <ul>
 ​           <li>My Info: Provides basic and detailed information for the device network card</li>
 ​           <li>Usage: Provides network data usage in two views - historical usage and current usage</li>
-            <li>Speed: Check Upload and Download speeds and get route times to a host</li>
-            <li>Ports: Provides information on active ports and application using them on the local device</li>
-            <li>Devices: Monitors and provides information on the other devices connected on the network</li>
+           <li>Speed: Check Upload and Download speeds and get route times to a host</li>
+           <li>Ports: Provides information on active ports and application using them on the local device</li>
+           <li>Devices: Monitors, alerts and provides information on the other devices on the network</li>
 ​       </ul>
     </description>
     <screenshots>
@@ -39,7 +39,7 @@
     <releases>
         <release version="1.0.0" date="2018-04-31">
             ​<description>
-      ​         <p>Ability to update and remove discovered devices</p>
+      ​         <p>Ability to edit and remove discovered devices</p>
                <ul>
                     <li>Support for editing and removing discovered devices</li>
                     <li>A shiny new icon and branding</li>
