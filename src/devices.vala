@@ -57,7 +57,6 @@ public class NuttyApp.Devices {
 			devices_scroll.add (device_table_treeview);
 
 			NuttyApp.Nutty.devices_results_label = new Label (" ");
-			Label devices_details_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
 			ComboBoxText devices_combobox = new ComboBoxText();
 			//Set connection values into combobox
 			devices_combobox.insert(0,Constants.TEXT_FOR_INTERFACE_LABEL,Constants.TEXT_FOR_INTERFACE_LABEL);
@@ -274,42 +273,38 @@ public class NuttyApp.Devices {
 	public static Gtk.ListStore fetchRecordedDevices() {
 		info("[START] [FUNCTION:fetchRecordedDevices]");
 		NuttyApp.Nutty.device_list_store.clear();
-		try{
-			TreeIter iter;
-			bool isDeviceOnline = false;
-			//Fetch the devices recorded in the database
-			NuttyApp.Nutty.deviceDataArrayList = NuttyApp.DB.getDevicesFromDB();
-			if(NuttyApp.Nutty.deviceDataArrayList.size > 0){
-				//populate the Gtk.ListStore for the recorded data
-				foreach(NuttyApp.Entities.Device aDevice in NuttyApp.Nutty.deviceDataArrayList){
-					NuttyApp.Nutty.device_list_store.append (out iter);
-					if(	aDevice.device_mac != null &&
-						aDevice.device_mac != "" && 
-						NuttyApp.Nutty.device_mac_found_in_scan.str.index_of(aDevice.device_mac) != -1
-					){
-						isDeviceOnline = true;
-					}else{
-						isDeviceOnline = false;
-					}
-					//display device details					
-					NuttyApp.Nutty.device_list_store.set (iter, 
-								0, isDeviceOnline ? NuttyApp.Nutty.device_available_pix : NuttyApp.Nutty.device_offline_pix, 
-								1, NuttyApp.Utils.limitStringLength (aDevice.device_hostname_custom, 25), 
-								2, NuttyApp.Utils.limitStringLength (aDevice.device_manufacturer_custom, 25), 
-								3, NuttyApp.Utils.getFormattedDate(aDevice.device_last_seen_date,"%d-%m-%Y", true),
-								4, NuttyApp.Utils.getFormattedDate(aDevice.device_creation_date,"%d-%m-%Y %H:%M:%S", false),
-								5, aDevice.device_ip, 
-								6, aDevice.device_mac
-					);
+		TreeIter iter;
+		bool isDeviceOnline = false;
+		//Fetch the devices recorded in the database
+		NuttyApp.Nutty.deviceDataArrayList = NuttyApp.DB.getDevicesFromDB();
+		if(NuttyApp.Nutty.deviceDataArrayList != null && NuttyApp.Nutty.deviceDataArrayList.size > 0){
+			//populate the Gtk.ListStore for the recorded data
+			foreach(NuttyApp.Entities.Device aDevice in NuttyApp.Nutty.deviceDataArrayList){
+				NuttyApp.Nutty.device_list_store.append (out iter);
+				if(	aDevice.device_mac != null &&
+					aDevice.device_mac != "" && 
+					NuttyApp.Nutty.device_mac_found_in_scan.str.index_of(aDevice.device_mac) != -1
+				){
+					isDeviceOnline = true;
+				}else{
+					isDeviceOnline = false;
 				}
-				//Set results label
-				NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_RECORDED_DEVICES);
-			}else{
-				//Set results label
-				NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_RECORDED_DEVICES_FOUND);
+				//display device details					
+				NuttyApp.Nutty.device_list_store.set (iter, 
+							0, isDeviceOnline ? NuttyApp.Nutty.device_available_pix : NuttyApp.Nutty.device_offline_pix, 
+							1, NuttyApp.Utils.limitStringLength (aDevice.device_hostname_custom, 25), 
+							2, NuttyApp.Utils.limitStringLength (aDevice.device_manufacturer_custom, 25), 
+							3, NuttyApp.Utils.getFormattedDate(aDevice.device_last_seen_date,"%d-%m-%Y", true),
+							4, NuttyApp.Utils.getFormattedDate(aDevice.device_creation_date,"%d-%m-%Y %H:%M:%S", false),
+							5, aDevice.device_ip, 
+							6, aDevice.device_mac
+				);
 			}
-		}catch(Error e){
-			warning("Failure to fetch recorded devices:"+e.message);
+			//Set results label
+			NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_RECORDED_DEVICES);
+		}else{
+			//Set results label
+			NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_RECORDED_DEVICES_FOUND);
 		}
 		info("[START] [FUNCTION:fetchRecordedDevices]");
 		return NuttyApp.Nutty.device_list_store;
@@ -317,36 +312,31 @@ public class NuttyApp.Devices {
 
 	public static Gtk.ListStore processDevicesScan(string interfaceName){
 		info("[START] [FUNCTION:processDevicesScan] [interfaceName="+interfaceName+"]");
-		try{
-			TreeIter iter;
-			//Get the IP Address for the selected interface
-			string scanIPAddress = NuttyApp.Nutty.interfaceIPMap.get(interfaceName);
-			if(scanIPAddress == null || scanIPAddress == "" || scanIPAddress == "Not Available" || scanIPAddress == "127.0.0.1"){
-				NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND+_(" for ")+interfaceName);
-			}else{
-				//set up the IP Address to scan the network : This should be of the form 192.168.1.1/24
-				if(scanIPAddress.length>0 && scanIPAddress.last_index_of(".") > -1){
-					scanIPAddress = scanIPAddress.substring(0, scanIPAddress.last_index_of("."))+".1/24";
-					if(scanIPAddress != null || "" != scanIPAddress.strip()){
-						//parse the NMap output and update the devices on DB
-						runDeviceScan(scanIPAddress);
-						//refresh the UI for the device list
-						Gtk.ListStore currentdevice_list_store = fetchRecordedDevices();
-						//set the label for devices search
-						NuttyApp.Nutty.devices_results_label.set_text(
-								NuttyApp.Nutty.device_mac_found_in_scan.str.split(",", 0).length.to_string() 
-								+ " " +NuttyApp.Constants.TEXT_FOR_DEVICES_FOUND
-						);
-					}
-				}else{
-					NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND);
+		//Get the IP Address for the selected interface
+		string scanIPAddress = NuttyApp.Nutty.interfaceIPMap.get(interfaceName);
+		if(scanIPAddress == null || scanIPAddress == "" || scanIPAddress == "Not Available" || scanIPAddress == "127.0.0.1"){
+			NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND+_(" for ")+interfaceName);
+		}else{
+			//set up the IP Address to scan the network : This should be of the form 192.168.1.1/24
+			if(scanIPAddress.length>0 && scanIPAddress.last_index_of(".") > -1){
+				scanIPAddress = scanIPAddress.substring(0, scanIPAddress.last_index_of("."))+".1/24";
+				if(scanIPAddress != null || "" != scanIPAddress.strip()){
+					//parse the NMap output and update the devices on DB
+					runDeviceScan(scanIPAddress);
+					//refresh the UI for the device list
+					fetchRecordedDevices();
+					//set the label for devices search
+					NuttyApp.Nutty.devices_results_label.set_text(
+							NuttyApp.Nutty.device_mac_found_in_scan.str.split(",", 0).length.to_string() 
+							+ " " +NuttyApp.Constants.TEXT_FOR_DEVICES_FOUND
+					);
 				}
+			}else{
+				NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND);
 			}
-			//stop the spinner on the UI
-			NuttyApp.Nutty.devicesSpinner.stop();
-		}catch(Error e){
-			warning("Failure in processing DevicesScan:"+e.message);
 		}
+		//stop the spinner on the UI
+		NuttyApp.Nutty.devicesSpinner.stop();
 		info("[END] [FUNCTION:processDevicesScan] [interfaceName="+interfaceName+"]");
 		return NuttyApp.Nutty.device_list_store;
 	}
@@ -442,27 +432,80 @@ public class NuttyApp.Devices {
 
 	public static void setupDeviceMonitoring(){
 		info("[START] [FUNCTION:setupDeviceMonitoring]");
-		try{
-				//execute the command to update root crontab for monitoring
-				NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
-							"pkexec",
-							Constants.COMMAND_FOR_SCHEDULED_DEVICE_SCAN,
-							NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
-							NuttyApp.Nutty.nutty_config_path, 
-							Environment.get_home_dir () + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
-							"/tmp/root_"+Environment.get_user_name () + "_crontab_temp.txt"
-			  	});
-				//execute the command to update user crontab for alerting
-				NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
-							Constants.COMMAND_FOR_SCHEDULED_DEVICE_ALERT,
-							NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
-							NuttyApp.Nutty.nutty_config_path, 
-							Environment.get_home_dir ()+ "/" + Constants.nutty_alert_scheduler_backup_file_name,
-							"/tmp/user_"+Environment.get_user_name () + "_crontab_temp.txt"
-		  	});
-		}catch(Error e){
-			warning("Failure in setting up device monitoring:"+e.message);
-		}
+		//execute the command to update root crontab for monitoring
+		NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
+					"pkexec",
+					Constants.COMMAND_FOR_SCHEDULED_DEVICE_SCAN,
+					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
+					NuttyApp.Nutty.nutty_config_path, 
+					Environment.get_home_dir () + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
+					"/tmp/root_"+Environment.get_user_name () + "_crontab_temp.txt"
+	  	});
+		//execute the command to update user crontab for alerting
+		NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
+					Constants.COMMAND_FOR_SCHEDULED_DEVICE_ALERT,
+					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
+					NuttyApp.Nutty.nutty_config_path, 
+					Environment.get_home_dir ()+ "/" + Constants.nutty_alert_scheduler_backup_file_name,
+					"/tmp/user_"+Environment.get_user_name () + "_crontab_temp.txt"
+  		});
 		info("[END] [FUNCTION:setupDeviceMonitoring]");
 	}
+	
+	public static void deviceScheduleSelection (Gtk.ToggleButton button) {
+		//isMonitorScheduleReadyForChange - this flag prevents triggering the crontab change 
+		//when one of the radio buttons is made active per the saved state
+		if(NuttyApp.Nutty.isMonitorScheduleReadyForChange){
+			if(Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION == button.label){
+				//check if a change is observed and change the crontab
+				if(NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
+					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_15MINS;
+					NuttyApp.Devices.setupDeviceMonitoring();	
+				}
+			}
+			if(Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION == button.label){
+				//check if a change is observed and change the crontab
+				if(NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_30MINS){
+					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_30MINS;
+					NuttyApp.Devices.setupDeviceMonitoring();	
+				}
+			}
+			if(Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION == button.label){
+				//check if a change is observed and change the crontab
+				if(NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
+					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1HOUR;
+					NuttyApp.Devices.setupDeviceMonitoring();	
+				}
+			}
+			if(Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION == button.label) {
+				//check if a change is observed and change the crontab
+				if(NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
+					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1DAY;
+						NuttyApp.Devices.setupDeviceMonitoring();	
+					}
+				}
+			}
+			debug("Completed noting the selection for device monitoring schedule...");
+		}
+
+		public static void handleDeviceMonitoring(bool isSwitchSet){
+			if (isSwitchSet) {
+				NuttyApp.Nutty.min15Option.set_sensitive(true);
+				NuttyApp.Nutty.min30Option.set_sensitive(true);
+				NuttyApp.Nutty.hourOption.set_sensitive(true);
+				NuttyApp.Nutty.dayOption.set_sensitive(true);
+			} else {
+				NuttyApp.Nutty.min15Option.set_sensitive(false);
+				NuttyApp.Nutty.min30Option.set_sensitive(false);
+				NuttyApp.Nutty.hourOption.set_sensitive(false);
+				NuttyApp.Nutty.dayOption.set_sensitive(false);
+				if(NuttyApp.Nutty.isMonitorScheduleReadyForChange){
+					//set monitoring frequency to zero and call crontab routine,
+					//this will remove cron job for both monitoring and alerting
+					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED = 0;
+					NuttyApp.Devices.setupDeviceMonitoring();
+				}
+			}
+			debug("Completed toggling device monitoring UI...");
+		}
 }

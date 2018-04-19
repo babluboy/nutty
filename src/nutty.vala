@@ -105,8 +105,8 @@ namespace NuttyApp {
 		public static StringBuilder devicesSearchEntry = new StringBuilder ("");
 		public static StringBuilder bandwidthSearchEntry = new StringBuilder ("");
 		public static bool command_line_option_version = false;
-		public static bool command_line_option_debug = false;
-		public static bool command_line_option_info = false;
+		public bool command_line_option_debug = false;
+		public bool command_line_option_info = false;
 		[CCode (array_length = false, array_null_terminated = true)]
 		public static string command_line_option_monitor = "";
 		public static string command_line_option_alert = "";
@@ -198,7 +198,11 @@ namespace NuttyApp {
 		}
 
 		public override void activate() {
-			application.register (null);
+			try{
+				application.register (null);
+			}catch(Error e){
+				warning("Unsucessfull in registering the application. Error:"+e.message);
+			}
 			Logger.initialize(NuttyApp.Constants.nutty_id);
 			if(command_line_option_debug){
 				Logger.DisplayLevel = LogLevel.DEBUG;
@@ -271,11 +275,15 @@ namespace NuttyApp {
 			if (Gtk.IconTheme.get_default ().has_icon ("open-menu")) {
 				menu_icon = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
 			}else{
-				menu_icon = new Gtk.Image.from_pixbuf (
+				try{
+					menu_icon = new Gtk.Image.from_pixbuf (					
 							new Gdk.Pixbuf.from_resource_at_scale(
 								NuttyApp.Constants.HEADERBAR_PROPERTIES_IMAGE_LOCATION,24, 24, true
 							)
-				);
+					);
+				}catch(Error e){
+					warning("Error in loading the gear icon on the header. Error:"+e.message);
+				}
 			}
 			try{
 				device_available_pix = new Gdk.Pixbuf.from_resource (NuttyApp.Constants.DEVICE_AVAILABLE_ICON_IMAGE_LOCATION);
@@ -306,40 +314,40 @@ namespace NuttyApp {
 			deviceMonitoringSwitch.notify["active"].connect (() => {
 				if (deviceMonitoringSwitch.active) {
 					settings.is_device_monitoring_enabled = true;
-					handleDeviceMonitoring(true);
+					NuttyApp.Devices.handleDeviceMonitoring(true);
 				}else{
 					settings.is_device_monitoring_enabled = false;
-					handleDeviceMonitoring(false);
+					NuttyApp.Devices.handleDeviceMonitoring(false);
 				}
 			});
 			
 			NoOption = new Gtk.RadioButton.with_label_from_widget (null, Constants.TEXT_FOR_PREFS_DIALOG_0MIN_OPTION);
 			NoOption.set_sensitive (false);
-			NoOption.toggled.connect (deviceScheduleSelection);
+			NoOption.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
 			min15Option = new Gtk.RadioButton.with_label_from_widget (NoOption, Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION);
 			min15Option.set_sensitive (false);
-			min15Option.toggled.connect (deviceScheduleSelection);
+			min15Option.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 			
 			min30Option = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION);
 			min30Option.set_sensitive (false);
-			min30Option.toggled.connect (deviceScheduleSelection);
+			min30Option.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
 			hourOption = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION);
 			hourOption.set_sensitive (false);
-			hourOption.toggled.connect (deviceScheduleSelection);
+			hourOption.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
 			dayOption = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION);
 			dayOption.set_sensitive (false);
-			dayOption.toggled.connect (deviceScheduleSelection);
+			dayOption.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
 			//set the option for device monitoring - based on saved state
 			if(settings.is_device_monitoring_enabled){
 				deviceMonitoringSwitch.set_active(true);
-				handleDeviceMonitoring(true);
+				NuttyApp.Devices.handleDeviceMonitoring(true);
 			}else{
 				deviceMonitoringSwitch.set_active(false);
-				handleDeviceMonitoring(false);
+				NuttyApp.Devices.handleDeviceMonitoring(false);
 			}
 
 			//set the active option for device schedule - based on saved state
@@ -380,63 +388,6 @@ namespace NuttyApp {
 			prefsDialog.show_all ();
 			prefsDialog.response.connect(prefsDialogResponseHandler);
 			debug("Completed setting up Prefference Dialog sucessfully...");
-		}
-
-		private static void deviceScheduleSelection (Gtk.ToggleButton button) {
-			//isMonitorScheduleReadyForChange - this flag prevents triggering the crontab change 
-			//when one of the radio buttons is made active per the saved state
-			if(isMonitorScheduleReadyForChange){
-				if(Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION == button.label){
-					//check if a change is observed and change the crontab
-					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
-						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_15MINS;
-						NuttyApp.Devices.setupDeviceMonitoring();	
-					}
-				}
-				if(Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION == button.label){
-					//check if a change is observed and change the crontab
-					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_30MINS){
-						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_30MINS;
-						NuttyApp.Devices.setupDeviceMonitoring();	
-					}
-				}
-				if(Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION == button.label){
-					//check if a change is observed and change the crontab
-					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
-						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1HOUR;
-						NuttyApp.Devices.setupDeviceMonitoring();	
-					}
-				}
-				if(Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION == button.label) {
-					//check if a change is observed and change the crontab
-					if(DEVICE_SCHEDULE_SELECTED != Constants.DEVICE_SCHEDULE_15MINS){
-						DEVICE_SCHEDULE_SELECTED = Constants.DEVICE_SCHEDULE_1DAY;
-						NuttyApp.Devices.setupDeviceMonitoring();	
-					}
-				}
-			}
-			debug("Completed noting the selection for device monitoring schedule...");
-		}
-
-		public static void handleDeviceMonitoring(bool isSwitchSet){
-			if (isSwitchSet) {
-				min15Option.set_sensitive(true);
-				min30Option.set_sensitive(true);
-				hourOption.set_sensitive(true);
-				dayOption.set_sensitive(true);
-			} else {
-				min15Option.set_sensitive(false);
-				min30Option.set_sensitive(false);
-				hourOption.set_sensitive(false);
-				dayOption.set_sensitive(false);
-				if(isMonitorScheduleReadyForChange){
-					//set monitoring frequency to zero and call crontab routine,
-					//this will remove cron job for both monitoring and alerting
-					DEVICE_SCHEDULE_SELECTED = 0;
-					NuttyApp.Devices.setupDeviceMonitoring();
-				}
-			}
-			debug("Completed toggling device monitoring UI...");
 		}
 
 		private static void prefsDialogResponseHandler(Gtk.Dialog source, int response_id) {
@@ -1441,68 +1392,65 @@ namespace NuttyApp {
 		public static Gtk.ListStore processBandwidthApps(string interface_name){
 			debug("Starting to process bandwidth of apps[interface_name="+interface_name+"]...");
 			bandwidth_results_list_store.clear();
-			try{
-				TreeIter iter;
-				Gdk.Pixbuf app_icon = default_app_pix;;
-				StringBuilder processNames = new StringBuilder();
-				StringBuilder aProcessName = new StringBuilder();
-				bandwidthProcessSpinner.start();
+			TreeIter iter;
+			Gdk.Pixbuf app_icon = default_app_pix;;
+			StringBuilder processNames = new StringBuilder();
+			StringBuilder aProcessName = new StringBuilder();
+			bandwidthProcessSpinner.start();
 
-				execute_sync_multiarg_command_pipes({
-					"pkexec", 
-					Constants.COMMAND_FOR_PROCESS_BANDWIDTH, 
-					interface_name
-				});
-				string process_bandwidth_result = spawn_async_with_pipes_output.str;
+			execute_sync_multiarg_command_pipes({
+				"pkexec", 
+				Constants.COMMAND_FOR_PROCESS_BANDWIDTH, 
+				interface_name
+			});
+			string process_bandwidth_result = spawn_async_with_pipes_output.str;
 
-				//split the indivudual lines in the output
-				string[] linesWithProcessData = process_bandwidth_result.strip().split ("\n",-1);
-				foreach(string data in linesWithProcessData){
-					//only consider those lines with a tab (i.e. "\t")
-					if(data.contains("\t")){
-						//split data by tab
-						string[] processDataAttributes = data.strip().split ("\t",-1);
-						//consider only those processes which donot have zero received and sent data
-						if(processDataAttributes.length > 2 && !(processDataAttributes[1] == "0" && processDataAttributes[2] == "0")){
-							string[] processNameAttributes = processDataAttributes[0].strip().split ("/",-1);
-							if(processNameAttributes.length > 2){
-								aProcessName.append(processNameAttributes[processNameAttributes.length - 3]);
-							}else{
-								aProcessName.append(processNameAttributes[0]);
-							}
-							if(!processNames.str.contains(aProcessName.str)){
-								//break the process name further if possible
-								if(aProcessName.str.contains(" ")){
-									processNames.append(aProcessName.str);
-									aProcessName.assign(aProcessName.str.split (" ",-1)[0]);
-								}
-								if(aProcessName.str.contains("--")){
-									processNames.append(aProcessName.str);
-									aProcessName.assign(aProcessName.str.split ("--",-1)[0]);
-								}
-								// Get the icon:
-								try {
-									app_icon = icon_theme.load_icon (aProcessName.str, 16, 0);
-									if(app_icon == null){
-										app_icon = default_app_pix;
-									}
-								} catch (Error e) {
-									warning (e.message);
-								}
-
-								bandwidth_results_list_store.append (out iter);
-								bandwidth_results_list_store.set (iter, 0, app_icon, 1, aProcessName.str, 2, processDataAttributes[1], 3, processDataAttributes[2]);
-								processNames.append(aProcessName.str);
-							}
+			//split the indivudual lines in the output
+			string[] linesWithProcessData = process_bandwidth_result.strip().split ("\n",-1);
+			foreach(string data in linesWithProcessData){
+				//only consider those lines with a tab (i.e. "\t")
+				if(data.contains("\t")){
+					//split data by tab
+					string[] processDataAttributes = data.strip().split ("\t",-1);
+					//consider only those processes which donot have zero received and sent data
+					if(processDataAttributes.length > 2 && !(processDataAttributes[1] == "0" && processDataAttributes[2] == "0")){
+						string[] processNameAttributes = processDataAttributes[0].strip().split ("/",-1);
+						if(processNameAttributes.length > 2){
+							aProcessName.append(processNameAttributes[processNameAttributes.length - 3]);
+						}else{
+							aProcessName.append(processNameAttributes[0]);
 						}
-						aProcessName.erase(0, -1);
-						app_icon = default_app_pix;
+						if(!processNames.str.contains(aProcessName.str)){
+							//break the process name further if possible
+							if(aProcessName.str.contains(" ")){
+								processNames.append(aProcessName.str);
+								aProcessName.assign(aProcessName.str.split (" ",-1)[0]);
+							}
+							if(aProcessName.str.contains("--")){
+								processNames.append(aProcessName.str);
+								aProcessName.assign(aProcessName.str.split ("--",-1)[0]);
+							}
+							// Get the icon:
+							try {
+								app_icon = icon_theme.load_icon (aProcessName.str, 16, 0);
+								if(app_icon == null){
+									app_icon = default_app_pix;
+								}
+							} catch (Error e) {
+								warning (e.message);
+							}
+
+							bandwidth_results_list_store.append (out iter);
+							bandwidth_results_list_store.set (iter, 0, app_icon, 1, aProcessName.str, 2, processDataAttributes[1], 3, processDataAttributes[2]);
+							processNames.append(aProcessName.str);
+						}
 					}
+					aProcessName.erase(0, -1);
+					app_icon = default_app_pix;
 				}
-				bandwidthProcessSpinner.stop();
-			}catch(Error e){
-				warning("Failure in processing bandwidth of apps[interface_name="+interface_name+"]:"+e.message);
 			}
+			bandwidthProcessSpinner.stop();
+
 			debug("Completed processing bandwidth of apps[interface_name="+interface_name+"]...");
 			return bandwidth_results_list_store;
 		}

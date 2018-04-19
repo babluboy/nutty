@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 20:20+0100\n"
+"POT-Creation-Date: 2018-04-19 15:54+0100\n"
 "PO-Revision-Date: 2018-04-18 16:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
 "X-Generator: Weblate 3.0-dev\n"
 
-#: ../src/devices.vala:325
+#: ../src/devices.vala:318
 msgid " for "
 msgstr " fyrir "
 

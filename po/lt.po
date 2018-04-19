@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-18 17:58+0100\n"
+"POT-Creation-Date: 2018-04-19 15:54+0100\n"
 "PO-Revision-Date: 2018-03-25 22:09+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
@@ -15,7 +15,7 @@ msgstr ""
 "1 : 2);\n"
 "X-Generator: Weblate 2.20-dev\n"
 
-#: ../src/devices.vala:325
+#: ../src/devices.vala:318
 msgid " for "
 msgstr ""
 

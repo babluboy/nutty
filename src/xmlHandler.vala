@@ -31,7 +31,7 @@ using Gee;
 public class NuttyApp.XmlParser {
 
     public XmlParser(){
-        string mode = "";
+        mode = "";
         currentTagName = "";
         charBuffer = new StringBuilder("");
     }    

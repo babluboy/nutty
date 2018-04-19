@@ -30,7 +30,6 @@ public class NuttyApp.DB{
 
     public static bool initializeNuttyDB(string config_path){
         info("[START] [FUNCTION:initializeNuttyDB] db_config_path="+config_path);
-        Statement stmt;
         debug("Checking Nutty DB or creating it if the DB does not exist...");
         int dbOpenStatus = Database.open_v2 ( config_path+"/nutty.db",
                                                                                 out nuttyDB,
@@ -199,7 +198,7 @@ public class NuttyApp.DB{
                                     DEVICE_STATUS = ?,
                                     last_seen_date = CAST(strftime('%s', 'now') AS INT), 
                                     modification_date = CAST(strftime('%s', 'now') AS INT)
-                                    WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";;
+                                    WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
             executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
             if (executionStatus != Sqlite.OK) {
                 debug("Error on executing Query:"+queryString);
@@ -294,19 +293,19 @@ public class NuttyApp.DB{
         ArrayList<NuttyApp.Entities.Device> listOfDevices = new ArrayList<NuttyApp.Entities.Device> ();
         Statement stmt;
         queryString = "SELECT 
-                                id, 
-                                DEVICE_IP, 
-                                DEVICE_MAC, 
-                                DEVICE_HOST_NAME, 
-                                DEVICE_HOST_MANUFACTURER, 
-                                DEVICE_HOST_NAME_CUSTOM, 
-                                DEVICE_HOST_MANUFACTURER_CUSTOM, 
-                                IS_ALERT_COMPLETED, 
-                                DEVICE_STATUS, 
-                                creation_date, 
-                                last_seen_date,
-                                modification_date FROM "
-                               +NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION+
+                                    id, 
+                                    DEVICE_IP, 
+                                    DEVICE_MAC, 
+                                    DEVICE_HOST_NAME, 
+                                    DEVICE_HOST_MANUFACTURER, 
+                                    DEVICE_HOST_NAME_CUSTOM, 
+                                    DEVICE_HOST_MANUFACTURER_CUSTOM, 
+                                    IS_ALERT_COMPLETED, 
+                                    DEVICE_STATUS, 
+                                    creation_date, 
+                                    last_seen_date,
+                                    modification_date 
+                                FROM " + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION+
                                 " ORDER BY modification_date DESC";
         executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
         if (executionStatus != Sqlite.OK) {
