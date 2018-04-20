@@ -2,9 +2,16 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-19 15:54+0100\n"
+"PO-Revision-Date: 2018-04-21 21:38+0000\n"
+"Last-Translator: Ale-Ma <alemassimiani@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/nutty/"
+"translations/it/>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: ../src/devices.vala:318
 msgid " for "
@@ -22,15 +29,15 @@ msgstr ""
 
 #: ../src/window.vala:49
 msgid "Use Nutty"
-msgstr ""
+msgstr "Usa Nutty"
 
 #: ../src/window.vala:51
 msgid "Exit"
-msgstr ""
+msgstr "Esci"
 
 #: ../src/info.vala:148
 msgid "Network Card"
-msgstr ""
+msgstr "Scheda di rete"
 
 #: ../src/info.vala:148
 msgid " Standards with Transmit Power of "
@@ -42,7 +49,7 @@ msgstr ""
 
 #: ../src/info.vala:151
 msgid "Connected to"
-msgstr ""
+msgstr "Connesso a"
 
 #: ../src/info.vala:151
 msgid " Network at Access Point "
@@ -54,7 +61,7 @@ msgstr ""
 
 #: ../src/info.vala:154
 msgid "Connected with"
-msgstr ""
+msgstr "Connesso a"
 
 #: ../src/info.vala:154
 msgid "Frequency of "
@@ -82,7 +89,7 @@ msgstr ""
 
 #: ../src/constants.vala:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Traduttori Weblate"
 
 #: ../src/constants.vala:35
 msgid "Website | Translation | Bug Tracker"
@@ -139,19 +146,19 @@ msgstr ""
 
 #: ../src/constants.vala:73 ../src/constants.vala:148
 msgid "Today"
-msgstr ""
+msgstr "Oggi"
 
 #: ../src/constants.vala:74 ../src/constants.vala:147
 msgid "Yesterday"
-msgstr ""
+msgstr "Ieri"
 
 #: ../src/constants.vala:75
 msgid "days ago"
-msgstr ""
+msgstr "giorni fa"
 
 #: ../src/constants.vala:76
 msgid "Results: "
-msgstr ""
+msgstr "Risultati: "
 
 #: ../src/constants.vala:77
 msgid "No data found"
@@ -159,11 +166,11 @@ msgstr ""
 
 #: ../src/constants.vala:78
 msgid "Not Available"
-msgstr ""
+msgstr "Non disponibile"
 
 #: ../src/constants.vala:79
 msgid "I Agree"
-msgstr ""
+msgstr "Accetto"
 
 #: ../src/constants.vala:80
 msgid "Wired"
@@ -183,11 +190,11 @@ msgstr ""
 
 #: ../src/constants.vala:84
 msgid "Select a connection"
-msgstr ""
+msgstr "Seleziona una connessione"
 
 #: ../src/constants.vala:85
 msgid "View Details"
-msgstr ""
+msgstr "Mostra dettagli"
 
 #: ../src/constants.vala:86
 msgid "Attribute"
@@ -195,7 +202,7 @@ msgstr ""
 
 #: ../src/constants.vala:87
 msgid "Details"
-msgstr ""
+msgstr "Dettagli"
 
 #: ../src/constants.vala:88
 msgid "Host Name"
@@ -203,11 +210,11 @@ msgstr ""
 
 #: ../src/constants.vala:89
 msgid "MAC Address"
-msgstr ""
+msgstr "Indirizzo MAC"
 
 #: ../src/constants.vala:90
 msgid "IP Address"
-msgstr ""
+msgstr "Indirizzo IP"
 
 #: ../src/constants.vala:91
 msgid "Interface State"
@@ -219,7 +226,7 @@ msgstr ""
 
 #: ../src/constants.vala:93
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #: ../src/constants.vala:94
 msgid "Vendor"
@@ -235,7 +242,7 @@ msgstr ""
 
 #: ../src/constants.vala:97
 msgid "Version"
-msgstr ""
+msgstr "Versione"
 
 #: ../src/constants.vala:98
 msgid "Capacity"
@@ -343,7 +350,7 @@ msgstr ""
 
 #: ../src/constants.vala:124
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivi"
 
 #: ../src/constants.vala:125
 msgid "Refresh device scan results"
@@ -351,11 +358,11 @@ msgstr ""
 
 #: ../src/constants.vala:126
 msgid "Status"
-msgstr ""
+msgstr "Stato"
 
 #: ../src/constants.vala:127
 msgid "Device Name"
-msgstr ""
+msgstr "Nome dispositivo"
 
 #: ../src/constants.vala:128
 msgid "Device Manufacturer"
@@ -441,15 +448,15 @@ msgstr ""
 
 #: ../src/constants.vala:150
 msgid "Data Received"
-msgstr ""
+msgstr "Dati ricevuti"
 
 #: ../src/constants.vala:151
 msgid "Data Sent"
-msgstr ""
+msgstr "Dati inviati"
 
 #: ../src/constants.vala:152
 msgid "Total Data"
-msgstr ""
+msgstr "Dati totali"
 
 #: ../src/constants.vala:153
 msgid "Select a connection to view data usage"
@@ -465,7 +472,7 @@ msgstr ""
 
 #: ../src/constants.vala:156
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: ../src/constants.vala:157
 msgid "Data Sent (Kb/sec)"
@@ -501,7 +508,7 @@ msgstr ""
 
 #: ../src/constants.vala:165
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #: ../src/constants.vala:166
 msgid "DEVICE_MONITORING_STATE"
@@ -533,11 +540,11 @@ msgstr ""
 
 #: ../src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Apri"
 
 #: ../src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: ../src/utils.vala:250
 msgid "All files"
