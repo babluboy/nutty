@@ -1,12 +1,40 @@
+---
+
+language: node_js
+
+node_js:
+  - lts/*
+
 sudo: required
-language: generic
 
 services:
-    - docker
+  - docker
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-5-dev
+
+cache:
+  directories:
+    - /tmp/liftoff
+
+matrix:
+  include:
+    - env: DIST=juno
+
+before_install:
+  - docker pull ubuntu:18.04
+
+install:
+  - npm install @elementaryos/houston
 
 script:
-    - wget -O- https://raw.githubusercontent.com/harisvsulaiman/element-build/master/script.sh | sh -
-
-branches:
-except:
-    - /^debian\/\d/
+  - houston ci
+    --type system-app
+    --name-appstream io.elementary.videos.desktop
+    --name-domain io.elementary.videos
+    --name-human Videos
+    --distribution $DIST
