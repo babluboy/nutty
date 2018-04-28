@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-19 15:54+0100\n"
+"POT-Creation-Date: 2018-04-28 10:35+0100\n"
 "PO-Revision-Date: 2018-04-18 16:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
@@ -18,11 +18,11 @@ msgstr ""
 msgid " for "
 msgstr " fyrir "
 
-#: ../src/window.vala:33
+#: ../src/window.vala:47
 msgid "Nutty Disclaimer"
 msgstr "Fyrirvari vegna Nutty"
 
-#: ../src/window.vala:34
+#: ../src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
@@ -30,11 +30,11 @@ msgstr ""
 "Smelltu til að lesa lögfræðilega yfirlýsingu varðandi Nmap (sem er notað af "
 "Nutty) til að skilja betur hvernig þetta virkar"
 
-#: ../src/window.vala:49
+#: ../src/window.vala:63
 msgid "Use Nutty"
 msgstr "Nota Nutty"
 
-#: ../src/window.vala:51
+#: ../src/window.vala:66
 msgid "Exit"
 msgstr "Hætta"
 
@@ -103,13 +103,16 @@ msgid "Network Scan Agreement"
 msgstr "Samkomulag um skönnun netkerfis"
 
 #: ../src/constants.vala:65
+#, fuzzy
 msgid ""
 "This application has features to perform port scanning and provide "
 "information on devices on the network you are using. It is perfectly OK to "
 "scan for devices on your own residential home network or when explicitly "
-"authorized by the destination host and/or network.While using port scan "
-"(Devices tab) on a network which you do not own please consult and get "
-"approval of the Network Administrator or other competent network authority."
+"authorized by the destination host and/or network.\n"
+"\n"
+"While using port scan (Devices tab) on a network which you do not own please "
+"consult and get approval of the Network Administrator or other competent "
+"network authority."
 msgstr ""
 "Þetta forrit er með eiginleika til að skanna gáttir og gefa upplýsingar um "
 "tæki á netkerfinu sem þú ert að nota. Það er fullkomlega löglegt að skanna "

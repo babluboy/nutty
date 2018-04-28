@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-28 09:03+0100\n"
+"POT-Creation-Date: 2018-04-28 12:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,21 +21,21 @@ msgstr ""
 msgid " for "
 msgstr ""
 
-#: ../src/window.vala:33
+#: ../src/window.vala:47
 msgid "Nutty Disclaimer"
 msgstr ""
 
-#: ../src/window.vala:34
+#: ../src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
 
-#: ../src/window.vala:49
+#: ../src/window.vala:63
 msgid "Use Nutty"
 msgstr ""
 
-#: ../src/window.vala:51
+#: ../src/window.vala:66
 msgid "Exit"
 msgstr ""
 
@@ -108,9 +108,11 @@ msgid ""
 "This application has features to perform port scanning and provide "
 "information on devices on the network you are using. It is perfectly OK to "
 "scan for devices on your own residential home network or when explicitly "
-"authorized by the destination host and/or network.While using port scan "
-"(Devices tab) on a network which you do not own please consult and get "
-"approval of the Network Administrator or other competent network authority."
+"authorized by the destination host and/or network.\n"
+"\n"
+"While using port scan (Devices tab) on a network which you do not own please "
+"consult and get approval of the Network Administrator or other competent "
+"network authority."
 msgstr ""
 
 #: ../src/constants.vala:66

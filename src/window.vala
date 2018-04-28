@@ -29,6 +29,20 @@ public class NuttyApp.AppWindow {
     		NuttyApp.Constants.PRIMARY_TEXT_FOR_DISCLAIMER,   
     		NuttyApp.Constants.SECONDARY_TEXT_FOR_DISCLAIMER
 		);
+		//Format the welcome secondary text
+		Grid welcome_grid = (Grid) welcome.get_child ();
+		GLib.List<weak Gtk.Widget> welcome_widgets = welcome_grid.get_children ();
+		foreach(Widget aWelcomeWidget in welcome_widgets) {
+			debug(aWelcomeWidget.get_path().to_string());
+			//grab the secondary text label
+			if(aWelcomeWidget.get_path().to_string().contains("GtkLabel") &&
+			   aWelcomeWidget.get_path().to_string().contains("h2"))
+			{
+				   ((Label)aWelcomeWidget).justify = Gtk.Justification.LEFT;
+				   break;
+			}
+		}
+		//Add a link to the nmap disclaimer website
 		welcome.append ("emblem-web",
 										 _("Nutty Disclaimer"), 
 										 _("Click to read the legal disclaimer on Nmap (used by Nutty) for further information")
@@ -48,6 +62,7 @@ public class NuttyApp.AppWindow {
 
 		Button continueButton = new Button.with_label(_("Use Nutty"));
 		continueButton.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+		continueButton.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 		Button exitButton = new Button.with_label(_("Exit"));
 		exitButton.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 		disclaimer_agreement_box.pack_end (continueButton, false, false, 0);

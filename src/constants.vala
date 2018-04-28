@@ -18,7 +18,7 @@
 
 namespace NuttyApp.Constants{
 	public const string nutty_id = "com.github.babluboy.nutty";
-	public const string nutty_version = "1.0.0";
+	public const string nutty_version = "1.0.1";
 	public const string program_name = "Nutty";
 	public const string app_icon = "com.github.babluboy.nutty";
 	public const string app_years = "2015-2018";
@@ -62,7 +62,7 @@ namespace NuttyApp.Constants{
 	public const string nutty_alert_scheduler_backup_file_name = "user_crontab_backup.txt";
 
 	public const string PRIMARY_TEXT_FOR_DISCLAIMER = _("Network Scan Agreement");
-	public const string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using. It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network.While using port scan (Devices tab) on a network which you do not own please consult and get approval of the Network Administrator or other competent network authority.");
+	public const string SECONDARY_TEXT_FOR_DISCLAIMER = _("This application has features to perform port scanning and provide information on devices on the network you are using. It is perfectly OK to scan for devices on your own residential home network or when explicitly authorized by the destination host and/or network.\n\nWhile using port scan (Devices tab) on a network which you do not own please consult and get approval of the Network Administrator or other competent network authority.");
 	public const string TEXT_FOR_PREF_MENU_ABOUT_ITEM = _("About");
 	public const string TEXT_FOR_SUBTITLE_HEADERBAR = _("Network Utility");
 	public const string TEXT_FOR_SEARCH_HEADERBAR = _("Filter results...");
