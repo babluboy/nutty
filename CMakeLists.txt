@@ -166,3 +166,5 @@ install(
     PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ WORLD_READ WORLD_EXECUTE
     DESTINATION ${SCRIPTS_DIR}
 )
+# Refresh icon caches
+install (CODE "execute_process (COMMAND update-icon-caches ${DATADIR}/icons/hicolor)")
