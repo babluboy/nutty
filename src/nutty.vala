@@ -433,7 +433,6 @@ namespace NuttyApp {
 			//define the stack for the tabbed view
 			stack = new Gtk.Stack();
 			stack.set_transition_type(StackTransitionType.SLIDE_LEFT_RIGHT);
-			stack.set_transition_duration(1000);
 
 			//define the switcher for switching between tabs
 			StackSwitcher switcher = new StackSwitcher();
