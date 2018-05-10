@@ -39,7 +39,7 @@ namespace NuttyApp {
           }
 
           private Settings () {
-            base (NuttyApp.Constants.nutty_id);
+            base (NuttyApp.Constants.app_id);
           }
     }
 }

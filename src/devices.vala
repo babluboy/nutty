@@ -350,8 +350,6 @@ public class NuttyApp.Devices {
 						Constants.nmap_output_filename,
 						scanIPAddress
 		});
-		string deviceScanResult = NuttyApp.Nutty.spawn_async_with_pipes_output.str;
-		deviceScanResult = deviceScanResult.splice(0, deviceScanResult.index_of("<nmaprun"), "");
 		NuttyApp.XmlParser thisParser = new NuttyApp.XmlParser();
 		ArrayList<NuttyApp.Entities.Device> extractedDeviceList = 
 								thisParser.extractDeviceDataFromXML(Constants.nmap_output_filename);
@@ -373,7 +371,7 @@ public class NuttyApp.Devices {
 			print("\nChecking Alert condition for Device with IP: "+aDevice.device_ip + " and alert status:"+aDevice.device_alert);
 			if(aDevice.device_alert != NuttyApp.Constants.DEVICE_ALERT_COMPLETED){
 				//push an alert for the device
-				Notify.init (NuttyApp.Constants.nutty_id);
+				Notify.init (NuttyApp.Constants.app_id);
 				try {
 					Notify.Notification notification = new Notify.Notification (
 							NuttyApp.Constants.TEXT_FOR_DEVICE_FOUND_NOTIFICATION, 
@@ -438,16 +436,16 @@ public class NuttyApp.Devices {
 					Constants.COMMAND_FOR_SCHEDULED_DEVICE_SCAN,
 					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
 					NuttyApp.Nutty.nutty_config_path, 
-					Environment.get_home_dir () + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
-					"/tmp/root_"+Environment.get_user_name () + "_crontab_temp.txt"
+					NuttyApp.Nutty.app_xdg_path.user_config_folder.get_path() + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
+					NuttyApp.Nutty.app_xdg_path.user_cache_folder.get_path() + "/root_"+ Environment.get_user_name () + "_crontab_temp.txt"
 	  	});
 		//execute the command to update user crontab for alerting
 		NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
 					Constants.COMMAND_FOR_SCHEDULED_DEVICE_ALERT,
 					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
 					NuttyApp.Nutty.nutty_config_path, 
-					Environment.get_home_dir ()+ "/" + Constants.nutty_alert_scheduler_backup_file_name,
-					"/tmp/user_"+Environment.get_user_name () + "_crontab_temp.txt"
+					NuttyApp.Nutty.app_xdg_path.user_config_folder.get_path() + "/" + Constants.nutty_alert_scheduler_backup_file_name,
+					NuttyApp.Nutty.app_xdg_path.user_cache_folder.get_path() + "/user_"+Environment.get_user_name () + "_crontab_temp.txt"
   		});
 		info("[END] [FUNCTION:setupDeviceMonitoring]");
 	}

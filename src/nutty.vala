@@ -39,8 +39,8 @@ namespace NuttyApp {
 		public static string[] COMMAND_FOR_SPEED_TEST = {"speedtest-cli", "--simple", "--bytes"};
 		public bool hasDisclaimerBeenAgreed = false;
 		public string crontabContents = "";
-		public static string nutty_executable_path = Environment.find_program_in_path ("nutty");
-		public static string nutty_config_path = GLib.Environment.get_user_config_dir ()+"/nutty";
+		//public static string nutty_config_path = GLib.Environment.get_user_config_dir ()+"/nutty";
+		public static string nutty_config_path = "";
 		public static Gtk.IconTheme icon_theme;
 		public static Gtk.Image menu_icon;
 		public static Gdk.Pixbuf device_available_pix;
@@ -116,18 +116,19 @@ namespace NuttyApp {
 		public static StringBuilder device_mac_found_in_scan = new StringBuilder("");
 		public static CssProvider cssProvider;
 		public static NuttyApp.Settings settings;
+		public static Granite.Services.Paths app_xdg_path;
 
 		construct {
 			build_version = NuttyApp.Constants.nutty_version;
 			
-			application_id = NuttyApp.Constants.nutty_id;
+			application_id = NuttyApp.Constants.app_id;
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 			program_name = NuttyApp.Constants.program_name;
-			exec_name = NuttyApp.Constants.nutty_id;
+			exec_name = NuttyApp.Constants.app_id;
 
 			options = new OptionEntry[5];
 			options[0] = { "version", 0, 0, OptionArg.NONE, ref command_line_option_version, _("Display version number"), null };
-			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("Run Nutty to discover devices"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
+			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("Run Nutty to discover devices"), "Path to folder contaning nutty.db (i.e. /home/sid/.local/share/com.github.babluboy.nutty)" };
 			options[2] = { "alert", 0, 0, OptionArg.STRING, ref command_line_option_alert, _("Run Nutty in device alert mode"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
 			options[3] = { "debug", 0, 0, OptionArg.NONE, ref command_line_option_debug, _("Run Nutty in debug mode"), null };
 			options[4] = { "info", 0, 0, OptionArg.NONE, ref command_line_option_info, _("Run Nutty in info mode"), null };
@@ -138,7 +139,46 @@ namespace NuttyApp {
 			Intl.setlocale(LocaleCategory.MESSAGES, "");
 			Intl.textdomain(GETTEXT_PACKAGE);
 			Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
-			debug ("Completed setting Internalization...");
+			//Initialize XDG Paths
+			app_xdg_path = new Granite.Services.Paths();
+			app_xdg_path.initialize (Constants.app_id, Constants.nutty_pkgdata_path);
+			nutty_config_path = app_xdg_path.user_data_folder.get_path();
+			
+			//migrate user data from .config to .local/share -- to be deleted in the next version
+			if("true" == NuttyApp.Utils.fileOperations("EXISTS", 
+																					GLib.Environment.get_user_config_dir ()+"/nutty", 
+																					"/nutty_disclaimer_agreement.txt",""))
+			{
+				//copy agreement file
+				execute_sync_command ("cp " +
+																GLib.Environment.get_user_config_dir () + "/nutty/nutty_disclaimer_agreement.txt " +
+															 	nutty_config_path + "/nutty_disclaimer_agreement.txt"
+															  );
+				//check if the copy was sucessfull
+				if("true" == NuttyApp.Utils.fileOperations("EXISTS", nutty_config_path, "/nutty_disclaimer_agreement.txt","")) {
+					//remove the agreement from the .config folder
+					NuttyApp.Utils.fileOperations("DELETE", 
+																		GLib.Environment.get_user_config_dir ()+"/nutty", 
+																		"nutty_disclaimer_agreement.txt", "");
+				}
+																
+				if("true" == NuttyApp.Utils.fileOperations("EXISTS", 
+																						GLib.Environment.get_user_config_dir ()+"/nutty", 
+																						"/nutty.db",""))
+				{
+					//copy agreement file
+					execute_sync_command ("cp "+
+																	GLib.Environment.get_user_config_dir ()+"/nutty/nutty.db " +
+																	nutty_config_path + "/nutty.db"
+																 );
+					if("true" == NuttyApp.Utils.fileOperations("EXISTS", nutty_config_path, "/nutty.db", "")) {
+						//remove the sql db from the .config folder
+						NuttyApp.Utils.fileOperations("DELETE", 
+																			GLib.Environment.get_user_config_dir ()+"/nutty", 
+																			"nutty.db", "");
+					}
+				}
+			} //end of XDG data migration
 		}
 
 		public static Nutty getAppInstance(){
@@ -203,7 +243,7 @@ namespace NuttyApp {
 			}catch(Error e){
 				warning("Unsucessfull in registering the application. Error:"+e.message);
 			}
-			Logger.initialize(NuttyApp.Constants.nutty_id);
+			Logger.initialize(NuttyApp.Constants.app_id);
 			if(command_line_option_debug){
 				Logger.DisplayLevel = LogLevel.DEBUG;
 			}
@@ -797,6 +837,7 @@ namespace NuttyApp {
 
 		public void loadNuttyState(){
 			info("[START] [FUNCTION:loadNuttyState]");
+						
 			//Set the window to the last saved position
 			if(settings.pos_x == 0 && settings.pos_y == 0){
 				window.set_position (Gtk.WindowPosition.CENTER);

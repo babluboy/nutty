@@ -68,7 +68,10 @@ public class NuttyApp.DB{
         }
 
         //load data from device file into table and then remove device file
-        if("true" == NuttyApp.Utils.fileOperations("EXISTS",config_path, Constants.nutty_devices_property_file_name, "")){
+        if("true" == NuttyApp.Utils.fileOperations("EXISTS",
+                                                                                GLib.Environment.get_user_config_dir ()+"/nutty",
+                                                                                Constants.nutty_devices_property_file_name, ""))
+        {
             debug("[START] Started loading device data from props file to DB");
             //read data from props file
             string devicesDataFromProps = NuttyApp.Utils.fileOperations("READ",

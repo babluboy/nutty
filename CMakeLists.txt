@@ -15,8 +15,8 @@ set (SCRIPTS_DIR ${PKGDATADIR}/scripts)
 
 # Set the application executable name and version info
 set (EXEC_NAME "com.github.babluboy.nutty")
-set (RELEASE_NAME "nutty v1.0.1")
-set (VERSION "1.0.1")
+set (VERSION "1.1.0")
+set (RELEASE_NAME "nutty ${VERSION}")
 set (VERSION_INFO "Nutty - A Network Information Utility")
 
 # Translation files

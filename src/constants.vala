@@ -17,8 +17,8 @@
 */
 
 namespace NuttyApp.Constants{
-	public const string nutty_id = "com.github.babluboy.nutty";
-	public const string nutty_version = "1.0.1";
+	public const string app_id = "com.github.babluboy.nutty";
+	public const string nutty_version = "1.1.0";
 	public const string program_name = "Nutty";
 	public const string app_icon = "com.github.babluboy.nutty";
 	public const string app_years = "2015-2018";
@@ -38,7 +38,8 @@ namespace NuttyApp.Constants{
 	//Set resource paths
 	public const string INSTALL_PREFIX = "/usr";
 	public const string RESOURCE_PREFIX = "/com/github/babluboy/nutty/";
-	public const string nutty_script_path = INSTALL_PREFIX+"/share/nutty/scripts";
+	public const string nutty_script_path = "/usr/share/nutty/scripts";
+	public const string nutty_pkgdata_path = "/usr/share/nutty";
 
 	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-device-available";
 	public const string DEVICE_OFFLINE_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-device-offline";
