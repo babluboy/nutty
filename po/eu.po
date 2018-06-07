@@ -2,8 +2,16 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-10 15:02+0100\n"
+"PO-Revision-Date: 2018-06-08 21:34+0000\n"
+"Last-Translator: Osoitz <oelkoro@gmail.com>\n"
+"Language-Team: Basque <https://hosted.weblate.org/projects/nutty/"
+"translations/eu/>\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0\n"
 
 #: ../src/devices.vala:318
 msgid " for "
@@ -89,7 +97,7 @@ msgstr ""
 
 #: ../src/constants.vala:65
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Sarea eskaneatzeko akordioa"
 
 #: ../src/constants.vala:66
 msgid ""
