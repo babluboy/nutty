@@ -2,13 +2,21 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-10 15:02+0100\n"
+"PO-Revision-Date: 2018-07-05 00:44+0000\n"
+"Last-Translator: Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>"
+"\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/nutty/"
+"translations/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.1-dev\n"
 
 #: ../src/devices.vala:318
 msgid " for "
-msgstr ""
+msgstr " för "
 
 #: ../src/window.vala:47
 msgid "Nutty Disclaimer"
@@ -22,15 +30,15 @@ msgstr ""
 
 #: ../src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Använd Nutty"
 
 #: ../src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Avsluta"
 
 #: ../src/info.vala:148
 msgid "Network Card"
-msgstr ""
+msgstr "Nätverkskort"
 
 #: ../src/info.vala:148
 msgid " Standards with Transmit Power of "
@@ -38,11 +46,11 @@ msgstr ""
 
 #: ../src/info.vala:148
 msgid " [Power Management: "
-msgstr ""
+msgstr " [Strömhantering: "
 
 #: ../src/info.vala:151
 msgid "Connected to"
-msgstr ""
+msgstr "Ansluten till"
 
 #: ../src/info.vala:151
 msgid " Network at Access Point "
@@ -50,11 +58,11 @@ msgstr ""
 
 #: ../src/info.vala:151
 msgid " Mode"
-msgstr ""
+msgstr " Läge"
 
 #: ../src/info.vala:154
 msgid "Connected with"
-msgstr ""
+msgstr "Ansluten med"
 
 #: ../src/info.vala:154
 msgid "Frequency of "
@@ -66,7 +74,7 @@ msgstr ""
 
 #: ../src/info.vala:157
 msgid "Connection strength"
-msgstr ""
+msgstr "Styrka på anslutning"
 
 #: ../src/info.vala:157
 msgid "Link Quality of "
@@ -78,11 +86,11 @@ msgstr ""
 
 #: ../src/constants.vala:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "Ett verktyg för nätverket"
 
 #: ../src/constants.vala:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Weblate-översättare"
 
 #: ../src/constants.vala:35
 msgid "Website | Translation | Bug Tracker"
@@ -106,23 +114,23 @@ msgstr ""
 
 #: ../src/constants.vala:67
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: ../src/constants.vala:68
 msgid "Network Utility"
-msgstr ""
+msgstr "Verktyg för nätverk"
 
 #: ../src/constants.vala:69
 msgid "Filter results..."
-msgstr ""
+msgstr "Filtrera resultat..."
 
 #: ../src/constants.vala:70
 msgid "Preferences"
-msgstr ""
+msgstr "Egenskaper"
 
 #: ../src/constants.vala:71
 msgid "Export to File"
-msgstr ""
+msgstr "Exportera till Fil"
 
 #: ../src/constants.vala:72
 msgid ""
@@ -141,75 +149,75 @@ msgstr ""
 
 #: ../src/constants.vala:74 ../src/constants.vala:149
 msgid "Today"
-msgstr ""
+msgstr "Idag"
 
 #: ../src/constants.vala:75 ../src/constants.vala:148
 msgid "Yesterday"
-msgstr ""
+msgstr "Igår"
 
 #: ../src/constants.vala:76
 msgid "days ago"
-msgstr ""
+msgstr "dagar sedan"
 
 #: ../src/constants.vala:77
 msgid "Results: "
-msgstr ""
+msgstr "Resultat: "
 
 #: ../src/constants.vala:78
 msgid "No data found"
-msgstr ""
+msgstr "Ingen data hittades"
 
 #: ../src/constants.vala:79
 msgid "Not Available"
-msgstr ""
+msgstr "Inte tillgängligt"
 
 #: ../src/constants.vala:80
 msgid "I Agree"
-msgstr ""
+msgstr "Jag accepterar"
 
 #: ../src/constants.vala:81
 msgid "Wired"
-msgstr ""
+msgstr "Kablad"
 
 #: ../src/constants.vala:82
 msgid "Wireless"
-msgstr ""
+msgstr "Trådlös"
 
 #: ../src/constants.vala:83
 msgid "Other"
-msgstr ""
+msgstr "Annat"
 
 #: ../src/constants.vala:84
 msgid "My Info"
-msgstr ""
+msgstr "Min info"
 
 #: ../src/constants.vala:85
 msgid "Select a connection"
-msgstr ""
+msgstr "Välj en anslutning"
 
 #: ../src/constants.vala:86
 msgid "View Details"
-msgstr ""
+msgstr "Visa detaljer"
 
 #: ../src/constants.vala:87
 msgid "Attribute"
-msgstr ""
+msgstr "Attribut"
 
 #: ../src/constants.vala:88
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 #: ../src/constants.vala:89
 msgid "Host Name"
-msgstr ""
+msgstr "Värdnamn"
 
 #: ../src/constants.vala:90
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-adress"
 
 #: ../src/constants.vala:91
 msgid "IP Address"
-msgstr ""
+msgstr "IP-adress"
 
 #: ../src/constants.vala:92
 msgid "Interface State"
@@ -221,27 +229,27 @@ msgstr ""
 
 #: ../src/constants.vala:94
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #: ../src/constants.vala:95
 msgid "Vendor"
-msgstr ""
+msgstr "Tillverkare"
 
 #: ../src/constants.vala:96
 msgid "Physical ID"
-msgstr ""
+msgstr "Fysiskt ID"
 
 #: ../src/constants.vala:97
 msgid "Bus Info"
-msgstr ""
+msgstr "Buss-info"
 
 #: ../src/constants.vala:98
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: ../src/constants.vala:99
 msgid "Capacity"
-msgstr ""
+msgstr "Kapacitet"
 
 #: ../src/constants.vala:100
 msgid "Bus Width"
@@ -249,11 +257,11 @@ msgstr ""
 
 #: ../src/constants.vala:101
 msgid "Clock Speed"
-msgstr ""
+msgstr "Hastighet på klockan"
 
 #: ../src/constants.vala:102
 msgid "Speed"
-msgstr ""
+msgstr "Hastighet"
 
 #: ../src/constants.vala:103
 msgid "Route times to Host (in milliseconds): "
