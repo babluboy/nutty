@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-10 15:02+0100\n"
-"PO-Revision-Date: 2018-03-25 22:09+0000\n"
+"PO-Revision-Date: 2018-08-18 22:39+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
 "translations/lt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ../src/devices.vala:318
 msgid " for "
@@ -31,11 +31,11 @@ msgstr ""
 
 #: ../src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Naudoti Nutty"
 
 #: ../src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Išeiti"
 
 #: ../src/info.vala:148
 msgid "Network Card"
@@ -59,7 +59,7 @@ msgstr ""
 
 #: ../src/info.vala:151
 msgid " Mode"
-msgstr ""
+msgstr " Veiksena"
 
 #: ../src/info.vala:154
 msgid "Connected with"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: ../src/info.vala:157
 msgid "Connection strength"
-msgstr ""
+msgstr "Ryšio stiprumas"
 
 #: ../src/info.vala:157
 msgid "Link Quality of "
@@ -172,7 +172,7 @@ msgstr "Nerasta jokių duomenų"
 
 #: ../src/constants.vala:79
 msgid "Not Available"
-msgstr ""
+msgstr "Neprieinama"
 
 #: ../src/constants.vala:80
 msgid "I Agree"
@@ -367,29 +367,28 @@ msgid "Status"
 msgstr "Būsena"
 
 #: ../src/constants.vala:128
-#, fuzzy
 msgid "Device Name"
-msgstr "Serverio pavadinimas"
+msgstr "Įrenginio pavadinimas"
 
 #: ../src/constants.vala:129
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "Įrenginio gamintojas"
 
 #: ../src/constants.vala:130
 msgid "Last Seen"
-msgstr ""
+msgstr "Paskutinį kartą matytas"
 
 #: ../src/constants.vala:131
 msgid "Discovered On"
-msgstr ""
+msgstr "Aptiktas ties"
 
 #: ../src/constants.vala:132
 msgid "Host IP"
-msgstr ""
+msgstr "Serverio IP"
 
 #: ../src/constants.vala:133
 msgid "Host MAC"
-msgstr ""
+msgstr "Serverio MAC"
 
 #: ../src/constants.vala:134
 msgid "Active"
@@ -401,7 +400,7 @@ msgstr ""
 
 #: ../src/constants.vala:136
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "Aptiktas anksčiau"
 
 #: ../src/constants.vala:137
 msgid ""
@@ -428,12 +427,11 @@ msgstr ""
 
 #: ../src/constants.vala:142
 msgid "Forget device"
-msgstr ""
+msgstr "Pamiršti įrenginį"
 
 #: ../src/constants.vala:143
-#, fuzzy
 msgid "New Device found on network:"
-msgstr "Tinkle rastas naujas įrenginys:\n"
+msgstr "Tinkle rastas naujas įrenginys:"
 
 #: ../src/constants.vala:144
 msgid "Usage"
@@ -449,7 +447,7 @@ msgstr " , o paskutinį kartą atnaujintas "
 
 #: ../src/constants.vala:147
 msgid "Please add this connection interface to vnstat using command line."
-msgstr ""
+msgstr "Pridėkite šią ryšio sąsają į vnstat, naudodami komandų eilutę."
 
 #: ../src/constants.vala:150
 msgid "Time Period"
