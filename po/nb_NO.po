@@ -2,17 +2,24 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-10 15:02+0100\n"
+"PO-Revision-Date: 2018-09-03 13:21+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/nutty/"
+"translations/nb_NO/>\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.2-dev\n"
 
 #: ../src/devices.vala:318
 msgid " for "
-msgstr ""
+msgstr " for "
 
 #: ../src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Nutty-ansvarsfraskrivelse"
 
 #: ../src/window.vala:48
 msgid ""
@@ -22,15 +29,15 @@ msgstr ""
 
 #: ../src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Bruk Nutty"
 
 #: ../src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Avslutt"
 
 #: ../src/info.vala:148
 msgid "Network Card"
-msgstr ""
+msgstr "Nettverkskort"
 
 #: ../src/info.vala:148
 msgid " Standards with Transmit Power of "
