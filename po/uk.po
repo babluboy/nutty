@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-10 15:02+0100\n"
-"PO-Revision-Date: 2018-09-25 13:41+0000\n"
+"PO-Revision-Date: 2018-09-28 13:35+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/nutty/"
 "translations/uk/>\n"
@@ -20,85 +20,87 @@ msgstr " для "
 
 #: ../src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Відмова від відповідальності Nutty"
 
 #: ../src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"Натисніть, щоб прочитати юридичну відмову від відповідальності на Nmap ("
+"використовується Nutty) для отримання додаткової інформації"
 
 #: ../src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Використання Nutty"
 
 #: ../src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Вийти"
 
 #: ../src/info.vala:148
 msgid "Network Card"
-msgstr ""
+msgstr "Мережева карта"
 
 #: ../src/info.vala:148
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " Стандарти з потужності передачі "
 
 #: ../src/info.vala:148
 msgid " [Power Management: "
-msgstr ""
+msgstr " [Управління живленням: "
 
 #: ../src/info.vala:151
 msgid "Connected to"
-msgstr ""
+msgstr "Пов'язаний з"
 
 #: ../src/info.vala:151
 msgid " Network at Access Point "
-msgstr ""
+msgstr " Мережа в точці доступу "
 
 #: ../src/info.vala:151
 msgid " Mode"
-msgstr ""
+msgstr " Режим"
 
 #: ../src/info.vala:154
 msgid "Connected with"
-msgstr ""
+msgstr "Пов'язано з"
 
 #: ../src/info.vala:154
 msgid "Frequency of "
-msgstr ""
+msgstr "Частота "
 
 #: ../src/info.vala:154
 msgid " and Bit Rate of "
-msgstr ""
+msgstr " і швидкість біт "
 
 #: ../src/info.vala:157
 msgid "Connection strength"
-msgstr ""
+msgstr "Міцність з'єднання"
 
 #: ../src/info.vala:157
 msgid "Link Quality of "
-msgstr ""
+msgstr "Якість зв'язку "
 
 #: ../src/info.vala:157
 msgid " and Signal Level of "
-msgstr ""
+msgstr " і рівень сигналу "
 
 #: ../src/constants.vala:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "Мережева утиліта"
 
 #: ../src/constants.vala:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Weblate перекладач"
 
 #: ../src/constants.vala:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Веб-сайт | Переклад | Відстеження помилок"
 
 #: ../src/constants.vala:65
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Угода на мережеве сканування"
 
 #: ../src/constants.vala:66
 msgid ""
@@ -111,32 +113,42 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"Ця програма має функції для сканування портів та надання інформації про "
+"пристрої в мережі, яку ви використовуєте. Це ідеально підходить для "
+"сканування пристроїв у власній домашній мережі або під час прямого дозволу "
+"приймаючого хоста та/або мережі.\n"
+"\n"
+"Під час використання сканування порту (вкладка «Пристрої») у мережі, яка не "
+"належить вам, зверніться за порадою та отримайте схвалення адміністратора "
+"мережі або іншого компетентного органу мережі."
 
 #: ../src/constants.vala:67
 msgid "About"
-msgstr ""
+msgstr "Про"
 
 #: ../src/constants.vala:68
 msgid "Network Utility"
-msgstr ""
+msgstr "Мережева утиліта"
 
 #: ../src/constants.vala:69
 msgid "Filter results..."
-msgstr ""
+msgstr "Фільтрувати результати..."
 
 #: ../src/constants.vala:70
 msgid "Preferences"
-msgstr ""
+msgstr "Налаштування"
 
 #: ../src/constants.vala:71
 msgid "Export to File"
-msgstr ""
+msgstr "Експортувати до файлу"
 
 #: ../src/constants.vala:72
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
+"Nutty потребує аутентифікації для виконання цієї дії, будь ласка, введіть "
+"пароль, щоб продовжити."
 
 #: ../src/constants.vala:73
 msgid ""
@@ -146,433 +158,444 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
+"Nutty потребує аутентифікації для оновлення кореневого планувальника "
+"(crontab) для моніторингу пристрою. Будь ласка, введіть пароль, щоб "
+"завершити цю зміну.\n"
+"\n"
+"Примітка. Поточний кореневий планувальник (crontab) буде створений у "
+"домашньому каталозі."
 
 #: ../src/constants.vala:74 ../src/constants.vala:149
 msgid "Today"
-msgstr ""
+msgstr "Сьогодні"
 
 #: ../src/constants.vala:75 ../src/constants.vala:148
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчора"
 
 #: ../src/constants.vala:76
 msgid "days ago"
-msgstr ""
+msgstr "днів тому"
 
 #: ../src/constants.vala:77
 msgid "Results: "
-msgstr ""
+msgstr "Результати: "
 
 #: ../src/constants.vala:78
 msgid "No data found"
-msgstr ""
+msgstr "Даних не знайдено"
 
 #: ../src/constants.vala:79
 msgid "Not Available"
-msgstr ""
+msgstr "Недоступно"
 
 #: ../src/constants.vala:80
 msgid "I Agree"
-msgstr ""
+msgstr "Я згоден"
 
 #: ../src/constants.vala:81
 msgid "Wired"
-msgstr ""
+msgstr "Проводка"
 
 #: ../src/constants.vala:82
 msgid "Wireless"
-msgstr ""
+msgstr "Бездротові"
 
 #: ../src/constants.vala:83
 msgid "Other"
-msgstr ""
+msgstr "Інші"
 
 #: ../src/constants.vala:84
 msgid "My Info"
-msgstr ""
+msgstr "Моя інформація"
 
 #: ../src/constants.vala:85
 msgid "Select a connection"
-msgstr ""
+msgstr "Виберіть з'єднання"
 
 #: ../src/constants.vala:86
 msgid "View Details"
-msgstr ""
+msgstr "Докладніше"
 
 #: ../src/constants.vala:87
 msgid "Attribute"
-msgstr ""
+msgstr "Атрибут"
 
 #: ../src/constants.vala:88
 msgid "Details"
-msgstr ""
+msgstr "Деталі"
 
 #: ../src/constants.vala:89
 msgid "Host Name"
-msgstr ""
+msgstr "Ім'я хоста"
 
 #: ../src/constants.vala:90
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-адреса"
 
 #: ../src/constants.vala:91
 msgid "IP Address"
-msgstr ""
+msgstr "IP-адреса"
 
 #: ../src/constants.vala:92
 msgid "Interface State"
-msgstr ""
+msgstr "Стан інтерфейсу"
 
 #: ../src/constants.vala:93
 msgid "Interface Hardware"
-msgstr ""
+msgstr "Інтерфейс пристрою"
 
 #: ../src/constants.vala:94
 msgid "Product"
-msgstr ""
+msgstr "Продукт"
 
 #: ../src/constants.vala:95
 msgid "Vendor"
-msgstr ""
+msgstr "Постачальник"
 
 #: ../src/constants.vala:96
 msgid "Physical ID"
-msgstr ""
+msgstr "Фізичний ID"
 
 #: ../src/constants.vala:97
 msgid "Bus Info"
-msgstr ""
+msgstr "Інформація шини"
 
 #: ../src/constants.vala:98
 msgid "Version"
-msgstr ""
+msgstr "Версія"
 
 #: ../src/constants.vala:99
 msgid "Capacity"
-msgstr ""
+msgstr "Ємність"
 
 #: ../src/constants.vala:100
 msgid "Bus Width"
-msgstr ""
+msgstr "Ширина шини"
 
 #: ../src/constants.vala:101
 msgid "Clock Speed"
-msgstr ""
+msgstr "Тактова частота"
 
 #: ../src/constants.vala:102
 msgid "Speed"
-msgstr ""
+msgstr "Швидкість"
 
 #: ../src/constants.vala:103
 msgid "Route times to Host (in milliseconds): "
-msgstr ""
+msgstr "Час маршруту до хосту (у мілісекундах): "
 
 #: ../src/constants.vala:104
 msgid "Hop#"
-msgstr ""
+msgstr "Стрибок#"
 
 #: ../src/constants.vala:105
 msgid "Server IP"
-msgstr ""
+msgstr "Сервер IP"
 
 #: ../src/constants.vala:106
 msgid "Server Name"
-msgstr ""
+msgstr "Ім'я сервера"
 
 #: ../src/constants.vala:107
 msgid "1st Packet Time"
-msgstr ""
+msgstr "Перший пакетний час"
 
 #: ../src/constants.vala:108
 msgid "2nd Packet Time"
-msgstr ""
+msgstr "Другий пакетний час"
 
 #: ../src/constants.vala:109
 msgid "3rd Packet Time"
-msgstr ""
+msgstr "Третій пакетний час"
 
 #: ../src/constants.vala:110
 msgid "Internet Speed : Results from test on"
-msgstr ""
+msgstr "Швидкість Інтернету: Результати тесту"
 
 #: ../src/constants.vala:111
 msgid "No speed test has been done"
-msgstr ""
+msgstr "Тест швидкості не був виконаний"
 
 #: ../src/constants.vala:112
 msgid "Upload Speed"
-msgstr ""
+msgstr "Швидкість завантаження"
 
 #: ../src/constants.vala:113
 msgid "Download Speed"
-msgstr ""
+msgstr "Швидкість завантаження"
 
 #: ../src/constants.vala:114
 msgid "Refresh Speed Test Results"
-msgstr ""
+msgstr "Оновити результати перевірки швидкості"
 
 #: ../src/constants.vala:115
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
-msgstr ""
+msgstr "Невідома дата. Натисніть кнопку Оновити для виконання тесту швидкості"
 
 #: ../src/constants.vala:116
 msgid "Ports"
-msgstr ""
+msgstr "Порти"
 
 #: ../src/constants.vala:117
 msgid "All active ports scanned."
-msgstr ""
+msgstr "Всі активні порти відскановані."
 
 #: ../src/constants.vala:118
 msgid "Refresh Ports results"
-msgstr ""
+msgstr "Оновити результати порту"
 
 #: ../src/constants.vala:119
 msgid "Protocol"
-msgstr ""
+msgstr "Протокол"
 
 #: ../src/constants.vala:120
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
 #: ../src/constants.vala:121
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: ../src/constants.vala:122
 msgid "Process ID"
-msgstr ""
+msgstr "ID процесу"
 
 #: ../src/constants.vala:123
 msgid "Program Name"
-msgstr ""
+msgstr "Ім'я програми"
 
 #: ../src/constants.vala:124
 msgid "Path"
-msgstr ""
+msgstr "Шлях"
 
 #: ../src/constants.vala:125
 msgid "Devices"
-msgstr ""
+msgstr "Пристрої"
 
 #: ../src/constants.vala:126
 msgid "Refresh device scan results"
-msgstr ""
+msgstr "Оновити результати сканування пристрою"
 
 #: ../src/constants.vala:127
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: ../src/constants.vala:128
 msgid "Device Name"
-msgstr ""
+msgstr "Ім'я пристрою"
 
 #: ../src/constants.vala:129
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "Виробник пристрою"
 
 #: ../src/constants.vala:130
 msgid "Last Seen"
-msgstr ""
+msgstr "Востаннє бачили"
 
 #: ../src/constants.vala:131
 msgid "Discovered On"
-msgstr ""
+msgstr "Виявив на"
 
 #: ../src/constants.vala:132
 msgid "Host IP"
-msgstr ""
+msgstr "Хост IP"
 
 #: ../src/constants.vala:133
 msgid "Host MAC"
-msgstr ""
+msgstr "Хост MAC"
 
 #: ../src/constants.vala:134
 msgid "Active"
-msgstr ""
+msgstr "Активний"
 
 #: ../src/constants.vala:135
 msgid "Non Active"
-msgstr ""
+msgstr "Не активний"
 
 #: ../src/constants.vala:136
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "Виявлено раніше"
 
 #: ../src/constants.vala:137
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
+"Відображення пристроїв, записаних раніше. Виберіть з'єднання для оновлення "
+"статусу."
 
 #: ../src/constants.vala:138
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
+"Не було раніше жодного пристрою. Виберіть зв'язок для оновлення результатів."
 
 #: ../src/constants.vala:139
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "Сканування пристрою в процесі ..."
 
 #: ../src/constants.vala:140
 msgid "devices found on this connection"
-msgstr ""
+msgstr "пристрої, знайдені в цьому з'єднанні"
 
 #: ../src/constants.vala:141
 msgid "Actions for : "
-msgstr ""
+msgstr "Дії для: "
 
 #: ../src/constants.vala:142
 msgid "Forget device"
-msgstr ""
+msgstr "Забудьте пристрій"
 
 #: ../src/constants.vala:143
 msgid "New Device found on network:"
-msgstr ""
+msgstr "Новий пристрій знайдено в мережі:"
 
 #: ../src/constants.vala:144
 msgid "Usage"
-msgstr ""
+msgstr "Використання"
 
 #: ../src/constants.vala:145
 msgid "Connection monitored from "
-msgstr ""
+msgstr "З'єднання контролюється з "
 
 #: ../src/constants.vala:146
 msgid " and last updated on "
-msgstr ""
+msgstr " і останнє оновлення на "
 
 #: ../src/constants.vala:147
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
+"Будь ласка, додайте цей інтерфейс підключення до vnstat за допомогою "
+"командного рядка."
 
 #: ../src/constants.vala:150
 msgid "Time Period"
-msgstr ""
+msgstr "Відрізок часу"
 
 #: ../src/constants.vala:151
 msgid "Data Received"
-msgstr ""
+msgstr "Отримані дані"
 
 #: ../src/constants.vala:152
 msgid "Data Sent"
-msgstr ""
+msgstr "Надіслані дані"
 
 #: ../src/constants.vala:153
 msgid "Total Data"
-msgstr ""
+msgstr "Загальна кількість даних"
 
 #: ../src/constants.vala:154
 msgid "Select a connection to view data usage"
-msgstr ""
+msgstr "Виберіть з'єднання для перегляду використання даних"
 
 #: ../src/constants.vala:155
 msgid "Click refresh to see current Apps using "
-msgstr ""
+msgstr "Натисніть 'Оновити', щоб переглянути поточні програми за допомогою "
 
 #: ../src/constants.vala:156
 msgid "Refresh Apps bandwidth usage"
-msgstr ""
+msgstr "Оновити використання пропускної здатності програми"
 
 #: ../src/constants.vala:157
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: ../src/constants.vala:158
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "Надіслані дані (Кб/сек)"
 
 #: ../src/constants.vala:159
 msgid "Data Received (Kb/sec)"
-msgstr ""
+msgstr "Отримані дані (Кб/сек)"
 
 #: ../src/constants.vala:160
 msgid "Background Device Monitoring"
-msgstr ""
+msgstr "Моніторинг фонового пристрою"
 
 #: ../src/constants.vala:161
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "Немає моніторингу пристроїв"
 
 #: ../src/constants.vala:162
 msgid "Monitor devices every 15 minutes"
-msgstr ""
+msgstr "Моніторинг пристроїв кожні 15 хвилин"
 
 #: ../src/constants.vala:163
 msgid "Monitor devices every 30 minutes"
-msgstr ""
+msgstr "Моніторинг пристроїв кожні 30 хвилин"
 
 #: ../src/constants.vala:164
 msgid "Monitor devices every hour"
-msgstr ""
+msgstr "Моніторинг пристроїв щогодини"
 
 #: ../src/constants.vala:165
 msgid "Monitor devices once a day"
-msgstr ""
+msgstr "Моніторинг пристроїв один раз на день"
 
 #: ../src/constants.vala:166
 msgid "Close"
-msgstr ""
+msgstr "Закрити"
 
 #: ../src/constants.vala:167
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "DEVICE_MONITORING_STATE"
 
 #: ../src/constants.vala:168
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "DEVICE_MONITORING_SCHEDULE"
 
 #: ../src/constants.vala:169
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "SPEEDTEST_DATE"
 
 #: ../src/constants.vala:170
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_UPLOADSPEED"
 
 #: ../src/constants.vala:171
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_DOWNLOADSPEED"
 
 #: ../src/constants.vala:172
 msgid "Nutty Information Exported on "
-msgstr ""
+msgstr "Nutty інформація експортується на "
 
 #: ../src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: ../src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Відкрити"
 
 #: ../src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 #: ../src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Всі файли"
 
 #: ../src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Текстові файли"
 
 #: ../src/nutty.vala:130
 msgid "Display version number"
-msgstr ""
+msgstr "Показати номер версії"
 
 #: ../src/nutty.vala:131
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Запустіть Nutty, щоб виявити пристрої"
 
 #: ../src/nutty.vala:132
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "Запустити Nutty в режимі оповіщення пристрою"
 
 #: ../src/nutty.vala:133
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Запустити Nutty в режимі налагодження"
 
 #: ../src/nutty.vala:134
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Запустити Nutty в інформаційному режимі"
