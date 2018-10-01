@@ -1,7 +1,9 @@
 [Desktop Entry]
 Name=Nutty
 GenericName=Network Utility
+GenericName[lt]=Tinklo paslaugų programa
 Comment=Displays network information
+Comment[lt]=Rodo tinklo informaciją
 Categories=Network;
 Exec=com.github.babluboy.nutty
 Icon=com.github.babluboy.nutty
