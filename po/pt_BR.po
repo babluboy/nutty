@@ -3,15 +3,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-10 15:02+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Filipe de Almeida Garrett <filipe.garrett@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2018-10-27 17:41+0000\n"
+"Last-Translator: Jack Icatorze <jack@icatorze.com.br>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"nutty/translations/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n>1;\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: ../src/devices.vala:318
 msgid " for "
@@ -19,24 +20,23 @@ msgstr " para "
 
 #: ../src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Aviso Legal do Nutty"
 
 #: ../src/window.vala:48
-#, fuzzy
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
-"Por favor, leia o aviso a seguir do Nmap (usado pelo Nutty) para mais "
-"informações:"
+"Clique aqui para ler o aviso legal do Nmap (usado pelo Nutty) para mais "
+"informações"
 
 #: ../src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Use o Nutty"
 
 #: ../src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Saída"
 
 #: ../src/info.vala:148
 msgid "Network Card"
@@ -44,11 +44,11 @@ msgstr "Placa de Rede"
 
 #: ../src/info.vala:148
 msgid " Standards with Transmit Power of "
-msgstr "Padrões com Transmit Power de"
+msgstr " Padrões com Transmit Power de "
 
 #: ../src/info.vala:148
 msgid " [Power Management: "
-msgstr "[Gerenciamento de energia:"
+msgstr " [Gerenciamento de energia: "
 
 #: ../src/info.vala:151
 msgid "Connected to"
@@ -56,7 +56,7 @@ msgstr "Conectado a"
 
 #: ../src/info.vala:151
 msgid " Network at Access Point "
-msgstr " Rede no Access Point"
+msgstr " Rede no Ponto de Acesso "
 
 #: ../src/info.vala:151
 msgid " Mode"
@@ -64,27 +64,27 @@ msgstr " Modo"
 
 #: ../src/info.vala:154
 msgid "Connected with"
-msgstr " Conectado com"
+msgstr "Conectado ao"
 
 #: ../src/info.vala:154
 msgid "Frequency of "
-msgstr "Frequência de"
+msgstr "Frequência de "
 
 #: ../src/info.vala:154
 msgid " and Bit Rate of "
-msgstr " e bitrate de"
+msgstr " e Taxa de Bit de "
 
 #: ../src/info.vala:157
 msgid "Connection strength"
-msgstr "Força da conexão"
+msgstr "Robustez da conexão"
 
 #: ../src/info.vala:157
 msgid "Link Quality of "
-msgstr "Qualidade de link de"
+msgstr "Qualidade de link de "
 
 #: ../src/info.vala:157
 msgid " and Signal Level of "
-msgstr " e nivel de sinal de"
+msgstr " e Nível de Sinal de "
 
 #: ../src/constants.vala:28
 msgid "A Network Utility"
