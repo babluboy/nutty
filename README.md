@@ -3,7 +3,7 @@ A Network Utility
 
 Author: Siddhartha Das
 
-A simple application made for elementary OS to provide essential information on network related aspects. The information is broken into the following presented in a tab view.<br>
+A simple application made for elementary OS to provide essential information on network related aspects. The information presented in as the following tabs.<br>
 1. My Info: Provides basic and detailed information for the device network card<br>
 2. Usage: Provides network data usage in two views - historical usage and current usage<br>
 3. Speed: Check Upload and Download speeds and get route times to a host<br>
@@ -13,23 +13,32 @@ A simple application made for elementary OS to provide essential information on 
 Check the Nutty website for details on features, shortcuts, installation guides for Ubuntu and other supported distros, etc. : <br>
 https://babluboy.github.io/nutty/
 
-## How to install nutty:
-if you are using Elementary OS, get Nutty from elementary OS AppCenter by clicking on the badge below <br>
+## Building, Testing, and Installation
 
-<a href="https://appcenter.elementary.io/com.github.babluboy.nutty"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter"></a>
+You'll need the following dependencies to build:
+* libgranite-dev
+* libnotify-dev
+* libxml2-dev
+* libgee-0.8-dev
+* libgtk-3-dev
+* libsqlite3-dev
+* meson
+* valac
 
-## How to build nutty from source:
+Run `meson build` to configure the build environment and run `ninja test` to build
 
-```shell
-sudo apt-get build-dep granite-demo
-git clone https://github.com/babluboy/nutty.git
-sudo apt-get install cmake debhelper libgee-0.8-dev libgtk-3-dev valac libgranite-dev libsqlite3-dev  libxml2 libxml2-dev libnotify-dev
-cd nutty
-mkdir build && cd build 
-cmake -DCMAKE_INSTALL_PREFIX=/usr ../
-make
-sudo make install
-```
+    git clone https://github.com/babluboy/nutty.git
+    cd nutty
+    meson build --prefix=/usr
+    mkdir build && cd build
+    ninja
+
+To install, use `ninja install`, then execute with `com.github.babluboy.nutty`
+
+    sudo ninja install
+    com.github.babluboy.nutty
+
+
 ## Screenshot
 
 ![screenshot](https://raw.githubusercontent.com/babluboy/nutty/gh-pages/images/Nutty_Device_Alert.png)

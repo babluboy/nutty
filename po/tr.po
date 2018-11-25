@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-17 13:56+0000\n"
+"POT-Creation-Date: 2018-11-25 20:01+0000\n"
 "PO-Revision-Date: 2018-11-11 22:08+0000\n"
 "Last-Translator: Ümit Seyhan <btc.umit@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nutty/"
@@ -13,23 +13,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.3-dev\n"
 
-#: src/nutty.vala:130
+#: src/nutty.vala:131
 msgid "Display version number"
 msgstr "Sürüm Numarasını Görüntüle"
 
-#: src/nutty.vala:131
+#: src/nutty.vala:132
 msgid "Run Nutty to discover devices"
 msgstr "Nutty'i Aygıtları Keşfetmek İçin Çalıştır"
 
-#: src/nutty.vala:132
+#: src/nutty.vala:133
 msgid "Run Nutty in device alert mode"
 msgstr "Nutty'i Aygıt Alarm Modunda Çalıştır"
 
-#: src/nutty.vala:133
+#: src/nutty.vala:134
 msgid "Run Nutty in debug mode"
 msgstr "Nutty'i Hata Ayıklama Modunda Çalıştır"
 
-#: src/nutty.vala:134
+#: src/nutty.vala:135
 msgid "Run Nutty in info mode"
 msgstr "Nutty'i Bilgi Modunda Çalıştır"
 
@@ -65,11 +65,11 @@ msgstr "Weblate Çevirmenleri"
 msgid "Website | Translation | Bug Tracker"
 msgstr "Web Sitesi | Tercüme | Hata İzleme"
 
-#: src/constants.vala.in:65
+#: src/constants.vala.in:67
 msgid "Network Scan Agreement"
 msgstr "Ağ Taraması Sözleşmesi"
 
-#: src/constants.vala.in:66
+#: src/constants.vala.in:68
 msgid ""
 "This application has features to perform port scanning and provide "
 "information on devices on the network you are using. It is perfectly OK to "
@@ -89,27 +89,27 @@ msgstr ""
 "kullanırken lütfen Ağ Yöneticisine veya diğer yetkili ağ yetkililerine "
 "danışın ve onayın alın."
 
-#: src/constants.vala.in:67
+#: src/constants.vala.in:69
 msgid "About"
 msgstr "Hakkında"
 
-#: src/constants.vala.in:68 data/com.github.babluboy.nutty.desktop.in:4
+#: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
 msgstr "Ağ Araçları"
 
-#: src/constants.vala.in:69
+#: src/constants.vala.in:71
 msgid "Filter results..."
 msgstr "Filtreleme sonuçları..."
 
-#: src/constants.vala.in:70
+#: src/constants.vala.in:72
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/constants.vala.in:71
+#: src/constants.vala.in:73
 msgid "Export to File"
 msgstr "Dosyaya Dışa Aktar"
 
-#: src/constants.vala.in:72
+#: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
@@ -117,7 +117,7 @@ msgstr ""
 "Bu eylemi gerçekleştirmek için Nutty'nin izne ihtiyacı var, lütfen devam "
 "etmek için parolaınızı girin."
 
-#: src/constants.vala.in:73
+#: src/constants.vala.in:75
 msgid ""
 "Nutty needs authentication to update the root scheduler(crontab) for device "
 "monitoring. Please provide your password to complete this change. \n"
@@ -131,398 +131,398 @@ msgstr ""
 "\n"
 "Not: Geçerli kök zamanlayıcısı (crontab) Ev dizinine yedeklenecek."
 
-#: src/constants.vala.in:74 src/constants.vala.in:149
+#: src/constants.vala.in:76 src/constants.vala.in:151
 msgid "Today"
 msgstr "Bugün"
 
-#: src/constants.vala.in:75 src/constants.vala.in:148
+#: src/constants.vala.in:77 src/constants.vala.in:150
 msgid "Yesterday"
 msgstr "Dün"
 
-#: src/constants.vala.in:76
+#: src/constants.vala.in:78
 msgid "days ago"
 msgstr "gün önce"
 
-#: src/constants.vala.in:77
+#: src/constants.vala.in:79
 msgid "Results: "
 msgstr "Sonuçlar: "
 
-#: src/constants.vala.in:78
+#: src/constants.vala.in:80
 msgid "No data found"
 msgstr "Herhangi bir bilgi bulunamadı"
 
-#: src/constants.vala.in:79
+#: src/constants.vala.in:81
 msgid "Not Available"
 msgstr "Erişilebilir Değil"
 
-#: src/constants.vala.in:80
+#: src/constants.vala.in:82
 msgid "I Agree"
 msgstr "Kabul Ediyorum"
 
-#: src/constants.vala.in:81
+#: src/constants.vala.in:83
 msgid "Wired"
 msgstr "Kablolu"
 
-#: src/constants.vala.in:82
+#: src/constants.vala.in:84
 msgid "Wireless"
 msgstr "Kablosuz"
 
-#: src/constants.vala.in:83
+#: src/constants.vala.in:85
 msgid "Other"
 msgstr "Diğer"
 
-#: src/constants.vala.in:84
+#: src/constants.vala.in:86
 msgid "My Info"
 msgstr "Bilgilerim"
 
-#: src/constants.vala.in:85
+#: src/constants.vala.in:87
 msgid "Select a connection"
 msgstr "Bir bağlantı seçin"
 
-#: src/constants.vala.in:86
+#: src/constants.vala.in:88
 msgid "View Details"
 msgstr "Ayrıntıları Görüntüle"
 
-#: src/constants.vala.in:87
+#: src/constants.vala.in:89
 msgid "Attribute"
 msgstr "Özellik"
 
-#: src/constants.vala.in:88
+#: src/constants.vala.in:90
 msgid "Details"
 msgstr "Detaylar"
 
-#: src/constants.vala.in:89
+#: src/constants.vala.in:91
 msgid "Host Name"
 msgstr "Ana Bilgisayar Adı"
 
-#: src/constants.vala.in:90
+#: src/constants.vala.in:92
 msgid "MAC Address"
 msgstr "MAC Adresi"
 
-#: src/constants.vala.in:91
+#: src/constants.vala.in:93
 msgid "IP Address"
 msgstr "IP Adresi"
 
-#: src/constants.vala.in:92
+#: src/constants.vala.in:94
 msgid "Interface State"
 msgstr "Arabirim Durumu"
 
-#: src/constants.vala.in:93
+#: src/constants.vala.in:95
 msgid "Interface Hardware"
 msgstr "Arabirim Donanımı"
 
-#: src/constants.vala.in:94
+#: src/constants.vala.in:96
 msgid "Product"
 msgstr "Ürün"
 
-#: src/constants.vala.in:95
+#: src/constants.vala.in:97
 msgid "Vendor"
 msgstr "Satıcı"
 
-#: src/constants.vala.in:96
+#: src/constants.vala.in:98
 msgid "Physical ID"
 msgstr "Fiziksel Kimlik"
 
-#: src/constants.vala.in:97
+#: src/constants.vala.in:99
 msgid "Bus Info"
 msgstr "Veriyolu Bilgisi"
 
-#: src/constants.vala.in:98
+#: src/constants.vala.in:100
 msgid "Version"
 msgstr "Sürüm"
 
-#: src/constants.vala.in:99
+#: src/constants.vala.in:101
 msgid "Capacity"
 msgstr "Kapasite"
 
-#: src/constants.vala.in:100
+#: src/constants.vala.in:102
 msgid "Bus Width"
 msgstr "Veriyolu Genişliği"
 
-#: src/constants.vala.in:101
+#: src/constants.vala.in:103
 msgid "Clock Speed"
 msgstr "Saat Hızı"
 
-#: src/constants.vala.in:102
+#: src/constants.vala.in:104
 msgid "Speed"
 msgstr "Hız"
 
-#: src/constants.vala.in:103
+#: src/constants.vala.in:105
 msgid "Route times to Host (in milliseconds): "
 msgstr "Ana Bilgisayarın rota süreleri (milisaniye cinsinden): "
 
-#: src/constants.vala.in:104
+#: src/constants.vala.in:106
 msgid "Hop#"
 msgstr "Sıçrama Noktası#"
 
-#: src/constants.vala.in:105
+#: src/constants.vala.in:107
 msgid "Server IP"
 msgstr "Sunucu IP'si"
 
-#: src/constants.vala.in:106
+#: src/constants.vala.in:108
 msgid "Server Name"
 msgstr "Sunucu İsmi"
 
-#: src/constants.vala.in:107
+#: src/constants.vala.in:109
 msgid "1st Packet Time"
 msgstr "Birinci Paket Zamanı"
 
-#: src/constants.vala.in:108
+#: src/constants.vala.in:110
 msgid "2nd Packet Time"
 msgstr "İkinci Paket Zamanı"
 
-#: src/constants.vala.in:109
+#: src/constants.vala.in:111
 msgid "3rd Packet Time"
 msgstr "Üçüncü Paket Zamanı"
 
-#: src/constants.vala.in:110
+#: src/constants.vala.in:112
 msgid "Internet Speed : Results from test on"
 msgstr "İnternet Hızı: Yandaki tarihe ait sonuçlar"
 
-#: src/constants.vala.in:111
+#: src/constants.vala.in:113
 msgid "No speed test has been done"
 msgstr "Henüz hiç hız testi yapılmadı"
 
-#: src/constants.vala.in:112
+#: src/constants.vala.in:114
 msgid "Upload Speed"
 msgstr "Karşıya Yükleme Hızı"
 
-#: src/constants.vala.in:113
+#: src/constants.vala.in:115
 msgid "Download Speed"
 msgstr "Karşıdan Yükleme Hızı"
 
-#: src/constants.vala.in:114
+#: src/constants.vala.in:116
 msgid "Refresh Speed Test Results"
 msgstr "İnternet Hızı Sonuçlarını Yenile"
 
-#: src/constants.vala.in:115
+#: src/constants.vala.in:117
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr "Bilinmeyen Tarih. Lütfen hız testi yapmak için Yenile tuşuna basın"
 
-#: src/constants.vala.in:116
+#: src/constants.vala.in:118
 msgid "Ports"
 msgstr "Bağlantı Noktaları"
 
-#: src/constants.vala.in:117
+#: src/constants.vala.in:119
 msgid "All active ports scanned."
 msgstr "Tüm aktif bağlantı noktaları tarandı."
 
-#: src/constants.vala.in:118
+#: src/constants.vala.in:120
 msgid "Refresh Ports results"
 msgstr "Bağlantı Noktaları Sonuçlarını Yenile"
 
-#: src/constants.vala.in:119
+#: src/constants.vala.in:121
 msgid "Protocol"
 msgstr "Protokol"
 
-#: src/constants.vala.in:120
+#: src/constants.vala.in:122
 msgid "State"
 msgstr "Durum"
 
-#: src/constants.vala.in:121
+#: src/constants.vala.in:123
 msgid "Port"
 msgstr "Bağlantı Noktası"
 
-#: src/constants.vala.in:122
+#: src/constants.vala.in:124
 msgid "Process ID"
 msgstr "İşlem Kimliği"
 
-#: src/constants.vala.in:123
+#: src/constants.vala.in:125
 msgid "Program Name"
 msgstr "Uygulama İsmi"
 
-#: src/constants.vala.in:124
+#: src/constants.vala.in:126
 msgid "Path"
 msgstr "Konum"
 
-#: src/constants.vala.in:125
+#: src/constants.vala.in:127
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: src/constants.vala.in:126
+#: src/constants.vala.in:128
 msgid "Refresh device scan results"
 msgstr "Aygıt Taraması Sonuçlarını Yenile"
 
-#: src/constants.vala.in:127
+#: src/constants.vala.in:129
 msgid "Status"
 msgstr "Durum"
 
-#: src/constants.vala.in:128
+#: src/constants.vala.in:130
 msgid "Device Name"
 msgstr "Aygıt İsmi"
 
-#: src/constants.vala.in:129
+#: src/constants.vala.in:131
 msgid "Device Manufacturer"
 msgstr "Aygıt Üretici Firması"
 
-#: src/constants.vala.in:130
+#: src/constants.vala.in:132
 msgid "Last Seen"
 msgstr "Son Görüldüğü Zaman"
 
-#: src/constants.vala.in:131
+#: src/constants.vala.in:133
 msgid "Discovered On"
 msgstr "Keşfedildiği Tarih"
 
-#: src/constants.vala.in:132
+#: src/constants.vala.in:134
 msgid "Host IP"
 msgstr "Ana Bilgisayar IP Adresi"
 
-#: src/constants.vala.in:133
+#: src/constants.vala.in:135
 msgid "Host MAC"
 msgstr "Ana Bilgisayar MAC Adresi"
 
-#: src/constants.vala.in:134
+#: src/constants.vala.in:136
 msgid "Active"
 msgstr "Aktif"
 
-#: src/constants.vala.in:135
+#: src/constants.vala.in:137
 msgid "Non Active"
 msgstr "Aktif Değil"
 
-#: src/constants.vala.in:136
+#: src/constants.vala.in:138
 msgid "Discovered Earlier"
 msgstr "Daha Önceden Keşfedildi"
 
-#: src/constants.vala.in:137
+#: src/constants.vala.in:139
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
 "Gösterilen cihazlar daha önceden kaydedildi. Durumu güncelleştirmek için bir "
 "bağlantı seçin."
 
-#: src/constants.vala.in:138
+#: src/constants.vala.in:140
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
 "Daha önceden hiç bir aygıt kaydedilmedi. Durumu güncelleştirmek için bir "
 "bağlantı seçin."
 
-#: src/constants.vala.in:139
+#: src/constants.vala.in:141
 msgid "Device scan in progress ..."
 msgstr "Aygıt taraması devam ediyor ..."
 
-#: src/constants.vala.in:140
+#: src/constants.vala.in:142
 msgid "devices found on this connection"
 msgstr "tane cihaz bu ağ üzerinde bulundu"
 
-#: src/constants.vala.in:141
+#: src/constants.vala.in:143
 msgid "Actions for : "
 msgstr "İçin Eylemler : "
 
-#: src/constants.vala.in:142
+#: src/constants.vala.in:144
 msgid "Forget device"
 msgstr "Aygıtı Unut"
 
-#: src/constants.vala.in:143
+#: src/constants.vala.in:145
 msgid "New Device found on network:"
 msgstr "Ağ üzerinde yeni bir cihaz bulundu:"
 
-#: src/constants.vala.in:144
+#: src/constants.vala.in:146
 msgid "Usage"
 msgstr "Kullanım"
 
-#: src/constants.vala.in:145
+#: src/constants.vala.in:147
 msgid "Connection monitored from "
 msgstr "Tarafından bağlantı izlendi "
 
-#: src/constants.vala.in:146
+#: src/constants.vala.in:148
 msgid " and last updated on "
 msgstr " ve son olarak tarihinde güncellendi "
 
-#: src/constants.vala.in:147
+#: src/constants.vala.in:149
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
 "Lütfen bu bağlantı arayüzünü komut satırını kullanarak vnstat'a ekleyin."
 
-#: src/constants.vala.in:150
+#: src/constants.vala.in:152
 msgid "Time Period"
 msgstr "Zaman Aralığı"
 
-#: src/constants.vala.in:151
+#: src/constants.vala.in:153
 msgid "Data Received"
 msgstr "Alınan Veri"
 
-#: src/constants.vala.in:152
+#: src/constants.vala.in:154
 msgid "Data Sent"
 msgstr "Gönderilen Veri"
 
-#: src/constants.vala.in:153
+#: src/constants.vala.in:155
 msgid "Total Data"
 msgstr "Toplam Veri"
 
-#: src/constants.vala.in:154
+#: src/constants.vala.in:156
 msgid "Select a connection to view data usage"
 msgstr "Veri kullanımını görüntülemek için bir bağlantı seçin"
 
-#: src/constants.vala.in:155
+#: src/constants.vala.in:157
 msgid "Click refresh to see current Apps using "
 msgstr "Bağlantısını kullanan mevcut uygulamaları görmek için yenileye basın "
 
-#: src/constants.vala.in:156
+#: src/constants.vala.in:158
 msgid "Refresh Apps bandwidth usage"
 msgstr "Uygulamaların Bant Genişliği Kullanımını Yenile"
 
-#: src/constants.vala.in:157
+#: src/constants.vala.in:159
 msgid "Name"
 msgstr "İsim"
 
-#: src/constants.vala.in:158
+#: src/constants.vala.in:160
 msgid "Data Sent (Kb/sec)"
 msgstr "Gönderilen Veri (Kb/sn)"
 
-#: src/constants.vala.in:159
+#: src/constants.vala.in:161
 msgid "Data Received (Kb/sec)"
 msgstr "Alınan Veri (Kb/sn)"
 
-#: src/constants.vala.in:160
+#: src/constants.vala.in:162
 msgid "Background Device Monitoring"
 msgstr "Arka Planda Aygıt İzlemesi"
 
-#: src/constants.vala.in:161
+#: src/constants.vala.in:163
 msgid "No monitoring of devices"
 msgstr "İzlenmeyen aygıtlar"
 
-#: src/constants.vala.in:162
+#: src/constants.vala.in:164
 msgid "Monitor devices every 15 minutes"
 msgstr "Aygıtları her 15 dakikada bir izle"
 
-#: src/constants.vala.in:163
+#: src/constants.vala.in:165
 msgid "Monitor devices every 30 minutes"
 msgstr "Aygıtları her 30 dakikada bir izle"
 
-#: src/constants.vala.in:164
+#: src/constants.vala.in:166
 msgid "Monitor devices every hour"
 msgstr "Aygıtları her saatte bir izle"
 
-#: src/constants.vala.in:165
+#: src/constants.vala.in:167
 msgid "Monitor devices once a day"
 msgstr "Aygıtları günde bir izle"
 
-#: src/constants.vala.in:166
+#: src/constants.vala.in:168
 msgid "Close"
 msgstr "Kapat"
 
-#: src/constants.vala.in:167
+#: src/constants.vala.in:169
 msgid "DEVICE_MONITORING_STATE"
 msgstr "AYGIT_İZLEME_DURUMU"
 
-#: src/constants.vala.in:168
+#: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_SCHEDULE"
 msgstr "AYGIT_İZLEME_ZAMANLAMASI"
 
-#: src/constants.vala.in:169
+#: src/constants.vala.in:171
 msgid "SPEEDTEST_DATE"
 msgstr "SPEEDTEST_TARİHİ"
 
-#: src/constants.vala.in:170
+#: src/constants.vala.in:172
 msgid "SPEEDTEST_UPLOADSPEED"
 msgstr "SPEEDTEST_KARŞIYA_YÜKLEME_HIZI"
 
-#: src/constants.vala.in:171
+#: src/constants.vala.in:173
 msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr "SPEEDTEST_KARŞIDAN_YÜKLEME_HIZI"
 
-#: src/constants.vala.in:172
+#: src/constants.vala.in:174
 msgid "Nutty Information Exported on "
 msgstr "Nutty bilgisi buraya dışarı aktarıldı "
 
@@ -530,51 +530,51 @@ msgstr "Nutty bilgisi buraya dışarı aktarıldı "
 msgid " for "
 msgstr " için "
 
-#: src/info.vala:148
+#: src/info.vala:149
 msgid "Network Card"
 msgstr "Ağ Kartı"
 
-#: src/info.vala:148
+#: src/info.vala:149
 msgid " Standards with Transmit Power of "
 msgstr " Veri Gücü Standartlarıyla Birlikte "
 
-#: src/info.vala:148
+#: src/info.vala:149
 msgid " [Power Management: "
 msgstr " [Güç Yönetimi: "
 
-#: src/info.vala:151
+#: src/info.vala:152
 msgid "Connected to"
 msgstr "Şuna bağlı"
 
-#: src/info.vala:151
+#: src/info.vala:152
 msgid " Network at Access Point "
 msgstr " Erişim Noktasında bulunan Ağ "
 
-#: src/info.vala:151
+#: src/info.vala:152
 msgid " Mode"
 msgstr " Mod"
 
-#: src/info.vala:154
+#: src/info.vala:155
 msgid "Connected with"
 msgstr "İle bağlandı"
 
-#: src/info.vala:154
+#: src/info.vala:155
 msgid "Frequency of "
 msgstr "Sıklığı "
 
-#: src/info.vala:154
+#: src/info.vala:155
 msgid " and Bit Rate of "
 msgstr " ve Bit Hızı "
 
-#: src/info.vala:157
+#: src/info.vala:158
 msgid "Connection strength"
 msgstr "Bağlantı gücü"
 
-#: src/info.vala:157
+#: src/info.vala:158
 msgid "Link Quality of "
 msgstr "Bağlantı Kalitesi "
 
-#: src/info.vala:157
+#: src/info.vala:158
 msgid " and Signal Level of "
 msgstr " ve Sinyal Seviyesi "
 
