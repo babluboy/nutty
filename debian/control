@@ -2,11 +2,11 @@ Source: com.github.babluboy.nutty
 Section: utils
 Priority: optional
 Maintainer: Siddhartha Das <bablu.boy@gmail.com>
-Build-Depends: cmake (>= 2.8),
-               debhelper (>= 9),
+Build-Depends: debhelper,
+               meson,
+               valac (>= 0.26),
                libgee-0.8-dev,
                libgtk-3-dev (>= 3.14),
-               valac (>= 0.26),
                libgranite-dev (>= 0.3.0),
                libsqlite3-dev,
                libxml2,
