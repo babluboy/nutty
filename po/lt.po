@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-10 15:02+0100\n"
+"POT-Creation-Date: 2018-11-17 13:56+0000\n"
 "PO-Revision-Date: 2018-10-01 18:03+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
@@ -15,95 +15,63 @@ msgstr ""
 "1 : 2);\n"
 "X-Generator: Weblate 3.2-dev\n"
 
-#: ../src/devices.vala:318
-msgid " for "
-msgstr " skirti "
+#: src/nutty.vala:130
+msgid "Display version number"
+msgstr "Rodyti versijos numerį"
 
-#: ../src/window.vala:47
-msgid "Nutty Disclaimer"
-msgstr "Nutty atsakomybės ribojimas"
+#: src/nutty.vala:131
+msgid "Run Nutty to discover devices"
+msgstr "Paleisti Nutty, kad būtų atrasti įrenginiai"
 
-#: ../src/window.vala:48
-msgid ""
-"Click to read the legal disclaimer on Nmap (used by Nutty) for further "
-"information"
-msgstr ""
-"Spustelėkite, norėdami išsamiau skaityti teisinį atsakomybės ribojimą, "
-"susijusį su Nmap (kurį naudoja Nutty)"
+#: src/nutty.vala:132
+msgid "Run Nutty in device alert mode"
+msgstr "Paleisti Nutty įspėjimo apie įrenginius veiksenoje"
 
-#: ../src/window.vala:63
-msgid "Use Nutty"
-msgstr "Naudoti Nutty"
+#: src/nutty.vala:133
+msgid "Run Nutty in debug mode"
+msgstr "Paleisti Nutty derinimo veiksenoje"
 
-#: ../src/window.vala:66
-msgid "Exit"
-msgstr "Išeiti"
+#: src/nutty.vala:134
+msgid "Run Nutty in info mode"
+msgstr "Paleisti Nutty informacinėje veiksenoje"
 
-#: ../src/info.vala:148
-msgid "Network Card"
-msgstr "Tinklo plokštė"
+#: src/utils.vala:231
+msgid "Cancel"
+msgstr "Atsisakyti"
 
-#: ../src/info.vala:148
-msgid " Standards with Transmit Power of "
-msgstr " Remiasi standartais su perdavimo galia ties "
+#: src/utils.vala:233
+msgid "Open"
+msgstr "Atverti"
 
-#: ../src/info.vala:148
-msgid " [Power Management: "
-msgstr " [Energijos valdymas: "
+#: src/utils.vala:235
+msgid "Save"
+msgstr "Įrašyti"
 
-#: ../src/info.vala:151
-msgid "Connected to"
-msgstr "Prisijungta prie"
+#: src/utils.vala:250
+msgid "All files"
+msgstr "Visi failai"
 
-#: ../src/info.vala:151
-msgid " Network at Access Point "
-msgstr " Tinklas ties prieigos tašku "
+#: src/utils.vala:253
+msgid "Text files"
+msgstr "Tekstiniai failai"
 
-#: ../src/info.vala:151
-msgid " Mode"
-msgstr " Veiksena"
-
-#: ../src/info.vala:154
-msgid "Connected with"
-msgstr "Prisijungta su"
-
-#: ../src/info.vala:154
-msgid "Frequency of "
-msgstr "Dažnis ties "
-
-#: ../src/info.vala:154
-msgid " and Bit Rate of "
-msgstr " ir pralaidumas ties "
-
-#: ../src/info.vala:157
-msgid "Connection strength"
-msgstr "Ryšio stiprumas"
-
-#: ../src/info.vala:157
-msgid "Link Quality of "
-msgstr "Susiejimo kokybė ties "
-
-#: ../src/info.vala:157
-msgid " and Signal Level of "
-msgstr " ir signalo lygis ties "
-
-#: ../src/constants.vala:28
+#: src/constants.vala.in:28
 msgid "A Network Utility"
 msgstr "Tinklo paslaugų programa"
 
-#: ../src/constants.vala:30
+#: src/constants.vala.in:30
 msgid "Weblate Translators"
 msgstr "Weblate vertėjai"
 
-#: ../src/constants.vala:35
+#: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
 msgstr "Svetainė | Vertimas | Klaidų seklys"
 
-#: ../src/constants.vala:65
+#: src/constants.vala.in:65
 msgid "Network Scan Agreement"
 msgstr "Tinklo skenavimo sutikimas"
 
-#: ../src/constants.vala:66
+#: src/constants.vala.in:66
 msgid ""
 "This application has features to perform port scanning and provide "
 "information on devices on the network you are using. It is perfectly OK to "
@@ -123,27 +91,27 @@ msgstr ""
 "nepriklauso, pasikonsultuokite ir gaukite tinklo administratoriaus ar kitos "
 "kompetentingos valdžios leidimą."
 
-#: ../src/constants.vala:67
+#: src/constants.vala.in:67
 msgid "About"
 msgstr "Apie"
 
-#: ../src/constants.vala:68
+#: src/constants.vala.in:68 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
 msgstr "Tinklo paslaugų programa"
 
-#: ../src/constants.vala:69
+#: src/constants.vala.in:69
 msgid "Filter results..."
 msgstr "Filtruoti rezultatus..."
 
-#: ../src/constants.vala:70
+#: src/constants.vala.in:70
 msgid "Preferences"
 msgstr "Nuostatos"
 
-#: ../src/constants.vala:71
+#: src/constants.vala.in:71
 msgid "Export to File"
 msgstr "Eksportuoti į failą"
 
-#: ../src/constants.vala:72
+#: src/constants.vala.in:72
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
@@ -151,7 +119,7 @@ msgstr ""
 "Norint atlikti šį veiksmą, Nutty reikia nustatyti tapatybę. Norėdami tęsti, "
 "pateikite savo slaptažodį."
 
-#: ../src/constants.vala:73
+#: src/constants.vala.in:73
 msgid ""
 "Nutty needs authentication to update the root scheduler(crontab) for device "
 "monitoring. Please provide your password to complete this change. \n"
@@ -166,438 +134,546 @@ msgstr ""
 "Pastaba: Dabartinės šaknies planuoklės (crontab) atsarginė kopija bus "
 "patalpinta namų kataloge."
 
-#: ../src/constants.vala:74 ../src/constants.vala:149
+#: src/constants.vala.in:74 src/constants.vala.in:149
 msgid "Today"
 msgstr "Šiandien"
 
-#: ../src/constants.vala:75 ../src/constants.vala:148
+#: src/constants.vala.in:75 src/constants.vala.in:148
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: ../src/constants.vala:76
+#: src/constants.vala.in:76
 msgid "days ago"
 msgstr "dienų(-as) atgal"
 
-#: ../src/constants.vala:77
+#: src/constants.vala.in:77
 msgid "Results: "
 msgstr "Rezultatai: "
 
-#: ../src/constants.vala:78
+#: src/constants.vala.in:78
 msgid "No data found"
 msgstr "Nerasta jokių duomenų"
 
-#: ../src/constants.vala:79
+#: src/constants.vala.in:79
 msgid "Not Available"
 msgstr "Neprieinama"
 
-#: ../src/constants.vala:80
+#: src/constants.vala.in:80
 msgid "I Agree"
 msgstr "Aš sutinku"
 
-#: ../src/constants.vala:81
+#: src/constants.vala.in:81
 msgid "Wired"
 msgstr "Laidinis"
 
-#: ../src/constants.vala:82
+#: src/constants.vala.in:82
 msgid "Wireless"
 msgstr "Belaidis"
 
-#: ../src/constants.vala:83
+#: src/constants.vala.in:83
 msgid "Other"
 msgstr "Kitas"
 
-#: ../src/constants.vala:84
+#: src/constants.vala.in:84
 msgid "My Info"
 msgstr "Mano informacija"
 
-#: ../src/constants.vala:85
+#: src/constants.vala.in:85
 msgid "Select a connection"
 msgstr "Pasirinkite ryšį"
 
-#: ../src/constants.vala:86
+#: src/constants.vala.in:86
 msgid "View Details"
 msgstr "Rodyti informaciją"
 
-#: ../src/constants.vala:87
+#: src/constants.vala.in:87
 msgid "Attribute"
 msgstr "Požymis"
 
-#: ../src/constants.vala:88
+#: src/constants.vala.in:88
 msgid "Details"
 msgstr "Išsamesnė informacija"
 
-#: ../src/constants.vala:89
+#: src/constants.vala.in:89
 msgid "Host Name"
 msgstr "Kompiuterio vardas"
 
-#: ../src/constants.vala:90
+#: src/constants.vala.in:90
 msgid "MAC Address"
 msgstr "MAC adresas"
 
-#: ../src/constants.vala:91
+#: src/constants.vala.in:91
 msgid "IP Address"
 msgstr "IP adresas"
 
-#: ../src/constants.vala:92
+#: src/constants.vala.in:92
 msgid "Interface State"
 msgstr "Sąsajos būsena"
 
-#: ../src/constants.vala:93
+#: src/constants.vala.in:93
 msgid "Interface Hardware"
 msgstr "Sąsajos aparatinė įranga"
 
-#: ../src/constants.vala:94
+#: src/constants.vala.in:94
 msgid "Product"
 msgstr "Produktas"
 
-#: ../src/constants.vala:95
+#: src/constants.vala.in:95
 msgid "Vendor"
 msgstr "Tiekėjas"
 
-#: ../src/constants.vala:96
+#: src/constants.vala.in:96
 msgid "Physical ID"
 msgstr "Fizinis ID"
 
-#: ../src/constants.vala:97
+#: src/constants.vala.in:97
 msgid "Bus Info"
 msgstr "Magistralės informacija"
 
-#: ../src/constants.vala:98
+#: src/constants.vala.in:98
 msgid "Version"
 msgstr "Versija"
 
-#: ../src/constants.vala:99
+#: src/constants.vala.in:99
 msgid "Capacity"
 msgstr "Talpa"
 
-#: ../src/constants.vala:100
+#: src/constants.vala.in:100
 msgid "Bus Width"
 msgstr "Magistralės plotis"
 
-#: ../src/constants.vala:101
+#: src/constants.vala.in:101
 msgid "Clock Speed"
 msgstr "Taktų dažnis"
 
-#: ../src/constants.vala:102
+#: src/constants.vala.in:102
 msgid "Speed"
 msgstr "Greitis"
 
-#: ../src/constants.vala:103
+#: src/constants.vala.in:103
 msgid "Route times to Host (in milliseconds): "
 msgstr "Maršruto laikai iki serverio (milisekundėmis): "
 
-#: ../src/constants.vala:104
+#: src/constants.vala.in:104
 msgid "Hop#"
 msgstr "Šuolio nr."
 
-#: ../src/constants.vala:105
+#: src/constants.vala.in:105
 msgid "Server IP"
 msgstr "Serverio IP"
 
-#: ../src/constants.vala:106
+#: src/constants.vala.in:106
 msgid "Server Name"
 msgstr "Serverio pavadinimas"
 
-#: ../src/constants.vala:107
+#: src/constants.vala.in:107
 msgid "1st Packet Time"
 msgstr "1-ojo paketo laikas"
 
-#: ../src/constants.vala:108
+#: src/constants.vala.in:108
 msgid "2nd Packet Time"
 msgstr "2-ojo paketo laikas"
 
-#: ../src/constants.vala:109
+#: src/constants.vala.in:109
 msgid "3rd Packet Time"
 msgstr "3-ojo paketo laikas"
 
-#: ../src/constants.vala:110
+#: src/constants.vala.in:110
 msgid "Internet Speed : Results from test on"
 msgstr "Interneto greitis : Rezultatai iš bandymo su"
 
-#: ../src/constants.vala:111
+#: src/constants.vala.in:111
 msgid "No speed test has been done"
 msgstr "Nebuvo atliktas joks greičio bandymas"
 
-#: ../src/constants.vala:112
+#: src/constants.vala.in:112
 msgid "Upload Speed"
 msgstr "Išsiuntimo greitis"
 
-#: ../src/constants.vala:113
+#: src/constants.vala.in:113
 msgid "Download Speed"
 msgstr "Atsiuntimo greitis"
 
-#: ../src/constants.vala:114
+#: src/constants.vala.in:114
 msgid "Refresh Speed Test Results"
 msgstr "Iš naujo įkelti greičio bandymo rezultatus"
 
-#: ../src/constants.vala:115
+#: src/constants.vala.in:115
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr ""
 "Nežinoma data. Norėdami atlikti greičio bandymą, spustelėkite mygtuką Įkelti "
 "iš naujo"
 
-#: ../src/constants.vala:116
+#: src/constants.vala.in:116
 msgid "Ports"
 msgstr "Prievadai"
 
-#: ../src/constants.vala:117
+#: src/constants.vala.in:117
 msgid "All active ports scanned."
 msgstr "Visi aktyvūs prievadai nuskenuoti."
 
-#: ../src/constants.vala:118
+#: src/constants.vala.in:118
 msgid "Refresh Ports results"
 msgstr "Įkelti prievadų rezultatus iš naujo"
 
-#: ../src/constants.vala:119
+#: src/constants.vala.in:119
 msgid "Protocol"
 msgstr "Protokolas"
 
-#: ../src/constants.vala:120
+#: src/constants.vala.in:120
 msgid "State"
 msgstr "Būsena"
 
-#: ../src/constants.vala:121
+#: src/constants.vala.in:121
 msgid "Port"
 msgstr "Prievadas"
 
-#: ../src/constants.vala:122
+#: src/constants.vala.in:122
 msgid "Process ID"
 msgstr "Proceso ID"
 
-#: ../src/constants.vala:123
+#: src/constants.vala.in:123
 msgid "Program Name"
 msgstr "Programos pavadinimas"
 
-#: ../src/constants.vala:124
+#: src/constants.vala.in:124
 msgid "Path"
 msgstr "Kelias"
 
-#: ../src/constants.vala:125
+#: src/constants.vala.in:125
 msgid "Devices"
 msgstr "Įrenginiai"
 
-#: ../src/constants.vala:126
+#: src/constants.vala.in:126
 msgid "Refresh device scan results"
 msgstr "Iš naujo įkelti įrenginių skenavimo rezultatus"
 
-#: ../src/constants.vala:127
+#: src/constants.vala.in:127
 msgid "Status"
 msgstr "Būsena"
 
-#: ../src/constants.vala:128
+#: src/constants.vala.in:128
 msgid "Device Name"
 msgstr "Įrenginio pavadinimas"
 
-#: ../src/constants.vala:129
+#: src/constants.vala.in:129
 msgid "Device Manufacturer"
 msgstr "Įrenginio gamintojas"
 
-#: ../src/constants.vala:130
+#: src/constants.vala.in:130
 msgid "Last Seen"
 msgstr "Paskutinį kartą matytas"
 
-#: ../src/constants.vala:131
+#: src/constants.vala.in:131
 msgid "Discovered On"
 msgstr "Aptiktas ties"
 
-#: ../src/constants.vala:132
+#: src/constants.vala.in:132
 msgid "Host IP"
 msgstr "Serverio IP"
 
-#: ../src/constants.vala:133
+#: src/constants.vala.in:133
 msgid "Host MAC"
 msgstr "Serverio MAC"
 
-#: ../src/constants.vala:134
+#: src/constants.vala.in:134
 msgid "Active"
 msgstr "Aktyvi"
 
-#: ../src/constants.vala:135
+#: src/constants.vala.in:135
 msgid "Non Active"
 msgstr "Neaktyvi"
 
-#: ../src/constants.vala:136
+#: src/constants.vala.in:136
 msgid "Discovered Earlier"
 msgstr "Aptiktas anksčiau"
 
-#: ../src/constants.vala:137
+#: src/constants.vala.in:137
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
 "Rodomi anksčiau įrašyti įrenginiai. Pasirinkite ryšį, norėdami atnaujinti "
 "būseną."
 
-#: ../src/constants.vala:138
+#: src/constants.vala.in:138
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
 "Nėra anksčiau įrašytų įrenginių. Pasirinkite ryšį, norėdami atnaujinti "
 "rezultatus."
 
-#: ../src/constants.vala:139
+#: src/constants.vala.in:139
 msgid "Device scan in progress ..."
 msgstr "Vykdomas įrenginių skenavimas ..."
 
-#: ../src/constants.vala:140
+#: src/constants.vala.in:140
 msgid "devices found on this connection"
 msgstr "įrenginiai(-ių) rasta šiame ryšyje"
 
-#: ../src/constants.vala:141
+#: src/constants.vala.in:141
 msgid "Actions for : "
 msgstr "Veiksmai skirti: "
 
-#: ../src/constants.vala:142
+#: src/constants.vala.in:142
 msgid "Forget device"
 msgstr "Pamiršti įrenginį"
 
-#: ../src/constants.vala:143
+#: src/constants.vala.in:143
 msgid "New Device found on network:"
 msgstr "Tinkle rastas naujas įrenginys:"
 
-#: ../src/constants.vala:144
+#: src/constants.vala.in:144
 msgid "Usage"
 msgstr "Naudojimas"
 
-#: ../src/constants.vala:145
+#: src/constants.vala.in:145
 msgid "Connection monitored from "
 msgstr "Ryšys stebimas nuo "
 
-#: ../src/constants.vala:146
+#: src/constants.vala.in:146
 msgid " and last updated on "
 msgstr " , o paskutinį kartą atnaujintas "
 
-#: ../src/constants.vala:147
+#: src/constants.vala.in:147
 msgid "Please add this connection interface to vnstat using command line."
 msgstr "Pridėkite šią ryšio sąsają į vnstat, naudodami komandų eilutę."
 
-#: ../src/constants.vala:150
+#: src/constants.vala.in:150
 msgid "Time Period"
 msgstr "Laikotarpis"
 
-#: ../src/constants.vala:151
+#: src/constants.vala.in:151
 msgid "Data Received"
 msgstr "Gauta duomenų"
 
-#: ../src/constants.vala:152
+#: src/constants.vala.in:152
 msgid "Data Sent"
 msgstr "Išsiųsta duomenų"
 
-#: ../src/constants.vala:153
+#: src/constants.vala.in:153
 msgid "Total Data"
 msgstr "Viso duomenų"
 
-#: ../src/constants.vala:154
+#: src/constants.vala.in:154
 msgid "Select a connection to view data usage"
 msgstr "Norėdami žiūrėti duomenų naudojimą, pasirinkite ryšį"
 
-#: ../src/constants.vala:155
+#: src/constants.vala.in:155
 msgid "Click refresh to see current Apps using "
 msgstr "Spustelėkite įkelti iš naujo, norėdami matyti programas, naudojančias "
 
-#: ../src/constants.vala:156
+#: src/constants.vala.in:156
 msgid "Refresh Apps bandwidth usage"
 msgstr "Iš naujo įkelti programų siuntimo spartos naudojimą"
 
-#: ../src/constants.vala:157
+#: src/constants.vala.in:157
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: ../src/constants.vala:158
+#: src/constants.vala.in:158
 msgid "Data Sent (Kb/sec)"
 msgstr "Išsiųsta duomenų (Kb/s)"
 
-#: ../src/constants.vala:159
+#: src/constants.vala.in:159
 msgid "Data Received (Kb/sec)"
 msgstr "Gauta duomenų (Kb/s)"
 
-#: ../src/constants.vala:160
+#: src/constants.vala.in:160
 msgid "Background Device Monitoring"
 msgstr "Foninis įrenginių stebėjimas"
 
-#: ../src/constants.vala:161
+#: src/constants.vala.in:161
 msgid "No monitoring of devices"
 msgstr "Jokio įrenginių stebėjimo"
 
-#: ../src/constants.vala:162
+#: src/constants.vala.in:162
 msgid "Monitor devices every 15 minutes"
 msgstr "Stebėti įrenginius kas 15 minučių"
 
-#: ../src/constants.vala:163
+#: src/constants.vala.in:163
 msgid "Monitor devices every 30 minutes"
 msgstr "Stebėti įrenginius kas 30 minučių"
 
-#: ../src/constants.vala:164
+#: src/constants.vala.in:164
 msgid "Monitor devices every hour"
 msgstr "Stebėti įrenginius kas valandą"
 
-#: ../src/constants.vala:165
+#: src/constants.vala.in:165
 msgid "Monitor devices once a day"
 msgstr "Stebėti įrenginius kartą per dieną"
 
-#: ../src/constants.vala:166
+#: src/constants.vala.in:166
 msgid "Close"
 msgstr "Užverti"
 
-#: ../src/constants.vala:167
+#: src/constants.vala.in:167
 msgid "DEVICE_MONITORING_STATE"
 msgstr "DEVICE_MONITORING_STATE"
 
-#: ../src/constants.vala:168
+#: src/constants.vala.in:168
 msgid "DEVICE_MONITORING_SCHEDULE"
 msgstr "DEVICE_MONITORING_SCHEDULE"
 
-#: ../src/constants.vala:169
+#: src/constants.vala.in:169
 msgid "SPEEDTEST_DATE"
 msgstr "SPEEDTEST_DATE"
 
-#: ../src/constants.vala:170
+#: src/constants.vala.in:170
 msgid "SPEEDTEST_UPLOADSPEED"
 msgstr "SPEEDTEST_UPLOADSPEED"
 
-#: ../src/constants.vala:171
+#: src/constants.vala.in:171
 msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr "SPEEDTEST_DOWNLOADSPEED"
 
-#: ../src/constants.vala:172
+#: src/constants.vala.in:172
 msgid "Nutty Information Exported on "
 msgstr "Nutty informacija eksportuota ties "
 
-#: ../src/utils.vala:231
-msgid "Cancel"
-msgstr "Atsisakyti"
+#: src/devices.vala:318
+msgid " for "
+msgstr " skirti "
 
-#: ../src/utils.vala:233
-msgid "Open"
-msgstr "Atverti"
+#: src/info.vala:148
+msgid "Network Card"
+msgstr "Tinklo plokštė"
 
-#: ../src/utils.vala:235
-msgid "Save"
-msgstr "Įrašyti"
+#: src/info.vala:148
+msgid " Standards with Transmit Power of "
+msgstr " Remiasi standartais su perdavimo galia ties "
 
-#: ../src/utils.vala:250
-msgid "All files"
-msgstr "Visi failai"
+#: src/info.vala:148
+msgid " [Power Management: "
+msgstr " [Energijos valdymas: "
 
-#: ../src/utils.vala:253
-msgid "Text files"
-msgstr "Tekstiniai failai"
+#: src/info.vala:151
+msgid "Connected to"
+msgstr "Prisijungta prie"
 
-#: ../src/nutty.vala:130
-msgid "Display version number"
-msgstr "Rodyti versijos numerį"
+#: src/info.vala:151
+msgid " Network at Access Point "
+msgstr " Tinklas ties prieigos tašku "
 
-#: ../src/nutty.vala:131
-msgid "Run Nutty to discover devices"
-msgstr "Paleisti Nutty, kad būtų atrasti įrenginiai"
+#: src/info.vala:151
+msgid " Mode"
+msgstr " Veiksena"
 
-#: ../src/nutty.vala:132
-msgid "Run Nutty in device alert mode"
-msgstr "Paleisti Nutty įspėjimo apie įrenginius veiksenoje"
+#: src/info.vala:154
+msgid "Connected with"
+msgstr "Prisijungta su"
 
-#: ../src/nutty.vala:133
-msgid "Run Nutty in debug mode"
-msgstr "Paleisti Nutty derinimo veiksenoje"
+#: src/info.vala:154
+msgid "Frequency of "
+msgstr "Dažnis ties "
 
-#: ../src/nutty.vala:134
-msgid "Run Nutty in info mode"
-msgstr "Paleisti Nutty informacinėje veiksenoje"
+#: src/info.vala:154
+msgid " and Bit Rate of "
+msgstr " ir pralaidumas ties "
+
+#: src/info.vala:157
+msgid "Connection strength"
+msgstr "Ryšio stiprumas"
+
+#: src/info.vala:157
+msgid "Link Quality of "
+msgstr "Susiejimo kokybė ties "
+
+#: src/info.vala:157
+msgid " and Signal Level of "
+msgstr " ir signalo lygis ties "
+
+#: src/window.vala:47
+msgid "Nutty Disclaimer"
+msgstr "Nutty atsakomybės ribojimas"
+
+#: src/window.vala:48
+msgid ""
+"Click to read the legal disclaimer on Nmap (used by Nutty) for further "
+"information"
+msgstr ""
+"Spustelėkite, norėdami išsamiau skaityti teisinį atsakomybės ribojimą, "
+"susijusį su Nmap (kurį naudoja Nutty)"
+
+#: src/window.vala:63
+msgid "Use Nutty"
+msgstr "Naudoti Nutty"
+
+#: src/window.vala:66
+msgid "Exit"
+msgstr "Išeiti"
+
+#: data/com.github.babluboy.nutty.desktop.in:3
+#: data/com.github.babluboy.nutty.appdata.xml.in:7
+#, fuzzy
+msgid "Nutty"
+msgstr "Naudoti Nutty"
+
+#: data/com.github.babluboy.nutty.desktop.in:5
+msgid "Displays network information"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.desktop.in:8
+msgid "com.github.babluboy.nutty"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:9
+msgid "A simple utility for network information"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:11
+msgid ""
+"Nutty provides an intuitive user interface for some commonly used network "
+"related command line tools."
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:12
+msgid ""
+"A key feature is the ability to turn on notification when a device enters "
+"the user's network."
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:15
+msgid ""
+"My Info: Provides basic and detailed information for the device network card"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:16
+msgid ""
+"Usage: Provides network data usage in two views - historical usage and "
+"current usage"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:17
+msgid "Speed: Check Upload and Download speeds and get route times to a host"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:18
+msgid ""
+"Ports: Provides information on active ports and application using them on "
+"the local device"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:19
+msgid ""
+"Devices: Monitors, alerts and provides information on the other devices on "
+"the network"
+msgstr ""
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:25
+#, fuzzy
+msgid "Device Monitoring"
+msgstr "Foninis įrenginių stebėjimas"
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:29
+#, fuzzy
+msgid "Bandwidth Usage"
+msgstr "Iš naujo įkelti programų siuntimo spartos naudojimą"
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:33
+#, fuzzy
+msgid "Speed Test"
+msgstr "Greitis"
+
+#: data/com.github.babluboy.nutty.appdata.xml.in:58
+msgid "Siddhartha Das"
+msgstr ""

@@ -289,7 +289,7 @@ public class NuttyApp.Devices {
 				}else{
 					isDeviceOnline = false;
 				}
-				//display device details					
+				//display device details
 				NuttyApp.Nutty.device_list_store.set (iter, 
 							0, isDeviceOnline ? NuttyApp.Nutty.device_available_pix : NuttyApp.Nutty.device_offline_pix, 
 							1, NuttyApp.Utils.limitStringLength (aDevice.device_hostname_custom, 25), 
@@ -350,6 +350,18 @@ public class NuttyApp.Devices {
 						Constants.nmap_output_filename,
 						scanIPAddress
 		});
+		//handle unsucessfull command execution and raise error on infobar
+		if(!Utils.isExpectedOutputPresent(
+						string.joinv(" ", 
+								{NuttyApp.Constants.COMMAND_FOR_DEVICE_SCAN, Constants.nmap_output_filename, scanIPAddress}
+						),
+						NuttyApp.Nutty.spawn_async_with_pipes_output.str,
+						{"nmap", "executed", "sucessfully"},
+						true
+			)
+		){
+			NuttyApp.Nutty.devices_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND);
+		}
 		NuttyApp.XmlParser thisParser = new NuttyApp.XmlParser();
 		ArrayList<NuttyApp.Entities.Device> extractedDeviceList = 
 								thisParser.extractDeviceDataFromXML(Constants.nmap_output_filename);

@@ -16,6 +16,6 @@ Build-Depends: cmake (>= 2.8),
 Standards-Version: 3.9.6
 Package: com.github.babluboy.nutty
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, net-tools, nmap, traceroute, vnstat, nethogs, curl, wireless-tools, iproute2
+Depends: ${misc:Depends}, ${shlibs:Depends}, net-tools, nmap, traceroute, vnstat, nethogs, curl, wireless-tools, iproute2, pciutils
 Description: Nutty
  A network utility with a user interface for common command line tools

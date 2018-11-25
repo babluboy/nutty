@@ -21,10 +21,9 @@ using Gee;
 using Granite.Widgets;
 
 public class NuttyApp.AppWindow {
-    
     public static Gtk.Box createNuttyWelcomeView() {
 		debug("Starting to create main window components...");
-		Gtk.Box welcome_ui_box = new Gtk.Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);			
+		Gtk.Box welcome_ui_box = new Gtk.Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
 		Granite.Widgets.Welcome welcome = new Granite.Widgets.Welcome (
     		NuttyApp.Constants.PRIMARY_TEXT_FOR_DISCLAIMER,   
     		NuttyApp.Constants.SECONDARY_TEXT_FOR_DISCLAIMER
@@ -43,9 +42,10 @@ public class NuttyApp.AppWindow {
 			}
 		}
 		//Add a link to the nmap disclaimer website
-		welcome.append ("emblem-web",
-										 _("Nutty Disclaimer"), 
-										 _("Click to read the legal disclaimer on Nmap (used by Nutty) for further information")
+		welcome.append (
+			"emblem-web",
+			_("Nutty Disclaimer"), 
+			_("Click to read the legal disclaimer on Nmap (used by Nutty) for further information")
 		);
 		welcome.activated.connect ((index) => {
 		    switch (index) {
@@ -82,6 +82,19 @@ public class NuttyApp.AppWindow {
 		welcome_ui_box.pack_start (disclaimer_agreement_box, false, false, 0);
 		info("[END] [FUNCTION:createExportDialog]");
 		return welcome_ui_box;
+    }
+
+    public static void showInfoBar(string message, MessageType aMessageType){
+        debug("[START] [FUNCTION:showInfoBar] ");
+        NuttyApp.Nutty.infobarLabel.set_text(message);
+        NuttyApp.Nutty.infobar.set_message_type (aMessageType);
+        NuttyApp.Nutty.infobar.show();
+        debug("[END] [FUNCTION:showInfoBar] with message:"+message);
+    }
+
+    //Handle action for close of the InfoBar
+    public static void on_info_bar_closed(){
+        NuttyApp.Nutty.infobar.hide();
     }
 }
 

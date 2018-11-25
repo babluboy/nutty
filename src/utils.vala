@@ -498,4 +498,41 @@ namespace NuttyApp.Utils{
 			return inputString;
 		}
 	}
+
+    public static bool isExpectedOutputPresent (string executionData, 
+												string executionOutput, 
+												string[] requiredKeyWords, 
+												bool isAllKeywordsRequired)
+	{
+		bool isOneKeyWordFound = false;
+		bool isOneKeyWordMissing = false;
+		bool hasCheckFailed = false;
+		foreach(string keyword in requiredKeyWords){
+			if(executionOutput.index_of(keyword) == -1){
+				isOneKeyWordMissing = true;
+			}else{
+				isOneKeyWordFound = true;
+			}
+		}
+		//make a decision based on whether all key words are required
+		if(isAllKeywordsRequired && isOneKeyWordMissing){
+			hasCheckFailed = true; //Check has failed - all expected keywords are not in the output
+		}
+		if(!isAllKeywordsRequired && !isOneKeyWordFound){
+			hasCheckFailed = true; //Check has failed - not even one keyword is present in the output
+		}
+		//Show the infobar with error if the check has failed
+		if(hasCheckFailed){
+			NuttyApp.AppWindow.showInfoBar(
+					"Got Error [" +
+						executionOutput.replace("\n"," ").strip() +
+					"] in executing command ["+
+						executionData +
+		            "]",
+					Gtk.MessageType.ERROR
+			);
+			return false;
+		}
+        return true;
+    }
 }

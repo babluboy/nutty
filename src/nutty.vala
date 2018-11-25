@@ -30,16 +30,16 @@ namespace NuttyApp {
 		public static Gtk.IconTheme default_theme;
 		public static Nutty application;
 		public static string[] commandLineArgs;
-				
-		public static string[] COMMAND_FOR_INTERFACE_HARDWARE_DETAILED = {"lshw", "-xml", "-class", "network"};
-		public static string[] COMMAND_FOR_BANDWIDTH_USAGE = {"vnstat", "--xml", "-i", "<interface goes here>"};
+
 		public static string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {
-												"curl", "-d", "test", "http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"
-											};
+					"curl", 
+					"-d", 
+					"test", 
+					"http://www.macvendorlookup.com/api/v2/MAC-ID-SUBSTITUTION/xml"
+		};
 		public static string[] COMMAND_FOR_SPEED_TEST = {"speedtest-cli", "--simple", "--bytes"};
 		public bool hasDisclaimerBeenAgreed = false;
 		public string crontabContents = "";
-		//public static string nutty_config_path = GLib.Environment.get_user_config_dir ()+"/nutty";
 		public static string nutty_config_path = "";
 		public static Gtk.IconTheme icon_theme;
 		public static Gtk.Image menu_icon;
@@ -53,7 +53,7 @@ namespace NuttyApp {
 		public static string UPLOADSPEED = "0";
 		public static string DOWNLOADSPEED = "0";
 		public static string SPEEDTESTDATE = "";
-		public static int exitCodeForCommand = 0;
+		public static int exitCodeForCommand = -1;
 		public static int info_combobox_counter = 0;
 		public static StringBuilder spawn_async_with_pipes_output = new StringBuilder("");
 		public static Stack stack;
@@ -69,6 +69,8 @@ namespace NuttyApp {
 		public static Gtk.ListStore bandwidth_results_list_store = new Gtk.ListStore (4, typeof (Gdk.Pixbuf), typeof (string), typeof (string), typeof (string));
 		public static Gtk.ListStore bandwidth_list_store = new Gtk.ListStore (4, typeof (string), typeof (string), typeof (string), typeof (string));
 		public static Gtk.ListStore speedtest_list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
+		public static Gtk.InfoBar infobar;
+		public static Gtk.Label infobarLabel;
 		public static Spinner infoProcessSpinner;
 		public static string HostName;
 		public static Gtk.SearchEntry headerSearchBar;
@@ -120,7 +122,6 @@ namespace NuttyApp {
 
 		construct {
 			build_version = NuttyApp.Constants.nutty_version;
-			
 			application_id = NuttyApp.Constants.app_id;
 			flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 			program_name = NuttyApp.Constants.program_name;
@@ -141,41 +142,51 @@ namespace NuttyApp {
 			Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
 			//Initialize XDG Paths
 			app_xdg_path = new Granite.Services.Paths();
-			app_xdg_path.initialize (Constants.app_id, Constants.nutty_pkgdata_path);
+			app_xdg_path.initialize (Constants.app_id, Constants.NUTTY_SCRIPT_PATH);
 			nutty_config_path = app_xdg_path.user_data_folder.get_path();
-			
 			//migrate user data from .config to .local/share -- to be deleted in the next version
-			if("true" == NuttyApp.Utils.fileOperations("EXISTS", 
-																					GLib.Environment.get_user_config_dir ()+"/nutty", 
-																					"/nutty_disclaimer_agreement.txt",""))
-			{
+			if("true" == NuttyApp.Utils.fileOperations(
+							"EXISTS", 
+							GLib.Environment.get_user_config_dir ()+"/nutty",
+							"/nutty_disclaimer_agreement.txt",""
+						 )
+			){
 				//copy agreement file
-				execute_sync_command ("cp " +
-																GLib.Environment.get_user_config_dir () + "/nutty/nutty_disclaimer_agreement.txt " +
-															 	nutty_config_path + "/nutty_disclaimer_agreement.txt"
-															  );
+				execute_sync_command (
+						"cp " +
+						GLib.Environment.get_user_config_dir () + "/nutty" +
+                        "nutty_disclaimer_agreement.txt " +
+						nutty_config_path + "/nutty_disclaimer_agreement.txt"
+				);
 				//check if the copy was sucessfull
-				if("true" == NuttyApp.Utils.fileOperations("EXISTS", nutty_config_path, "/nutty_disclaimer_agreement.txt","")) {
+				if("true" == NuttyApp.Utils.fileOperations(
+								"EXISTS", nutty_config_path, 
+								"/nutty_disclaimer_agreement.txt",""
+							 )
+				){
 					//remove the agreement from the .config folder
-					NuttyApp.Utils.fileOperations("DELETE", 
-																		GLib.Environment.get_user_config_dir ()+"/nutty", 
-																		"nutty_disclaimer_agreement.txt", "");
+					NuttyApp.Utils.fileOperations("DELETE",
+												  GLib.Environment.get_user_config_dir () +"/nutty",
+												  "nutty_disclaimer_agreement.txt", ""
+												 );
 				}
-																
-				if("true" == NuttyApp.Utils.fileOperations("EXISTS", 
-																						GLib.Environment.get_user_config_dir ()+"/nutty", 
-																						"/nutty.db",""))
-				{
+				if("true" == NuttyApp.Utils.fileOperations(
+								"EXISTS",
+								GLib.Environment.get_user_config_dir ()+"/nutty",
+								"/nutty.db",""
+							 )
+				){
 					//copy agreement file
 					execute_sync_command ("cp "+
-																	GLib.Environment.get_user_config_dir ()+"/nutty/nutty.db " +
-																	nutty_config_path + "/nutty.db"
-																 );
+										  GLib.Environment.get_user_config_dir ()+"/nutty/nutty.db " +
+										  nutty_config_path + "/nutty.db"
+										 );
 					if("true" == NuttyApp.Utils.fileOperations("EXISTS", nutty_config_path, "/nutty.db", "")) {
 						//remove the sql db from the .config folder
-						NuttyApp.Utils.fileOperations("DELETE", 
-																			GLib.Environment.get_user_config_dir ()+"/nutty", 
-																			"nutty.db", "");
+						NuttyApp.Utils.fileOperations("DELETE",
+													  GLib.Environment.get_user_config_dir ()+"/nutty", 
+													  "nutty.db", ""
+													 );
 					}
 				}
 			} //end of XDG data migration
@@ -283,6 +294,8 @@ namespace NuttyApp {
 				//show the app window
 				add_window (window);
 				window.show_all();
+				//hide the infobar on initial load
+				infobar.hide();
 				//capture window re-size events and save the window size
 				window.size_allocate.connect(() => {
 					saveWindowState();
@@ -309,17 +322,17 @@ namespace NuttyApp {
 			}
 			info("[END] [FUNCTION:activate]");
 		}
-		
+
 		public void loadImages() {
 			info("[START] [FUNCTION:loadImages]");
 			if (Gtk.IconTheme.get_default ().has_icon ("open-menu")) {
 				menu_icon = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
 			}else{
 				try{
-					menu_icon = new Gtk.Image.from_pixbuf (					
-							new Gdk.Pixbuf.from_resource_at_scale(
-								NuttyApp.Constants.HEADERBAR_PROPERTIES_IMAGE_LOCATION,24, 24, true
-							)
+					menu_icon = new Gtk.Image.from_pixbuf (
+										new Gdk.Pixbuf.from_resource_at_scale(
+											NuttyApp.Constants.HEADERBAR_PROPERTIES_IMAGE_LOCATION,24, 24, true
+										)
 					);
 				}catch(Error e){
 					warning("Error in loading the gear icon on the header. Error:"+e.message);
@@ -334,7 +347,6 @@ namespace NuttyApp {
 			}
 			info("[END] [FUNCTION:loadImages]");
 		}
-		
 
 		public static void createPrefsDialog() {
 			debug("Started setting up Prefference Dialog ...");
@@ -360,7 +372,7 @@ namespace NuttyApp {
 					NuttyApp.Devices.handleDeviceMonitoring(false);
 				}
 			});
-			
+
 			NoOption = new Gtk.RadioButton.with_label_from_widget (null, Constants.TEXT_FOR_PREFS_DIALOG_0MIN_OPTION);
 			NoOption.set_sensitive (false);
 			NoOption.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
@@ -368,7 +380,7 @@ namespace NuttyApp {
 			min15Option = new Gtk.RadioButton.with_label_from_widget (NoOption, Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION);
 			min15Option.set_sensitive (false);
 			min15Option.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
-			
+
 			min30Option = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION);
 			min30Option.set_sensitive (false);
 			min30Option.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
@@ -466,7 +478,7 @@ namespace NuttyApp {
 			aFileChooserDialog.response.connect(exportDialogResponseHandler);
 			debug("Completed setting up Export Dialog sucessfully...");
 		}
-		
+
 		public static Box createNuttyUI() {
 			debug("Starting to create main window components...");
 			Gtk.Box main_ui_box = new Gtk.Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
@@ -474,10 +486,21 @@ namespace NuttyApp {
 			stack = new Gtk.Stack();
 			stack.set_transition_type(StackTransitionType.SLIDE_LEFT_RIGHT);
 
+			//Create a MessageBar to show status messages
+		    infobar = new Gtk.InfoBar ();
+		    infobarLabel = new Gtk.Label("");
+			infobarLabel.set_line_wrap (true);
+		    Gtk.Container infobarContent = infobar.get_content_area ();
+		    infobarContent.add (infobarLabel);
+		    infobar.set_show_close_button (true);
+		    infobar.response.connect(NuttyApp.AppWindow.on_info_bar_closed);
+		    infobar.hide();
+
 			//define the switcher for switching between tabs
 			StackSwitcher switcher = new StackSwitcher();
 			switcher.set_halign(Align.CENTER);
 			switcher.set_stack(stack);
+			main_ui_box.pack_start(infobar, false, true, 0);
 			main_ui_box.pack_start(switcher, false, true, 0);
 			main_ui_box.pack_start(stack, true, true, 0);
 
@@ -702,14 +725,20 @@ namespace NuttyApp {
 			// Set actions for Route EntryText Return Key Press
 			route_entry_text.activate.connect (() => {
 				traceRouteSpinner.start();
-				routeTreeModelFilter = new Gtk.TreeModelFilter (processRouteScan(route_entry_text.get_text()), null);
+				routeTreeModelFilter = new Gtk.TreeModelFilter(
+					processRouteScan(route_entry_text.get_text()), 
+					null
+				);
 				setFilterAndSort(route_table_treeview, routeTreeModelFilter, SortType.DESCENDING);
 			});
 
 			// Set actions for Route Button Clicking
 			route_button.clicked.connect (() => {
 				traceRouteSpinner.start();
-				routeTreeModelFilter = new Gtk.TreeModelFilter (processRouteScan(route_entry_text.get_text()), null);
+				routeTreeModelFilter = new Gtk.TreeModelFilter(
+					processRouteScan(route_entry_text.get_text()), 
+					null
+				);
 				setFilterAndSort(route_table_treeview, routeTreeModelFilter, SortType.DESCENDING);
 			});
 			// Set actions for Speed Test Refresh Button Clicking
@@ -1134,10 +1163,11 @@ namespace NuttyApp {
 				spawn_async_with_pipes_output.append(line);
 			} catch (IOChannelError e) {
 				spawn_async_with_pipes_output.append(e.message);
+				warning("IOChannelError in reading command output:"+e.message);
 				return false;
 			} catch (ConvertError e) {
 				spawn_async_with_pipes_output.append(e.message);
-				warning("Failure in reading command output:"+e.message);
+				warning("ConvertError in reading command output:"+e.message);
 				return false;
 			}
 			return true;
@@ -1184,7 +1214,10 @@ namespace NuttyApp {
 				});
 				loop.run ();
 			} catch(SpawnError e) {
-				warning("Failure in executing async command ["+string.joinv(" ", spawn_args)+"] : "+e.message);
+				warning("Failure in executing async command ["+
+						string.joinv(" ", spawn_args)+"] : "+
+						e.message
+				);
 				spawn_async_with_pipes_output.append(e.message);
 			}
 			debug("Completed executing async command["+string.joinv(" ", spawn_args)+"]...");
@@ -1249,8 +1282,8 @@ namespace NuttyApp {
 			}
 		}
 
-		public static Gtk.ListStore processRouteScan(string tracerouteCommand){
-			debug("Starting to process RouteScan["+tracerouteCommand+"]...");
+		public static Gtk.ListStore processRouteScan(string tracerouteDestination){
+			debug("Starting to process RouteScan["+tracerouteDestination+"]...");
 			route_list_store.clear();
 			try{
 				TreeIter iter;
@@ -1260,9 +1293,26 @@ namespace NuttyApp {
 				string[] secondPacket = {" "};
 				string[] thirdPacket = {" "};
 
-				execute_sync_multiarg_command_pipes({"traceroute", tracerouteCommand});
-				Gee.ArrayList<Gee.ArrayList<string>> tableData =  Utils.convertMultiLinesToTableArray(spawn_async_with_pipes_output.str, 6, "  ");
-				if(exitCodeForCommand != 0){//handle unsucessfull command execution
+				execute_sync_multiarg_command_pipes(
+					{Constants.COMMAND_FOR_TRACEROUTE, tracerouteDestination}
+				);
+				//handle unsucessfull command execution and raise error on infobar
+				if(!Utils.isExpectedOutputPresent(
+								string.joinv(" ", {Constants.COMMAND_FOR_TRACEROUTE, tracerouteDestination}),
+								spawn_async_with_pipes_output.str,
+								{"hops", "byte", "packets", "ms"},
+								true
+					)
+				){
+					traceRouteSpinner.stop();
+					return route_list_store;
+				}
+				Gee.ArrayList<Gee.ArrayList<string>> tableData =  Utils.convertMultiLinesToTableArray(
+							spawn_async_with_pipes_output.str, 
+							6, 
+							"  "
+				);
+				if(exitCodeForCommand != 0){
 					route_results_label.set_text(spawn_async_with_pipes_output.str.replace("/n",".."));
 				}else if(tableData == null){//handle no output from command
 					route_results_label.set_text(Constants.TEXT_FOR_NO_DATA_FOUND);
@@ -1292,23 +1342,30 @@ namespace NuttyApp {
 									if(rowData.get(4) != null)
 										thirdPacket = rowData.get(4).split("ms");
 									route_list_store.append (out iter);
-									route_list_store.set (iter, 0, int.parse(rowData.get(0)), 1, serverIP, 2, serverName, 3, double.parse(firstPacket[0]), 4, double.parse(secondPacket[0]), 5, double.parse(thirdPacket[0]));
+									route_list_store.set (iter, 
+										0, int.parse(rowData.get(0)), 
+										1, serverIP, 
+										2, serverName, 
+										3, double.parse(firstPacket[0]), 
+										4, double.parse(secondPacket[0]), 
+										5, double.parse(thirdPacket[0])
+									);
 								}
 							}
 							countHops++;
 						}
 					}
 				}
-				traceRouteSpinner.stop();
 			}catch(Error e){
 				warning("Failure in processing RouteScan:"+e.message);
 			}
-			debug("Completed processing RouteScan["+tracerouteCommand+"]...");
+			traceRouteSpinner.stop();
+			debug("Completed processing RouteScan["+tracerouteDestination+"]...");
 			return route_list_store;
 		}
 
-		public static Gtk.ListStore processPortsScan(string[] commandArgs){
-			debug("Starting to process PortsScan["+string.joinv(" ", commandArgs)+"]...");
+		public static Gtk.ListStore processPortsScan(string commandForPorts){
+			debug("Starting to process PortsScan["+ commandForPorts +"]...");
 			ports_tcp_list_store.clear();
 			try{
 				TreeIter iter;
@@ -1322,8 +1379,21 @@ namespace NuttyApp {
 				StringBuilder unixProgram = new StringBuilder();
 				StringBuilder unixPath = new StringBuilder();
 
-				execute_sync_multiarg_command_pipes (commandArgs);
-				Gee.ArrayList<Gee.ArrayList<string>> tableData =  Utils.convertMultiLinesToTableArray(spawn_async_with_pipes_output.str, 100, "  ");
+				execute_sync_multiarg_command_pipes ({commandForPorts});
+				debug("Output of command execution:\n"+spawn_async_with_pipes_output.str);
+				//handle unsucessfull command execution and raise error on infobar
+				if(!Utils.isExpectedOutputPresent(
+								commandForPorts,
+								spawn_async_with_pipes_output.str,
+								{"tcp", "unix", "CLOSE_WAIT", "ESTABLISHED"},
+								false
+					)
+				){
+					portsSpinner.stop();
+					return ports_tcp_list_store;
+				}
+				Gee.ArrayList<Gee.ArrayList<string>> tableData =
+						Utils.convertMultiLinesToTableArray(spawn_async_with_pipes_output.str, 100, "  ");
 
 				foreach(Gee.ArrayList<string> rowData in tableData){
 					if(rowData.get(0).index_of("tcp") != -1){
@@ -1404,11 +1474,9 @@ namespace NuttyApp {
 			}catch(Error e){
 				warning("Failure to process PortsScan:"+e.message);
 			}
-			debug("Completed processing PortsScan["+string.joinv(" ", commandArgs)+"]...");
+			debug("Completed processing PortsScan["+ commandForPorts +"]...");
 			return ports_tcp_list_store;
 		}
-
-		
 
 		public static string getHostManufacturerOnline (string MAC){
 			debug("Starting to get Host Manufacturer Name from MAC Id["+MAC+"] by Online search...");
@@ -1443,6 +1511,17 @@ namespace NuttyApp {
 				Constants.COMMAND_FOR_PROCESS_BANDWIDTH, 
 				interface_name
 			});
+			//handle unsucessfull command execution and raise error on infobar
+			if(!Utils.isExpectedOutputPresent(
+							" " + "pkexec" + Constants.COMMAND_FOR_PROCESS_BANDWIDTH + interface_name,
+							spawn_async_with_pipes_output.str,
+							{"\t", "/"},
+							false
+				)
+			){
+				bandwidthProcessSpinner.stop();
+				return bandwidth_results_list_store;
+			}
 			string process_bandwidth_result = spawn_async_with_pipes_output.str;
 
 			//split the indivudual lines in the output
@@ -1481,7 +1560,12 @@ namespace NuttyApp {
 							}
 
 							bandwidth_results_list_store.append (out iter);
-							bandwidth_results_list_store.set (iter, 0, app_icon, 1, aProcessName.str, 2, processDataAttributes[1], 3, processDataAttributes[2]);
+							bandwidth_results_list_store.set (iter, 
+									0, app_icon, 
+									1, aProcessName.str, 
+									2, processDataAttributes[1], 
+									3, processDataAttributes[2]
+							);
 							processNames.append(aProcessName.str);
 						}
 					}
@@ -1490,7 +1574,6 @@ namespace NuttyApp {
 				}
 			}
 			bandwidthProcessSpinner.stop();
-
 			debug("Completed processing bandwidth of apps[interface_name="+interface_name+"]...");
 			return bandwidth_results_list_store;
 		}
@@ -1501,8 +1584,20 @@ namespace NuttyApp {
 			try{
 				TreeIter iter;
 				//execute vnstat command to produce xml output (all values in KB)
-				COMMAND_FOR_BANDWIDTH_USAGE[3] = interface_name;
-				execute_sync_multiarg_command_pipes(COMMAND_FOR_BANDWIDTH_USAGE);
+				execute_sync_multiarg_command_pipes({
+					Constants.COMMAND_FOR_BANDWIDTH_USAGE, 
+					interface_name
+				});
+				//handle unsucessfull command execution and raise error on infobar
+				if(!Utils.isExpectedOutputPresent(
+								string.joinv(" ", {Constants.COMMAND_FOR_BANDWIDTH_USAGE, interface_name}),
+								spawn_async_with_pipes_output.str,
+								{"<created>", "</created>"},
+								true
+					)
+				){
+					return bandwidth_list_store;
+				}
 				string bandwidth_usage_result = spawn_async_with_pipes_output.str;
 				//present a user friendly message if the interface database is not present
 				if(Constants.IDENTIFIER_FOR_NO_DB_FOUND_IN_VNSTAT_OUTPUT in bandwidth_usage_result){
@@ -1588,10 +1683,21 @@ namespace NuttyApp {
 			speedtest_list_store.clear();
 			TreeIter iter;
 			if(shouldExecute){
-				if(! COMMAND_FOR_SPEED_TEST[0].contains(Constants.nutty_script_path)){
-					COMMAND_FOR_SPEED_TEST[0] = Constants.nutty_script_path+ "/" + COMMAND_FOR_SPEED_TEST[0];
+				if(! COMMAND_FOR_SPEED_TEST[0].contains(Constants.NUTTY_SCRIPT_PATH)){
+					COMMAND_FOR_SPEED_TEST[0] = Constants.NUTTY_SCRIPT_PATH+ "/" + COMMAND_FOR_SPEED_TEST[0];
 				}
 				execute_sync_multiarg_command_pipes(COMMAND_FOR_SPEED_TEST);
+				//handle unsucessfull command execution and raise error on infobar
+				if(!Utils.isExpectedOutputPresent(
+								string.joinv(" ", COMMAND_FOR_SPEED_TEST),
+								spawn_async_with_pipes_output.str,
+								{"Upload", "Download"},
+								true
+					)
+				){
+					speedTestSpinner.stop();
+					return speedtest_list_store;
+				}
 				string speedtest_result = spawn_async_with_pipes_output.str;
 				UPLOADSPEED = speedtest_result.slice(speedtest_result.index_of(Constants.IDENTIFIER_FOR_UPLOAD_IN_SPEED_TEST,0)+Constants.IDENTIFIER_FOR_UPLOAD_IN_SPEED_TEST.length+1, speedtest_result.index_of("\n",speedtest_result.index_of("Upload:",0)));
 				DOWNLOADSPEED = speedtest_result.slice(speedtest_result.index_of(Constants.IDENTIFIER_FOR_DOWNLOAD_IN_SPEED_TEST,0)+Constants.IDENTIFIER_FOR_DOWNLOAD_IN_SPEED_TEST.length+1, speedtest_result.index_of("\n",speedtest_result.index_of("Download:",0)));

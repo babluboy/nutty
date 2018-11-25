@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Nutty
+GenericName=Network Utility
+Comment=Displays network information
+Categories=Network;
+Exec=com.github.babluboy.nutty
+Icon=com.github.babluboy.nutty
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=nutty
+X-GNOME-Keywords=Nutty;Network;Utility;Traceroute;Ports;Devices

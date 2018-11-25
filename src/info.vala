@@ -42,7 +42,7 @@ public class NuttyApp.Info {
             NuttyApp.Nutty.interfaceConnectionMap = new HashMap <string,string>();
 			NuttyApp.Nutty.interfaceIPMap = new HashMap <string,string>();
 			NuttyApp.Nutty.interfaceMACMap = new HashMap <string,string>();
-			
+
 			StringBuilder IPAddress = new StringBuilder("");
 			StringBuilder MACAddress = new StringBuilder("");
 			StringBuilder interfaceDisplayName = new StringBuilder("");
@@ -100,7 +100,8 @@ public class NuttyApp.Info {
 			NuttyApp.Nutty.info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_HOSTNAME, 1, NuttyApp.Nutty.HostName);
 			string[] interfaceDetails = Utils.multiExtractBetweenTwoStrings(
 						NuttyApp.Nutty.execute_sync_command(
-							Constants.COMMAND_FOR_INTERFACE_HARDWARE).strip(), 
+							Constants.COMMAND_FOR_INTERFACES + " INTERFACE_HARDWARE"
+						).strip(),
 						"Ethernet controller:", "\n"
 			);
 			int interfaceDetailsCounter = 0;
@@ -161,7 +162,9 @@ public class NuttyApp.Info {
 			if(interfaceName != null && interfaceName != "" && interfaceName.length > 0 && isDetailsRequired){
 				//run detailed interface command if the same has not been executed
 				if("" == NuttyApp.Nutty.interfaceCommandOutputDetailed.str){
-					NuttyApp.Nutty.execute_sync_multiarg_command_pipes(NuttyApp.Nutty.COMMAND_FOR_INTERFACE_HARDWARE_DETAILED);
+					NuttyApp.Nutty.execute_sync_multiarg_command_pipes(
+							{NuttyApp.Constants.COMMAND_FOR_INTERFACES, "INTERFACE_HARDWARE_DETAILED"}
+					);
 					NuttyApp.Nutty.interfaceCommandOutputDetailed.assign(NuttyApp.Nutty.spawn_async_with_pipes_output.str);
 				}
 				bool isNodeLeftToScan = true;

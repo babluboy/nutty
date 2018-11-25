@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Siddhartha Das <bablu.boy@gmail.com> -->
+<component type="desktop">
+    <id>com.github.babluboy.nutty</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0+</project_license>
+    <name>Nutty</name>
+    <translation type="gettext">com.github.babluboy.nutty</translation>
+    <summary>A simple utility for network information</summary>
+    <description>
+        <p>Nutty provides an intuitive user interface for some commonly used network related command line tools.</p>
+        <p>A key feature is the ability to turn on notification when a device enters the user's network.</p>
+        <p>The following are the features for Nutty, presented in a tab based interface:
+            <ul>
+                <li>My Info: Provides basic and detailed information for the device network card</li>
+                <li>Usage: Provides network data usage in two views - historical usage and current usage</li>
+                <li>Speed: Check Upload and Download speeds and get route times to a host</li>
+                <li>Ports: Provides information on active ports and application using them on the local device</li>
+                <li>Devices: Monitors, alerts and provides information on the other devices on the network</li>
+            </ul>
+        </p>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <caption>Device Monitoring</caption>
+            <image>https://raw.githubusercontent.com/babluboy/nutty/gh-pages/images/Nutty_Devices.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Bandwidth Usage</caption>
+            <image>https://raw.githubusercontent.com/babluboy/nutty/gh-pages/images/Nutty_Usage.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Speed Test</caption>
+            <image>https://raw.githubusercontent.com/babluboy/nutty/gh-pages/images/Nutty_Speed.png</image>
+        </screenshot>
+    </screenshots>
+    <provides>
+        <binary>com.github.babluboy.nutty</binary>
+    </provides>
+    <releases>
+        <release version="1.0.0" date="2018-04-31">
+            <description>
+                <p>Ability to edit and remove discovered devices
+                    <ul>
+                        <li>Support for editing and removing discovered devices</li>
+                        <li>A shiny new icon and branding</li>
+                        <li>New shortcuts (check homepage for details)</li>
+                    </ul>
+                </p>
+            </description>
+        </release>
+    </releases>
+    <releases>
+        <release version="0.9" date="2017-05-27">
+            <description>Initial release on Appcenter</description>
+        </release>
+    </releases>
+    <developer_name>Siddhartha Das</developer_name>
+    <url type="homepage">https://babluboy.github.io/nutty</url>
+    <url type="bugtracker">https://github.com/babluboy/nutty/issues</url>
+    <url type="help">https://github.com/babluboy/nutty/wiki</url>
+    <update_contact>bablu.boy_AT_gmail.com</update_contact>
+    <custom>
+        <value key="x-appcenter-color-primary">#9BDB4D</value>
+        <value key="x-appcenter-color-primary-text">#260063</value>
+        <value key="x-appcenter-suggested-price">1</value>
+    </custom>
+    <content_rating type="oars-1.1">
+        <content_attribute id="violence-cartoon">none</content_attribute>
+        <content_attribute id="violence-fantasy">none</content_attribute>
+        <content_attribute id="violence-realistic">none</content_attribute>
+        <content_attribute id="violence-bloodshed">none</content_attribute>
+        <content_attribute id="violence-sexual">none</content_attribute>
+        <content_attribute id="violence-desecration">none</content_attribute>
+        <content_attribute id="violence-slavery">none</content_attribute>
+        <content_attribute id="violence-worship">none</content_attribute>
+        <content_attribute id="drugs-alcohol">none</content_attribute>
+        <content_attribute id="drugs-narcotics">none</content_attribute>
+        <content_attribute id="drugs-tobacco">none</content_attribute>
+        <content_attribute id="sex-nudity">none</content_attribute>
+        <content_attribute id="sex-themes">none</content_attribute>
+        <content_attribute id="sex-homosexuality">none</content_attribute>
+        <content_attribute id="sex-prostitution">none</content_attribute>
+        <content_attribute id="sex-adultery">none</content_attribute>
+        <content_attribute id="sex-appearance">none</content_attribute>
+        <content_attribute id="language-profanity">none</content_attribute>
+        <content_attribute id="language-humor">none</content_attribute>
+        <content_attribute id="language-discrimination">none</content_attribute>
+        <content_attribute id="social-chat">none</content_attribute>
+        <content_attribute id="social-info">none</content_attribute>
+        <content_attribute id="social-audio">none</content_attribute>
+        <content_attribute id="social-location">none</content_attribute>
+        <content_attribute id="social-contacts">none</content_attribute>
+        <content_attribute id="money-purchasing">none</content_attribute>
+        <content_attribute id="money-gambling">none</content_attribute>
+    </content_rating>
+</component>

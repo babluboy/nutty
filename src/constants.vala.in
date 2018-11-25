@@ -18,7 +18,7 @@
 
 namespace NuttyApp.Constants{
 	public const string app_id = "com.github.babluboy.nutty";
-	public const string nutty_version = "@VERSION@";
+	public const string nutty_version = "@meson_install_version@";
 	public const string program_name = "Nutty";
 	public const string app_icon = "com.github.babluboy.nutty";
 	public const string app_years = "2015-2018";
@@ -36,22 +36,24 @@ namespace NuttyApp.Constants{
 	public const string TEXT_FOR_ABOUT_DIALOG_WEBSITE_URL = "https://babluboy.github.io/nutty";
 
 	//Set resource paths
-	public const string INSTALL_PREFIX = "@CMAKE_INSTALL_PREFIX@";
+	public const string INSTALL_PREFIX = "@MESON_INSTALL_PREFIX@";
+	public const string NUTTY_SCRIPT_PATH = "@MESON_INSTALL_SCRIPTS_DIR@";
 	public const string RESOURCE_PREFIX = "/com/github/babluboy/nutty/";
-	public const string nutty_script_path = "@SCRIPTS_DIR@";
-	public const string nutty_pkgdata_path = "@PKGDATADIR@";
 
 	public const string DEVICE_AVAILABLE_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-device-available";
 	public const string DEVICE_OFFLINE_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-device-offline";
 	public const string DEFAULT_APP_ICON_IMAGE_LOCATION = RESOURCE_PREFIX+"16-nutty-application-default-icon";
 	public const string HEADERBAR_PROPERTIES_IMAGE_LOCATION = RESOURCE_PREFIX+"24-nutty-open-menu.svg";
-	
+
 	//Scripts used by Nutty
-	public const string COMMAND_FOR_INTERFACES = nutty_script_path + "/" + "nutty_cli_script.sh";
-	public const string COMMAND_FOR_PROCESS_BANDWIDTH = nutty_script_path + "/" + "nutty_nethogs_script.sh";
-	public const string COMMAND_FOR_DEVICE_SCAN = nutty_script_path + "/" + "nutty_nmap_script.sh";
-	public const string COMMAND_FOR_SCHEDULED_DEVICE_SCAN = nutty_script_path + "/" + "nutty_device_monitor.sh";
-	public const string COMMAND_FOR_SCHEDULED_DEVICE_ALERT = nutty_script_path + "/" + "nutty_device_alert.sh";
+	public const string COMMAND_FOR_INTERFACES = NUTTY_SCRIPT_PATH + "/" + "nutty_cli_script.sh";
+	public const string COMMAND_FOR_PROCESS_BANDWIDTH = NUTTY_SCRIPT_PATH + "/" + "nutty_nethogs_script.sh";
+	public const string COMMAND_FOR_DEVICE_SCAN = NUTTY_SCRIPT_PATH + "/" + "nutty_nmap_script.sh";
+	public const string COMMAND_FOR_BANDWIDTH_USAGE = NUTTY_SCRIPT_PATH + "/" + "nutty_vnstat_script.sh";
+    public const string COMMAND_FOR_TRACEROUTE = NUTTY_SCRIPT_PATH + "/" + "nutty_traceroute_script.sh";
+	public const string COMMAND_FOR_PORTS = NUTTY_SCRIPT_PATH + "/" + "nutty_ports_script.sh";
+	public const string COMMAND_FOR_SCHEDULED_DEVICE_SCAN = NUTTY_SCRIPT_PATH + "/" + "nutty_device_monitor.sh";
+	public const string COMMAND_FOR_SCHEDULED_DEVICE_ALERT = NUTTY_SCRIPT_PATH + "/" + "nutty_device_alert.sh";
 
 	//Temp files used for Nutty
 	public const string temp_path = "/tmp";
@@ -171,9 +173,7 @@ namespace NuttyApp.Constants{
 	public const string TEXT_FOR_STATE_SPEEDTEST_DOWNLOADSPEED = _("SPEEDTEST_DOWNLOADSPEED");
 	public const string TEXT_FOR_NUTTY_EXPORT_HEADER = _("Nutty Information Exported on ");
 	public const string COMMAND_FOR_HOST_NAMES = "hostname";
-	public const string COMMAND_FOR_INTERFACE_HARDWARE = "lspci -v";
 	public const string SCRIPT_FOR_BANDWIDTH_USAGE = "sudo nethogs -t > /tmp/nethogs.txt &bg\nsleep 3\nsudo killall nethogs";
-	public const string[] COMMAND_FOR_PORTS = {"netstat", "-p", "-e"};
 	public const string COMMAND_FOR_WIRELESS_CARD_DETAILS = "iwconfig ";
 	public const string COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS = "iwlist ";
 
