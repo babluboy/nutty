@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-25 20:01+0000\n"
-"PO-Revision-Date: 2018-10-01 18:03+0000\n"
+"PO-Revision-Date: 2018-11-27 12:08+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
 "translations/lt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: src/nutty.vala:131
 msgid "Display version number"
@@ -604,76 +604,86 @@ msgstr "Išeiti"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
-#, fuzzy
 msgid "Nutty"
-msgstr "Naudoti Nutty"
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Rodo tinklo informaciją"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Paprasta paslaugų programa skirta tinklo informacijai"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty pateikia intuityvią naudotojo sąsają dažnai naudojamiems, su tinklu "
+"susijusiems, komandų eilutės įrankiams."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"Pagrindinė ypatybė yra galimybė įjungti pranešimus, kai įrenginys įžengia į "
+"naudotojo tinklą."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"Mano informacija: Pateikia pagrindinę ir išsamią įrenginio tinklo plokštės "
+"informaciją"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Naudojimas: Pateikia tinklo duomenų naudojimą dviem būdais - istoriniu "
+"naudojimu ir dabartiniu naudojimu"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Greitis: Patikrinti išsiuntimo ir atsiuntimo greičius bei gauti maršruto "
+"laikus iki serverio"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Prievadai: Pateikia informaciją apie aktyvius prievadus ir apie juos "
+"vietiniame įrenginyje naudojančias programas"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
+"Įrenginiai: Stebi, įspėja ir pateikia informaciją apie kitus tinkle esančius "
+"įrenginius"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
-#, fuzzy
 msgid "Device Monitoring"
-msgstr "Foninis įrenginių stebėjimas"
+msgstr "Įrenginių stebėjimas"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
-#, fuzzy
 msgid "Bandwidth Usage"
-msgstr "Iš naujo įkelti programų siuntimo spartos naudojimą"
+msgstr "Siuntimo spartos naudojimas"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
-#, fuzzy
 msgid "Speed Test"
-msgstr "Greitis"
+msgstr "Greičio bandymas"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:58
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
