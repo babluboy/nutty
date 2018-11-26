@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-25 20:01+0000\n"
-"PO-Revision-Date: 2018-04-28 11:50+0000\n"
+"PO-Revision-Date: 2018-11-27 12:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: src/nutty.vala:131
 msgid "Display version number"
@@ -597,79 +597,89 @@ msgstr "Hætta"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
-#, fuzzy
 msgid "Nutty"
-msgstr "Nota Nutty"
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Birtir upplýsingar um netkerfi"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Einfalt nytjatól fyrir netupplýsingar"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty er með þægilegu viðmóti fyrir mörg algeng skipanalínutól sem tengjast "
+"netkerfum."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"Einn aðaleiginleikinn er að geta sent tilkynningar þegar tæki kemur inn á "
+"netkerfi notandans."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"Mínar upplýsingar: Gefur einfaldar og ítarlegri upplýsingar um netkort "
+"tækisins"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Notkun: Gefur upplýsingar um netnotkun á tvo vegu - liðna notkun og notkun "
+"núna"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Hraði: Skoðaðu hraða innsendinga (upp) og sóknar (niðurhal) og fáðu "
+"beiningatíma til hýsilvéla"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Gáttir: Gefur upplýsingar um virkar gáttir og þau forrit sem þær nota á "
+"tækinu"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
+"Tæki: Vaktar, gefur áminningar og gefur upplýsingar um önnur tæki á "
+"netkerfinu"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
-#, fuzzy
 msgid "Device Monitoring"
-msgstr "Vöktun tækja í bakgrunni"
+msgstr "Vöktun tækja"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
-#, fuzzy
 msgid "Bandwidth Usage"
-msgstr "Endurlesa bandbreiddarnotkun forrita"
+msgstr "Notkun bandbreiddar"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
-#, fuzzy
 msgid "Speed Test"
-msgstr "Hraði"
+msgstr "Hraðaprófun"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:58
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
 
 #~ msgid "You have permissions to scan devices on your network."
 #~ msgstr "Þú ert með heimildir til að leita að tækjum á netinu þínu."
