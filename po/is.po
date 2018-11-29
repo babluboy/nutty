@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 12:57+0000\n"
+"POT-Creation-Date: 2018-11-29 21:42+0000\n"
 "PO-Revision-Date: 2018-11-27 12:08+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
@@ -527,51 +527,51 @@ msgstr "Upplýsingar úr Nutty fluttar út "
 msgid " for "
 msgstr " fyrir "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid "Network Card"
 msgstr "Netkort"
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " Standards with Transmit Power of "
 msgstr " Staðlar með sendistyrk "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " [Power Management: "
 msgstr " [Aflstjórnun: "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid "Connected to"
 msgstr "Tengt við"
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Network at Access Point "
 msgstr " Net á aðgangspunkti "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Mode"
 msgstr " Hamur"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Connected with"
 msgstr "Tengt með"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Frequency of "
 msgstr "Tíðni "
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid " and Bit Rate of "
 msgstr " og bitahraði "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Connection strength"
 msgstr "Styrkur tengingar"
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Link Quality of "
 msgstr "Gæði tengils "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid " and Signal Level of "
 msgstr " og styrkur merkis á "
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 12:57+0000\n"
+"POT-Creation-Date: 2018-11-29 21:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
@@ -503,51 +503,51 @@ msgstr ""
 msgid " for "
 msgstr ""
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid "Network Card"
 msgstr ""
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " Standards with Transmit Power of "
 msgstr ""
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " [Power Management: "
 msgstr ""
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid "Connected to"
 msgstr ""
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Network at Access Point "
 msgstr ""
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Mode"
 msgstr ""
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Connected with"
 msgstr ""
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Frequency of "
 msgstr ""
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid " and Bit Rate of "
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Connection strength"
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Link Quality of "
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid " and Signal Level of "
 msgstr ""
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 12:57+0000\n"
+"POT-Creation-Date: 2018-11-29 21:42+0000\n"
 "PO-Revision-Date: 2018-10-01 18:03+0000\n"
 "Last-Translator: Kristoffer Grundström <kristoffer.grundstrom1983@gmail."
 "com>\n"
@@ -511,51 +511,51 @@ msgstr ""
 msgid " for "
 msgstr " för "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid "Network Card"
 msgstr "Nätverkskort"
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " Standards with Transmit Power of "
 msgstr ""
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " [Power Management: "
 msgstr " [Strömhantering: "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid "Connected to"
 msgstr "Ansluten till"
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Network at Access Point "
 msgstr " Nätverk vid Åtkomstpunkt "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Mode"
 msgstr " Läge"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Connected with"
 msgstr "Ansluten med"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Frequency of "
 msgstr ""
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid " and Bit Rate of "
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Connection strength"
 msgstr "Styrka på anslutning"
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Link Quality of "
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid " and Signal Level of "
 msgstr ""
 

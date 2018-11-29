@@ -172,10 +172,6 @@ namespace NuttyApp.Constants{
 	public const string TEXT_FOR_STATE_SPEEDTEST_UPLOADSPEED = _("SPEEDTEST_UPLOADSPEED");
 	public const string TEXT_FOR_STATE_SPEEDTEST_DOWNLOADSPEED = _("SPEEDTEST_DOWNLOADSPEED");
 	public const string TEXT_FOR_NUTTY_EXPORT_HEADER = _("Nutty Information Exported on ");
-	public const string COMMAND_FOR_HOST_NAMES = "hostname";
-	public const string SCRIPT_FOR_BANDWIDTH_USAGE = "sudo nethogs -t > /tmp/nethogs.txt &bg\nsleep 3\nsudo killall nethogs";
-	public const string COMMAND_FOR_WIRELESS_CARD_DETAILS = "iwconfig ";
-	public const string COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS = "iwlist ";
 
 	public const string IDENTIFIER_FOR_MACADDRESS_IN_COMMAND_OUTPUT = "HWaddr";
 	public const string IDENTIFIER_FOR_IPADDRESS_IN_COMMAND_OUTPUT = "inet addr:";

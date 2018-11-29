@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 12:57+0000\n"
+"POT-Creation-Date: 2018-11-29 21:42+0000\n"
 "PO-Revision-Date: 2018-11-29 12:54+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/nutty/"
@@ -532,51 +532,51 @@ msgstr "Informações do Nutty exportadas para "
 msgid " for "
 msgstr " para "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid "Network Card"
 msgstr "Placa de Rede"
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " Standards with Transmit Power of "
 msgstr " Padrões com Transmit Power de "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " [Power Management: "
 msgstr " [Gerenciamento de energia: "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid "Connected to"
 msgstr "Conectado a"
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Network at Access Point "
 msgstr " Rede no Ponto de Acesso "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Mode"
 msgstr " Modo"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Connected with"
 msgstr "Conectado ao"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Frequency of "
 msgstr "Frequência de "
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid " and Bit Rate of "
 msgstr " e Taxa de Bit de "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Connection strength"
 msgstr "Robustez da conexão"
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Link Quality of "
 msgstr "Qualidade de link de "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid " and Signal Level of "
 msgstr " e Nível de Sinal de "
 

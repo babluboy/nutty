@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 12:57+0000\n"
+"POT-Creation-Date: 2018-11-29 21:42+0000\n"
 "PO-Revision-Date: 2018-09-28 13:35+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/nutty/"
@@ -532,51 +532,51 @@ msgstr "Nutty інформація експортується на "
 msgid " for "
 msgstr " для "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid "Network Card"
 msgstr "Мережева карта"
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " Standards with Transmit Power of "
 msgstr " Стандарти з потужності передачі "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " [Power Management: "
 msgstr " [Управління живленням: "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid "Connected to"
 msgstr "Пов'язаний з"
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Network at Access Point "
 msgstr " Мережа в точці доступу "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Mode"
 msgstr " Режим"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Connected with"
 msgstr "Пов'язано з"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Frequency of "
 msgstr "Частота "
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid " and Bit Rate of "
 msgstr " і швидкість біт "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Connection strength"
 msgstr "Міцність з'єднання"
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Link Quality of "
 msgstr "Якість зв'язку "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid " and Signal Level of "
 msgstr " і рівень сигналу "
 

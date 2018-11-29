@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 12:57+0000\n"
+"POT-Creation-Date: 2018-11-29 21:42+0000\n"
 "PO-Revision-Date: 2018-06-20 17:38+0000\n"
 "Last-Translator: Larnicone <gboiseau@gmx.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/nutty/"
@@ -510,52 +510,52 @@ msgstr ""
 msgid " for "
 msgstr " pour "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid "Network Card"
 msgstr "Carte réseau"
 
-#: src/info.vala:149
+#: src/info.vala:158
 #, fuzzy
 msgid " Standards with Transmit Power of "
 msgstr " Normes avec puissance d'émission de "
 
-#: src/info.vala:149
+#: src/info.vala:158
 msgid " [Power Management: "
 msgstr " [Gestion de l'alimentation : "
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid "Connected to"
 msgstr "Connecté à"
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Network at Access Point "
 msgstr ""
 
-#: src/info.vala:152
+#: src/info.vala:161
 msgid " Mode"
 msgstr " Mode"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Connected with"
 msgstr "Connecté à"
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid "Frequency of "
 msgstr "Fréquence de "
 
-#: src/info.vala:155
+#: src/info.vala:164
 msgid " and Bit Rate of "
 msgstr " et un débit de "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Connection strength"
 msgstr "Qualité de la connexion"
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid "Link Quality of "
 msgstr "Qualité du lien de "
 
-#: src/info.vala:158
+#: src/info.vala:167
 msgid " and Signal Level of "
 msgstr ""
 

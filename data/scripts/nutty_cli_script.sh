@@ -12,6 +12,11 @@ then
       exit 10
     fi
 fi
+if [ "$1" = "HOSTNAME" ]
+then
+	INTERFACE=`hostname`
+    echo $INTERFACE
+fi
 if [ "$1" = "INTERFACE" ]
 then
 	INTERFACE=`/sbin/ip addr show | grep -Po '(?<=[\d]: ).*(?=:)'`
@@ -37,4 +42,14 @@ then
     lspci -v > /tmp/nutty_interface_hardware.txt
     cat /tmp/nutty_interface_hardware.txt
     rm /tmp/nutty_interface_hardware.txt
+fi
+if [ "$1" = "WIRELESS_CARD_DETAILS" ]
+then
+    WIRELESS_CARD=`iwconfig $2`
+	echo $WIRELESS_CARD
+fi
+if [ "$1" = "WIRELESS_CARD_CHANNEL_DETAILS" ]
+then
+    WIRELESS_CARD_CHANNEL=`iwlist $2`
+	echo $WIRELESS_CARD_CHANNEL
 fi

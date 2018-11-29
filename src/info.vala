@@ -81,7 +81,7 @@ public class NuttyApp.Info {
 				NuttyApp.Nutty.interfaceMACMap.set(data,MACAddress.str);
 				//Record Host Name
 				NuttyApp.Nutty.HostName = NuttyApp.Nutty.execute_sync_command(
-					Constants.COMMAND_FOR_HOST_NAMES
+					Constants.COMMAND_FOR_INTERFACES + " HOSTNAME"
 				).replace("\n","").strip();
 			}
         }
@@ -141,9 +141,18 @@ public class NuttyApp.Info {
 														1, NuttyApp.Nutty.interfaceCommandOutputMinimal.str);
 			}
 			//Get simple wireless info which requires an interface name
-			if(interfaceName != null && interfaceName != "" && interfaceName.length > 0 && interfaceName.get_char(0) == 'w'){
-				string iwconfigOutput = NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_WIRELESS_CARD_DETAILS + interfaceName);
-				string frequencyAndChannel = NuttyApp.Nutty.execute_sync_command(Constants.COMMAND_FOR_WIRELESS_CARD_CHANNEL_DETAILS+interfaceName+" channel");
+			if(
+				interfaceName != null && 
+				interfaceName != "" && 
+				interfaceName.length > 0 && 
+				interfaceName.get_char(0) == 'w'
+			){
+				string iwconfigOutput = NuttyApp.Nutty.execute_sync_command(
+						Constants.COMMAND_FOR_INTERFACES + " WIRELESS_CARD_DETAILS " + interfaceName
+				);
+				string frequencyAndChannel = NuttyApp.Nutty.execute_sync_command(
+						Constants.COMMAND_FOR_INTERFACES + " WIRELESS_CARD_CHANNEL " + interfaceName
+				);
 
 				NuttyApp.Nutty.info_list_store.append (out iter, null);
 				NuttyApp.Nutty.info_list_store.set (iter, 0, _("Network Card"), 1, Utils.extractBetweenTwoStrings(iwconfigOutput,interfaceName, "ESSID:").strip() + _(" Standards with Transmit Power of ") + Utils.extractBetweenTwoStrings(iwconfigOutput,"Tx-Power=", "Retry short limit:").strip() + _(" [Power Management: ") +Utils.extractBetweenTwoStrings(iwconfigOutput,"Power Management:", "Link Quality=").strip()+"]");
