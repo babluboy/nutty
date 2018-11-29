@@ -271,7 +271,6 @@ namespace NuttyApp {
 				settings = NuttyApp.Settings.get_instance();
 				icon_theme = Gtk.IconTheme.get_default ();
 				//set window attributes
-				window.set_border_width (0);
 				window.get_style_context ().add_class ("rounded");
 				window.set_border_width (Constants.SPACING_WIDGETS);
 				window.set_position (Gtk.WindowPosition.CENTER);
@@ -866,7 +865,6 @@ namespace NuttyApp {
 
 		public void loadNuttyState(){
 			info("[START] [FUNCTION:loadNuttyState]");
-						
 			//Set the window to the last saved position
 			if(settings.pos_x == 0 && settings.pos_y == 0){
 				window.set_position (Gtk.WindowPosition.CENTER);

@@ -45,7 +45,7 @@ public class NuttyApp.DB{
 
         debug ("Creating latest version for NUTTY_DEVICES_TABLE table if it does not exists");
         queryString = "CREATE TABLE IF NOT EXISTS "+NUTTY_DEVICES_TABLE_BASE_NAME
-                                                                                                +NUTTY_DEVICES_TABLE_VERSION+" ("
+                   +NUTTY_DEVICES_TABLE_VERSION+" ("
                    + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                    + "DEVICE_IP TEXT NOT NULL DEFAULT '', "
                    + "DEVICE_MAC TEXT NOT NULL DEFAULT '', "
@@ -116,7 +116,7 @@ public class NuttyApp.DB{
         if(aDevice.device_ip.contains ("127.0.0")){
             return 0;
         }
-         
+
         //Form the where clause on the basis of MAC and IP of the device
         if(aDevice.device_mac != null && aDevice.device_mac.length>0 && aDevice.device_mac.strip() != ""){
             if(aDevice.device_ip != null && aDevice.device_ip.length>0 && aDevice.device_ip.strip() != ""){
@@ -137,17 +137,17 @@ public class NuttyApp.DB{
             }   
         }
         //Check if the device is present in the DB based on MAC and/or IP
-        queryString = "SELECT 
-                                        DEVICE_IP, 
-                                        DEVICE_MAC,
-                                        DEVICE_HOST_MANUFACTURER,
-                                        DEVICE_HOST_NAME,
-                                        DEVICE_HOST_MANUFACTURER_CUSTOM,
-                                        DEVICE_HOST_NAME_CUSTOM,
-                                        IS_ALERT_COMPLETED,
-                                        DEVICE_STATUS
-                                    FROM " + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
-                                    whereClauseForDeviceCheck;
+        queryString = "SELECT " +
+                            "DEVICE_IP, " +
+                            "DEVICE_MAC, " +
+                            "DEVICE_HOST_MANUFACTURER, " +
+                            "DEVICE_HOST_NAME, " +
+                            "DEVICE_HOST_MANUFACTURER_CUSTOM, " +
+                            "DEVICE_HOST_NAME_CUSTOM, " +
+                            "IS_ALERT_COMPLETED, " +
+                            "DEVICE_STATUS " +
+                        "FROM " + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
+                        whereClauseForDeviceCheck;
         executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
         if (executionStatus != Sqlite.OK) {
             debug("Error on executing Query:"+queryString);
@@ -190,18 +190,18 @@ public class NuttyApp.DB{
             debug("Found device [DEVICE_IP=\'"+aDevice.device_ip+
                         "\' OR DEVICE_MAC=\'"+aDevice.device_mac+
                         "\'] in table, device details will be updated");
-            queryString = "UPDATE "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION + " 
-                                    SET DEVICE_IP = ?, 
-                                    DEVICE_MAC = ?, 
-                                    DEVICE_HOST_MANUFACTURER = ?,
-                                    DEVICE_HOST_NAME = ?,
-                                    DEVICE_HOST_MANUFACTURER_CUSTOM = ?,
-                                    DEVICE_HOST_NAME_CUSTOM = ?,
-                                    IS_ALERT_COMPLETED = ?,
-                                    DEVICE_STATUS = ?,
-                                    last_seen_date = CAST(strftime('%s', 'now') AS INT), 
-                                    modification_date = CAST(strftime('%s', 'now') AS INT)
-                                    WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
+            queryString = "UPDATE "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION + " " + 
+                                    "SET DEVICE_IP = ?, " +
+                                    "DEVICE_MAC = ?, " + 
+                                    "DEVICE_HOST_MANUFACTURER = ?, " +
+                                    "DEVICE_HOST_NAME = ?, " +
+                                    "DEVICE_HOST_MANUFACTURER_CUSTOM = ?, " +
+                                    "DEVICE_HOST_NAME_CUSTOM = ?, " +
+                                    "IS_ALERT_COMPLETED = ?, " +
+                                    "DEVICE_STATUS = ?, " +
+                                    "last_seen_date = CAST(strftime('%s', 'now') AS INT),  " +
+                                    "modification_date = CAST(strftime('%s', 'now') AS INT) " +
+                                    "WHERE DEVICE_IP=\'"+aDevice.device_ip+"\' AND DEVICE_MAC=\'"+aDevice.device_mac+"\'";
             executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
             if (executionStatus != Sqlite.OK) {
                 debug("Error on executing Query:"+queryString);
@@ -223,19 +223,19 @@ public class NuttyApp.DB{
             debug("Did not find device [DEVICE_IP=\'"+aDevice.device_ip+
                         "\' OR DEVICE_MAC=\'"+aDevice.device_mac+
                         "\'] in table, device details will be inserted");
-            queryString = "INSERT INTO "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION+
-                                    "( DEVICE_IP,
-                                        DEVICE_MAC,
-                                        DEVICE_HOST_MANUFACTURER,
-                                        DEVICE_HOST_NAME,
-                                        DEVICE_HOST_MANUFACTURER_CUSTOM,
-                                        DEVICE_HOST_NAME_CUSTOM,
-                                        IS_ALERT_COMPLETED,
-                                        DEVICE_STATUS,
-                                        creation_date,
-                                        last_seen_date,
-                                        modification_date) " +
-                                     "VALUES (?,?,?,?,?,?,?,?,?,CAST(? AS INT),CAST(strftime('%s', 'now') AS INT))";
+            queryString = "INSERT INTO "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
+                            "( DEVICE_IP, " +
+                              "DEVICE_MAC, " +
+                              "DEVICE_HOST_MANUFACTURER, " +
+                              "DEVICE_HOST_NAME, " +
+                              "DEVICE_HOST_MANUFACTURER_CUSTOM, " +
+                              "DEVICE_HOST_NAME_CUSTOM, " +
+                              "IS_ALERT_COMPLETED, " +
+                              "DEVICE_STATUS, " +
+                              "creation_date, " +
+                              "last_seen_date, " +
+                              "modification_date) " +
+                            "VALUES (?,?,?,?,?,?,?,?,?,CAST(? AS INT),CAST(strftime('%s', 'now') AS INT))";
             executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
             if (executionStatus != Sqlite.OK) {
                 debug("Error on executing Query:"+queryString);
@@ -295,21 +295,21 @@ public class NuttyApp.DB{
         info("[START] [FUNCTION:getDevicesFromDB]");
         ArrayList<NuttyApp.Entities.Device> listOfDevices = new ArrayList<NuttyApp.Entities.Device> ();
         Statement stmt;
-        queryString = "SELECT 
-                                    id, 
-                                    DEVICE_IP, 
-                                    DEVICE_MAC, 
-                                    DEVICE_HOST_NAME, 
-                                    DEVICE_HOST_MANUFACTURER, 
-                                    DEVICE_HOST_NAME_CUSTOM, 
-                                    DEVICE_HOST_MANUFACTURER_CUSTOM, 
-                                    IS_ALERT_COMPLETED, 
-                                    DEVICE_STATUS, 
-                                    creation_date, 
-                                    last_seen_date,
-                                    modification_date 
-                                FROM " + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION+
-                                " ORDER BY modification_date DESC";
+        queryString = "SELECT " +
+                        "id, " + 
+                        "DEVICE_IP, " + 
+                        "DEVICE_MAC, " + 
+                        "DEVICE_HOST_NAME, " + 
+                        "DEVICE_HOST_MANUFACTURER, " + 
+                        "DEVICE_HOST_NAME_CUSTOM, " + 
+                        "DEVICE_HOST_MANUFACTURER_CUSTOM, " + 
+                        "IS_ALERT_COMPLETED, " + 
+                        "DEVICE_STATUS, " + 
+                        "creation_date, " + 
+                        "last_seen_date, " +
+                        "modification_date " + 
+                    " FROM " + NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
+                    " ORDER BY modification_date DESC";
         executionStatus = nuttyDB.prepare_v2 (queryString, queryString.length, out stmt);
         if (executionStatus != Sqlite.OK) {
             debug("Error on executing Query:"+queryString);

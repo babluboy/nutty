@@ -67,19 +67,21 @@ public class NuttyApp.AppWindow {
 		exitButton.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
 		disclaimer_agreement_box.pack_end (continueButton, false, false, 0);
 		disclaimer_agreement_box.pack_end (exitButton, false, false, 0);
-		
+
 		continueButton.clicked.connect (() => {
 			NuttyApp.Nutty.disclaimerSetGet(Constants.REMEMBER_DISCLAIMER_AGREEMENT);
 			welcome_ui_box.destroy();//remove the welcome widget
 			NuttyApp.Nutty.window.add(NuttyApp.Nutty.createNuttyUI()); //add the main UI Box
 			NuttyApp.Nutty.window.show_all();
+			//hide the infobar on initial load
+			NuttyApp.Nutty.infobar.hide();
 		});
 		exitButton.clicked.connect (() => {
 			NuttyApp.Nutty.window.destroy();
 		});
 
-		welcome_ui_box.pack_start (welcome, false, false, 0);
-		welcome_ui_box.pack_start (disclaimer_agreement_box, false, false, 0);
+		welcome_ui_box.add (welcome);
+		welcome_ui_box.pack_start (disclaimer_agreement_box, true, false, 0);
 		info("[END] [FUNCTION:createExportDialog]");
 		return welcome_ui_box;
     }
