@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-29 21:42+0000\n"
-"PO-Revision-Date: 2018-12-01 18:09+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"POT-Creation-Date: 2018-12-03 16:42+0000\n"
+"PO-Revision-Date: 2018-10-30 06:23+0000\n"
+"Last-Translator: beli3ver <malte.kiefer@mailgermania.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nutty/"
 "translations/de/>\n"
 "Language: de\n"
@@ -11,27 +11,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: src/nutty.vala:131
 msgid "Display version number"
-msgstr "Versionsnummer anzeigen"
+msgstr ""
 
 #: src/nutty.vala:132
 msgid "Run Nutty to discover devices"
-msgstr "Nutty ausführen, um Geräte zu entdecken"
+msgstr ""
 
 #: src/nutty.vala:133
 msgid "Run Nutty in device alert mode"
-msgstr "Nutty im Gerätealarm-Modus ausführen"
+msgstr ""
 
 #: src/nutty.vala:134
 msgid "Run Nutty in debug mode"
-msgstr "Nutty im Debug-Modus ausführen"
+msgstr ""
 
 #: src/nutty.vala:135
 msgid "Run Nutty in info mode"
-msgstr "Nutty im Infomodus ausführen"
+msgstr ""
 
 #: src/utils.vala:231
 msgid "Cancel"
@@ -55,19 +55,19 @@ msgstr "Textdateien"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr "Ein Netzwerk-Dienstprogramm"
+msgstr ""
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
-msgstr "Weblate Übersetzer"
+msgstr ""
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr "Webseite | Übersetzung | Bug-Tracker"
+msgstr ""
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr "Netzwerkscan-Vereinbarung"
+msgstr ""
 
 #: src/constants.vala.in:68
 msgid ""
@@ -80,44 +80,32 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
-"Diese Anwendung verfügt über Funktionen zum Durchführen von Port-Scans und "
-"zum Bereitstellen von Informationen über Geräte in dem von Ihnen verwendeten "
-"Netzwerk. Es ist vollkommen in Ordnung, nach Geräten in Ihrem eigenen "
-"Heimnetzwerk zu suchen oder wenn dies vom Zielhost und/oder Netzwerk "
-"ausdrücklich genehmigt wurde.\n"
-"\n"
-"Bei der Verwendung von Port-Scan (Registerkarte Geräte) in einem Netzwerk, "
-"das Ihnen nicht gehört, konsultieren Sie bitte den Netzwerkadministrator "
-"oder eine andere zuständige Netzwerkbehörde und holen Sie die Genehmigung "
-"ein."
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr "Über"
+msgstr ""
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr "Netzwerk-Dienstprogramm"
+msgstr ""
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr "Ergebnisse filtern..."
+msgstr ""
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr "Einstellungen"
+msgstr ""
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr "In Datei exportieren"
+msgstr ""
 
 #: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
-"Nutty benötigt eine Authentifizierung, um diese Aktion durchzuführen. Bitte "
-"geben Sie Ihr Passwort an, um fortzufahren."
 
 #: src/constants.vala.in:75
 msgid ""
@@ -127,124 +115,118 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
-"Nutty benötigt eine Authentifizierung, um den Root Scheduler (crontab) für "
-"die Geräteüberwachung zu aktualisieren. Bitte geben Sie Ihr Passwort an, um "
-"diese Änderung abzuschließen.\n"
-"\n"
-"Hinweis: Der aktuelle Root-Scheduler (crontab) wird im Home-Verzeichnis "
-"gesichert."
 
 #: src/constants.vala.in:76 src/constants.vala.in:151
 msgid "Today"
-msgstr "Heute"
+msgstr ""
 
 #: src/constants.vala.in:77 src/constants.vala.in:150
 msgid "Yesterday"
-msgstr "Gestern"
+msgstr ""
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr "Tage her"
+msgstr ""
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr "Ergebnisse: "
+msgstr ""
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr "Keine Daten gefunden"
+msgstr ""
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr "Nicht verfügbar"
+msgstr ""
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr "Ich stimme zu"
+msgstr ""
 
 #: src/constants.vala.in:83
 msgid "Wired"
-msgstr "Kabelgebunden"
+msgstr ""
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr "Kabellos"
+msgstr ""
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr "Sonstiges"
+msgstr ""
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr "Meine Info"
+msgstr ""
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr "Wählen Sie eine Verbindung"
+msgstr ""
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr "Details anzeigen"
+msgstr ""
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr "Attribut"
+msgstr ""
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr "Details"
+msgstr ""
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr "Hostname"
+msgstr ""
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr "MAC-Adresse"
+msgstr ""
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr "IP-Adresse"
+msgstr ""
 
 #: src/constants.vala.in:94
 msgid "Interface State"
-msgstr "Schnittstellenstatus"
+msgstr ""
 
 #: src/constants.vala.in:95
 msgid "Interface Hardware"
-msgstr "Schnittstellen-Hardware"
+msgstr ""
 
 #: src/constants.vala.in:96
 msgid "Product"
-msgstr "Produkt"
+msgstr ""
 
 #: src/constants.vala.in:97
 msgid "Vendor"
-msgstr "Lieferant"
+msgstr ""
 
 #: src/constants.vala.in:98
 msgid "Physical ID"
-msgstr "Physikalische ID"
+msgstr ""
 
 #: src/constants.vala.in:99
 msgid "Bus Info"
-msgstr "Bus-Info"
+msgstr ""
 
 #: src/constants.vala.in:100
 msgid "Version"
-msgstr "Version"
+msgstr ""
 
 #: src/constants.vala.in:101
 msgid "Capacity"
-msgstr "Kapazität"
+msgstr ""
 
 #: src/constants.vala.in:102
 msgid "Bus Width"
-msgstr "Busbreite"
+msgstr ""
 
 #: src/constants.vala.in:103
 msgid "Clock Speed"
-msgstr "Taktrate"
+msgstr ""
 
 #: src/constants.vala.in:104
 msgid "Speed"
@@ -252,11 +234,11 @@ msgstr "Geschwindigkeit"
 
 #: src/constants.vala.in:105
 msgid "Route times to Host (in milliseconds): "
-msgstr "Routenzeiten zum Host (in Millisekunden): "
+msgstr ""
 
 #: src/constants.vala.in:106
 msgid "Hop#"
-msgstr "Hop#"
+msgstr ""
 
 #: src/constants.vala.in:107
 msgid "Server IP"
@@ -268,23 +250,23 @@ msgstr "Servername"
 
 #: src/constants.vala.in:109
 msgid "1st Packet Time"
-msgstr "Dauer des 1. Pakets"
+msgstr ""
 
 #: src/constants.vala.in:110
 msgid "2nd Packet Time"
-msgstr "Dauer des 2. Pakets"
+msgstr ""
 
 #: src/constants.vala.in:111
 msgid "3rd Packet Time"
-msgstr "Dauer des 3. Pakets"
+msgstr ""
 
 #: src/constants.vala.in:112
 msgid "Internet Speed : Results from test on"
-msgstr "Internet-Geschwindigkeit: Ergebnisse aus dem Test am"
+msgstr ""
 
 #: src/constants.vala.in:113
 msgid "No speed test has been done"
-msgstr "Es wurde kein Geschwindigkeitstest durchgeführt"
+msgstr ""
 
 #: src/constants.vala.in:114
 msgid "Upload Speed"
@@ -296,13 +278,11 @@ msgstr "Download Geschwindigkeit"
 
 #: src/constants.vala.in:116
 msgid "Refresh Speed Test Results"
-msgstr "Geschwindigkeitstestergebnisse aktualisieren"
+msgstr ""
 
 #: src/constants.vala.in:117
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr ""
-"Unbekanntes Datum. Bitte klicken Sie auf die Schaltfläche Aktualisieren, um "
-"den Geschwindigkeitstest durchzuführen"
 
 #: src/constants.vala.in:118
 msgid "Ports"
@@ -314,7 +294,7 @@ msgstr "Alle aktiven Ports gescannt."
 
 #: src/constants.vala.in:120
 msgid "Refresh Ports results"
-msgstr "Aktualisieren der Port-Ergebnisse"
+msgstr ""
 
 #: src/constants.vala.in:121
 msgid "Protocol"
@@ -322,11 +302,11 @@ msgstr "Protokoll"
 
 #: src/constants.vala.in:122
 msgid "State"
-msgstr "Zustand"
+msgstr ""
 
 #: src/constants.vala.in:123
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 #: src/constants.vala.in:124
 msgid "Process ID"
@@ -350,7 +330,7 @@ msgstr "Geräte Scan aktualisieren"
 
 #: src/constants.vala.in:129
 msgid "Status"
-msgstr "Status"
+msgstr ""
 
 #: src/constants.vala.in:130
 msgid "Device Name"
@@ -369,12 +349,14 @@ msgid "Discovered On"
 msgstr "Entdeckt am"
 
 #: src/constants.vala.in:134
+#, fuzzy
 msgid "Host IP"
-msgstr "Host-IP"
+msgstr "Host IP"
 
 #: src/constants.vala.in:135
+#, fuzzy
 msgid "Host MAC"
-msgstr "Host-MAC"
+msgstr "Host MAC"
 
 #: src/constants.vala.in:136
 msgid "Active"
@@ -392,146 +374,139 @@ msgstr "Früher entdeckt"
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
-"Anzeige der zuvor aufgezeichneten Geräte. Wählen Sie eine Verbindung aus, um "
-"den Status zu aktualisieren."
 
 #: src/constants.vala.in:140
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
-"Es wurden zuvor keine Geräte aufgezeichnet. Wählen Sie eine Verbindung aus, "
-"um die Ergebnisse zu aktualisieren."
 
 #: src/constants.vala.in:141
 msgid "Device scan in progress ..."
-msgstr "Geräte-Scan läuft....."
+msgstr ""
 
 #: src/constants.vala.in:142
 msgid "devices found on this connection"
-msgstr "Geräte, die auf dieser Verbindung gefunden wurden"
+msgstr ""
 
 #: src/constants.vala.in:143
 msgid "Actions for : "
-msgstr "Aktionen für: "
+msgstr ""
 
 #: src/constants.vala.in:144
 msgid "Forget device"
-msgstr "Gerät vergessen"
+msgstr ""
 
 #: src/constants.vala.in:145
 msgid "New Device found on network:"
-msgstr "Neues Gerät im Netzwerk gefunden:"
+msgstr ""
 
 #: src/constants.vala.in:146
 msgid "Usage"
-msgstr "Verwendung"
+msgstr ""
 
 #: src/constants.vala.in:147
 msgid "Connection monitored from "
-msgstr "Verbindung überwacht von "
+msgstr ""
 
 #: src/constants.vala.in:148
 msgid " and last updated on "
-msgstr " und zuletzt aktualisiert am "
+msgstr ""
 
 #: src/constants.vala.in:149
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
-"Bitte fügen Sie diese Verbindungsschnittstelle zu vnstat über die "
-"Befehlszeile hinzu."
 
 #: src/constants.vala.in:152
 msgid "Time Period"
-msgstr "Zeitraum"
+msgstr ""
 
 #: src/constants.vala.in:153
 msgid "Data Received"
-msgstr "Empfangene Daten"
+msgstr ""
 
 #: src/constants.vala.in:154
 msgid "Data Sent"
-msgstr "Gesendete Daten"
+msgstr ""
 
 #: src/constants.vala.in:155
 msgid "Total Data"
-msgstr "Gesamtdaten"
+msgstr ""
 
 #: src/constants.vala.in:156
 msgid "Select a connection to view data usage"
-msgstr "Wählen Sie eine Verbindung aus, um die Datennutzung anzuzeigen"
+msgstr ""
 
 #: src/constants.vala.in:157
 msgid "Click refresh to see current Apps using "
 msgstr ""
-"Klicken Sie auf Aktualisieren, um die aktuellen Apps zu sehen mit Hilfe von "
 
 #: src/constants.vala.in:158
 msgid "Refresh Apps bandwidth usage"
-msgstr "Aktualisieren der App-Bandbreitenauslastung"
+msgstr ""
 
 #: src/constants.vala.in:159
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 #: src/constants.vala.in:160
 msgid "Data Sent (Kb/sec)"
-msgstr "Gesendete Daten (Kb/sec)"
+msgstr ""
 
 #: src/constants.vala.in:161
 msgid "Data Received (Kb/sec)"
-msgstr "Empfangene Daten (Kb/sec)"
+msgstr ""
 
 #: src/constants.vala.in:162
 msgid "Background Device Monitoring"
-msgstr "Hintergrundüberwachung von Geräten"
+msgstr ""
 
 #: src/constants.vala.in:163
 msgid "No monitoring of devices"
-msgstr "Keine Überwachung von Geräten"
+msgstr ""
 
 #: src/constants.vala.in:164
 msgid "Monitor devices every 15 minutes"
-msgstr "Überwachen von Geräten alle 15 Minuten"
+msgstr ""
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 30 minutes"
-msgstr "Überwachen von Geräten alle 30 Minuten"
+msgstr ""
 
 #: src/constants.vala.in:166
 msgid "Monitor devices every hour"
-msgstr "Stündliche Überwachung der Geräte"
+msgstr ""
 
 #: src/constants.vala.in:167
 msgid "Monitor devices once a day"
-msgstr "Überwachen von Geräten einmal pro Tag"
+msgstr ""
 
 #: src/constants.vala.in:168
 msgid "Close"
-msgstr "Schließen"
+msgstr ""
 
 #: src/constants.vala.in:169
 msgid "DEVICE_MONITORING_STATE"
-msgstr "DEVICE_MONITORING_STATE"
+msgstr ""
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr "DEVICE_MONITORING_SCHEDULE"
+msgstr ""
 
 #: src/constants.vala.in:171
 msgid "SPEEDTEST_DATE"
-msgstr "SPEEDTEST_DATE"
+msgstr ""
 
 #: src/constants.vala.in:172
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr "SPEEDTEST_UPLOADSPEED"
+msgstr ""
 
 #: src/constants.vala.in:173
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr "SPEEDTEST_DOWNLOADSPEED"
+msgstr ""
 
 #: src/constants.vala.in:174
 msgid "Nutty Information Exported on "
-msgstr "Nutty-Informationen exportiert auf "
+msgstr ""
 
 #: src/devices.vala:318
 msgid " for "
@@ -543,63 +518,61 @@ msgstr "Netzwerkkarte"
 
 #: src/info.vala:158
 msgid " Standards with Transmit Power of "
-msgstr " Normen mit Sendeleistung von "
+msgstr ""
 
 #: src/info.vala:158
 msgid " [Power Management: "
-msgstr " [Energieverwaltung: "
+msgstr ""
 
 #: src/info.vala:161
 msgid "Connected to"
-msgstr "Verbunden mit"
+msgstr ""
 
 #: src/info.vala:161
 msgid " Network at Access Point "
-msgstr " Netzwerk am Zugangspunkt "
+msgstr ""
 
 #: src/info.vala:161
 msgid " Mode"
-msgstr " Modus"
+msgstr ""
 
 #: src/info.vala:164
 msgid "Connected with"
-msgstr "Verbunden mit"
+msgstr ""
 
 #: src/info.vala:164
 msgid "Frequency of "
-msgstr "Häufigkeit der "
+msgstr ""
 
 #: src/info.vala:164
 msgid " and Bit Rate of "
-msgstr " und Bitrate von "
+msgstr ""
 
 #: src/info.vala:167
 msgid "Connection strength"
-msgstr "Verbindungsstärke"
+msgstr ""
 
 #: src/info.vala:167
 msgid "Link Quality of "
-msgstr "Link Qualität von "
+msgstr ""
 
 #: src/info.vala:167
 msgid " and Signal Level of "
-msgstr " und Signalpegel von "
+msgstr ""
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr "Nutty Haftungsausschluss"
+msgstr ""
 
 #: src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
-"Klicken Sie hier, um den Haftungsausschluss von Nmap (von Nutty verwendet) "
-"für weitere Informationen zu lesen"
 
 #: src/window.vala:63
 msgid "Use Nutty"
-msgstr "Nutty benutzen"
+msgstr ""
 
 #: src/window.vala:66
 msgid "Exit"
@@ -608,84 +581,73 @@ msgstr "Beenden"
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
 msgid "Nutty"
-msgstr "Nutty"
+msgstr ""
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr "Zeigt Netzwerkinformationen an"
+msgstr ""
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr "com.github.babluboy.nutty"
+msgstr ""
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr "Ein einfaches Dienstprogramm für Netzwerkinformationen"
+msgstr ""
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
-"Nutty bietet eine intuitive Benutzeroberfläche für einige häufig verwendete "
-"netzwerkbezogene Befehlszeilen-Tools."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
-"Ein wichtiges Merkmal ist die Möglichkeit, die Benachrichtigung "
-"einzuschalten, wenn ein Gerät im Netzwerk des Benutzers auftaucht."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
-"Meine Info: bietet grundlegende und detaillierte Informationen zur "
-"Netzwerkkarte des Geräts"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
-"Verwendung: bietet die Nutzung von Netzwerkdaten in zwei Ansichten - "
-"historische Nutzung und aktuelle Nutzung"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
-"Geschwindigkeit: überprüfen Sie die Upload- und Download-Geschwindigkeit und "
-"erhalten Sie Routenzeiten zu einem Host"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
-"Ports: bietet Informationen über aktive Ports und Anwendungen, die diese auf "
-"dem lokalen Gerät verwenden"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
-"Geräte: überwacht, warnt und informiert über die anderen Geräte im Netzwerk"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
+#, fuzzy
 msgid "Device Monitoring"
-msgstr "Geräteüberwachung"
+msgstr "Gerätehersteller"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
 msgid "Bandwidth Usage"
-msgstr "Bandbreitenauslastung"
+msgstr ""
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
+#, fuzzy
 msgid "Speed Test"
-msgstr "Geschwindigkeitstest"
+msgstr "Geschwindigkeit"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:58
 msgid "Siddhartha Das"
-msgstr "Siddhartha Das"
+msgstr ""

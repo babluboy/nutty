@@ -28,6 +28,7 @@ script_names = [
 foreach a_script : script_names
     install_data(
         a_script,
-        install_dir: join_paths(scripts_dir)
+        install_dir: join_paths(scripts_dir),
+        install_mode: 'rwxr-xr-x'
     )
 endforeach

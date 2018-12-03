@@ -2,7 +2,7 @@
 project('com.github.babluboy.nutty', ['vala', 'c'],
     version: '1.1.1'
 )
-version = '1.1.1'
+app_version = meson.project_version()
 gnome = import('gnome')
 i18n = import('i18n')
 
