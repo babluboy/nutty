@@ -25,13 +25,18 @@ You'll need the following dependencies to build:
 * meson
 * valac
 
-And of these dependencies to execute:
+And these dependencies to execute:
+* net-tools
 * nethogs
 * nmap
 * traceroute
 * vnstat
+* curl
+* wireless-tools
+* iproute2
+* pciutils
 
-> Enable `vnstat` service: `sudo systemclt enable vnstat`
+Sometimes vnstat is not started upon install, use the appropriate init system command to start vnstat daemon i.e. `sudo systemclt enable vnstat`
 
 Run `meson build` to configure the build environment and run `ninja test` to build
 
