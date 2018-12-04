@@ -25,19 +25,30 @@ You'll need the following dependencies to build:
 * meson
 * valac
 
+And of these dependencies to execute:
+* nethogs
+* nmap
+* traceroute
+* vnstat
+
+> Enable `vnstat` service: `sudo systemclt enable vnstat`
+
 Run `meson build` to configure the build environment and run `ninja test` to build
 
-    git clone https://github.com/babluboy/nutty.git
-    cd nutty
-    meson build --prefix=/usr
-    mkdir build && cd build
-    ninja
+```
+git clone https://github.com/babluboy/nutty.git
+cd nutty
+meson build --prefix=/usr
+mkdir build && cd build
+ninja
+```
 
 To install, use `ninja install`, then execute with `com.github.babluboy.nutty`
 
-    sudo ninja install
-    com.github.babluboy.nutty
-
+```
+sudo ninja install
+com.github.babluboy.nutty
+```
 
 ## Screenshot
 
