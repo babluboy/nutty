@@ -35,16 +35,9 @@ public class NuttyApp.XmlParser {
         currentTagName = "";
         charBuffer = new StringBuilder("");
     }
-    /*
-    public static void main(string args[]){
-        Environment.set_variable ("G_MESSAGES_DEBUG", "all", true);
-        Log.set_handler ("", GLib.LogLevelFlags.LEVEL_DEBUG, GLib.Log.default_handler);
-        XmlParser aXmlParser = new XmlParser();
-        aXmlParser.extractDeviceDataFromXML("/home/sid/Downloads/nmap.xml");
-    }
-    */
+
     public ArrayList<NuttyApp.Entities.Device> extractDeviceDataFromXML (string path){
-        path = "/home/sid/Downloads/nutty_nmap_device_scan_results.xml";
+        //path = "/home/sid/Downloads/nutty_nmap_device_scan_results.xml";
         info("[START] [FUNCTION:extractDataFromXML] extracting xml from file="+path);
         listOfScanedDevices = new ArrayList<NuttyApp.Entities.Device> ();
         mode = "DEVICE_SCAN";
