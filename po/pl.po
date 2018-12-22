@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-03 16:42+0000\n"
+"POT-Creation-Date: 2018-12-22 21:50+0530\n"
 "PO-Revision-Date: 2018-09-21 10:33+0000\n"
 "Last-Translator: Jacek Witkowski <jacek_witkowski@wp.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/nutty/"

@@ -27,6 +27,7 @@ public class NuttyApp.DB{
     private static string errmsg;
     private static string queryString;
     private static int executionStatus;
+    private static int resultCount;
 
     public static bool initializeNuttyDB(string config_path){
         info("[START] [FUNCTION:initializeNuttyDB] db_config_path="+config_path);
@@ -185,7 +186,7 @@ public class NuttyApp.DB{
             break;
         }
         stmt.reset ();
-    
+
         if(isDevicePresent){ //device present, update device table
             debug("Found device [DEVICE_IP=\'"+aDevice.device_ip+
                         "\' OR DEVICE_MAC=\'"+aDevice.device_mac+
@@ -216,13 +217,15 @@ public class NuttyApp.DB{
             stmt.bind_text (6, aDevice.device_hostname_custom);
             stmt.bind_text (7, aDevice.device_alert);
             stmt.bind_text (8, aDevice.device_status);
-            
+
             stmt.step ();
             stmt.reset ();
         } else { //device not present, add to device table
             debug("Did not find device [DEVICE_IP=\'"+aDevice.device_ip+
                         "\' OR DEVICE_MAC=\'"+aDevice.device_mac+
-                        "\'] in table, device details will be inserted");
+                        "\'] in table, device with following details will be inserted : "+
+                        aDevice.to_string()
+            );
             queryString = "INSERT INTO "+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION +
                             "( DEVICE_IP, " +
                               "DEVICE_MAC, " +
@@ -253,8 +256,16 @@ public class NuttyApp.DB{
             }else{
                 stmt.bind_text (2, NuttyApp.Constants.TEXT_FOR_NOT_AVAILABLE);
             }
-            stmt.bind_text (3, aDevice.device_manufacturer);
-            stmt.bind_text (4, aDevice.device_hostname); 
+            if(aDevice.device_manufacturer != null && aDevice.device_manufacturer.length > 0){
+                stmt.bind_text (3, aDevice.device_manufacturer);
+            }else{
+                stmt.bind_text (3, NuttyApp.Constants.TEXT_FOR_NOT_AVAILABLE);
+            }
+            if(aDevice.device_hostname != null && aDevice.device_hostname.length > 0){
+                stmt.bind_text (4, aDevice.device_hostname);
+            }else{
+                stmt.bind_text (4, NuttyApp.Constants.TEXT_FOR_NOT_AVAILABLE);
+            }
             if(aDevice.device_manufacturer_custom != null && aDevice.device_manufacturer_custom.length > 0){
                 stmt.bind_text (5, aDevice.device_manufacturer_custom);
             }else{
@@ -285,9 +296,10 @@ public class NuttyApp.DB{
             }else{
                  stmt.bind_text (10, NuttyApp.Utils.getDateFromString("").to_unix().to_string());
             }
-            stmt.step ();
+            resultCount = stmt.step ();
+            debug("Insertion done for Device [IP="+aDevice.device_ip+"] with insert row count="+resultCount.to_string());
             stmt.reset ();
-        }   
+        }
         return 0;
     }
 
@@ -328,7 +340,7 @@ public class NuttyApp.DB{
                 aDevice.device_status = stmt.column_text (8);
                 aDevice.device_creation_date = stmt.column_text (9);
                 aDevice.device_last_seen_date = stmt.column_text(10);
-               
+
                 debug(
                     "Device details fetched from DB: id="+ aDevice.device_id.to_string()+ 
                     ",DEVICE_IP="+aDevice.device_ip+

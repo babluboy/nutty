@@ -34,7 +34,7 @@ public class NuttyApp.XmlParser {
         mode = "";
         currentTagName = "";
         charBuffer = new StringBuilder("");
-    }    
+    }
     /*
     public static void main(string args[]){
         Environment.set_variable ("G_MESSAGES_DEBUG", "all", true);
@@ -44,6 +44,7 @@ public class NuttyApp.XmlParser {
     }
     */
     public ArrayList<NuttyApp.Entities.Device> extractDeviceDataFromXML (string path){
+        path = "/home/sid/Downloads/nutty_nmap_device_scan_results.xml";
         info("[START] [FUNCTION:extractDataFromXML] extracting xml from file="+path);
         listOfScanedDevices = new ArrayList<NuttyApp.Entities.Device> ();
         mode = "DEVICE_SCAN";
@@ -77,7 +78,7 @@ public class NuttyApp.XmlParser {
             if("address" == currentTagName){
                 noOfTagsMatched++;
             }
-            
+
             //Check if the tag name matches the input tag name
             if(isContainerTagMatched && (currentTagName == "address" || currentTagName == "hostname")) {
                 //Check if container tag has been matched and the tag is required - set extraction flag to true
@@ -102,7 +103,6 @@ public class NuttyApp.XmlParser {
             }
         }
     }
-        
 
     public void end_element(string name) {
         debug("<<<<<End Tag:"+name);        
