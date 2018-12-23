@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 13:52+0530\n"
-"PO-Revision-Date: 2018-09-03 13:21+0000\n"
+"PO-Revision-Date: 2018-12-24 11:09+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/nutty/"
 "translations/nb_NO/>\n"
@@ -11,65 +11,66 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Vis versjonsnummer"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Kjør Nutty for å oppdage enheter"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "Kjør Nutty i enhetsvarselsmodus"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Kjør Nutty i feilrettingsmodus"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Kjør Nutty i infomodus"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Åpne"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Alle filer"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Tekstfiler"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "Et nettverksverktøy"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Weblate-oversettere"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Nettside | Oversettelse | Feilsporer"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Nettverksskanningsavtale"
 
 #: src/constants.vala.in:68
+#, fuzzy
 msgid ""
 "This application has features to perform port scanning and provide "
 "information on devices on the network you are using. It is perfectly OK to "
@@ -80,34 +81,46 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"Dette programmet har funksjoner for å utføre portskanning og tilby info om "
+"enheter på nettverket du bruker. Det er helt OK å skanne for enheter på ditt "
+"eget hjemmenettverk, eller når ufravikelig uttrykt av målverten og/eller "
+"nettverket.\n"
+"\n"
+"Når du bruker portskanning (enhetsfane) på et nettverk du ikke eier, sørg "
+"for at du innhenter samtykke fra nettverksadministratoren eller annen "
+"kompetent nettverksautoritet."
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "Nettverksverktøy"
 
 #: src/constants.vala.in:71
+#, fuzzy
 msgid "Filter results..."
-msgstr ""
+msgstr "Filtrer resultater…"
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "Egenskaper"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr ""
+msgstr "Eksporter til fil"
 
 #: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
+"Nutty trenger identitetsbekreftelse for å utføre denne handlingen, skriv inn "
+"passordet ditt for å fortsette."
 
 #: src/constants.vala.in:75
+#, fuzzy
 msgid ""
 "Nutty needs authentication to update the root scheduler(crontab) for device "
 "monitoring. Please provide your password to complete this change. \n"
@@ -115,400 +128,427 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
+"Nutty trenger identitetsbekreftelse for å oppdatere rotplanleggeren (crontab)"
+" for enhetsovervåkning. Skriv inn passordet ditt for å fullføre denne "
+"endringen.\n"
+"\n"
+"Merk: Nåværende rotplanlegger (crontab) vil bli sikkerhetskopiert til "
+"hjemmemappen."
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "I dag"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "I går"
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr ""
+msgstr "dager siden"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "Resultater: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "Fant ikke noe"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "Ikke tilgjengelig"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "Jeg samtykker"
 
 #: src/constants.vala.in:83
 msgid "Wired"
-msgstr ""
+msgstr "Kablet"
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr ""
+msgstr "Trådløs"
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "Annet"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "Min info"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "Velg en tilkobling"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "Vis detaljer"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr ""
+msgstr "Attributt"
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "Detaljer"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr ""
+msgstr "Vertsnavn"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-adresse"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "IP-adresse"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "IPv6-adresse"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr ""
+msgstr "Grensesnittsstatus"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr ""
+msgstr "Grensesnittsmaskinvare"
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
-msgstr ""
+msgstr "Tilbyder"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
-msgstr ""
+msgstr "Fysisk ID"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
-msgstr ""
+msgstr "Bussinfo"
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "Versjon"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
-msgstr ""
+msgstr "Kapasitet"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
-msgstr ""
+msgstr "Bussbredde"
 
 #: src/constants.vala.in:104
 msgid "Clock Speed"
-msgstr ""
+msgstr "Klokkehastighet"
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "Hastighet"
 
 #: src/constants.vala.in:106
+#, fuzzy
 msgid "Route times to Host (in milliseconds): "
-msgstr ""
+msgstr "Rundetider til vert (i (millisekunder): "
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr ""
+msgstr "Hopp#"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "Tjener-IP"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "Vertsnavn"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
-msgstr ""
+msgstr "Tidsforløp første pakke"
 
 #: src/constants.vala.in:111
 msgid "2nd Packet Time"
-msgstr ""
+msgstr "Tidsforløp for andre pakke"
 
 #: src/constants.vala.in:112
 msgid "3rd Packet Time"
-msgstr ""
+msgstr "Tidsforløp tredje pakke"
 
 #: src/constants.vala.in:113
+#, fuzzy
 msgid "Internet Speed : Results from test on"
-msgstr ""
+msgstr "Internetthastighet: Resultater fra test på"
 
 #: src/constants.vala.in:114
 msgid "No speed test has been done"
-msgstr ""
+msgstr "Ingen hastighetstest har blitt utført"
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "Opplastingshastighet"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "Nedlastingshastighet"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
-msgstr ""
+msgstr "Gjenoppfrisk hastighetstestresultater"
 
 #: src/constants.vala.in:118
+#, fuzzy
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
-msgstr ""
+msgstr "Ukjent dato. Klikk på gjenoppfriskknappen for å utføre hastighetstest"
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "Porter"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
-msgstr ""
+msgstr "Alle aktive porter skannet."
 
 #: src/constants.vala.in:121
+#, fuzzy
 msgid "Refresh Ports results"
-msgstr ""
+msgstr "Gjenoppfrisk portresultater"
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "Protokoll"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "Tilstand"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "Prosess-ID"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "Programnavn"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Sti"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Enheter"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
-msgstr ""
+msgstr "Gjenoppfrisk enhetsskanningsresultater"
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Enhetsnavn"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "Enhetstilvirker"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "Sist sett"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
-msgstr ""
+msgstr "Funnet"
 
 #: src/constants.vala.in:135
 msgid "Host IP"
-msgstr ""
+msgstr "Verts-IP"
 
 #: src/constants.vala.in:136
 msgid "Host MAC"
-msgstr ""
+msgstr "Verts-MAC"
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #: src/constants.vala.in:138
+#, fuzzy
 msgid "Non Active"
-msgstr ""
+msgstr "Uaktiv"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "Oppdaget tidligere"
 
 #: src/constants.vala.in:140
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
+"Viser enheter funnet tidligere. Velg en tilkobling for å oppdatere status."
 
 #: src/constants.vala.in:141
+#, fuzzy
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
+"Ingen enhet har blitt funnet tidligere. Velg en tilkobling for å oppdatere "
+"resultater."
 
 #: src/constants.vala.in:142
+#, fuzzy
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "Skanner enhet…"
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "enheter funnet på denne tilkoblingen"
 
 #: src/constants.vala.in:144
+#, fuzzy
 msgid "Actions for : "
-msgstr ""
+msgstr "Handlinger for: "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "Glem enhet"
 
 #: src/constants.vala.in:146
+#, fuzzy
 msgid "New Device found on network:"
-msgstr ""
+msgstr "Ny enhet funnet på nettverket:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "Bruk"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr ""
+msgstr "Tilkobling overvåket fra "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr ""
+msgstr " og sist oppdatert "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
+"Legg til dette tilkoblingsgrensesnittet til vnstat ved bruk av "
+"kommandolinjen."
 
 #: src/constants.vala.in:153
 msgid "Time Period"
-msgstr ""
+msgstr "Tidsperiode"
 
 #: src/constants.vala.in:154
 msgid "Data Received"
-msgstr ""
+msgstr "Data mottatt"
 
 #: src/constants.vala.in:155
 msgid "Data Sent"
-msgstr ""
+msgstr "Data sendt"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
-msgstr ""
+msgstr "Total data"
 
 #: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
-msgstr ""
+msgstr "Velg en tilkobling for å vise databruk"
 
 #: src/constants.vala.in:158
+#, fuzzy
 msgid "Click refresh to see current Apps using "
-msgstr ""
+msgstr "Klikk gjenoppfrisk for å se nåværende programmer ved bruk av "
 
 #: src/constants.vala.in:159
+#, fuzzy
 msgid "Refresh Apps bandwidth usage"
-msgstr ""
+msgstr "Gjenoppfrisk programbåndbreddebruk"
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: src/constants.vala.in:161
+#, fuzzy
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "Data sendt (KB/s)"
 
 #: src/constants.vala.in:162
+#, fuzzy
 msgid "Data Received (Kb/sec)"
-msgstr ""
+msgstr "Data mottatt (KB/s)"
 
 #: src/constants.vala.in:163
+#, fuzzy
 msgid "Background Device Monitoring"
-msgstr ""
+msgstr "Bakgrunnsenhetsovervåkning"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "Ingen overvåkning av enhter"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
-msgstr ""
+msgstr "Sjekk enheter hvert kvarter"
 
 #: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
-msgstr ""
+msgstr "Sjekk enhter hver halvtime"
 
 #: src/constants.vala.in:167
 msgid "Monitor devices every hour"
-msgstr ""
+msgstr "Sjekk enheter hver time"
 
 #: src/constants.vala.in:168
 msgid "Monitor devices once a day"
-msgstr ""
+msgstr "Sjekk enheter en gang om dagen"
 
 #: src/constants.vala.in:169
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
 #: src/constants.vala.in:170
+#, fuzzy
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "ENHETSOVERVÅKNINGS_TILSTAND"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "ENHETSOVERVÅKNINGS_TIMEPLAN"
 
 #: src/constants.vala.in:172
+#, fuzzy
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "HASTIGHETSTEST_DATO"
 
 #: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "HASTIGHETSTEST_OPPLASTINGSHASTIGHET"
 
 #: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "HASTIGHETSTEST_NEDLASTINGSHASTIGHET"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
-msgstr ""
+msgstr "Nutty-info eksportert "
 
 #: src/devices.vala:318
 msgid " for "
@@ -519,48 +559,54 @@ msgid "Network Card"
 msgstr "Nettverkskort"
 
 #: src/info.vala:174
+#, fuzzy
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " standarder med overføringseffekt på "
 
 #: src/info.vala:174
 msgid " [Power Management: "
-msgstr ""
+msgstr " [Strømstyring: "
 
 #: src/info.vala:177
 msgid "Connected to"
-msgstr ""
+msgstr "Tilkoblet til"
 
 #: src/info.vala:177
+#, fuzzy
 msgid " Network at Access Point "
-msgstr ""
+msgstr " nettverk ved akksesspunkt "
 
 #: src/info.vala:177
+#, fuzzy
 msgid " Mode"
-msgstr ""
+msgstr " -modus"
 
 #: src/info.vala:180
 msgid "Connected with"
-msgstr ""
+msgstr "Tilkoblet til"
 
 #: src/info.vala:180
+#, fuzzy
 msgid "Frequency of "
-msgstr ""
+msgstr "Frekvens for "
 
 #: src/info.vala:180
+#, fuzzy
 msgid " and Bit Rate of "
-msgstr ""
+msgstr " og bitrate på "
 
 #: src/info.vala:183
 msgid "Connection strength"
-msgstr ""
+msgstr "Tilkoblingsstyrke"
 
 #: src/info.vala:183
+#, fuzzy
 msgid "Link Quality of "
-msgstr ""
+msgstr "Lenkekvalitet på "
 
 #: src/info.vala:183
 msgid " and Signal Level of "
-msgstr ""
+msgstr " og signalnivå på "
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
@@ -571,6 +617,8 @@ msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"Klikk for å lese ansvarsfraskrivningen for Nmap (brukt av Nutty) for "
+"ytterligere info"
 
 #: src/window.vala:63
 msgid "Use Nutty"
@@ -587,68 +635,82 @@ msgid "Nutty"
 msgstr "Bruk Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
+#, fuzzy
 msgid "Displays network information"
-msgstr ""
+msgstr "Viser nettverksinfo"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Et enkelt verktøy for nettverksinfo"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty tilbyr et intuitivt brukergrensesnitt for noen ofte brukte "
+"nettverksrelaterte kommandolinjeverktøy."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"En nøkkelfunksjon er muligheten til å skru på merknader når en enheter "
+"kobler seg til brukerens nettverk."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
+#, fuzzy
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"Min info: Tilbyr grunnleggende og detaljert info for enhetsnettverkskortet"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Bruk: Tilbyr nettverksdatabruk i to visninger - historisk bruk og nåværende"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
+#, fuzzy
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Hastighet: Sjekk opplasting- og nedlastingshastigheter, og hent rundetider "
+"til en vert"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
+#, fuzzy
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Porter: Gir info om aktive porter og programmer som bruker dem på den lokale "
+"enheten"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
-msgstr ""
+msgstr "Enheter: Overvåker, varsler, og gir info om andre enheter på nettverket"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
 msgid "Device Monitoring"
-msgstr ""
+msgstr "Enhetsovervåkning"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
 msgid "Bandwidth Usage"
-msgstr ""
+msgstr "Båndbreddebruk"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
 msgid "Speed Test"
-msgstr ""
+msgstr "Hastighetstest"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:58
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
