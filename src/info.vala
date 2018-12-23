@@ -41,9 +41,11 @@ public class NuttyApp.Info {
 			}
             NuttyApp.Nutty.interfaceConnectionMap = new HashMap <string,string>();
 			NuttyApp.Nutty.interfaceIPMap = new HashMap <string,string>();
+			NuttyApp.Nutty.interfaceIPV6Map = new HashMap <string,string>();
 			NuttyApp.Nutty.interfaceMACMap = new HashMap <string,string>();
 
 			StringBuilder IPAddress = new StringBuilder("");
+            StringBuilder IPV6Address = new StringBuilder("");
 			StringBuilder MACAddress = new StringBuilder("");
 			StringBuilder interfaceDisplayName = new StringBuilder("");
 			//Get interface names to populate the dropdown list and find corresponding IP addresses
@@ -72,6 +74,13 @@ public class NuttyApp.Info {
 						)).str.replace("\n","").strip()
 				);
 				NuttyApp.Nutty.interfaceIPMap.set(data,IPAddress.str);
+                //execute command for IPv6
+				IPV6Address.assign(commandOutput.assign(
+            			NuttyApp.Nutty.execute_sync_command(
+							Constants.COMMAND_FOR_INTERFACES + " IPV6 " + data.strip()
+						)).str.replace("\n","").strip()
+				);
+				NuttyApp.Nutty.interfaceIPV6Map.set(data,IPV6Address.str);
 				//execute command for MAC
                 MACAddress.assign(commandOutput.assign(
                 		(NuttyApp.Nutty.execute_sync_command(
@@ -128,6 +137,13 @@ public class NuttyApp.Info {
 					NuttyApp.Nutty.info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_IP_ADDRESS, 1, NuttyApp.Nutty.interfaceIPMap.get(interfaceName.strip()));
 				} else {
 					NuttyApp.Nutty.info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_IP_ADDRESS, 1, Constants.TEXT_FOR_NOT_AVAILABLE);
+				}
+
+				NuttyApp.Nutty.info_list_store.append (out iter, null);
+				if(NuttyApp.Nutty.interfaceIPV6Map.get(interfaceName.strip()).length > 0) {
+					NuttyApp.Nutty.info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_IPV6_ADDRESS, 1, NuttyApp.Nutty.interfaceIPV6Map.get(interfaceName.strip()));
+				} else {
+					NuttyApp.Nutty.info_list_store.set (iter, 0, Constants.TEXT_FOR_MYINFO_IPV6_ADDRESS, 1, Constants.TEXT_FOR_NOT_AVAILABLE);
 				}
 
 				//run minimal interface command if the same has not been executed

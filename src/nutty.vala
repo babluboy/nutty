@@ -59,6 +59,7 @@ namespace NuttyApp {
 		public static Stack stack;
 		public static Gee.HashMap<string,string> interfaceConnectionMap;
 		public static Gee.HashMap<string,string> interfaceIPMap;
+		public static Gee.HashMap<string,string> interfaceIPV6Map;
 		public static Gee.HashMap<string,string> interfaceMACMap;
 		public static StringBuilder interfaceCommandOutputMinimal = new StringBuilder("");
 		public static StringBuilder interfaceCommandOutputDetailed = new StringBuilder("");

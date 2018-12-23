@@ -27,6 +27,11 @@ then
     IP=`/sbin/ip addr show $2 | grep -Po 'inet \K[\d.]+'`
 	echo $IP
 fi
+if [ "$1" = "IPV6" ]
+then
+    IPV6=`/sbin/ip -6 addr show dev $2 | awk -F' ' '{print $2}' | awk '{print $1}'| head -n 2| tail -1 | cut -d# -f2`
+	echo $IPV6
+fi
 if [ "$1" = "MAC" ]
 then
     MAC=`/sbin/ip addr show $2 | grep -Po 'link/*(ether |loopback )\K.*(?= brd)'`

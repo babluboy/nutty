@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-22 22:23+0530\n"
+"POT-Creation-Date: 2018-12-23 13:52+0530\n"
 "PO-Revision-Date: 2018-10-27 17:41+0000\n"
 "Last-Translator: Jack Icatorze <jack@icatorze.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -14,23 +14,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.3-dev\n"
 
-#: src/nutty.vala:131
+#: src/nutty.vala:132
 msgid "Display version number"
 msgstr "Mostrar o número da versão"
 
-#: src/nutty.vala:132
+#: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
 msgstr "Executar o Nutty para encontrar dispositivos"
 
-#: src/nutty.vala:133
+#: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
 msgstr "Executar o Nutty no modo alerta de dispositivos"
 
-#: src/nutty.vala:134
+#: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
 msgstr "Executar o Nutty em modo debug"
 
-#: src/nutty.vala:135
+#: src/nutty.vala:136
 msgid "Run Nutty in info mode"
 msgstr "Executar o Nutty no modo informações"
 
@@ -125,11 +125,11 @@ msgstr ""
 "Atenção: O root scheduler (contrab) atual será copiado em backup para o "
 "diretório Home"
 
-#: src/constants.vala.in:76 src/constants.vala.in:151
+#: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
 msgstr "Hoje"
 
-#: src/constants.vala.in:77 src/constants.vala.in:150
+#: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
 msgstr "Ontem"
 
@@ -198,329 +198,334 @@ msgid "IP Address"
 msgstr "Endereço IP"
 
 #: src/constants.vala.in:94
+#, fuzzy
+msgid "IPv6 Address"
+msgstr "Endereço IP"
+
+#: src/constants.vala.in:95
 msgid "Interface State"
 msgstr "Estado da interface"
 
-#: src/constants.vala.in:95
+#: src/constants.vala.in:96
 msgid "Interface Hardware"
 msgstr "Interface de hardware"
 
-#: src/constants.vala.in:96
+#: src/constants.vala.in:97
 msgid "Product"
 msgstr "Produto"
 
-#: src/constants.vala.in:97
+#: src/constants.vala.in:98
 msgid "Vendor"
 msgstr "Fabricante"
 
-#: src/constants.vala.in:98
+#: src/constants.vala.in:99
 msgid "Physical ID"
 msgstr "ID físico"
 
-#: src/constants.vala.in:99
+#: src/constants.vala.in:100
 msgid "Bus Info"
 msgstr "Informação do BUS"
 
-#: src/constants.vala.in:100
+#: src/constants.vala.in:101
 msgid "Version"
 msgstr "Versão"
 
-#: src/constants.vala.in:101
+#: src/constants.vala.in:102
 msgid "Capacity"
 msgstr "Capacidade"
 
-#: src/constants.vala.in:102
+#: src/constants.vala.in:103
 msgid "Bus Width"
 msgstr "Comprimento do bus"
 
-#: src/constants.vala.in:103
+#: src/constants.vala.in:104
 msgid "Clock Speed"
 msgstr "Velocidade de clock"
 
-#: src/constants.vala.in:104
+#: src/constants.vala.in:105
 msgid "Speed"
 msgstr "Velocidade"
 
-#: src/constants.vala.in:105
+#: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
 msgstr "Tempo de percurso até o Host (em milissegundos)"
 
-#: src/constants.vala.in:106
+#: src/constants.vala.in:107
 msgid "Hop#"
 msgstr "Hop#"
 
-#: src/constants.vala.in:107
+#: src/constants.vala.in:108
 msgid "Server IP"
 msgstr "IP do servidor"
 
-#: src/constants.vala.in:108
+#: src/constants.vala.in:109
 msgid "Server Name"
 msgstr "Nome de servidor"
 
-#: src/constants.vala.in:109
+#: src/constants.vala.in:110
 msgid "1st Packet Time"
 msgstr "Tempo do primeiro pacote"
 
-#: src/constants.vala.in:110
+#: src/constants.vala.in:111
 msgid "2nd Packet Time"
 msgstr "Tempo do segundo pacote"
 
-#: src/constants.vala.in:111
+#: src/constants.vala.in:112
 msgid "3rd Packet Time"
 msgstr "Tempo do terceiro pacote"
 
-#: src/constants.vala.in:112
+#: src/constants.vala.in:113
 msgid "Internet Speed : Results from test on"
 msgstr "Velocidade de Internet : Resultados do teste em"
 
-#: src/constants.vala.in:113
+#: src/constants.vala.in:114
 msgid "No speed test has been done"
 msgstr ""
 
-#: src/constants.vala.in:114
+#: src/constants.vala.in:115
 msgid "Upload Speed"
 msgstr "Velocidade de upload"
 
-#: src/constants.vala.in:115
+#: src/constants.vala.in:116
 msgid "Download Speed"
 msgstr "Velocidade de download"
 
-#: src/constants.vala.in:116
+#: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
 msgstr "Atualizar resultados do teste de velocidade"
 
-#: src/constants.vala.in:117
+#: src/constants.vala.in:118
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr ""
 "Data desconhecida. Por favor, clique no botão Atualizar para realizar um "
 "Teste de Velocidade"
 
-#: src/constants.vala.in:118
+#: src/constants.vala.in:119
 msgid "Ports"
 msgstr "Portas"
 
-#: src/constants.vala.in:119
+#: src/constants.vala.in:120
 msgid "All active ports scanned."
 msgstr "Todas as portas ativas forarm escaneadas"
 
-#: src/constants.vala.in:120
+#: src/constants.vala.in:121
 msgid "Refresh Ports results"
 msgstr "Resultados da atuaização de portas"
 
-#: src/constants.vala.in:121
+#: src/constants.vala.in:122
 msgid "Protocol"
 msgstr "Protocolo"
 
-#: src/constants.vala.in:122
+#: src/constants.vala.in:123
 msgid "State"
 msgstr "Estado"
 
-#: src/constants.vala.in:123
+#: src/constants.vala.in:124
 msgid "Port"
 msgstr "Porta"
 
-#: src/constants.vala.in:124
+#: src/constants.vala.in:125
 msgid "Process ID"
 msgstr "ID do processo"
 
-#: src/constants.vala.in:125
+#: src/constants.vala.in:126
 msgid "Program Name"
 msgstr "Nome do Programa"
 
-#: src/constants.vala.in:126
+#: src/constants.vala.in:127
 msgid "Path"
 msgstr "Caminho"
 
-#: src/constants.vala.in:127
+#: src/constants.vala.in:128
 msgid "Devices"
 msgstr "Dispositivos"
 
-#: src/constants.vala.in:128
+#: src/constants.vala.in:129
 msgid "Refresh device scan results"
 msgstr "Atualizar o resultado do escaneamento de dispositivos"
 
-#: src/constants.vala.in:129
+#: src/constants.vala.in:130
 msgid "Status"
 msgstr "Status"
 
-#: src/constants.vala.in:130
+#: src/constants.vala.in:131
 msgid "Device Name"
 msgstr "Nome do Dispositivo"
 
-#: src/constants.vala.in:131
+#: src/constants.vala.in:132
 msgid "Device Manufacturer"
 msgstr "Fabricante do Dispositivo"
 
-#: src/constants.vala.in:132
+#: src/constants.vala.in:133
 msgid "Last Seen"
 msgstr "Visto pela última vez"
 
-#: src/constants.vala.in:133
+#: src/constants.vala.in:134
 msgid "Discovered On"
 msgstr "Descoberto em"
 
-#: src/constants.vala.in:134
+#: src/constants.vala.in:135
 msgid "Host IP"
 msgstr "IP do Host"
 
-#: src/constants.vala.in:135
+#: src/constants.vala.in:136
 msgid "Host MAC"
 msgstr "MAC do Host"
 
-#: src/constants.vala.in:136
+#: src/constants.vala.in:137
 msgid "Active"
 msgstr "Ativo"
 
-#: src/constants.vala.in:137
+#: src/constants.vala.in:138
 msgid "Non Active"
 msgstr "Inativo"
 
-#: src/constants.vala.in:138
+#: src/constants.vala.in:139
 msgid "Discovered Earlier"
 msgstr "Descoberto antes"
 
-#: src/constants.vala.in:139
+#: src/constants.vala.in:140
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
 "Mostrando dispositivos gravados antes. Selecione uma conexão para atualizar "
 "o status."
 
-#: src/constants.vala.in:140
+#: src/constants.vala.in:141
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
 "Nenhum dispositivo foi gravado antes. Selecione uma conexão para atuailzar "
 "os resultados."
 
-#: src/constants.vala.in:141
+#: src/constants.vala.in:142
 msgid "Device scan in progress ..."
 msgstr "Escaneamento de dispositivos sendo realizado ..."
 
-#: src/constants.vala.in:142
+#: src/constants.vala.in:143
 msgid "devices found on this connection"
 msgstr "dispositivos encontrados nessa conexão"
 
-#: src/constants.vala.in:143
+#: src/constants.vala.in:144
 msgid "Actions for : "
 msgstr "Ações para:"
 
-#: src/constants.vala.in:144
+#: src/constants.vala.in:145
 msgid "Forget device"
 msgstr "Esquecer dispositivo"
 
-#: src/constants.vala.in:145
+#: src/constants.vala.in:146
 #, fuzzy
 msgid "New Device found on network:"
 msgstr "Novo dispositivo encontrado na rede:\n"
 
-#: src/constants.vala.in:146
+#: src/constants.vala.in:147
 msgid "Usage"
 msgstr "Uso"
 
-#: src/constants.vala.in:147
+#: src/constants.vala.in:148
 msgid "Connection monitored from "
 msgstr "Conexão monitorada a partir de"
 
-#: src/constants.vala.in:148
+#: src/constants.vala.in:149
 msgid " and last updated on "
 msgstr " e atualizada pela última vez em"
 
-#: src/constants.vala.in:149
+#: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
 "Por favor, adicione essa interface de conexão no vnstat usando a linha de "
 "comando."
 
-#: src/constants.vala.in:152
+#: src/constants.vala.in:153
 msgid "Time Period"
 msgstr "Período de tempo"
 
-#: src/constants.vala.in:153
+#: src/constants.vala.in:154
 msgid "Data Received"
 msgstr "Dados Recebidos"
 
-#: src/constants.vala.in:154
+#: src/constants.vala.in:155
 msgid "Data Sent"
 msgstr "Dados Enviados"
 
-#: src/constants.vala.in:155
+#: src/constants.vala.in:156
 msgid "Total Data"
 msgstr "Total de dados"
 
-#: src/constants.vala.in:156
+#: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
 msgstr "Selecione uma conexão para visualizar o uso de dados"
 
-#: src/constants.vala.in:157
+#: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
 msgstr "Clique em atualizar para visualizar apps usando"
 
-#: src/constants.vala.in:158
+#: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
 msgstr "Atualize o uso de banda dos aplicativos"
 
-#: src/constants.vala.in:159
+#: src/constants.vala.in:160
 msgid "Name"
 msgstr "Nome"
 
-#: src/constants.vala.in:160
+#: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
 msgstr "Dados enviados (Kb/sec)"
 
-#: src/constants.vala.in:161
+#: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
 msgstr "Dados recebidos (Kb/sec)"
 
-#: src/constants.vala.in:162
+#: src/constants.vala.in:163
 msgid "Background Device Monitoring"
 msgstr "Monitoramento de dispositivos em background"
 
-#: src/constants.vala.in:163
+#: src/constants.vala.in:164
 msgid "No monitoring of devices"
 msgstr ""
 
-#: src/constants.vala.in:164
+#: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
 msgstr "Monitorar dispositivos a cada 15 minutos"
 
-#: src/constants.vala.in:165
+#: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
 msgstr "Monitorar dispositivos a cada 30 minutos"
 
-#: src/constants.vala.in:166
+#: src/constants.vala.in:167
 msgid "Monitor devices every hour"
 msgstr "Monitorar dispositivos a cada hora"
 
-#: src/constants.vala.in:167
+#: src/constants.vala.in:168
 msgid "Monitor devices once a day"
 msgstr "Monitorar dispositivos uma vez por dia"
 
-#: src/constants.vala.in:168
+#: src/constants.vala.in:169
 msgid "Close"
 msgstr "Fechar"
 
-#: src/constants.vala.in:169
+#: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
 msgstr "ESTADO_DO_MONITORAMENTO_DE_DISPOSITIVOS"
 
-#: src/constants.vala.in:170
+#: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
 msgstr "AGENDA_DO_MONITORAMENTO_DE_DISPOSITIVOS"
 
-#: src/constants.vala.in:171
+#: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
 msgstr "DATA_DO_TESTEDEVELOCIDADE"
 
-#: src/constants.vala.in:172
+#: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
 msgstr "VELOCIDADEDEUPLOAD_TESTEDEVELOCIDADE"
 
-#: src/constants.vala.in:173
+#: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr "VELOCIDADEDOWNLOAD_TESTEDEVELOCIDADE"
 
-#: src/constants.vala.in:174
+#: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
 msgstr "Informações do Nutty exportadas para"
 
@@ -528,51 +533,51 @@ msgstr "Informações do Nutty exportadas para"
 msgid " for "
 msgstr " para "
 
-#: src/info.vala:158
+#: src/info.vala:174
 msgid "Network Card"
 msgstr "Placa de Rede"
 
-#: src/info.vala:158
+#: src/info.vala:174
 msgid " Standards with Transmit Power of "
 msgstr " Padrões com Transmit Power de "
 
-#: src/info.vala:158
+#: src/info.vala:174
 msgid " [Power Management: "
 msgstr " [Gerenciamento de energia: "
 
-#: src/info.vala:161
+#: src/info.vala:177
 msgid "Connected to"
 msgstr "Conectado a"
 
-#: src/info.vala:161
+#: src/info.vala:177
 msgid " Network at Access Point "
 msgstr " Rede no Ponto de Acesso "
 
-#: src/info.vala:161
+#: src/info.vala:177
 msgid " Mode"
 msgstr " Modo"
 
-#: src/info.vala:164
+#: src/info.vala:180
 msgid "Connected with"
 msgstr "Conectado ao"
 
-#: src/info.vala:164
+#: src/info.vala:180
 msgid "Frequency of "
 msgstr "Frequência de "
 
-#: src/info.vala:164
+#: src/info.vala:180
 msgid " and Bit Rate of "
 msgstr " e Taxa de Bit de "
 
-#: src/info.vala:167
+#: src/info.vala:183
 msgid "Connection strength"
 msgstr "Robustez da conexão"
 
-#: src/info.vala:167
+#: src/info.vala:183
 msgid "Link Quality of "
 msgstr "Qualidade de link de "
 
-#: src/info.vala:167
+#: src/info.vala:183
 msgid " and Signal Level of "
 msgstr " e Nível de Sinal de "
 

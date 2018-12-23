@@ -91,6 +91,7 @@ namespace NuttyApp.Constants{
 	public const string TEXT_FOR_MYINFO_HOSTNAME = _("Host Name");
 	public const string TEXT_FOR_MYINFO_MAC_ADDRESS = _("MAC Address");
 	public const string TEXT_FOR_MYINFO_IP_ADDRESS = _("IP Address");
+	public const string TEXT_FOR_MYINFO_IPV6_ADDRESS = _("IPv6 Address");
 	public const string TEXT_FOR_MYINFO_INTERFACE_STATE = _("Interface State");
 	public const string TEXT_FOR_MYINFO_INTERFACE_HARDWARE = _("Interface Hardware");
 	public const string TEXT_FOR_MYINFO_PRODUCT = _("Product");

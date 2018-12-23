@@ -1,28 +1,28 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-22 22:23+0530\n"
+"POT-Creation-Date: 2018-12-23 13:52+0530\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/nutty.vala:131
+#: src/nutty.vala:132
 msgid "Display version number"
 msgstr ""
 
-#: src/nutty.vala:132
+#: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
 msgstr ""
 
-#: src/nutty.vala:133
+#: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
 msgstr ""
 
-#: src/nutty.vala:134
+#: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
 msgstr ""
 
-#: src/nutty.vala:135
+#: src/nutty.vala:136
 msgid "Run Nutty in info mode"
 msgstr ""
 
@@ -109,11 +109,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: src/constants.vala.in:76 src/constants.vala.in:151
+#: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
 msgstr ""
 
-#: src/constants.vala.in:77 src/constants.vala.in:150
+#: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
 msgstr ""
 
@@ -182,320 +182,324 @@ msgid "IP Address"
 msgstr ""
 
 #: src/constants.vala.in:94
-msgid "Interface State"
+msgid "IPv6 Address"
 msgstr ""
 
 #: src/constants.vala.in:95
-msgid "Interface Hardware"
+msgid "Interface State"
 msgstr ""
 
 #: src/constants.vala.in:96
-msgid "Product"
+msgid "Interface Hardware"
 msgstr ""
 
 #: src/constants.vala.in:97
-msgid "Vendor"
+msgid "Product"
 msgstr ""
 
 #: src/constants.vala.in:98
-msgid "Physical ID"
+msgid "Vendor"
 msgstr ""
 
 #: src/constants.vala.in:99
-msgid "Bus Info"
+msgid "Physical ID"
 msgstr ""
 
 #: src/constants.vala.in:100
-msgid "Version"
+msgid "Bus Info"
 msgstr ""
 
 #: src/constants.vala.in:101
-msgid "Capacity"
+msgid "Version"
 msgstr ""
 
 #: src/constants.vala.in:102
-msgid "Bus Width"
+msgid "Capacity"
 msgstr ""
 
 #: src/constants.vala.in:103
-msgid "Clock Speed"
+msgid "Bus Width"
 msgstr ""
 
 #: src/constants.vala.in:104
-msgid "Speed"
+msgid "Clock Speed"
 msgstr ""
 
 #: src/constants.vala.in:105
-msgid "Route times to Host (in milliseconds): "
+msgid "Speed"
 msgstr ""
 
 #: src/constants.vala.in:106
-msgid "Hop#"
+msgid "Route times to Host (in milliseconds): "
 msgstr ""
 
 #: src/constants.vala.in:107
-msgid "Server IP"
+msgid "Hop#"
 msgstr ""
 
 #: src/constants.vala.in:108
-msgid "Server Name"
+msgid "Server IP"
 msgstr ""
 
 #: src/constants.vala.in:109
-msgid "1st Packet Time"
+msgid "Server Name"
 msgstr ""
 
 #: src/constants.vala.in:110
-msgid "2nd Packet Time"
+msgid "1st Packet Time"
 msgstr ""
 
 #: src/constants.vala.in:111
-msgid "3rd Packet Time"
+msgid "2nd Packet Time"
 msgstr ""
 
 #: src/constants.vala.in:112
-msgid "Internet Speed : Results from test on"
+msgid "3rd Packet Time"
 msgstr ""
 
 #: src/constants.vala.in:113
-msgid "No speed test has been done"
+msgid "Internet Speed : Results from test on"
 msgstr ""
 
 #: src/constants.vala.in:114
-msgid "Upload Speed"
+msgid "No speed test has been done"
 msgstr ""
 
 #: src/constants.vala.in:115
-msgid "Download Speed"
+msgid "Upload Speed"
 msgstr ""
 
 #: src/constants.vala.in:116
-msgid "Refresh Speed Test Results"
+msgid "Download Speed"
 msgstr ""
 
 #: src/constants.vala.in:117
-msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
+msgid "Refresh Speed Test Results"
 msgstr ""
 
 #: src/constants.vala.in:118
-msgid "Ports"
+msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr ""
 
 #: src/constants.vala.in:119
-msgid "All active ports scanned."
+msgid "Ports"
 msgstr ""
 
 #: src/constants.vala.in:120
-msgid "Refresh Ports results"
+msgid "All active ports scanned."
 msgstr ""
 
 #: src/constants.vala.in:121
-msgid "Protocol"
+msgid "Refresh Ports results"
 msgstr ""
 
 #: src/constants.vala.in:122
-msgid "State"
+msgid "Protocol"
 msgstr ""
 
 #: src/constants.vala.in:123
-msgid "Port"
+msgid "State"
 msgstr ""
 
 #: src/constants.vala.in:124
-msgid "Process ID"
+msgid "Port"
 msgstr ""
 
 #: src/constants.vala.in:125
-msgid "Program Name"
+msgid "Process ID"
 msgstr ""
 
 #: src/constants.vala.in:126
-msgid "Path"
+msgid "Program Name"
 msgstr ""
 
 #: src/constants.vala.in:127
-msgid "Devices"
+msgid "Path"
 msgstr ""
 
 #: src/constants.vala.in:128
-msgid "Refresh device scan results"
+msgid "Devices"
 msgstr ""
 
 #: src/constants.vala.in:129
-msgid "Status"
+msgid "Refresh device scan results"
 msgstr ""
 
 #: src/constants.vala.in:130
-msgid "Device Name"
+msgid "Status"
 msgstr ""
 
 #: src/constants.vala.in:131
-msgid "Device Manufacturer"
+msgid "Device Name"
 msgstr ""
 
 #: src/constants.vala.in:132
-msgid "Last Seen"
+msgid "Device Manufacturer"
 msgstr ""
 
 #: src/constants.vala.in:133
-msgid "Discovered On"
+msgid "Last Seen"
 msgstr ""
 
 #: src/constants.vala.in:134
-msgid "Host IP"
+msgid "Discovered On"
 msgstr ""
 
 #: src/constants.vala.in:135
-msgid "Host MAC"
+msgid "Host IP"
 msgstr ""
 
 #: src/constants.vala.in:136
-msgid "Active"
+msgid "Host MAC"
 msgstr ""
 
 #: src/constants.vala.in:137
-msgid "Non Active"
+msgid "Active"
 msgstr ""
 
 #: src/constants.vala.in:138
-msgid "Discovered Earlier"
+msgid "Non Active"
 msgstr ""
 
 #: src/constants.vala.in:139
-msgid ""
-"Displaying devices recorded earlier. Select a connection to update status."
+msgid "Discovered Earlier"
 msgstr ""
 
 #: src/constants.vala.in:140
 msgid ""
-"No devices have been recorded earlier. Select a connection to update results."
+"Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
 
 #: src/constants.vala.in:141
-msgid "Device scan in progress ..."
+msgid ""
+"No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
 
 #: src/constants.vala.in:142
-msgid "devices found on this connection"
+msgid "Device scan in progress ..."
 msgstr ""
 
 #: src/constants.vala.in:143
-msgid "Actions for : "
+msgid "devices found on this connection"
 msgstr ""
 
 #: src/constants.vala.in:144
-msgid "Forget device"
+msgid "Actions for : "
 msgstr ""
 
 #: src/constants.vala.in:145
-msgid "New Device found on network:"
+msgid "Forget device"
 msgstr ""
 
 #: src/constants.vala.in:146
-msgid "Usage"
+msgid "New Device found on network:"
 msgstr ""
 
 #: src/constants.vala.in:147
-msgid "Connection monitored from "
+msgid "Usage"
 msgstr ""
 
 #: src/constants.vala.in:148
-msgid " and last updated on "
+msgid "Connection monitored from "
 msgstr ""
 
 #: src/constants.vala.in:149
+msgid " and last updated on "
+msgstr ""
+
+#: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
 
-#: src/constants.vala.in:152
+#: src/constants.vala.in:153
 msgid "Time Period"
 msgstr ""
 
-#: src/constants.vala.in:153
+#: src/constants.vala.in:154
 msgid "Data Received"
 msgstr ""
 
-#: src/constants.vala.in:154
+#: src/constants.vala.in:155
 msgid "Data Sent"
 msgstr ""
 
-#: src/constants.vala.in:155
+#: src/constants.vala.in:156
 msgid "Total Data"
 msgstr ""
 
-#: src/constants.vala.in:156
+#: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
 msgstr ""
 
-#: src/constants.vala.in:157
+#: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
 msgstr ""
 
-#: src/constants.vala.in:158
+#: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
 msgstr ""
 
-#: src/constants.vala.in:159
+#: src/constants.vala.in:160
 msgid "Name"
 msgstr ""
 
-#: src/constants.vala.in:160
+#: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
 msgstr ""
 
-#: src/constants.vala.in:161
+#: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
 msgstr ""
 
-#: src/constants.vala.in:162
+#: src/constants.vala.in:163
 msgid "Background Device Monitoring"
 msgstr ""
 
-#: src/constants.vala.in:163
+#: src/constants.vala.in:164
 msgid "No monitoring of devices"
 msgstr ""
 
-#: src/constants.vala.in:164
+#: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
 msgstr ""
 
-#: src/constants.vala.in:165
+#: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
 msgstr ""
 
-#: src/constants.vala.in:166
+#: src/constants.vala.in:167
 msgid "Monitor devices every hour"
 msgstr ""
 
-#: src/constants.vala.in:167
+#: src/constants.vala.in:168
 msgid "Monitor devices once a day"
 msgstr ""
 
-#: src/constants.vala.in:168
+#: src/constants.vala.in:169
 msgid "Close"
 msgstr ""
 
-#: src/constants.vala.in:169
+#: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
 msgstr ""
 
-#: src/constants.vala.in:170
+#: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
 msgstr ""
 
-#: src/constants.vala.in:171
+#: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
 msgstr ""
 
-#: src/constants.vala.in:172
+#: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
 msgstr ""
 
-#: src/constants.vala.in:173
+#: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr ""
 
-#: src/constants.vala.in:174
+#: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
 msgstr ""
 
@@ -503,51 +507,51 @@ msgstr ""
 msgid " for "
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:174
 msgid "Network Card"
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:174
 msgid " Standards with Transmit Power of "
 msgstr ""
 
-#: src/info.vala:158
+#: src/info.vala:174
 msgid " [Power Management: "
 msgstr ""
 
-#: src/info.vala:161
+#: src/info.vala:177
 msgid "Connected to"
 msgstr ""
 
-#: src/info.vala:161
+#: src/info.vala:177
 msgid " Network at Access Point "
 msgstr ""
 
-#: src/info.vala:161
+#: src/info.vala:177
 msgid " Mode"
 msgstr ""
 
-#: src/info.vala:164
+#: src/info.vala:180
 msgid "Connected with"
 msgstr ""
 
-#: src/info.vala:164
+#: src/info.vala:180
 msgid "Frequency of "
 msgstr ""
 
-#: src/info.vala:164
+#: src/info.vala:180
 msgid " and Bit Rate of "
 msgstr ""
 
-#: src/info.vala:167
+#: src/info.vala:183
 msgid "Connection strength"
 msgstr ""
 
-#: src/info.vala:167
+#: src/info.vala:183
 msgid "Link Quality of "
 msgstr ""
 
-#: src/info.vala:167
+#: src/info.vala:183
 msgid " and Signal Level of "
 msgstr ""
 
