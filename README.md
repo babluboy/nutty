@@ -44,11 +44,11 @@ Run `meson build` to configure the build environment and run `ninja test` to bui
 git clone https://github.com/babluboy/nutty.git
 cd nutty
 meson build --prefix=/usr
-mkdir build && cd build
+cd build
 ninja
 ```
 
-To install, use `ninja install`, then execute with `com.github.babluboy.nutty`
+To install, use `sudo ninja install`, then execute with `com.github.babluboy.nutty`
 
 ```
 sudo ninja install
