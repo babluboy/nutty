@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 13:52+0530\n"
-"PO-Revision-Date: 2018-09-28 13:35+0000\n"
+"PO-Revision-Date: 2018-12-29 16:09+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/nutty/"
 "translations/uk/>\n"
@@ -10,9 +10,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -206,9 +206,8 @@ msgid "IP Address"
 msgstr "IP-адреса"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "IP-адреса"
+msgstr "Адреса IPv6"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
@@ -607,76 +606,86 @@ msgstr "Вийти"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
-#, fuzzy
 msgid "Nutty"
-msgstr "Використання Nutty"
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Відображає інформацію про мережу"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Проста утиліта для інформаційної мережі"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty надає інтуїтивний користувацький інтерфейс для деяких часто "
+"використовуваних інструментів командного рядка, пов'язаних з мережею."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"Ключовою особливістю є можливість включати сповіщення, коли пристрій входить "
+"до мережі користувача."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"Моя інформація: надає основну та детальну інформацію про мережеву карту "
+"пристрою"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Використання: Забезпечує використання мережевих даних у двох видах - "
+"історичне використання та поточне використання"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Швидкість: перевірте швидкість завантаження та завантаження та отримайте час "
+"на хост"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Порти: надає інформацію про активні порти та програми, що використовують їх "
+"на локальному пристрої"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
+"Пристрої: відстежує, попереджає та надає інформацію про інші пристрої в "
+"мережі"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
-#, fuzzy
 msgid "Device Monitoring"
-msgstr "Моніторинг фонового пристрою"
+msgstr "Моніторинг пристроїв"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
-#, fuzzy
 msgid "Bandwidth Usage"
-msgstr "Оновити використання пропускної здатності програми"
+msgstr "Використання пропускної здатності"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
-#, fuzzy
 msgid "Speed Test"
-msgstr "Швидкість"
+msgstr "Тест швидкості"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:58
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
