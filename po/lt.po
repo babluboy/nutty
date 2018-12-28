@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 13:52+0530\n"
-"PO-Revision-Date: 2018-11-27 12:08+0000\n"
+"PO-Revision-Date: 2018-12-29 16:09+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/nutty/"
 "translations/lt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -207,9 +207,8 @@ msgid "IP Address"
 msgstr "IP adresas"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "IP adresas"
+msgstr "IPv6 adresas"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
