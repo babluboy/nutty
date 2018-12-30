@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 13:52+0530\n"
-"PO-Revision-Date: 2018-10-01 18:03+0000\n"
-"Last-Translator: Kristoffer Grundström <kristoffer.grundstrom1983@gmail."
-"com>\n"
+"PO-Revision-Date: 2018-12-31 02:09+0000\n"
+"Last-Translator: Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>"
+"\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/nutty/"
 "translations/sv/>\n"
 "Language: sv\n"
@@ -12,15 +12,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Visa versionsnummer"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Kör Nutty för att upptäcka enheter"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
@@ -28,31 +28,31 @@ msgstr ""
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Kör Nutty i avlusningsläge"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Kör Nutty i info-läge"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Öppna"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Alla filer"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Text-filer"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
@@ -64,7 +64,7 @@ msgstr "Weblate-översättare"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Hemsida | Översättning | Felsökare"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
