@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-23 13:52+0530\n"
-"PO-Revision-Date: 2018-11-27 12:08+0000\n"
+"PO-Revision-Date: 2019-01-08 11:07+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
 "translations/is/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -205,9 +205,8 @@ msgid "IP Address"
 msgstr "IP-vistfang"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "IP-vistfang"
+msgstr "IPv6-vistfang"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
