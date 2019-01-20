@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-01-19 21:45+0100\n"
-"Last-Translator: NathanBnm\n"
-"Language-Team: Français\n"
+"PO-Revision-Date: 2019-01-21 20:21+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/nutty/"
+"translations/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.4-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -151,7 +154,7 @@ msgstr "jours avant"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr "Résultats :"
+msgstr "Résultats : "
 
 #: src/constants.vala.in:80
 msgid "No data found"
@@ -419,7 +422,7 @@ msgstr "appareils trouvés sur cette connexion"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
-msgstr "Actions pour :"
+msgstr "Actions pour : "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
@@ -439,7 +442,7 @@ msgstr "Connexion surveillée depuis "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr " at mise à jour le"
+msgstr " et mise à jour le "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
@@ -538,7 +541,7 @@ msgstr "VITESSE_TELECHARGEMENT_SPEEDTEST"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
-msgstr "Informations de Nutty exportées sur"
+msgstr "Informations de Nutty exportées sur "
 
 #: src/devices.vala:318
 msgid " for "
@@ -549,7 +552,6 @@ msgid "Network Card"
 msgstr "Carte réseau"
 
 #: src/info.vala:174
-#, fuzzy
 msgid " Standards with Transmit Power of "
 msgstr " Normes avec puissance d'émission de "
 
@@ -563,7 +565,7 @@ msgstr "Connecté à"
 
 #: src/info.vala:177
 msgid " Network at Access Point "
-msgstr " Réseau au point d'accès"
+msgstr " Réseau au point d'accès "
 
 #: src/info.vala:177
 msgid " Mode"
@@ -606,7 +608,6 @@ msgstr ""
 "pour plus d'informations"
 
 #: src/window.vala:63
-#, fuzzy
 msgid "Use Nutty"
 msgstr "Utiliser Nutty"
 
@@ -616,9 +617,8 @@ msgstr "Quitter"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
-#, fuzzy
 msgid "Nutty"
-msgstr "Utiliser Nutty"
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
