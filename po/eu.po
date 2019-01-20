@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 13:52+0530\n"
+"POT-Creation-Date: 2019-01-20 14:37+0530\n"
 "PO-Revision-Date: 2018-06-08 21:34+0000\n"
 "Last-Translator: Osoitz <oelkoro@gmail.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/nutty/"
@@ -648,6 +648,6 @@ msgstr ""
 msgid "Speed Test"
 msgstr ""
 
-#: data/com.github.babluboy.nutty.appdata.xml.in:58
+#: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
 msgstr ""

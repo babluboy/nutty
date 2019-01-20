@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 13:52+0530\n"
+"POT-Creation-Date: 2019-01-20 14:37+0530\n"
 "PO-Revision-Date: 2018-10-27 17:41+0000\n"
 "Last-Translator: Jack Icatorze <jack@icatorze.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -676,7 +676,7 @@ msgstr "Atualize o uso de banda dos aplicativos"
 msgid "Speed Test"
 msgstr "Velocidade"
 
-#: data/com.github.babluboy.nutty.appdata.xml.in:58
+#: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
 msgstr ""
 

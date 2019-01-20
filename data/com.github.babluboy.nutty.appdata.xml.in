@@ -38,6 +38,20 @@
         <binary>com.github.babluboy.nutty</binary>
     </provides>
     <releases>
+        <release version="1.1.1" date="2019-01-20">
+            <description>
+                <p>Display IPv6 address and better configuration options
+                    <ul>
+                        <li>View IPv6 along with IPv4 address</li>
+                        <li>Configure commands for non elementary OS distros</li>
+                        <li>Fix a bug which prevented re-size of the disclaimer screen</li>
+                        <li>Improve obtaining network details with use of ip command instead of the ifconfig one</li>
+                    </ul>
+                </p>
+            </description>
+        </release>
+    </releases>
+    <releases>
         <release version="1.0.0" date="2018-04-31">
             <description>
                 <p>Ability to edit and remove discovered devices

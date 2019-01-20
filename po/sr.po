@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 13:52+0530\n"
+"POT-Creation-Date: 2019-01-20 14:37+0530\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -642,6 +642,6 @@ msgstr ""
 msgid "Speed Test"
 msgstr ""
 
-#: data/com.github.babluboy.nutty.appdata.xml.in:58
+#: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
 msgstr ""

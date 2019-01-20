@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 13:52+0530\n"
+"POT-Creation-Date: 2019-01-20 14:37+0530\n"
 "PO-Revision-Date: 2019-01-08 11:07+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <https://hosted.weblate.org/projects/nutty/"
@@ -681,7 +681,7 @@ msgstr "Notkun bandbreiddar"
 msgid "Speed Test"
 msgstr "Hraðaprófun"
 
-#: data/com.github.babluboy.nutty.appdata.xml.in:58
+#: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
 msgstr "Siddhartha Das"
 

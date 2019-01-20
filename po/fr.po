@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-23 13:52+0530\n"
+"POT-Creation-Date: 2019-01-20 14:37+0530\n"
 "PO-Revision-Date: 2019-01-19 21:45+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -83,13 +83,16 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
-"Cette application possède des fonctions pour effectuer le balayage des ports et fournir des "
-"informations sur les appareils du réseau que vous utilisez. Il est tout à fait acceptable de "
-"rechercher des appareils sur votre propre réseau domestique résidentiel ou lorsque cela est explicitement "
-"autorisé par l'hôte et/ou le réseau de destination.\n"
+"Cette application possède des fonctions pour effectuer le balayage des ports "
+"et fournir des informations sur les appareils du réseau que vous utilisez. "
+"Il est tout à fait acceptable de rechercher des appareils sur votre propre "
+"réseau domestique résidentiel ou lorsque cela est explicitement autorisé par "
+"l'hôte et/ou le réseau de destination.\n"
 "\n"
-"Lors de l'utilisation de l'analyse des ports (onglet appareils) sur un réseau dont vous n'êtes pas propriétaire "
-"veuillez consulter et obtenir l'approbation de l'administrateur du réseau ou d'autres autorités compétentes du réseau."
+"Lors de l'utilisation de l'analyse des ports (onglet appareils) sur un "
+"réseau dont vous n'êtes pas propriétaire veuillez consulter et obtenir "
+"l'approbation de l'administrateur du réseau ou d'autres autorités "
+"compétentes du réseau."
 
 #: src/constants.vala.in:69
 msgid "About"
@@ -116,8 +119,8 @@ msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
-"Nutty à besoin d'une authentification pour effectuer cette action, veuillez fournir votre "
-"mot de passe pour continuer."
+"Nutty à besoin d'une authentification pour effectuer cette action, veuillez "
+"fournir votre mot de passe pour continuer."
 
 #: src/constants.vala.in:75
 msgid ""
@@ -127,10 +130,12 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
-"Nutty a besoin d'une authentification pour mettre à jour l'ordonnanceur racine (crontab) pour la surveillance des appareils"
-"Veuillez fournir votre mot de passe pour compléter ce changement. \n"
+"Nutty a besoin d'une authentification pour mettre à jour l'ordonnanceur "
+"racine (crontab) pour la surveillance des appareilsVeuillez fournir votre "
+"mot de passe pour compléter ce changement. \n"
 "\n"
-"Note : L'ordonnanceur racine actuel (crontab) sera sauvegardé dans votre dossier personnel."
+"Note : L'ordonnanceur racine actuel (crontab) sera sauvegardé dans votre "
+"dossier personnel."
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
@@ -302,7 +307,9 @@ msgstr "Actualiser les résultats du test de rapidité"
 
 #: src/constants.vala.in:118
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
-msgstr "Date inconnue. Veuillez cliquer sur le bouton Actualiser pour effectuer un test de rapidité"
+msgstr ""
+"Date inconnue. Veuillez cliquer sur le bouton Actualiser pour effectuer un "
+"test de rapidité"
 
 #: src/constants.vala.in:119
 msgid "Ports"
@@ -392,14 +399,15 @@ msgstr "Découvert auparavant"
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
-"Affiche les appareils enregistrés plus tôt. Sélectionnez une connexion pour mettre à jour l'état."
-
+"Affiche les appareils enregistrés plus tôt. Sélectionnez une connexion pour "
+"mettre à jour l'état."
 
 #: src/constants.vala.in:141
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
-"Aucun appareil n'a été enregistré auparavant. Sélectionnez une connexion pour mettre à jour les résultats."
+"Aucun appareil n'a été enregistré auparavant. Sélectionnez une connexion "
+"pour mettre à jour les résultats."
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
@@ -435,7 +443,9 @@ msgstr " at mise à jour le"
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
-msgstr "Veuillez ajouter cette interface de connexion à vnstat en utilisant les lignes de commande."
+msgstr ""
+"Veuillez ajouter cette interface de connexion à vnstat en utilisant les "
+"lignes de commande."
 
 #: src/constants.vala.in:153
 msgid "Time Period"
@@ -459,7 +469,8 @@ msgstr "Séléctionnez une connexion pour voir l'usage des données"
 
 #: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
-msgstr "Cliquez actualiser pour voir l'usage des applications en cours d'exécution "
+msgstr ""
+"Cliquez actualiser pour voir l'usage des applications en cours d'exécution "
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
@@ -626,50 +637,53 @@ msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
-"Nutty fournit une interface utilisateur intuitive pour certains outils de ligne de commande réseau "
-"couramment utilisés."
+"Nutty fournit une interface utilisateur intuitive pour certains outils de "
+"ligne de commande réseau couramment utilisés."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
-"Une fonctionnalité clé est la possibilité d'activer les notifications lorsqu'un appareil entre dans "
-"le réseau de l'utilisateur."
+"Une fonctionnalité clé est la possibilité d'activer les notifications "
+"lorsqu'un appareil entre dans le réseau de l'utilisateur."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
-"Mes infos : Fournit des informations de base et détaillées pour la carte réseau de l'appareil"
+"Mes infos : Fournit des informations de base et détaillées pour la carte "
+"réseau de l'appareil"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
-"Usage : Fournit l'utilisation des données réseau en deux vues - historique d'utilisation et "
-"utilisation actuelle"
+"Usage : Fournit l'utilisation des données réseau en deux vues - historique "
+"d'utilisation et utilisation actuelle"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
-msgstr "Vitesse : Vérifie les vitesses de transfert et de téléchargement et obtient les temps de propagation vers un hôte"
+msgstr ""
+"Vitesse : Vérifie les vitesses de transfert et de téléchargement et obtient "
+"les temps de propagation vers un hôte"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
-"Ports : Fournit des informations sur les ports actifs et les applications les utilisant sur "
-"l'appareil local"
+"Ports : Fournit des informations sur les ports actifs et les applications "
+"les utilisant sur l'appareil local"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
-"Appareils : Surveille, alerte et fournit des informations sur les autres appareils sur "
-"Ll réseau"
+"Appareils : Surveille, alerte et fournit des informations sur les autres "
+"appareils sur Ll réseau"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
 msgid "Device Monitoring"
@@ -683,6 +697,6 @@ msgstr "Utilisation de la bande passante"
 msgid "Speed Test"
 msgstr "Test de rapidité"
 
-#: data/com.github.babluboy.nutty.appdata.xml.in:58
+#: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
 msgstr "Siddhartha Das"
