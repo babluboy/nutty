@@ -630,7 +630,7 @@ msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr "Un simple utilitaire pour es informations sur le réseau"
+msgstr "Un simple utilitaire pour les informations sur le réseau"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
