@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2018-11-29 12:54+0000\n"
+"PO-Revision-Date: 2019-01-27 23:05+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/nutty/"
 "translations/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -53,11 +53,11 @@ msgstr "Salvar"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr "Todos os arquivos"
+msgstr "Todos os ficheiros"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr "Arquivos de texto"
+msgstr "Ficheiros de texto"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
@@ -105,7 +105,7 @@ msgstr "Preferências"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr "Exportar para Arquivo"
+msgstr "Exportar para Ficheiro"
 
 #: src/constants.vala.in:74
 msgid ""
@@ -124,8 +124,8 @@ msgid ""
 "directory."
 msgstr ""
 "Nutty precisa de autenticação para atualizar o root scheduler(contrab) para "
-"monitorar dispositivos. Por favor, foneça sua senha para completar essa "
-"alteração\n"
+"monitorar dispositivos. Por favor, forneça sua palavra-passe para completar "
+"essa alteração\n"
 "\n"
 "Atenção: O root scheduler (contrab) atual será copiado em backup para o "
 "diretório home."
