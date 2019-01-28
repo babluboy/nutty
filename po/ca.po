@@ -2,48 +2,56 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2019-01-29 08:10+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/nutty/"
+"translations/ca/>\n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.5-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Mostra el número de versió"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Executa el Nutty per a descobrir dispositius"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "Executa el Nutty en mode d’alerta de dispositius"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Executa el Nutty en mode de depuració"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Executa el Nutty en mode d’informació"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel·la"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Obre"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Desa"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Tots els fitxers"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Fitxers de text"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
