@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-01-27 23:05+0000\n"
+"PO-Revision-Date: 2019-05-06 14:48+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/nutty/"
 "translations/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -86,6 +86,14 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"Este aplicativo tem recursos para realizar a varredura de portas e fornecer "
+"informações sobre os aparelhos na rede que você está usando. É perfeitamente "
+"correto procurar aparelhos em sua própria rede residencial ou quando "
+"explicitamente autorizado pelo host e/ou rede de destino.\n"
+"\n"
+"Ao usar a varredura de portas (guia Aparelhos) em uma rede que você não "
+"possui, consulte e obtenha aprovação do Administrador de rede ou de outra "
+"autoridade de rede competente."
 
 #: src/constants.vala.in:69
 msgid "About"
@@ -203,9 +211,8 @@ msgid "IP Address"
 msgstr "Endereço IP"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Endereço IP"
+msgstr "Endereço IPv6"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
@@ -612,7 +619,7 @@ msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Exibe informações de rede"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
@@ -620,58 +627,72 @@ msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Uma ferramenta simples para informações de rede"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty fornece uma interface de usuário intuitiva para alguns usos de "
+"ferramentas de linha de comando sobre redes."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"O recurso fundamental é a capacidade de ativar notificações quando um "
+"dispositivo entra na rede do usuário."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"A minha informação: fornece informações básicas e detalhadas para a placa de "
+"rede do aparelho"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Uso: fornece dados sobre o uso da rede em dois modos de exibição - o uso "
+"histórico e o uso atual"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Velocidade: verificar velocidades de envio e descarrega e obter tempos de "
+"percurso para um host"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Portas: fornece informações sobre portas ativas e aplicativos usando-os no "
+"aparelho local"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
+"Aparelhos: monitora, alerta e fornece informações sobre outros aparelhos na "
+"rede"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
 msgid "Device Monitoring"
-msgstr ""
+msgstr "Monitoramento de aparelhos"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
 msgid "Bandwidth Usage"
-msgstr ""
+msgstr "Uso da largura de banda"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
 msgid "Speed Test"
-msgstr ""
+msgstr "Teste de Velocidade"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
