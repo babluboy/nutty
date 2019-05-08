@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2018-11-11 22:08+0000\n"
-"Last-Translator: Ümit Seyhan <btc.umit@gmail.com>\n"
+"PO-Revision-Date: 2019-05-09 04:48+0000\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nutty/"
 "translations/tr/>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -23,7 +23,7 @@ msgstr "Nutty'i Aygıtları Keşfetmek İçin Çalıştır"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr "Nutty'i Aygıt Alarm Modunda Çalıştır"
+msgstr "Nutty'i aygıt alarm kipinde çalıştır"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
@@ -127,7 +127,7 @@ msgid ""
 msgstr ""
 "Nutty'nin aygıt izleme için kök zamanlayıcıyı (crontab) güncellemesi, "
 "güncelleme için de izin alması gerekiyor.  Bu değişikliği tamamlamak için "
-"lütfen şifrenizi girin.\n"
+"lütfen parolanızı girin.\n"
 "\n"
 "Not: Geçerli kök zamanlayıcısı (crontab) Ev dizinine yedeklenecek."
 
@@ -204,9 +204,8 @@ msgid "IP Address"
 msgstr "IP Adresi"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "IP Adresi"
+msgstr "IPv6 Adresi"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
@@ -346,7 +345,7 @@ msgstr "Aygıtlar"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
-msgstr "Aygıt Taraması Sonuçlarını Yenile"
+msgstr "Aygıt taraması sonuçlarını yenile"
 
 #: src/constants.vala.in:130
 msgid "Status"
@@ -354,11 +353,11 @@ msgstr "Durum"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr "Aygıt İsmi"
+msgstr "Aygıt Adı"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr "Aygıt Üretici Firması"
+msgstr "Aygıt Üreticisi"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
@@ -416,11 +415,11 @@ msgstr "İçin Eylemler : "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr "Aygıtı Unut"
+msgstr "Aygıtı unut"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr "Ağ üzerinde yeni bir cihaz bulundu:"
+msgstr "Ağ üzerinde yeni Aygıt bulundu:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
@@ -605,76 +604,84 @@ msgstr "Çıkış"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
-#, fuzzy
 msgid "Nutty"
-msgstr "Nutty'i Kullan"
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Ağ bilgisini görüntüler"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Ağ bilgisi için küçük bir araç"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty, yaygın olarak kullanılan bazı ağ komut satırı araçları için sezgisel "
+"kullanıcı arayüzü sağlar."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"Uygulamanın anahtar özelliği, bir aygıt kullanıcı ağına girdiğinde bildirim "
+"yapma yeteneğidir."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
-msgstr ""
+msgstr "Bilgilerim: aygıt ağ kartı hakkında temel ve ayrıntılı bilgiler sağlar"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Kullanım: Ağ veri kullanımı hakkında iki görünümde bilgi sağlar - tarihsel "
+"kullanım ve mevcut kullanım"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Hız: Yükleme ve İndirme hızlarını kontrol eder ve ana bilgisayara olan rota "
+"zamanları tespit eder"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Portlar: Yerel aygıtın etkin portları ve bunları kullanan uygulamalar "
+"hakkında bilgiler sağlar"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
+"Aygıtlar: Ağdaki diğer aygıtlarlı ilgili izler, onlar hakkında uyarılar ve "
+"bilgiler sağlar"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
-#, fuzzy
 msgid "Device Monitoring"
-msgstr "Arka Planda Aygıt İzlemesi"
+msgstr "Aygıt İzleme"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
-#, fuzzy
 msgid "Bandwidth Usage"
-msgstr "Uygulamaların Bant Genişliği Kullanımını Yenile"
+msgstr "Bant Genişliği Kullanımı"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
-#, fuzzy
 msgid "Speed Test"
-msgstr "Hız"
+msgstr "Hız Testi"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
