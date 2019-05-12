@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-05-12 10:58+0000\n"
+"PO-Revision-Date: 2019-05-12 12:16+0000\n"
 "Last-Translator: ElXreno <elxreno@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
@@ -56,6 +56,7 @@ msgid "Text files"
 msgstr "Текстовые файлы"
 
 #: src/constants.vala.in:28
+#, fuzzy
 msgid "A Network Utility"
 msgstr "Сетевая утилита"
 
@@ -64,10 +65,12 @@ msgid "Weblate Translators"
 msgstr "Переводчики Weblate"
 
 #: src/constants.vala.in:35
+#, fuzzy
 msgid "Website | Translation | Bug Tracker"
 msgstr "Сайт | Перевод | Баг трекер"
 
 #: src/constants.vala.in:67
+#, fuzzy
 msgid "Network Scan Agreement"
 msgstr "Соглашение о сетевом сканировании"
 
@@ -92,14 +95,17 @@ msgstr ""
 "администратора или другого компетентного сетевого органа."
 
 #: src/constants.vala.in:69
+#, fuzzy
 msgid "About"
 msgstr "О приложении"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
+#, fuzzy
 msgid "Network Utility"
 msgstr "Сетевая утилита"
 
 #: src/constants.vala.in:71
+#, fuzzy
 msgid "Filter results..."
 msgstr "Фильтровать результаты..."
 
@@ -158,14 +164,17 @@ msgid "Not Available"
 msgstr "Недоступно"
 
 #: src/constants.vala.in:82
+#, fuzzy
 msgid "I Agree"
 msgstr "Согласен"
 
 #: src/constants.vala.in:83
+#, fuzzy
 msgid "Wired"
-msgstr "Проводная"
+msgstr "Проводной"
 
 #: src/constants.vala.in:84
+#, fuzzy
 msgid "Wireless"
 msgstr "Беспроводной"
 
@@ -178,6 +187,7 @@ msgid "My Info"
 msgstr "Моя информация"
 
 #: src/constants.vala.in:87
+#, fuzzy
 msgid "Select a connection"
 msgstr "Выберите соединение"
 
@@ -198,14 +208,17 @@ msgid "Host Name"
 msgstr "Имя хоста"
 
 #: src/constants.vala.in:92
+#, fuzzy
 msgid "MAC Address"
 msgstr "MAC адрес"
 
 #: src/constants.vala.in:93
+#, fuzzy
 msgid "IP Address"
 msgstr "IP адрес"
 
 #: src/constants.vala.in:94
+#, fuzzy
 msgid "IPv6 Address"
 msgstr "IPv6 адрес"
 
@@ -214,6 +227,7 @@ msgid "Interface State"
 msgstr "Состояние интерфейса"
 
 #: src/constants.vala.in:96
+#, fuzzy
 msgid "Interface Hardware"
 msgstr "Аппаратное обеспечение интерфейса"
 
@@ -226,10 +240,12 @@ msgid "Vendor"
 msgstr "Поставщик"
 
 #: src/constants.vala.in:99
+#, fuzzy
 msgid "Physical ID"
 msgstr "Физический идентификатор"
 
 #: src/constants.vala.in:100
+#, fuzzy
 msgid "Bus Info"
 msgstr "Информация шины"
 
@@ -238,14 +254,17 @@ msgid "Version"
 msgstr "Версия"
 
 #: src/constants.vala.in:102
+#, fuzzy
 msgid "Capacity"
 msgstr "Объем"
 
 #: src/constants.vala.in:103
+#, fuzzy
 msgid "Bus Width"
 msgstr "Ширина шины"
 
 #: src/constants.vala.in:104
+#, fuzzy
 msgid "Clock Speed"
 msgstr "Тактовая частота"
 
@@ -262,6 +281,7 @@ msgid "Hop#"
 msgstr ""
 
 #: src/constants.vala.in:108
+#, fuzzy
 msgid "Server IP"
 msgstr "IP сервера"
 
@@ -270,30 +290,37 @@ msgid "Server Name"
 msgstr "Имя сервера"
 
 #: src/constants.vala.in:110
+#, fuzzy
 msgid "1st Packet Time"
 msgstr "1-е время пакета"
 
 #: src/constants.vala.in:111
+#, fuzzy
 msgid "2nd Packet Time"
 msgstr "2-е время пакета"
 
 #: src/constants.vala.in:112
+#, fuzzy
 msgid "3rd Packet Time"
 msgstr "3-е время пакета"
 
 #: src/constants.vala.in:113
+#, fuzzy
 msgid "Internet Speed : Results from test on"
 msgstr "Скорость интернета: результаты теста на"
 
 #: src/constants.vala.in:114
+#, fuzzy
 msgid "No speed test has been done"
 msgstr "Тест скорости не был выполнен"
 
 #: src/constants.vala.in:115
+#, fuzzy
 msgid "Upload Speed"
 msgstr "Скорость загрузки"
 
 #: src/constants.vala.in:116
+#, fuzzy
 msgid "Download Speed"
 msgstr "Скорость скачивания"
 
@@ -316,6 +343,7 @@ msgid "All active ports scanned."
 msgstr "Все активные порты просканированы."
 
 #: src/constants.vala.in:121
+#, fuzzy
 msgid "Refresh Ports results"
 msgstr "Обновить результаты портов"
 
@@ -376,6 +404,7 @@ msgid "Host IP"
 msgstr "IP хоста"
 
 #: src/constants.vala.in:136
+#, fuzzy
 msgid "Host MAC"
 msgstr "MAC хоста"
 
@@ -388,6 +417,7 @@ msgid "Non Active"
 msgstr "Не активен"
 
 #: src/constants.vala.in:139
+#, fuzzy
 msgid "Discovered Earlier"
 msgstr "Обнаружено ранее"
 
@@ -406,10 +436,12 @@ msgstr ""
 "обновления результатов."
 
 #: src/constants.vala.in:142
+#, fuzzy
 msgid "Device scan in progress ..."
 msgstr "Идет сканирование устройств..."
 
 #: src/constants.vala.in:143
+#, fuzzy
 msgid "devices found on this connection"
 msgstr "устройства, найденные в этом соединении"
 
@@ -426,12 +458,13 @@ msgid "New Device found on network:"
 msgstr "В сети найдено новое устройство:"
 
 #: src/constants.vala.in:147
+#, fuzzy
 msgid "Usage"
 msgstr "Использование"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr ""
+msgstr "Соединение мониторится из"
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
@@ -447,14 +480,17 @@ msgid "Time Period"
 msgstr "Временной период"
 
 #: src/constants.vala.in:154
+#, fuzzy
 msgid "Data Received"
 msgstr "Данные получены"
 
 #: src/constants.vala.in:155
+#, fuzzy
 msgid "Data Sent"
 msgstr "Данные отправлены"
 
 #: src/constants.vala.in:156
+#, fuzzy
 msgid "Total Data"
 msgstr "Всего данных"
 
@@ -463,10 +499,12 @@ msgid "Select a connection to view data usage"
 msgstr "Выберите соединение для просмотра данных об использовании"
 
 #: src/constants.vala.in:158
+#, fuzzy
 msgid "Click refresh to see current Apps using "
 msgstr "Нажмите обновить, чтобы увидеть текущие приложения, использующие "
 
 #: src/constants.vala.in:159
+#, fuzzy
 msgid "Refresh Apps bandwidth usage"
 msgstr "Обновить использование пропускной способности приложениями"
 
@@ -475,34 +513,42 @@ msgid "Name"
 msgstr "Имя"
 
 #: src/constants.vala.in:161
+#, fuzzy
 msgid "Data Sent (Kb/sec)"
 msgstr "Данных отправлено (Кб/с)"
 
 #: src/constants.vala.in:162
+#, fuzzy
 msgid "Data Received (Kb/sec)"
 msgstr "Данных получено (Кб/с)"
 
 #: src/constants.vala.in:163
+#, fuzzy
 msgid "Background Device Monitoring"
 msgstr "Фоновый мониторинг устройства"
 
 #: src/constants.vala.in:164
+#, fuzzy
 msgid "No monitoring of devices"
 msgstr "Устройства не мониторятся"
 
 #: src/constants.vala.in:165
+#, fuzzy
 msgid "Monitor devices every 15 minutes"
 msgstr "Мониторить устройства каждые 15 минут"
 
 #: src/constants.vala.in:166
+#, fuzzy
 msgid "Monitor devices every 30 minutes"
 msgstr "Мониторить устройства каждые 30 минут"
 
 #: src/constants.vala.in:167
+#, fuzzy
 msgid "Monitor devices every hour"
 msgstr "Мониторить устройства каждый час"
 
 #: src/constants.vala.in:168
+#, fuzzy
 msgid "Monitor devices once a day"
 msgstr "Мониторить устройства раз в день"
 
@@ -531,6 +577,7 @@ msgid "SPEEDTEST_DOWNLOADSPEED"
 msgstr ""
 
 #: src/constants.vala.in:175
+#, fuzzy
 msgid "Nutty Information Exported on "
 msgstr "Информация Nutty экспортирована в "
 
@@ -555,6 +602,7 @@ msgid "Connected to"
 msgstr "Подключено к"
 
 #: src/info.vala:177
+#, fuzzy
 msgid " Network at Access Point "
 msgstr " Сеть в точке доступа "
 
@@ -563,6 +611,7 @@ msgid " Mode"
 msgstr " Режим"
 
 #: src/info.vala:180
+#, fuzzy
 msgid "Connected with"
 msgstr "Подключено к"
 
@@ -575,12 +624,13 @@ msgid " and Bit Rate of "
 msgstr " и битрейт "
 
 #: src/info.vala:183
+#, fuzzy
 msgid "Connection strength"
 msgstr "Сила подключения"
 
 #: src/info.vala:183
 msgid "Link Quality of "
-msgstr "Качество связи"
+msgstr "Качество связи "
 
 #: src/info.vala:183
 msgid " and Signal Level of "
@@ -597,6 +647,7 @@ msgid ""
 msgstr ""
 
 #: src/window.vala:63
+#, fuzzy
 msgid "Use Nutty"
 msgstr "Использовать Nutty"
 
@@ -610,6 +661,7 @@ msgid "Nutty"
 msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
+#, fuzzy
 msgid "Displays network information"
 msgstr "Отображает информацию о сети"
 
@@ -618,6 +670,7 @@ msgid "com.github.babluboy.nutty"
 msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
+#, fuzzy
 msgid "A simple utility for network information"
 msgstr "Простая утилита для сетевой информации"
 
@@ -676,6 +729,7 @@ msgstr ""
 "устройствах в сети"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
+#, fuzzy
 msgid "Device Monitoring"
 msgstr "Мониторинг устройства"
 
@@ -688,5 +742,6 @@ msgid "Speed Test"
 msgstr "Тест скорости"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
+#, fuzzy
 msgid "Siddhartha Das"
 msgstr "Siddhartha Das"
