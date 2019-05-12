@@ -3,7 +3,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
 "PO-Revision-Date: 2019-05-12 13:23+0000\n"
-"Last-Translator: Artem Polishchuk <ego.cordatus@gmail.com>\n"
+"Last-Translator: ElXreno <elxreno@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
 "Language: ru\n"
@@ -164,7 +164,6 @@ msgid "I Agree"
 msgstr "Принимаю"
 
 #: src/constants.vala.in:83
-#, fuzzy
 msgid "Wired"
 msgstr "Проводной"
 
@@ -604,13 +603,15 @@ msgstr " и уровень сигнала "
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Nutty отказ от ответственности "
 
 #: src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"Нажмите, чтобы прочитать отказ от ответственности Nmap (используется Nutty) "
+"для получения дополнительной информации"
 
 #: src/window.vala:63
 msgid "Use Nutty"
