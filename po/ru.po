@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-05-12 10:56+0000\n"
-"Last-Translator: ElXreno <elxreno@gmail.com>\n"
+"PO-Revision-Date: 2019-05-12 10:58+0000\n"
+"Last-Translator: Artem Polishchuk <ego.cordatus@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
 "Language: ru\n"
@@ -23,6 +23,7 @@ msgid "Run Nutty to discover devices"
 msgstr "Запустить Nutty для поиска устройств"
 
 #: src/nutty.vala:134
+#, fuzzy
 msgid "Run Nutty in device alert mode"
 msgstr "Запустить Nutty в режиме оповещения устройства"
 
