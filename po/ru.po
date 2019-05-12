@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-05-12 13:23+0000\n"
-"Last-Translator: ElXreno <elxreno@gmail.com>\n"
+"PO-Revision-Date: 2019-05-13 13:49+0000\n"
+"Last-Translator: Artem Polishchuk <ego.cordatus@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
 "Language: ru\n"
@@ -20,7 +20,7 @@ msgstr "Показать номер версии"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr "Запустить Nutty для поиска устройств"
+msgstr "Запустить Nutty, чтобы обнаружить устройства"
 
 #: src/nutty.vala:134
 #, fuzzy
@@ -29,11 +29,11 @@ msgstr "Запустить Nutty в режиме оповещения устро
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr "Запустить Nutty в режиме дебага"
+msgstr "Запустить Nutty в режиме отладки"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr "Запустить Nutty в информационном режиме"
+msgstr "Запустить Nutty в режиме показа информации"
 
 #: src/utils.vala:231
 msgid "Cancel"
@@ -610,7 +610,7 @@ msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
-"Нажмите, чтобы прочитать отказ от ответственности Nmap (используется Nutty) "
+"Нажмите, чтобы прочитать отказ от ответственности Nmap (используемый Nutty) "
 "для получения дополнительной информации"
 
 #: src/window.vala:63
