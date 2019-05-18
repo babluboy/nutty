@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-02-07 19:10+0000\n"
-"Last-Translator: Frieder Ferlemann <frieder.ferlemann@web.de>\n"
+"PO-Revision-Date: 2019-05-19 12:49+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nutty/"
 "translations/de/>\n"
 "Language: de\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.7-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -175,7 +175,7 @@ msgstr "Andere"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "Meine Daten"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
@@ -465,6 +465,8 @@ msgstr "Eine Verbundung auswählen um Datenvolumen zu sehen"
 #: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
 msgstr ""
+"Klicken Sie auf Aktualisieren, um zu sehen, welche Apps gerade folgendes "
+"nutzen "
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
@@ -512,23 +514,23 @@ msgstr "Schließen"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "DEVICE_MONITORING_STATE"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "DEVICE_MONITORING_SCHEDULE"
 
 #: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "SPEEDTEST_DATE"
 
 #: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_UPLOADSPEED"
 
 #: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_DOWNLOADSPEED"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
@@ -544,7 +546,7 @@ msgstr "Netzwerk Karte"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " Normen mit Sendeleistung von "
 
 #: src/info.vala:174
 msgid " [Power Management: "
@@ -576,7 +578,7 @@ msgstr " und Bitrate von "
 
 #: src/info.vala:183
 msgid "Connection strength"
-msgstr ""
+msgstr "Verbindungsstärke"
 
 #: src/info.vala:183
 msgid "Link Quality of "
@@ -588,13 +590,15 @@ msgstr " und Signallevel von "
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Nutty Haftungsausschluss"
 
 #: src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"Klicken Sie hier, um den rechtlichen Hinweis auf Nmap (verwendet von Nutty) "
+"für weitere Informationen zu lesen"
 
 #: src/window.vala:63
 msgid "Use Nutty"
