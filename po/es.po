@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-01-29 08:10+0000\n"
+"PO-Revision-Date: 2019-09-07 10:24+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/nutty/"
 "translations/es/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -221,7 +221,7 @@ msgstr "Producto"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
-msgstr "Vendedor"
+msgstr "Fabricante"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
