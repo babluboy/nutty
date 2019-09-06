@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-01-29 08:10+0000\n"
+"PO-Revision-Date: 2019-09-07 10:24+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/nutty/"
 "translations/ca/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -55,7 +55,7 @@ msgstr "Fitxers de text"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "Una utilitat per a xarxes"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
@@ -63,11 +63,11 @@ msgstr ""
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Lloc web | Traducció | Seguiment d’errors"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Acord d’exploració de xarxes"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -80,22 +80,29 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"Aquest programa inclou prestacions per a explorar ports i oferir dades sobre "
+"els dispositius de la xarxa que feu servir. És acceptable cercar dispositius "
+"en la vostra pròpia xarxa residencial o en altres xarxes o amfitrions, "
+"sempre que compteu amb l’autorització explícita del propietari.\n"
+"\n"
+"En explorar ports (pestanya Dispositius) en una xarxa aliena, acudiu al "
+"personal administratiu competent i sol·liciteu-ne l’autorització."
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "Quant a"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "Utilitat de xarxa"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr ""
+msgstr "Filtra els resultats…"
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "Preferències"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
@@ -106,6 +113,8 @@ msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
+"Cal autenticar-vos perquè el Nutty pugui fer aquesta acció. Introduïu la "
+"vostra contrasenya."
 
 #: src/constants.vala.in:75
 msgid ""
@@ -118,11 +127,11 @@ msgstr ""
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "Avui"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "Ahir"
 
 #: src/constants.vala.in:78
 msgid "days ago"
@@ -130,19 +139,19 @@ msgstr ""
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "Resultats: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "No s’ha trobat cap dada"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "No disponible"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "Hi estic d’acord"
 
 #: src/constants.vala.in:83
 msgid "Wired"
@@ -158,55 +167,55 @@ msgstr ""
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "La meva informació"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "Seleccioneu una connexió"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "Mostra els detalls"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr ""
+msgstr "Atribut"
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "Detalls"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr ""
+msgstr "Nom de l’amfitrió"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "Adreça MAC"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "Adreça IP"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "Adreça IPv6"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr ""
+msgstr "Estat de la interfície"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr ""
+msgstr "Maquinari de la interfície"
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "Producte"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
-msgstr ""
+msgstr "Proveïdor"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
@@ -218,7 +227,7 @@ msgstr ""
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "Versió"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
@@ -246,23 +255,23 @@ msgstr ""
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "IP del servidor"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "Nom del servidor"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
-msgstr ""
+msgstr "Temps del 1r paquet"
 
 #: src/constants.vala.in:111
 msgid "2nd Packet Time"
-msgstr ""
+msgstr "Temps del 2n paquet"
 
 #: src/constants.vala.in:112
 msgid "3rd Packet Time"
-msgstr ""
+msgstr "Temps del 3r paquet"
 
 #: src/constants.vala.in:113
 msgid "Internet Speed : Results from test on"
@@ -290,7 +299,7 @@ msgstr ""
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "Ports"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
@@ -302,15 +311,15 @@ msgstr ""
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "Protocol"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "Estat"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
@@ -318,15 +327,15 @@ msgstr ""
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "Nom del programa"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Camí"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Dispositius"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
@@ -334,15 +343,15 @@ msgstr ""
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Nom del dispositiu"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "Fabricant del dispositiu"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
@@ -354,11 +363,11 @@ msgstr ""
 
 #: src/constants.vala.in:135
 msgid "Host IP"
-msgstr ""
+msgstr "IP de l’amfitrió"
 
 #: src/constants.vala.in:136
 msgid "Host MAC"
-msgstr ""
+msgstr "MAC de l’amfitrió"
 
 #: src/constants.vala.in:137
 msgid "Active"
@@ -404,31 +413,32 @@ msgstr ""
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "Ús"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr ""
+msgstr "La connexió es monitora des de "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr ""
+msgstr " i s’ha actualitzar per darrera vegada el "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
+"Afegiu aquesta interfície de connexió al vnstat mitjançant la línia d’ordres."
 
 #: src/constants.vala.in:153
 msgid "Time Period"
-msgstr ""
+msgstr "Període"
 
 #: src/constants.vala.in:154
 msgid "Data Received"
-msgstr ""
+msgstr "Dades rebudes"
 
 #: src/constants.vala.in:155
 msgid "Data Sent"
-msgstr ""
+msgstr "Dades enviades"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
@@ -448,7 +458,7 @@ msgstr ""
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
@@ -464,27 +474,27 @@ msgstr ""
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "Sense monitoratge de dispositius"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
-msgstr ""
+msgstr "Monitora els dispositius cada 15 minuts"
 
 #: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
-msgstr ""
+msgstr "Monitora els dispositius cada 30 minuts"
 
 #: src/constants.vala.in:167
 msgid "Monitor devices every hour"
-msgstr ""
+msgstr "Monitora els dispositius cada hora"
 
 #: src/constants.vala.in:168
 msgid "Monitor devices once a day"
-msgstr ""
+msgstr "Monitora els dispositius diàriament"
 
 #: src/constants.vala.in:169
 msgid "Close"
-msgstr ""
+msgstr "Tanca"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
@@ -516,7 +526,7 @@ msgstr ""
 
 #: src/info.vala:174
 msgid "Network Card"
-msgstr ""
+msgstr "Targeta de xarxa"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
@@ -571,23 +581,25 @@ msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"Per a més informació, feu clic per a llegir el descàrrec de responsabilitats "
+"del Nmap (utilitzat pel Nutty)"
 
 #: src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Fes servir el Nutty"
 
 #: src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Surt"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
 msgid "Nutty"
-msgstr ""
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Mostra informació de la xarxa"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
