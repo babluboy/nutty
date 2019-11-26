@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2018-04-21 21:38+0000\n"
-"Last-Translator: Ale-Ma <alemassimiani@gmail.com>\n"
+"PO-Revision-Date: 2019-11-28 00:04+0000\n"
+"Last-Translator: Francesco Bisignani <tassobaramba2@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/nutty/"
 "translations/it/>\n"
 "Language: it\n"
@@ -11,11 +11,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0-dev\n"
+"X-Generator: Weblate 3.10-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Mostra numero versione"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
@@ -27,7 +27,7 @@ msgstr ""
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Esegui Nutty in modalità Debug"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
@@ -47,11 +47,11 @@ msgstr "Salva"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Tutti i file"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "File di testo"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
