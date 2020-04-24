@@ -87,7 +87,7 @@ msgstr ""
 "\n"
 "Durante l'utilizzo di Port Scan (scheda Dispositivi) su una rete di cui non sei il proprietario, per favore"
 "consultare e ottenere l'approvazione dell'amministratore di rete o di altri competenti"
-"autorità di rete".
+"autorità di rete."
 
 #: src/constants.vala.in:69
 msgid "About"
@@ -129,7 +129,7 @@ msgstr ""
 "monitoraggio. Fornisci la tua password per completare questa modifica. \n"
 "\n"
 "Nota: verrà eseguito il backup dell'home scheduler root (crontab) nella home"
-"Directory".
+"Directory."
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
@@ -213,7 +213,7 @@ msgstr "Stato Interfaccia"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr I"nterfaccia Hardware"
+msgstr "Interfaccia Hardware"
 
 #: src/constants.vala.in:97
 msgid "Product"
@@ -588,8 +588,8 @@ msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr "Fai clic per leggere il disclaimer legale su Nmap (utilizzato da Nutty) per ulteriori"
-informazioni"
-"
+"informazioni"
+
 #: src/window.vala:63
 msgid "Use Nutty"
 msgstr "Usa Nutty"
@@ -629,7 +629,7 @@ msgid ""
 "the user's network."
 msgstr ""
 "Una caratteristica chiave è la possibilità di attivare la notifica quando un dispositivo entra"
-"nella rete dell'utente".
+"nella rete dell'utente."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
@@ -654,7 +654,7 @@ msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
-Porte: fornisce informazioni su porte e applicazioni attive utilizzandole su "
+"Porte: fornisce informazioni su porte e applicazioni attive utilizzandole su "
 "il dispositivo locale"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
