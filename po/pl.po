@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2018-09-21 10:33+0000\n"
-"Last-Translator: Jacek Witkowski <jacek_witkowski@wp.pl>\n"
+"PO-Revision-Date: 2020-06-10 17:41+0000\n"
+"Last-Translator: WaldiS <sto@tutanota.de>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/nutty/"
 "translations/pl/>\n"
 "Language: pl\n"
@@ -12,11 +12,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Wyświetl numer wersji"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
@@ -24,35 +24,35 @@ msgstr ""
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "Uruchom Nutty w trybie alertu urządzenia"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Uruchom Nutty w trybie debufowania"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Uruchom Nutty w trybie informacyjnym"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Otwórz"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Wszystkie pliki"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Pliki tekstowe"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
@@ -71,6 +71,7 @@ msgid "Network Scan Agreement"
 msgstr "Zgoda na skanowanie sieci"
 
 #: src/constants.vala.in:68
+#, fuzzy
 msgid ""
 "This application has features to perform port scanning and provide "
 "information on devices on the network you are using. It is perfectly OK to "
@@ -81,6 +82,14 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"Ta aplikacja ma funkcje przeprowadzania skanowania portów i dostarczania "
+"informacji o urządzeniach w sieci, z której korzystasz. Skanowanie urządzeń "
+"we własnej sieci domowej lub w przypadku wyraźnego zezwolenia hosta "
+"docelowego i/lub sieci jest całkowicie w porządku.\n"
+"\n"
+"Podczas korzystania ze skanowania portów (karta Urządzenia) w sieci, której "
+"nie jesteś właścicielem, skonsultuj się z administratorem sieci lub innym "
+"właściwym organem sieci i uzyskaj zgodę."
 
 #: src/constants.vala.in:69
 msgid "About"
@@ -192,9 +201,8 @@ msgid "IP Address"
 msgstr "Adres IP"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Adres IP"
+msgstr "Adres IPv6"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
