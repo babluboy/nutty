@@ -2,65 +2,72 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2020-07-08 14:41+0000\n"
+"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/nutty/"
+"translations/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n == 1 ? 0 : 1;\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "バージョン番号を表示"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Nutty を実行してデバイスを発見"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "Nutty をデバイスアラートモードで実行"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Nutty をデバッグモードで実行"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Nutty を情報モードで実行"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "開く"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "全てのファイル"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "テキストファイル"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "ネットワークユーティリティ"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Weblate 翻訳者"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Webサイト | 翻訳 | バグトラッカー"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "ネットワークスキャン契約条項"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -73,32 +80,37 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"このアプリケーションは、ポートのスキャンを行って、お使いのネットワークにあるデバイスの情報を表示するという機能が実装しています。自分の家のネットワークなら"
+"、もしくは目的のホストやネットワークがこれを明示的に許可しているなら、デバイスのスキャンを行っても何の問題もありません。\n"
+"\n"
+"「デバイス」タブのポートスキャンを他人のネットワークで行いたい時は、ネットワークの管理者もしくは他の資格のあるネットワーク機関から許可を得てから行ってくだ"
+"さい。"
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "アプリケーションについて"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "ネットワークユーティリティ"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr ""
+msgstr "結果を絞り込む..."
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "設定"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr ""
+msgstr "ファイルにエクスポート"
 
 #: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
-msgstr ""
+msgstr "このアクションを実行するには、Nuttyは認証が必要です。パスワードを入力してから続行してください。"
 
 #: src/constants.vala.in:75
 msgid ""
@@ -108,62 +120,65 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
+"Nutty はルートスケジューラー（crontab）を更新しようとしているため認証が必要です。パスワードを入力してからこの変更を適用してください。\n"
+"\n"
+"注：現在のルートスケジューラ（crontab）は、homeディレクトリにバックアップされます。"
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "今日"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "昨日"
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr ""
+msgstr "日前"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "結果： "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "データが見つかりませんでした"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "利用不可"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "同意する"
 
 #: src/constants.vala.in:83
 msgid "Wired"
-msgstr ""
+msgstr "有線"
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr ""
+msgstr "無線"
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "その他"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "マイ情報"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "接続を選択してください"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "詳細を見る"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr ""
+msgstr "属性"
 
 #: src/constants.vala.in:90
 msgid "Details"
