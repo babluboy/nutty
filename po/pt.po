@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-05-06 14:48+0000\n"
+"PO-Revision-Date: 2020-07-20 15:41+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/nutty/"
 "translations/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -25,11 +25,11 @@ msgstr "Mostrar o número da versão"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr "Executar o Nutty para encontrar dispositivos"
+msgstr "Executar o Nutty para encontrar aparelhos"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr "Executar o Nutty no modo alerta de dispositivos"
+msgstr "Executar o Nutty no modo alerta de aparelhos"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
@@ -86,14 +86,14 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
-"Este aplicativo tem recursos para realizar a varredura de portas e fornecer "
-"informações sobre os aparelhos na rede que você está usando. É perfeitamente "
-"correto procurar aparelhos em sua própria rede residencial ou quando "
+"Esta app tem recursos para realizar a varredura de portas e fornecer "
+"informações sobre os aparelhos na rede que está a usar. É perfeitamente "
+"correto procurar aparelhos na sua própria rede residencial ou quando "
 "explicitamente autorizado pelo host e/ou rede de destino.\n"
 "\n"
-"Ao usar a varredura de portas (guia Aparelhos) em uma rede que você não "
-"possui, consulte e obtenha aprovação do Administrador de rede ou de outra "
-"autoridade de rede competente."
+"Ao usar a varredura de portas (guia Aparelhos) numa rede que não possui, "
+"consulte e obtenha aprovação do Administrador de rede ou de outra autoridade "
+"de rede competente."
 
 #: src/constants.vala.in:69
 msgid "About"
@@ -132,7 +132,7 @@ msgid ""
 "directory."
 msgstr ""
 "Nutty precisa de autenticação para atualizar o root scheduler(contrab) para "
-"monitorar dispositivos. Por favor, forneça sua palavra-passe para completar "
+"monitorar aparelhos. Por favor, forneça sua palavra-passe para completar "
 "essa alteração\n"
 "\n"
 "Atenção: O root scheduler (contrab) atual será copiado em backup para o "
@@ -350,11 +350,11 @@ msgstr "Caminho"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr "Dispositivos"
+msgstr "Aparelhos"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
-msgstr "Atualizar o resultado do escaneamento de dispositivos"
+msgstr "Atualizar o resultado do escaneamento de aparelhos"
 
 #: src/constants.vala.in:130
 msgid "Status"
@@ -362,11 +362,11 @@ msgstr "Status"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr "Nome do Dispositivo"
+msgstr "Nome do Aparelho"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr "Fabricante do Dispositivo"
+msgstr "Fabricante do Aparelho"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
@@ -400,23 +400,23 @@ msgstr "Descoberto antes"
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
-"Mostrando dispositivos gravados antes. Selecione uma conexão para atualizar "
-"o status."
+"Mostrando aparelhos gravados antes. Selecione uma conexão para atualizar o "
+"status."
 
 #: src/constants.vala.in:141
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
-"Nenhum dispositivo foi gravado antes. Selecione uma conexão para atuailzar "
-"os resultados."
+"Nenhum aparelho foi gravado antes. Selecione uma conexão para atuailzar os "
+"resultados."
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr "Escaneamento de dispositivos sendo realizado ..."
+msgstr "Escaneamento de aparelhos sendo realizado ..."
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr "dispositivos encontrados nessa conexão"
+msgstr "aparelhos encontrados nessa conexão"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
@@ -424,11 +424,11 @@ msgstr "Ações para: "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr "Esquecer dispositivo"
+msgstr "Esquecer aparelho"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr "Novo dispositivo encontrado na rede:"
+msgstr "Novo aparelho encontrado na rede:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
@@ -474,7 +474,7 @@ msgstr "Clique em atualizar para visualizar apps usando "
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
-msgstr "Atualize o uso de banda dos aplicativos"
+msgstr "Atualize o uso de banda das apps"
 
 #: src/constants.vala.in:160
 msgid "Name"
@@ -490,27 +490,27 @@ msgstr "Dados recebidos (Kb/sec)"
 
 #: src/constants.vala.in:163
 msgid "Background Device Monitoring"
-msgstr "Monitoramento de dispositivos em background"
+msgstr "Monitoramento de aparelhos em background"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
-msgstr "Nenhum monitoramento de dispositivos"
+msgstr "Nenhum monitoramento de aparelhos"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
-msgstr "Monitorar dispositivos a cada 15 minutos"
+msgstr "Monitorar aparelhos a cada 15 minutos"
 
 #: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
-msgstr "Monitorar dispositivos a cada 30 minutos"
+msgstr "Monitorar aparelhos a cada 30 minutos"
 
 #: src/constants.vala.in:167
 msgid "Monitor devices every hour"
-msgstr "Monitorar dispositivos a cada hora"
+msgstr "Monitorar aparelhos a cada hora"
 
 #: src/constants.vala.in:168
 msgid "Monitor devices once a day"
-msgstr "Monitorar dispositivos uma vez por dia"
+msgstr "Monitorar aparelhos uma vez por dia"
 
 #: src/constants.vala.in:169
 msgid "Close"
@@ -518,11 +518,11 @@ msgstr "Fechar"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
-msgstr "ESTADO_DO_MONITORAMENTO_DE_DISPOSITIVOS"
+msgstr "DEVICE_MONITORING_STATE"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr "AGENDA_DO_MONITORAMENTO_DE_DISPOSITIVOS"
+msgstr "DEVICE_MONITORING_SCHEDULE"
 
 #: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
@@ -634,7 +634,7 @@ msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
-"Nutty fornece uma interface de usuário intuitiva para alguns usos de "
+"Nutty fornece uma interface de utilizador intuitiva para alguns usos de "
 "ferramentas de linha de comando sobre redes."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
@@ -643,7 +643,7 @@ msgid ""
 "the user's network."
 msgstr ""
 "O recurso fundamental é a capacidade de ativar notificações quando um "
-"dispositivo entra na rede do usuário."
+"aparelho entra na rede do utilizador."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
@@ -671,7 +671,7 @@ msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
-"Portas: fornece informações sobre portas ativas e aplicativos usando-os no "
+"Portas: fornece informações sobre portas ativas e aplicações usando-os no "
 "aparelho local"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
