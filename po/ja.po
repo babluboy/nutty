@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-07-08 14:41+0000\n"
-"Last-Translator: Huang Zhiyi <hzy980512@126.com>\n"
+"PO-Revision-Date: 2020-07-22 10:41+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/nutty/"
 "translations/ja/>\n"
 "Language: ja\n"
@@ -19,7 +19,7 @@ msgstr "バージョン番号を表示"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr "Nutty を実行してデバイスを発見"
+msgstr "Nutty を実行してデバイスを検出"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
@@ -47,7 +47,7 @@ msgstr "保存"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr "全てのファイル"
+msgstr "すべてのファイル"
 
 #: src/utils.vala:253
 msgid "Text files"
@@ -55,7 +55,7 @@ msgstr "テキストファイル"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr "ネットワークユーティリティ"
+msgstr "ネットワークユーティリティー"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
@@ -63,7 +63,7 @@ msgstr "Weblate 翻訳者"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr "Webサイト | 翻訳 | バグトラッカー"
+msgstr "Web サイト | 翻訳 | バグトラッカー"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
@@ -80,19 +80,18 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
-"このアプリケーションは、ポートのスキャンを行って、お使いのネットワークにあるデバイスの情報を表示するという機能が実装しています。自分の家のネットワークなら"
-"、もしくは目的のホストやネットワークがこれを明示的に許可しているなら、デバイスのスキャンを行っても何の問題もありません。\n"
+"このアプリケーションは、ポートのスキャンを行って、お使いのネットワーク内のデバイスの情報を表示できます。自宅のネットワークで使用する場合や、目的のホストや"
+"ネットワークが明示的に許可している場合は、デバイスのスキャンを行っても何の問題もありません。\n"
 "\n"
-"「デバイス」タブのポートスキャンを他人のネットワークで行いたい時は、ネットワークの管理者もしくは他の資格のあるネットワーク機関から許可を得てから行ってくだ"
-"さい。"
+"デバイスタブのポートスキャンを他人のネットワークで行いたい場合は、ネットワークの管理者か、適切なネットワーク機関から許可を得たうえで行ってください。"
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr "アプリケーションについて"
+msgstr "このアプリケーションについて"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr "ネットワークユーティリティ"
+msgstr "ネットワークユーティリティー"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
@@ -110,7 +109,7 @@ msgstr "ファイルにエクスポート"
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
-msgstr "このアクションを実行するには、Nuttyは認証が必要です。パスワードを入力してから続行してください。"
+msgstr "このアクションを実行するには認証が必要です。続行するにはパスワードを入力してください。"
 
 #: src/constants.vala.in:75
 msgid ""
@@ -120,9 +119,9 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
-"Nutty はルートスケジューラー（crontab）を更新しようとしているため認証が必要です。パスワードを入力してからこの変更を適用してください。\n"
+"ルートスケジューラー (crontab) の更新には認証が必要です。この変更を適用するには、パスワードを入力してください。\n"
 "\n"
-"注：現在のルートスケジューラ（crontab）は、homeディレクトリにバックアップされます。"
+"注意: 現在のルートスケジューラー (crontab) は、home ディレクトリーにバックアップされます。"
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
@@ -138,15 +137,15 @@ msgstr "日前"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr "結果： "
+msgstr "結果: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr "データが見つかりませんでした"
+msgstr "データが見つかりません"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr "利用不可"
+msgstr "利用できません"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
@@ -162,11 +161,11 @@ msgstr "無線"
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr "その他"
+msgstr "そのほか"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr "マイ情報"
+msgstr "自分の情報"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
@@ -174,7 +173,7 @@ msgstr "接続を選択してください"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr "詳細を見る"
+msgstr "詳細を表示"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
@@ -182,51 +181,51 @@ msgstr "属性"
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr ""
+msgstr "ホスト名"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC アドレス"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "IP アドレス"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "IPv6 アドレス"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr ""
+msgstr "インターフェースの状態"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr ""
+msgstr "インターフェース名"
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "製品"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
-msgstr ""
+msgstr "製造元"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
-msgstr ""
+msgstr "物理 ID"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
-msgstr ""
+msgstr "バス情報"
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
@@ -234,15 +233,15 @@ msgstr ""
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
-msgstr ""
+msgstr "バス幅"
 
 #: src/constants.vala.in:104
 msgid "Clock Speed"
-msgstr ""
+msgstr "周波数"
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
@@ -254,11 +253,11 @@ msgstr ""
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "サーバー IP"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "サーバー名"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
@@ -278,103 +277,103 @@ msgstr ""
 
 #: src/constants.vala.in:114
 msgid "No speed test has been done"
-msgstr ""
+msgstr "スピードテストを実施したことがありません"
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "アップロード速度"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "ダウンロード速度"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
-msgstr ""
+msgstr "スピードテストの結果を更新"
 
 #: src/constants.vala.in:118
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
-msgstr ""
+msgstr "日付が不明です。スピードテストを実施するには、更新ボタンをクリックしてください"
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "ポート"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
-msgstr ""
+msgstr "すべてのアクティブなポートをスキャンしました。"
 
 #: src/constants.vala.in:121
 msgid "Refresh Ports results"
-msgstr ""
+msgstr "ポートの結果を更新"
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "プロトコル"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "状態"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "ポート"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "プロセス ID"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "プログラム名"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "パス"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "デバイス"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
-msgstr ""
+msgstr "デバイスのスキャン結果を更新"
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "状態"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "デバイス名"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "デバイスの製造元"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "最終確認日"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
-msgstr ""
+msgstr "検出日時"
 
 #: src/constants.vala.in:135
 msgid "Host IP"
-msgstr ""
+msgstr "ホストの IP アドレス"
 
 #: src/constants.vala.in:136
 msgid "Host MAC"
-msgstr ""
+msgstr "ホストの MAC アドレス"
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "アクティブ"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "非アクティブ"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
@@ -392,15 +391,15 @@ msgstr ""
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "デバイスのスキャンを実行しています…"
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "台のデバイスをこの接続上で検出しました"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
-msgstr ""
+msgstr "次のデバイスに対するアクション: "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
@@ -408,11 +407,11 @@ msgstr ""
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr ""
+msgstr "ネットワークに新しいデバイスを検出しました:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "使用方法"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
