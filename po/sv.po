@@ -2,9 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2018-12-31 02:09+0000\n"
-"Last-Translator: Kristoffer Grundström <kristoffer.grundstrom1983@gmail."
-"com>\n"
+"PO-Revision-Date: 2020-08-21 09:36+0000\n"
+"Last-Translator: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/nutty/"
 "translations/sv/>\n"
 "Language: sv\n"
@@ -12,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -566,7 +565,7 @@ msgstr ""
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Nutty's ansvarsfriskrivning"
 
 #: src/window.vala:48
 msgid ""
