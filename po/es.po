@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-09-07 10:24+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2020-08-30 19:37+0000\n"
+"Last-Translator: Scoopity Whoop <Scoo0p@yandex.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/nutty/"
 "translations/es/>\n"
 "Language: es\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -507,23 +507,23 @@ msgstr "Cerrar"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "ESTADO_DE_MONITORIZACIÓN_DEL_DISPOSITIVO"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "PROGRAMA_DE_MONITOREO_DEL_DISPOSITIVO"
 
 #: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "FECHA_PRUEBA_DE_VELOCIDAD"
 
 #: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "PRUBADEVELOCIDAD_VELOCIDADDESUBIDA"
 
 #: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "PRUEBAVELOCIDAD_DESCARGA"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
