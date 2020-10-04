@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-07-20 15:41+0000\n"
+"PO-Revision-Date: 2020-10-05 12:12+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/nutty/"
 "translations/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -358,7 +358,7 @@ msgstr "Atualizar o resultado do escaneamento de aparelhos"
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
@@ -400,8 +400,8 @@ msgstr "Descoberto antes"
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
-"Mostrando aparelhos gravados antes. Selecione uma conexão para atualizar o "
-"status."
+"A mostrar aparelhos gravados antes. Selecione uma conexão para atualizar o "
+"estado."
 
 #: src/constants.vala.in:141
 msgid ""
