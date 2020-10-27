@@ -36,7 +36,7 @@ And these dependencies to execute:
 * iproute2
 * pciutils
 
-Sometimes vnstat is not started upon install, use the appropriate init system command to start vnstat daemon i.e. `sudo systemclt enable vnstat`
+Sometimes vnstat is not started upon install, use the appropriate init system command to start vnstat daemon i.e. `sudo systemctl enable vnstat`
 
 Run `meson build` to configure the build environment and run `ninja test` to build
 
