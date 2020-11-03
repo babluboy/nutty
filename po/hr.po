@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-06-25 21:41+0000\n"
+"PO-Revision-Date: 2020-11-04 11:26+0000\n"
 "Last-Translator: Milo Ivir <mail@milotype.de>\n"
 "Language-Team: Croatian <https://hosted.weblate.org/projects/nutty/"
 "translations/hr/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.3.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -182,7 +182,7 @@ msgstr "Odaberi jednu vezu"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr "Pogledaj detalje"
+msgstr "Prikaz detalja"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
