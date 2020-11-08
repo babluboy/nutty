@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-06-14 17:41+0000\n"
-"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
+"PO-Revision-Date: 2020-11-09 20:28+0000\n"
+"Last-Translator: Sezgin İbiş <incelemeelemani@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/nutty/"
 "translations/tr/>\n"
 "Language: tr\n"
@@ -11,15 +11,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1-dev\n"
+"X-Generator: Weblate 4.4-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr "Sürüm Numarasını Görüntüle"
+msgstr "Sürüm numarasını görüntüle"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr "Nutty'i Aygıtları Keşfetmek İçin Çalıştır"
+msgstr "Aygıtları keşfetmek için Nutty'i çalıştır"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
@@ -27,15 +27,15 @@ msgstr "Nutty'i aygıt alarm kipinde çalıştır"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr "Nutty'i Hata Ayıklama Modunda Çalıştır"
+msgstr "Nutty'i hata ayıklama modunda çalıştır"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr "Nutty'i Bilgi Modunda Çalıştır"
+msgstr "Nutty'i bilgi modunda çalıştır"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr "İptal"
+msgstr "Vazgeç"
 
 #: src/utils.vala:233
 msgid "Open"
@@ -47,11 +47,11 @@ msgstr "Kaydet"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr "Tüm Dosyalar"
+msgstr "Tüm dosyalar"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr "Text Dosyaları"
+msgstr "Text (metin) dosyaları"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
