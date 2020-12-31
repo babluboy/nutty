@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-12-29 03:29+0000\n"
+"PO-Revision-Date: 2021-01-01 01:29+0000\n"
 "Last-Translator: Takuro Onoue <kusanaginoturugi@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/nutty/"
 "translations/ja/>\n"
@@ -245,7 +245,7 @@ msgstr "速度"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
-msgstr ""
+msgstr "ホストへのルート時間(ミリ秒単位): "
 
 #: src/constants.vala.in:107
 msgid "Hop#"
@@ -261,11 +261,11 @@ msgstr "サーバー名"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
-msgstr ""
+msgstr "１番目のパケット時間"
 
 #: src/constants.vala.in:111
 msgid "2nd Packet Time"
-msgstr ""
+msgstr "２番目のパケット時間"
 
 #: src/constants.vala.in:112
 msgid "3rd Packet Time"
@@ -273,7 +273,7 @@ msgstr "３番目のパケット時間"
 
 #: src/constants.vala.in:113
 msgid "Internet Speed : Results from test on"
-msgstr ""
+msgstr "インターネット速度: テストの結果"
 
 #: src/constants.vala.in:114
 msgid "No speed test has been done"
@@ -439,7 +439,7 @@ msgstr "データ送信"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
-msgstr ""
+msgstr "総データ"
 
 #: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
@@ -467,11 +467,11 @@ msgstr "データ受信 (Kb/sec)"
 
 #: src/constants.vala.in:163
 msgid "Background Device Monitoring"
-msgstr ""
+msgstr "バックグラウンドデバイス監視"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "デバイスの監視なし"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
@@ -527,15 +527,15 @@ msgstr "ネットワークカード"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " 送信電力規格 "
 
 #: src/info.vala:174
 msgid " [Power Management: "
-msgstr ""
+msgstr " [電源管理: "
 
 #: src/info.vala:177
 msgid "Connected to"
-msgstr ""
+msgstr "接続されています"
 
 #: src/info.vala:177
 msgid " Network at Access Point "
@@ -656,6 +656,5 @@ msgid "Speed Test"
 msgstr "スピードテスト"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
-#, fuzzy
 msgid "Siddhartha Das"
 msgstr "Siddhartha Das"
