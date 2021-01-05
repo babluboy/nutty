@@ -2,12 +2,20 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2021-01-06 10:29+0000\n"
+"Last-Translator: Naranmandakh <ts.naranmandakh@gmail.com>\n"
+"Language-Team: Mongolian <https://hosted.weblate.org/projects/nutty/"
+"translations/mn/>\n"
+"Language: mn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.1-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Хувилбарын дугаар харуулах"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
@@ -19,35 +27,35 @@ msgstr ""
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Nutty-г debug төлөвт ажиллуулах"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Nutty-г info төлөвт ажиллуулах"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Цуцлах"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Нээх"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Хадгалах"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Бүх файлууд"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Текст файлууд"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "Сүлжээний хэрэгсэл"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
@@ -55,11 +63,11 @@ msgstr ""
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Вэб сайт|Орчуулга|Алдаа мэдээлэгч"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Сүлжээ хайх зөвшөөрөл"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -75,29 +83,31 @@ msgstr ""
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "Тухай"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "Сүлжээний хэрэгсэл"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr ""
+msgstr "Шүүлтийн үр дүн"
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "Тохиргоо"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr ""
+msgstr "Файл үүсгэх"
 
 #: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
+"Энэ үйлдлийг гүйцэтгэхийн тулд Nutty баталгаажуулах шаардлагатай, "
+"үргэлжлүүлэхийн тулд нууц үгээ оруулна уу."
 
 #: src/constants.vala.in:75
 msgid ""
@@ -110,55 +120,55 @@ msgstr ""
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "Өнөөдөр"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "Өчигдөр"
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr ""
+msgstr "Өдрийн өмнө"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "Үр дүнгүүд: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "Мэдээлэл олдсонгүй"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "Боломжгүй байна"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "Зөвшөөрч байна"
 
 #: src/constants.vala.in:83
 msgid "Wired"
-msgstr ""
+msgstr "Холбогдсон"
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr ""
+msgstr "Wifi"
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "Бусад"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "Миний мэдээлэл"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "Холболтыг сонгоно уу"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "Дэлгэрэнгүй үзэх"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
@@ -166,7 +176,7 @@ msgstr ""
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "Дэлгэрэнгүй"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
@@ -178,7 +188,7 @@ msgstr ""
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "IP хаяг"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
@@ -194,7 +204,7 @@ msgstr ""
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "Бүтээгдэхүүн"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
@@ -210,11 +220,11 @@ msgstr ""
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "Хувилбар"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
-msgstr ""
+msgstr "Багтаамж"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
@@ -226,7 +236,7 @@ msgstr ""
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "Хурд"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
@@ -266,11 +276,11 @@ msgstr ""
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "Хуулах хурд"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "Татах хурд"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
@@ -294,31 +304,31 @@ msgstr ""
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "Протокол"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "Төлөв"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "Процесс ID"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "Програмын нэр"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Зам"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Төхөөрөмжүүд"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
@@ -326,19 +336,19 @@ msgstr ""
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Төхөөрөмжийн нэр"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "Төхөөрөмж үйлдвэрлэгч"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "Сүүлд үзсэн"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
@@ -354,11 +364,11 @@ msgstr ""
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "Идэвхитэй"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "Идэвхигүй"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
@@ -376,11 +386,11 @@ msgstr ""
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "Төхөөрөмж хайж байна ..."
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "Энэ холболтод олон төхөөрөмж олдлоо"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
@@ -388,23 +398,23 @@ msgstr ""
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "Төхөөрөмжийг мартах"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr ""
+msgstr "Сүлжээнд шинэ төхөөрөмж олдлоо:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "Ашиглалт"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr ""
+msgstr "Холболтыг хянасан: "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr ""
+msgstr " -д мөн сүүлд шинэчлэгдсэн "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
@@ -412,23 +422,23 @@ msgstr ""
 
 #: src/constants.vala.in:153
 msgid "Time Period"
-msgstr ""
+msgstr "Хугацааны үе"
 
 #: src/constants.vala.in:154
 msgid "Data Received"
-msgstr ""
+msgstr "Өгөгдөл хүлээж авсан"
 
 #: src/constants.vala.in:155
 msgid "Data Sent"
-msgstr ""
+msgstr "Өгөгдөл илгээсэн"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
-msgstr ""
+msgstr "Нийт өгөгдөл"
 
 #: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
-msgstr ""
+msgstr "Дата хэрэглээг харахын тулд холболт сонгоно уу"
 
 #: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
@@ -440,11 +450,11 @@ msgstr ""
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "Нэр"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "Өгөгдөл илгээсэн (Килобайт/секунд)"
 
 #: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
