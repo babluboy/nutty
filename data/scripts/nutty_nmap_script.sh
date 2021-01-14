@@ -4,7 +4,7 @@
 # Check if NMap is installed and run NMap to get XML output
 if command -v nmap &> /dev/null; then
   sudo nmap -sn -oX $1 $2 > /dev/null
-  echo "nmap executed sucessfully" 1>&2
+  echo "nmap executed successfully" 1>&2
 else #raise error with message
   echo "The program nmap is not installed. Please install nmap and re-try" 1>&2
   exit 10

@@ -130,7 +130,7 @@ namespace NuttyApp {
 
 			options = new OptionEntry[5];
 			options[0] = { "version", 0, 0, OptionArg.NONE, ref command_line_option_version, _("Display version number"), null };
-			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("Run Nutty to discover devices"), "Path to folder contaning nutty.db (i.e. /home/sid/.local/share/com.github.babluboy.nutty)" };
+			options[1] = { "monitor", 0, 0, OptionArg.STRING, ref command_line_option_monitor, _("Run Nutty to discover devices"), "Path to folder containing nutty.db (i.e. /home/sid/.local/share/com.github.babluboy.nutty)" };
 			options[2] = { "alert", 0, 0, OptionArg.STRING, ref command_line_option_alert, _("Run Nutty in device alert mode"), "Path to nutty config (i.e. /home/sid/.config/nutty)" };
 			options[3] = { "debug", 0, 0, OptionArg.NONE, ref command_line_option_debug, _("Run Nutty in debug mode"), null };
 			options[4] = { "info", 0, 0, OptionArg.NONE, ref command_line_option_info, _("Run Nutty in info mode"), null };
@@ -253,7 +253,7 @@ namespace NuttyApp {
 			try{
 				application.register (null);
 			}catch(Error e){
-				warning("Unsucessfull in registering the application. Error:"+e.message);
+				warning("Unsucessful in registering the application. Error:"+e.message);
 			}
 			Logger.initialize(NuttyApp.Constants.app_id);
 			if(command_line_option_debug){
@@ -416,7 +416,7 @@ namespace NuttyApp {
 			}else{
 				//do nothing
 			}
-			//make the prefernce window ready to change the cron schedule
+			//make the preference window ready to change the cron schedule
 			isMonitorScheduleReadyForChange = true;
 
 			Gtk.Box monitorIntervalBox = new Gtk.Box (Gtk.Orientation.VERTICAL, Constants.SPACING_WIDGETS);
@@ -439,7 +439,7 @@ namespace NuttyApp {
 
 			prefsDialog.show_all ();
 			prefsDialog.response.connect(prefsDialogResponseHandler);
-			debug("Completed setting up Prefference Dialog sucessfully...");
+			debug("Completed setting up Prefference Dialog successfully...");
 		}
 
 		private static void prefsDialogResponseHandler(Gtk.Dialog source, int response_id) {
@@ -476,7 +476,7 @@ namespace NuttyApp {
 			Gtk.FileChooserDialog aFileChooserDialog = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, "Export Nutty Data", window, false);
 			aFileChooserDialog.show_all ();
 			aFileChooserDialog.response.connect(exportDialogResponseHandler);
-			debug("Completed setting up Export Dialog sucessfully...");
+			debug("Completed setting up Export Dialog successfully...");
 		}
 
 		public static Box createNuttyUI() {
@@ -504,7 +504,7 @@ namespace NuttyApp {
 			main_ui_box.pack_start(switcher, false, true, 0);
 			main_ui_box.pack_start(stack, true, true, 0);
 
-			//Fetch and persist names of connections and interfaces if it dosent exist already
+			//Fetch and persist names of connections and interfaces if it does not exist already
 			NuttyApp.Info.getConnectionsList();
 			debug("Obtained the list of connections...");
 
@@ -1245,7 +1245,7 @@ namespace NuttyApp {
 			//If there is nothing to filter or the default help text then make the data visible
 			if ((headerSearchBar.get_text() == "")){
 					isFilterCriteriaMatch = true;
-			//extract data from the tree model and match againt the filter input
+			//extract data from the tree model and match against the filter input
 			}else{
 				GLib.Value modelValue;
 				int noOfColumns = model.get_n_columns();
@@ -1295,7 +1295,7 @@ namespace NuttyApp {
 				execute_sync_multiarg_command_pipes(
 					{Constants.COMMAND_FOR_TRACEROUTE, tracerouteDestination}
 				);
-				//handle unsucessfull command execution and raise error on infobar
+				//handle unsucessful command execution and raise error on infobar
 				if(!Utils.isExpectedOutputPresent(
 								string.joinv(" ", {Constants.COMMAND_FOR_TRACEROUTE, tracerouteDestination}),
 								spawn_async_with_pipes_output.str,
@@ -1380,7 +1380,7 @@ namespace NuttyApp {
 
 				execute_sync_multiarg_command_pipes ({commandForPorts});
 				debug("Output of command execution:\n"+spawn_async_with_pipes_output.str);
-				//handle unsucessfull command execution and raise error on infobar
+				//handle unsucessful command execution and raise error on infobar
 				if(!Utils.isExpectedOutputPresent(
 								commandForPorts,
 								spawn_async_with_pipes_output.str,
@@ -1510,7 +1510,7 @@ namespace NuttyApp {
 				Constants.COMMAND_FOR_PROCESS_BANDWIDTH, 
 				interface_name
 			});
-			//handle unsucessfull command execution and raise error on infobar
+			//handle unsucessful command execution and raise error on infobar
 			if(!Utils.isExpectedOutputPresent(
 							" " + "pkexec" + Constants.COMMAND_FOR_PROCESS_BANDWIDTH + interface_name,
 							spawn_async_with_pipes_output.str,
@@ -1523,7 +1523,7 @@ namespace NuttyApp {
 			}
 			string process_bandwidth_result = spawn_async_with_pipes_output.str;
 
-			//split the indivudual lines in the output
+			//split the individual lines in the output
 			string[] linesWithProcessData = process_bandwidth_result.strip().split ("\n",-1);
 			foreach(string data in linesWithProcessData){
 				//only consider those lines with a tab (i.e. "\t")
@@ -1587,7 +1587,7 @@ namespace NuttyApp {
 					Constants.COMMAND_FOR_BANDWIDTH_USAGE, 
 					interface_name
 				});
-				//handle unsucessfull command execution and raise error on infobar
+				//handle unsucessful command execution and raise error on infobar
 				if(!Utils.isExpectedOutputPresent(
 								string.joinv(" ", {Constants.COMMAND_FOR_BANDWIDTH_USAGE, interface_name}),
 								spawn_async_with_pipes_output.str,
@@ -1686,7 +1686,7 @@ namespace NuttyApp {
 					COMMAND_FOR_SPEED_TEST[0] = Constants.NUTTY_SCRIPT_PATH+ "/" + COMMAND_FOR_SPEED_TEST[0];
 				}
 				execute_sync_multiarg_command_pipes(COMMAND_FOR_SPEED_TEST);
-				//handle unsucessfull command execution and raise error on infobar
+				//handle unsucessful command execution and raise error on infobar
 				if(!Utils.isExpectedOutputPresent(
 								string.joinv(" ", COMMAND_FOR_SPEED_TEST),
 								spawn_async_with_pipes_output.str,
