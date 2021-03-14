@@ -2,65 +2,72 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2021-03-15 14:02+0000\n"
+"Last-Translator: phlostically <phlostically@mailinator.com>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/nutty/"
+"translations/eo/>\n"
+"Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Montri versian numeron"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Ruli Nutty por trovi aparatojn"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "Ruli Nutty en aparato-atentiga reĝimo"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Ruli Nutty en sencimiga reĝimo"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Ruli Nutty en informa reĝimo"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Nuligi"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Malfermi"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Konservi"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Ĉiuj dosieroj"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Tekstaj dosieroj"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "Utilaĵo pri Retoj"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Weblate-Tradukantoj"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Retejo | Traduko | Cimspuradilo"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Konsento pri Retskanado"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -73,32 +80,41 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"Ĉi tiu aplikaĵo havas funkciojn por pordoskanadod kaj informado pri aparatoj "
+"en la reto uzata de vi. Estas tute bone serĉi aparatojn en via propra hejma "
+"reto aŭ kiam la skanota gastiganto kaj/aŭ reto eksplicite permesas tion.\n"
+"\n"
+"Se vi uzas pordoskanadon (langeto Aparatoj) ĉe reto, kiun vi ne posedas, "
+"bonvolu konsulti kaj ricevi aprobon de la Reta Administranto aŭ alia "
+"aŭtoritato."
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "Pri"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "Utilaĵo pri Retoj"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr ""
+msgstr "Filtri rezultojn…"
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "Preferoj"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr ""
+msgstr "Eksporti al dosiero"
 
 #: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
+"Nutty bezonas aŭtentikigon por plenumi ĉi tiun agon; bonvolu entajpi vian "
+"pasvorton por daŭrigi."
 
 #: src/constants.vala.in:75
 msgid ""
@@ -108,539 +124,564 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
+"Nutty bezonas aŭtentikigon por ĝisdatigi la planilon de la ĉefuzanto "
+"(crontab) por monitorado de aparatoj. Bonvolu entajpi vian pasvorton por "
+"plenumi ĉi tiun ŝanĝon.\n"
+"\n"
+"Noto: La aktuala planilo de la ĉefuzanto (crontab) estos enarkivigita en la "
+"hejman dosierujon."
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "Hodiaŭ"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "Hieraŭ"
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr ""
+msgstr "tagojn antaŭe"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "Rezultoj: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "Neniu dateno troviĝis"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "Ne Disponebla"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "Mi konsentas"
 
 #: src/constants.vala.in:83
 msgid "Wired"
-msgstr ""
+msgstr "Drata"
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr ""
+msgstr "Sendrata"
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "Alia"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "Mia Informo"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "Elektu konekton"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "Vidi Detalojn"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr ""
+msgstr "Atributo"
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "Detaloj"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr ""
+msgstr "Nomo de Gastiganto"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC-Adreso"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "IP-Adreso"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "IPv6-Adreso"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr ""
+msgstr "Stato de Interfaco"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr ""
+msgstr "Interfaca Aparataro"
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "Produkto"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
-msgstr ""
+msgstr "Vendisto"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
-msgstr ""
+msgstr "Fizika Identigilo"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
-msgstr ""
+msgstr "Informo pri Buso"
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "Versio"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
-msgstr ""
+msgstr "Kapacito"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
-msgstr ""
+msgstr "Larĝo de Buso"
 
 #: src/constants.vala.in:104
 msgid "Clock Speed"
-msgstr ""
+msgstr "Taktofrekvenco"
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "Rapido"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
-msgstr ""
+msgstr "Enkursigaj tempoj al Gastiganto (en milisekundoj): "
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr ""
+msgstr "Saltonumero"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "IP-Adreso de Servilo"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "Nomo de Servilo"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
-msgstr ""
+msgstr "Tempo de 1a Paketo"
 
 #: src/constants.vala.in:111
 msgid "2nd Packet Time"
-msgstr ""
+msgstr "Tempo de 2a Paketo"
 
 #: src/constants.vala.in:112
 msgid "3rd Packet Time"
-msgstr ""
+msgstr "Tempo de 3a Paketo"
 
 #: src/constants.vala.in:113
 msgid "Internet Speed : Results from test on"
-msgstr ""
+msgstr "Interreta Rapido: Rezultoj de testo je"
 
 #: src/constants.vala.in:114
 msgid "No speed test has been done"
-msgstr ""
+msgstr "Testo pri rapidoj ne estis farita"
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "Alŝuta Rapido"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "Elŝuta Rapido"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
-msgstr ""
+msgstr "Aktualigi Resultojn pri Testo de Rapidoj"
 
 #: src/constants.vala.in:118
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr ""
+"Nekonata dato. Bonvolu alklaki la butonon \"Aktualigi\" por fari Teston pri "
+"Rapidoj"
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "Pordoj"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
-msgstr ""
+msgstr "Ĉiuj aktivaj pordoj skanitaj."
 
 #: src/constants.vala.in:121
 msgid "Refresh Ports results"
-msgstr ""
+msgstr "Aktualigi rezultojn pri pordoj"
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "Protokolo"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "Pordo"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "Numero de procezo"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "Nomo de Programo"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Dosierindiko"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Aparatoj"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
-msgstr ""
+msgstr "Aktualigi rezultojn pri skanado por aparatoj"
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "Stato"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Nomo de Aparato"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "Fabrikinto de Aparato"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "Laste Vidita"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
-msgstr ""
+msgstr "Trovita en"
 
 #: src/constants.vala.in:135
 msgid "Host IP"
-msgstr ""
+msgstr "IP-Adreso de Gastiganto"
 
 #: src/constants.vala.in:136
 msgid "Host MAC"
-msgstr ""
+msgstr "MAC-Adreso de Gastiganto"
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "Aktiva"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "Ne Aktiva"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "Trovita Antaŭe"
 
 #: src/constants.vala.in:140
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
+"Montrante aparatojn registritajn antaŭe. Elektu konekton por ĝisdatigi "
+"staton."
 
 #: src/constants.vala.in:141
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
+"Neniuj aparatoj estis registritaj antaŭe. Elektu konekton por ĝisdatigi "
+"rezultojn."
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "Skanante por aparatoj…"
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "aparatoj trovitaj ĉe ĉi tiu konekto"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
-msgstr ""
+msgstr "Agoj pri: "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "Forgesi aparaton"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr ""
+msgstr "Nova Aparato trovita ĉe reto:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "Uzado"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr ""
+msgstr "Konekto monitorata ekde "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr ""
+msgstr " kaj laste ĝisdatigita en "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
-msgstr ""
+msgstr "Bonvolu komandlinie aldoni ĉi tiun konektan interfacon al vnstat."
 
 #: src/constants.vala.in:153
 msgid "Time Period"
-msgstr ""
+msgstr "Periodo"
 
 #: src/constants.vala.in:154
 msgid "Data Received"
-msgstr ""
+msgstr "Ricevitaj Datenoj"
 
 #: src/constants.vala.in:155
 msgid "Data Sent"
-msgstr ""
+msgstr "Senditaj Datenoj"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
-msgstr ""
+msgstr "Totalaj Datenoj"
 
 #: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
-msgstr ""
+msgstr "Elektu konekton por vidi uzadon de datenoj"
 
 #: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
-msgstr ""
+msgstr "Alklaku \"Aktualigi\" por vidi aktualajn programojn uzantajn "
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
-msgstr ""
+msgstr "Aktualigi uzadon de reta kapacito far Aplikaĵoj"
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "Nomo"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "Sendrapido (kilobitoj en sekundo)"
 
 #: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
-msgstr ""
+msgstr "Ricevrapido (kilobitoj en sekundo)"
 
 #: src/constants.vala.in:163
 msgid "Background Device Monitoring"
-msgstr ""
+msgstr "Fona Monitorado de Aparato"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "Neniu monitorado de aparatoj"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
-msgstr ""
+msgstr "Monitorado de aparatoj po unu fojo en 15 minutoj"
 
 #: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
-msgstr ""
+msgstr "Monitorado de aparatoj po unu fojo en 30 minutoj"
 
 #: src/constants.vala.in:167
 msgid "Monitor devices every hour"
-msgstr ""
+msgstr "Monitorado de aparatoj po unu fojo en horo"
 
 #: src/constants.vala.in:168
 msgid "Monitor devices once a day"
-msgstr ""
+msgstr "Monitorado de aparatoj po unu fojo en tago"
 
 #: src/constants.vala.in:169
 msgid "Close"
-msgstr ""
+msgstr "Fermi"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "DEVICE_MONITORING_STATE"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "DEVICE_MONITORING_SCHEDULE"
 
 #: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "SPEEDTEST_DATE"
 
 #: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_UPLOADSPEED"
 
 #: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_DOWNLOADSPEED"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
-msgstr ""
+msgstr "Informoj de Nutty Eksportitaj je "
 
 #: src/devices.vala:318
 msgid " for "
-msgstr ""
+msgstr " por "
 
 #: src/info.vala:174
 msgid "Network Card"
-msgstr ""
+msgstr "Retkarto"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " Normoj de Transsendo-Potenco "
 
 #: src/info.vala:174
 msgid " [Power Management: "
-msgstr ""
+msgstr " [Administrado de Energio: "
 
 #: src/info.vala:177
 msgid "Connected to"
-msgstr ""
+msgstr "Konektita al"
 
 #: src/info.vala:177
 msgid " Network at Access Point "
-msgstr ""
+msgstr " Reto ĉe Atingopunkto "
 
 #: src/info.vala:177
 msgid " Mode"
-msgstr ""
+msgstr " Reĝimo"
 
 #: src/info.vala:180
 msgid "Connected with"
-msgstr ""
+msgstr "Konektita per"
 
 #: src/info.vala:180
 msgid "Frequency of "
-msgstr ""
+msgstr "Ofteco "
 
 #: src/info.vala:180
 msgid " and Bit Rate of "
-msgstr ""
+msgstr " kaj Bitrapido "
 
 #: src/info.vala:183
 msgid "Connection strength"
-msgstr ""
+msgstr "Forto de konekto"
 
 #: src/info.vala:183
 msgid "Link Quality of "
-msgstr ""
+msgstr "Ligo-Kvalito "
 
 #: src/info.vala:183
 msgid " and Signal Level of "
-msgstr ""
+msgstr " kaj Signalo-Nivelo "
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Malgarantio pri Nutty"
 
 #: src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"Alklaku por legi la malgarantion pri Nmap (uzata de Nutty) enhavantan pliajn "
+"informojn"
 
 #: src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Uzi Nutty"
 
 #: src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Forlasi"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
 msgid "Nutty"
-msgstr ""
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Montri informojn pri retoj"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Simpla utilaĵo pri retaj informoj"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty provizas intuician fasadon por kelkaj oftaj komandliniaj utilaĵoj pri "
+"retoj."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"Unu el la ĉeffunkcioj estas la kapablo sciigi kiam aparato eniras la reton "
+"de la uzanto."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"Mia Informo: Provizas bazajn kaj detalajn informojn pri la aparata retkarto"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Uzado: Provizas informojn pri uzado de retaj datenoj dumaniere - pri "
+"pasinteca uzado kaj aktuala uzado"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Rapido: Mezuri Rapidojn de Alŝuto kaj Elŝuto kaj enkursigajn tempojn al "
+"gastiganto"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Pordoj: Provizas informojn pri aktivaj pordoj kaj aplikaĵoj uzantaj ilin sur "
+"la loka aparato"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
-msgstr ""
+msgstr "Aparatoj: Monitori, atentigi, kaj informi pri aliaj aparatoj en la reto"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
 msgid "Device Monitoring"
-msgstr ""
+msgstr "Monitorado de Aparatoj"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
 msgid "Bandwidth Usage"
-msgstr ""
+msgstr "Uzado de Reta Kapacito"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
 msgid "Speed Test"
-msgstr ""
+msgstr "Testo pri Rapidoj"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
