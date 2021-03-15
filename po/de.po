@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-05-19 12:49+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"PO-Revision-Date: 2021-03-17 19:18+0000\n"
+"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/nutty/"
 "translations/de/>\n"
 "Language: de\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7-dev\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -55,7 +55,7 @@ msgstr "Textdateien"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr "Ein Netzwerktool"
+msgstr "Ein Netzwerkwerkzeug"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
@@ -63,7 +63,7 @@ msgstr "Weblate Übersetzer"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr "Webseite | Übersetzung | Bug Tracker"
+msgstr "Website | Übersetzung | Fehlertracker"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
@@ -96,11 +96,11 @@ msgstr "Über"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr "Netzwerktool"
+msgstr "Netzwerkwerkzeug"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr "Ergebnisse filtern..."
+msgstr "Ergebnisse filtern …"
 
 #: src/constants.vala.in:72
 msgid "Preferences"
@@ -130,7 +130,7 @@ msgstr ""
 "Geräteüberwachung zu ändern. Bitte Passwort eingeben um die Änderung "
 "abzuschließen.\n"
 "\n"
-"Hinweis: Ein Backup des jetzigen root schedulers (crontab) wird in "
+"Hinweis: Eine Datensicherung des jetzigen root schedulers (crontab) wird in "
 "Heimverzeichnis angelegt."
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
@@ -199,23 +199,23 @@ msgstr "Hostname"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr "MAC Adresse"
+msgstr "MAC-Adresse"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr "IP Adresse"
+msgstr "IP-Adresse"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr "IPv6 Adresse"
+msgstr "IPv6-Adresse"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr "Interface Zustand"
+msgstr "Schnittstellenstatus"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr "Interface Hardware"
+msgstr "Schnittstellen-Hardware"
 
 #: src/constants.vala.in:97
 msgid "Product"
@@ -231,7 +231,7 @@ msgstr "Physikalische ID"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
-msgstr "Businformation"
+msgstr "Businformationen"
 
 #: src/constants.vala.in:101
 msgid "Version"
@@ -623,14 +623,14 @@ msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr "Ein einfaches Tool zur Information über das Netzwerk"
+msgstr "Ein einfaches Werkzeug zur Information über das Netzwerk"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
-"Nutty stellt ein intuitives Nutzerinterface für einige häufig für das "
+"Nutty stellt eine intuitive Nutzeroberfläche für einige häufig für das "
 "Netzwerk genutzte Kommandozeilenbefehle bereit."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
