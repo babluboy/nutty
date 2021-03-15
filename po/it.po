@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-08-09 15:32+0000\n"
-"Last-Translator: Lorenzo Maria Fasoli <lorenzo.fasoli.94@gmail.com>\n"
+"PO-Revision-Date: 2021-03-17 19:18+0000\n"
+"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/nutty/"
 "translations/it/>\n"
 "Language: it\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2-dev\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -63,7 +63,7 @@ msgstr "Traduttori Weblate"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr "Sito Web | Traduzione | Bug Tracker"
+msgstr "Sito Web | Traduzione | Segnalazione di errore"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
@@ -96,7 +96,7 @@ msgstr "Informazioni su"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr "Utilità di Rete"
+msgstr "Utilità di rete"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
@@ -166,7 +166,7 @@ msgstr "Cablata"
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr "Wireless"
+msgstr "Senza fili"
 
 #: src/constants.vala.in:85
 msgid "Other"
@@ -194,7 +194,7 @@ msgstr "Dettagli"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr "Nome Host"
+msgstr "Nome host"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
@@ -210,11 +210,11 @@ msgstr "Indirizzo IPv6"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr "Stato Interfaccia"
+msgstr "Stato dell'interfaccia"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr "Interfaccia Hardware"
+msgstr "Interfaccia hardware"
 
 #: src/constants.vala.in:97
 msgid "Product"
@@ -230,7 +230,7 @@ msgstr "ID fisico"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
-msgstr "Bus Info"
+msgstr "Info sul bus"
 
 #: src/constants.vala.in:101
 msgid "Version"
@@ -258,7 +258,7 @@ msgstr "Tempi di instradamento verso l'host (in millisecondi):"
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr "Hop#"
+msgstr "Hop nº"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
@@ -614,15 +614,15 @@ msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr "Una semplice utility per le informazioni di rete"
+msgstr "Una semplice utilità per le informazioni di rete"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
-"Nutty fornisce un'interfaccia utente intuitiva per alcune reti comunemente utilizzate"
-"correlata agli strumenti della riga di comando ."
+"Nutty fornisce un'interfaccia utente intuitiva per alcune reti comunemente "
+"utilizzatecorrelata agli strumenti della riga di comando."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
@@ -676,8 +676,8 @@ msgstr "Utilizzo della larghezza di banda"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
 msgid "Speed Test"
-msgstr "Speed Test"
+msgstr "Test di velocità"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
