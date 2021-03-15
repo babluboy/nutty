@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-01-21 20:21+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"PO-Revision-Date: 2021-03-17 19:18+0000\n"
+"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/nutty/"
 "translations/fr/>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -69,7 +69,7 @@ msgstr "Traducteurs Weblate"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr "Site web | Traduction | Suivi de bug"
+msgstr "Site web | Traduction | Suivi de problème"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
@@ -266,7 +266,7 @@ msgstr "Temps de propagation vers l'hôte (en millisecondes) : "
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr "Hop N°"
+msgstr "Hop nº"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
