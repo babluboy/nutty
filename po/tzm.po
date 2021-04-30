@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-10-27 08:26+0000\n"
+"PO-Revision-Date: 2021-05-01 06:32+0000\n"
 "Last-Translator: Hakim Oubouali <hakim.oubouali.skr@gmail.com>\n"
-"Language-Team: Central Atlas Tamazight <https://hosted.weblate.org/projects/"
-"nutty/translations/tzm/>\n"
+"Language-Team: Tamazight (Central Atlas) <https://hosted.weblate.org/"
+"projects/nutty/translations/tzm/>\n"
 "Language: tzm\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n >= 2 && (n < 11 || n > 99);\n"
-"X-Generator: Weblate 4.3.2-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -144,7 +144,7 @@ msgstr "Ur ttwafan kra n isefka"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "Ur illi"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
@@ -240,7 +240,7 @@ msgstr ""
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "Tazzela"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
@@ -248,15 +248,15 @@ msgstr ""
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr ""
+msgstr "Hop wis"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "IP n umakkay"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "Isem n umakkay"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
@@ -284,7 +284,7 @@ msgstr ""
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "Tazzela n wagam"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
@@ -308,11 +308,11 @@ msgstr ""
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "Apṛutukul"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "Addad"
 
 #: src/constants.vala.in:124
 msgid "Port"
@@ -324,15 +324,15 @@ msgstr ""
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "Isem n uɣawas"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Abrid"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Allalen"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
@@ -340,11 +340,11 @@ msgstr ""
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "Addad"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Isem n wallal"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
@@ -398,11 +398,11 @@ msgstr ""
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
-msgstr ""
+msgstr "Tigazin i: "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "Ttu allal"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
@@ -410,7 +410,7 @@ msgstr ""
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "Asemres"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
@@ -434,7 +434,7 @@ msgstr ""
 
 #: src/constants.vala.in:155
 msgid "Data Sent"
-msgstr ""
+msgstr "Ifeska ittwaznen"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
@@ -454,7 +454,7 @@ msgstr ""
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "Isem"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
@@ -490,7 +490,7 @@ msgstr ""
 
 #: src/constants.vala.in:169
 msgid "Close"
-msgstr ""
+msgstr "Rgel"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
@@ -518,7 +518,7 @@ msgstr ""
 
 #: src/devices.vala:318
 msgid " for "
-msgstr ""
+msgstr " i "
 
 #: src/info.vala:174
 msgid "Network Card"
@@ -534,7 +534,7 @@ msgstr ""
 
 #: src/info.vala:177
 msgid "Connected to"
-msgstr ""
+msgstr "Zdy ɣer"
 
 #: src/info.vala:177
 msgid " Network at Access Point "
@@ -558,7 +558,7 @@ msgstr ""
 
 #: src/info.vala:183
 msgid "Connection strength"
-msgstr ""
+msgstr "Tizmert n uzday"
 
 #: src/info.vala:183
 msgid "Link Quality of "
@@ -580,16 +580,16 @@ msgstr ""
 
 #: src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "Semres Nutty"
 
 #: src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "Ffeɣ"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
 msgid "Nutty"
-msgstr ""
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
@@ -597,7 +597,7 @@ msgstr ""
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
@@ -656,4 +656,4 @@ msgstr ""
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
