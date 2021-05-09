@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.babluboy.nutty\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-10-05 12:12+0000\n"
+"PO-Revision-Date: 2021-05-10 15:33+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/nutty/"
 "translations/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -300,7 +300,7 @@ msgstr "Velocidade de upload"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr "Velocidade de download"
+msgstr "Velocidade da descarrega"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
@@ -412,7 +412,7 @@ msgstr ""
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr "Escaneamento de aparelhos sendo realizado ..."
+msgstr "Escaneamento de aparelhos a ser realizado ..."
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
@@ -554,7 +554,7 @@ msgstr " Padrões com Transmit Power de "
 
 #: src/info.vala:174
 msgid " [Power Management: "
-msgstr " [Gerenciamento de energia: "
+msgstr " [Gestão de energia: "
 
 #: src/info.vala:177
 msgid "Connected to"
