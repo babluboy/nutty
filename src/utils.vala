@@ -106,7 +106,7 @@ namespace NuttyApp.Utils{
 		string extractedData = "";
 		int startPos = -1;
 		int endPos = -1;
-		//find the first occurence of the required xml tag
+		//find the first occurrence of the required xml tag
 		if(xmlData.contains("<"+tagName) && xmlData.contains(attributeID+"=\""+attributeName+"\"")){
 			//extract the data in the xml tag
 			string tagData = xmlData.slice(xmlData.index_of("<"+tagName), xmlData.index_of(">",xmlData.index_of("<"+tagName)+1));

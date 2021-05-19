@@ -41,7 +41,7 @@ public class NuttyApp.DB{
             );
             return false;
         } else {
-            debug ("Sucessfully checked/created DB for Nutty.....");
+            debug ("Successfully checked/created DB for Nutty.....");
         }
 
         debug ("Creating latest version for NUTTY_DEVICES_TABLE table if it does not exists");
@@ -65,7 +65,7 @@ public class NuttyApp.DB{
 	 		warning ("Error details: %s\n", errmsg);
             return false;
 	 	} else {
-            debug("Sucessfully checked/created table:"+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION);
+            debug("Successfully checked/created table:"+NUTTY_DEVICES_TABLE_BASE_NAME+NUTTY_DEVICES_TABLE_VERSION);
         }
 
         //load data from device file into table and then remove device file

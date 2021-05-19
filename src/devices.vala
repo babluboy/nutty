@@ -350,13 +350,13 @@ public class NuttyApp.Devices {
 						Constants.nmap_output_filename,
 						scanIPAddress
 		});
-		//handle unsucessfull command execution and raise error on infobar
+		//handle unsucessful command execution and raise error on infobar
 		if(!Utils.isExpectedOutputPresent(
 						string.joinv(" ", 
 								{NuttyApp.Constants.COMMAND_FOR_DEVICE_SCAN, Constants.nmap_output_filename, scanIPAddress}
 						),
 						NuttyApp.Nutty.spawn_async_with_pipes_output.str,
-						{"nmap", "executed", "sucessfully"},
+						{"nmap", "executed", "successfully"},
 						true
 			)
 		){
