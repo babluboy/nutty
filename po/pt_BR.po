@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2018-10-27 17:41+0000\n"
-"Last-Translator: Jack Icatorze <jack@icatorze.com.br>\n"
+"PO-Revision-Date: 2021-11-13 03:51+0000\n"
+"Last-Translator: Nicolas Brendo <nbrendo60@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "nutty/translations/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.3-dev\n"
+"X-Generator: Weblate 4.9.1-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -68,7 +68,7 @@ msgstr "Website | Tradução | Bug Tracker"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "Acordo do Scan de Network"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -81,6 +81,14 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"Esse aplicativo tem a função de fazer um scanner de portas e providenciar "
+"informações dos dispositivos na network que você está usando. E é "
+"perfeitamente OK Scannear dispositivos na sua Network residencial ou quando "
+"explicitamente autorizado pelo host/network de destino.\n"
+"\n"
+"Quando usar o Scanner de Portas (Aba Dispositivos) em uma network que não te "
+"pertence, por favor consulte e tenha autorização do Administrador da Rede ou "
+"de outra Autoridade da Rede."
 
 #: src/constants.vala.in:69
 msgid "About"
@@ -92,7 +100,7 @@ msgstr "Utilitário de Rede"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr "Filtrar resultados"
+msgstr "Filtrar resultados..."
 
 #: src/constants.vala.in:72
 msgid "Preferences"
@@ -108,7 +116,7 @@ msgid ""
 "password to continue."
 msgstr ""
 "Nutty precisa de autenticação para realizar essa ação, por favor, forneça "
-"sua senha para continuar"
+"sua senha para continuar."
 
 #: src/constants.vala.in:75
 msgid ""
@@ -119,11 +127,11 @@ msgid ""
 "directory."
 msgstr ""
 "Nutty precisa de autenticação para atualizar o root scheduler(contrab) para "
-"monitorar dispositivos. Por favor, foneça sua senha para completar essa "
+"monitorar dispositivos. Por favor, forneça sua senha para completar essa "
 "alteração\n"
 "\n"
 "Atenção: O root scheduler (contrab) atual será copiado em backup para o "
-"diretório Home"
+"diretório Home."
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
@@ -139,7 +147,7 @@ msgstr "dias atrás"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr "Resultados:"
+msgstr "Resultados: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
@@ -167,7 +175,7 @@ msgstr "Outro"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr "MInha informação"
+msgstr "Minhas informações"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
@@ -198,9 +206,8 @@ msgid "IP Address"
 msgstr "Endereço IP"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "Endereço IP"
+msgstr "Endereço IPv6"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
@@ -220,7 +227,7 @@ msgstr "Fabricante"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
-msgstr "ID físico"
+msgstr "ID Físico"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
@@ -240,7 +247,7 @@ msgstr "Comprimento do bus"
 
 #: src/constants.vala.in:104
 msgid "Clock Speed"
-msgstr "Velocidade de clock"
+msgstr "Velocidade de Clock"
 
 #: src/constants.vala.in:105
 msgid "Speed"
@@ -248,7 +255,7 @@ msgstr "Velocidade"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
-msgstr "Tempo de percurso até o Host (em milissegundos)"
+msgstr "Tempo de percurso até o Host (em milissegundos): "
 
 #: src/constants.vala.in:107
 msgid "Hop#"
@@ -280,7 +287,7 @@ msgstr "Velocidade de Internet : Resultados do teste em"
 
 #: src/constants.vala.in:114
 msgid "No speed test has been done"
-msgstr ""
+msgstr "Nenhum teste de velocidade foi efetuado"
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
@@ -306,11 +313,11 @@ msgstr "Portas"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
-msgstr "Todas as portas ativas forarm escaneadas"
+msgstr "Todas as portas ativas foram escaneadas."
 
 #: src/constants.vala.in:121
 msgid "Refresh Ports results"
-msgstr "Resultados da atuaização de portas"
+msgstr "Resultados da atualização de portas"
 
 #: src/constants.vala.in:122
 msgid "Protocol"
@@ -395,7 +402,7 @@ msgstr ""
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
-"Nenhum dispositivo foi gravado antes. Selecione uma conexão para atuailzar "
+"Nenhum dispositivo foi gravado antes. Selecione uma conexão para atualizar "
 "os resultados."
 
 #: src/constants.vala.in:142
@@ -408,16 +415,15 @@ msgstr "dispositivos encontrados nessa conexão"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
-msgstr "Ações para:"
+msgstr "Ações para: "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
 msgstr "Esquecer dispositivo"
 
 #: src/constants.vala.in:146
-#, fuzzy
 msgid "New Device found on network:"
-msgstr "Novo dispositivo encontrado na rede:\n"
+msgstr "Novo dispositivo encontrado na rede:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
@@ -425,11 +431,11 @@ msgstr "Uso"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr "Conexão monitorada a partir de"
+msgstr "Conexão monitorada a partir de "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr " e atualizada pela última vez em"
+msgstr " e atualizada pela última vez em "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
@@ -459,7 +465,7 @@ msgstr "Selecione uma conexão para visualizar o uso de dados"
 
 #: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
-msgstr "Clique em atualizar para visualizar apps usando"
+msgstr "Clique em atualizar para visualizar apps usando "
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
@@ -483,7 +489,7 @@ msgstr "Monitoramento de dispositivos em background"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "Sem monitoração de dispositivos"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
@@ -527,7 +533,7 @@ msgstr "VELOCIDADEDOWNLOAD_TESTEDEVELOCIDADE"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
-msgstr "Informações do Nutty exportadas para"
+msgstr "Informações do Nutty exportadas para "
 
 #: src/devices.vala:318
 msgid " for "
@@ -603,21 +609,20 @@ msgstr "Saída"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
-#, fuzzy
 msgid "Nutty"
-msgstr "Use o Nutty"
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "Exibir informação da Rede"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "Um utilitário simples para informação da Network"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
