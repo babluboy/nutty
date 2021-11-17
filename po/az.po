@@ -2,16 +2,24 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2021-11-18 11:53+0000\n"
+"Last-Translator: Nurlan Aliyev <nurlan.aliyev58@gmail.com>\n"
+"Language-Team: Azerbaijani <https://hosted.weblate.org/projects/nutty/"
+"translations/az/>\n"
+"Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9.1-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Versiya nömrəsini göstər"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Cihazları tapmaq üçün Nutty tətbiqini işə sal"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
@@ -19,31 +27,31 @@ msgstr ""
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Nutty tətbiqini debug rejimində işə sal"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Nutty tətbiqini informasiya rejimində işə sal"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "İmtina et"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Aç"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Saxla"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Bütün fayllar"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Mətn faylları"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
@@ -55,7 +63,7 @@ msgstr ""
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Vebsayt | Tərcümə | \"Bug\"lar"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
@@ -83,7 +91,7 @@ msgstr ""
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr ""
+msgstr "Nəticələri filterlə..."
 
 #: src/constants.vala.in:72
 msgid "Preferences"
@@ -110,31 +118,31 @@ msgstr ""
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "Bugün"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "Dünən"
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr ""
+msgstr "günlər əvvəl"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "Nəticələr: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "Məlumat tapılmadı"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "Əlçatan deyil"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "Razıyam"
 
 #: src/constants.vala.in:83
 msgid "Wired"
@@ -146,43 +154,43 @@ msgstr ""
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "Digər"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "Mənim məlumatlarım"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "Birləşmə növünü seçin"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "Məlumatları göstər"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr ""
+msgstr "Atributlar"
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "Məlumatlar"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr ""
+msgstr "Host adı"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC adresi"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "IP adresi"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "IPv6 Adresi"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
@@ -194,7 +202,7 @@ msgstr ""
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "Məhsul"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
@@ -210,11 +218,11 @@ msgstr ""
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "Versiya"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
-msgstr ""
+msgstr "Tutum"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
@@ -226,7 +234,7 @@ msgstr ""
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "Sürət"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
@@ -238,11 +246,11 @@ msgstr ""
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "Server IP-si"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "Server Adı"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
@@ -266,11 +274,11 @@ msgstr ""
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "Yükləmə sürəti"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "Endirmə sürəti"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
@@ -282,11 +290,11 @@ msgstr ""
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "Portlar"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
-msgstr ""
+msgstr "Bütün aktiv portlar skanlandı."
 
 #: src/constants.vala.in:121
 msgid "Refresh Ports results"
@@ -294,31 +302,31 @@ msgstr ""
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "Protokol"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "Hal"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "Proses nömrəsi"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "Tətbiqin adı"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Cığır"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Cihazlar"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
@@ -326,23 +334,23 @@ msgstr ""
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "Nəticə"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Cihaz Adı"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "Cihazın yaradıcısı"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "Son görülmə"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
-msgstr ""
+msgstr "Tapılıb"
 
 #: src/constants.vala.in:135
 msgid "Host IP"
@@ -354,11 +362,11 @@ msgstr ""
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "Qeyri-aktiv"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
@@ -376,7 +384,7 @@ msgstr ""
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "Cihaz axtarışı prosesi gedir..."
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
@@ -388,7 +396,7 @@ msgstr ""
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "Bu cihazı unut"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
@@ -396,7 +404,7 @@ msgstr ""
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "İstifadə"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
