@@ -10,15 +10,14 @@
     <description>
         <p>Nutty provides an intuitive user interface for some commonly used network related command line tools.</p>
         <p>A key feature is the ability to turn on notification when a device enters the user's network.</p>
-        <p>The following are the features for Nutty, presented in a tab based interface:
-            <ul>
-                <li>My Info: Provides basic and detailed information for the device network card</li>
-                <li>Usage: Provides network data usage in two views - historical usage and current usage</li>
-                <li>Speed: Check Upload and Download speeds and get route times to a host</li>
-                <li>Ports: Provides information on active ports and application using them on the local device</li>
-                <li>Devices: Monitors, alerts and provides information on the other devices on the network</li>
-            </ul>
-        </p>
+        <p>The following are the features for Nutty, presented in a tab based interface:</p>
+        <ul>
+            <li>My Info: Provides basic and detailed information for the device network card</li>
+            <li>Usage: Provides network data usage in two views - historical usage and current usage</li>
+            <li>Speed: Check Upload and Download speeds and get route times to a host</li>
+            <li>Ports: Provides information on active ports and application using them on the local device</li>
+            <li>Devices: Monitors, alerts and provides information on the other devices on the network</li>
+        </ul>
     </description>
     <screenshots>
         <screenshot type="default">
@@ -40,27 +39,25 @@
     <releases>
         <release version="1.1.1" date="2019-01-20">
             <description>
-                <p>Display IPv6 address and better configuration options
-                    <ul>
-                        <li>View IPv6 along with IPv4 address</li>
-                        <li>Configure commands for non elementary OS distros</li>
-                        <li>Fix a bug which prevented re-size of the disclaimer screen</li>
-                        <li>Improve obtaining network details with use of ip command instead of the ifconfig one</li>
-                    </ul>
-                </p>
+                <p>Display IPv6 address and better configuration options</p>
+                <ul>
+                    <li>View IPv6 along with IPv4 address</li>
+                    <li>Configure commands for non elementary OS distros</li>
+                    <li>Fix a bug which prevented re-size of the disclaimer screen</li>
+                    <li>Improve obtaining network details with use of ip command instead of the ifconfig one</li>
+                </ul>
             </description>
         </release>
     </releases>
     <releases>
         <release version="1.0.0" date="2018-04-31">
             <description>
-                <p>Ability to edit and remove discovered devices
-                    <ul>
-                        <li>Support for editing and removing discovered devices</li>
-                        <li>A shiny new icon and branding</li>
-                        <li>New shortcuts (check homepage for details)</li>
-                    </ul>
-                </p>
+                <p>Ability to edit and remove discovered devices</p>
+                <ul>
+                    <li>Support for editing and removing discovered devices</li>
+                    <li>A shiny new icon and branding</li>
+                    <li>New shortcuts (check homepage for details)</li>
+                </ul>
             </description>
         </release>
     </releases>
