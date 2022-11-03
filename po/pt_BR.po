@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2021-11-13 03:51+0000\n"
-"Last-Translator: Nicolas Brendo <nbrendo60@gmail.com>\n"
+"PO-Revision-Date: 2022-11-03 18:08+0000\n"
+"Last-Translator: Gustavo Rocha <gugu.r.azevedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "nutty/translations/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9.1-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -629,33 +629,45 @@ msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"Nutty provê um interface intuitiva para alguns utilitários de rede em linha "
+"de comando amplamente utilizados."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"Uma funcionalidade chave é a habilidade de notificar quando um dispositivo "
+"se conecta à rede do usuário."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"Meus Dados: Provê informações básicas e detalhadas sobre o dispositivo de "
+"rede"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"Uso: Informa sobre o uso de dados na rede em duas visões - visão histórica e "
+"visão atual"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"Velocidade: Verifica as velocidades de upload e download, e obtém os tempos "
+"de roteamento até determinado host"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"Portas: Provê informações sobre portas ativas, e quais aplicações a "
+"utilizam, no dispositivo local"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 #, fuzzy
