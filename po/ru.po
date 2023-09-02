@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-03-31 20:44+0000\n"
-"Last-Translator: Tiller Luna <t.luna@protonmail.com>\n"
+"PO-Revision-Date: 2023-09-02 11:56+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.0-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -23,7 +23,6 @@ msgid "Run Nutty to discover devices"
 msgstr "Запустить Nutty, чтобы обнаружить устройства"
 
 #: src/nutty.vala:134
-#, fuzzy
 msgid "Run Nutty in device alert mode"
 msgstr "Запустить Nutty в режиме оповещения устройства"
 
@@ -68,9 +67,8 @@ msgid "Website | Translation | Bug Tracker"
 msgstr "Веб-сайт | Перевод | Сообщить об ошибке"
 
 #: src/constants.vala.in:67
-#, fuzzy
 msgid "Network Scan Agreement"
-msgstr "Соглашение о сканировании сети"
+msgstr "Соглашение о сетевом сканировании"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -215,9 +213,8 @@ msgid "Interface State"
 msgstr "Состояние интерфейса"
 
 #: src/constants.vala.in:96
-#, fuzzy
 msgid "Interface Hardware"
-msgstr "Аппаратное обеспечение интерфейса"
+msgstr "Интерфейсное оборудование"
 
 #: src/constants.vala.in:97
 msgid "Product"
@@ -240,16 +237,14 @@ msgid "Version"
 msgstr "Версия"
 
 #: src/constants.vala.in:102
-#, fuzzy
 msgid "Capacity"
-msgstr "Объем"
+msgstr "Емкость"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
 msgstr "Ширина шины"
 
 #: src/constants.vala.in:104
-#, fuzzy
 msgid "Clock Speed"
 msgstr "Тактовая частота"
 
@@ -263,7 +258,7 @@ msgstr "Время маршрута до хоста (в миллисекунда
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr ""
+msgstr "Прыгать"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
@@ -274,22 +269,18 @@ msgid "Server Name"
 msgstr "Имя сервера"
 
 #: src/constants.vala.in:110
-#, fuzzy
 msgid "1st Packet Time"
-msgstr "1-е время пакета"
+msgstr "Время первого пакета"
 
 #: src/constants.vala.in:111
-#, fuzzy
 msgid "2nd Packet Time"
-msgstr "2-е время пакета"
+msgstr "Время второго пакета"
 
 #: src/constants.vala.in:112
-#, fuzzy
 msgid "3rd Packet Time"
-msgstr "3-е время пакета"
+msgstr "Время третьего пакета"
 
 #: src/constants.vala.in:113
-#, fuzzy
 msgid "Internet Speed : Results from test on"
 msgstr "Скорость интернета: результаты теста на"
 
@@ -324,7 +315,6 @@ msgid "All active ports scanned."
 msgstr "Все активные порты просканированы."
 
 #: src/constants.vala.in:121
-#, fuzzy
 msgid "Refresh Ports results"
 msgstr "Обновить результаты портов"
 
@@ -440,7 +430,7 @@ msgstr "Использование"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr ""
+msgstr "Соединение контролируется с "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
@@ -456,7 +446,6 @@ msgid "Time Period"
 msgstr "Временной период"
 
 #: src/constants.vala.in:154
-#, fuzzy
 msgid "Data Received"
 msgstr "Данные получены"
 
@@ -465,7 +454,6 @@ msgid "Data Sent"
 msgstr "Отправленные данные"
 
 #: src/constants.vala.in:156
-#, fuzzy
 msgid "Total Data"
 msgstr "Всего данных"
 
@@ -474,14 +462,12 @@ msgid "Select a connection to view data usage"
 msgstr "Выберите соединение для просмотра данных об использовании"
 
 #: src/constants.vala.in:158
-#, fuzzy
 msgid "Click refresh to see current Apps using "
-msgstr "Нажмите обновить, чтобы увидеть текущие приложения, использующие "
+msgstr "Нажмите «Обновить», чтобы просмотреть текущие приложения, использующие "
 
 #: src/constants.vala.in:159
-#, fuzzy
 msgid "Refresh Apps bandwidth usage"
-msgstr "Обновить использование пропускной способности приложениями"
+msgstr "Обновить использование полосы пропускания приложений"
 
 #: src/constants.vala.in:160
 msgid "Name"
@@ -525,19 +511,19 @@ msgstr "Закрыть"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "DEVICE_MONITORING_STATE"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "DEVICE_MONITORING_SCHEDULE"
 
 #: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "SPEEDTEST_DATE"
 
 #: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_UPLOADSPEED"
 
 #: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
