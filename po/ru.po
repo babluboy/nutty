@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2023-09-02 11:56+0000\n"
+"PO-Revision-Date: 2023-09-03 12:55+0000\n"
 "Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
@@ -527,7 +527,7 @@ msgstr "SPEEDTEST_UPLOADSPEED"
 
 #: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "SPEEDTEST_DOWNLOADSPEED"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
@@ -543,7 +543,7 @@ msgstr "Сетевая карта"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " Стандарты с мощностью передачи "
 
 #: src/info.vala:174
 msgid " [Power Management: "
@@ -563,7 +563,7 @@ msgstr " Режим"
 
 #: src/info.vala:180
 msgid "Connected with"
-msgstr "Подключено к"
+msgstr "Связана с"
 
 #: src/info.vala:180
 msgid "Frequency of "
@@ -574,9 +574,8 @@ msgid " and Bit Rate of "
 msgstr " и битрейт "
 
 #: src/info.vala:183
-#, fuzzy
 msgid "Connection strength"
-msgstr "Сила подключения"
+msgstr "Прочность соединения"
 
 #: src/info.vala:183
 msgid "Link Quality of "
