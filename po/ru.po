@@ -3,7 +3,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
 "PO-Revision-Date: 2023-09-18 01:59+0000\n"
-"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
+"Last-Translator: ElXreno <elxreno@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
 "Language: ru\n"
@@ -259,7 +259,7 @@ msgstr "Время маршрута до хоста (в миллисекунда
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr "Прыгать"
+msgstr "Прыжков#"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
@@ -492,19 +492,19 @@ msgstr "Устройства не наблюдаются"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
-msgstr "Проверка устройств каждые 15 минут"
+msgstr "Мониторинг устройств каждые 15 минут"
 
 #: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
-msgstr "Проверка устройств каждые 30 минут"
+msgstr "Мониторинг устройств каждые 30 минут"
 
 #: src/constants.vala.in:167
 msgid "Monitor devices every hour"
-msgstr "Проверка устройств каждый час"
+msgstr "Мониторинг устройств каждый час"
 
 #: src/constants.vala.in:168
 msgid "Monitor devices once a day"
-msgstr "Проверка устройств раз в день"
+msgstr "Мониторинг устройств каждый день"
 
 #: src/constants.vala.in:169
 msgid "Close"
@@ -556,7 +556,7 @@ msgstr "Подключено к"
 
 #: src/info.vala:177
 msgid " Network at Access Point "
-msgstr " Сеть в точке доступа "
+msgstr " Сеть как точка доступа "
 
 #: src/info.vala:177
 msgid " Mode"
@@ -564,7 +564,7 @@ msgstr " Режим"
 
 #: src/info.vala:180
 msgid "Connected with"
-msgstr "Связана с"
+msgstr "Подключено через"
 
 #: src/info.vala:180
 msgid "Frequency of "
