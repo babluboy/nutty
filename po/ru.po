@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2023-09-03 12:55+0000\n"
+"PO-Revision-Date: 2023-09-18 01:59+0000\n"
 "Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/nutty/"
 "translations/ru/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -86,7 +86,8 @@ msgstr ""
 "нормально для сканирования устройств в вашей собственной домашней домашней "
 "сети или когда это явно разрешено хостом назначения и/или сетью.\n"
 "\n"
-"При использовании сканирования портов (вкладка «Устройства») в сети, которой "
+"\n"
+"При использовании сканирования портов (вкладка Устройства) в сети, которой "
 "вы не владеете, проконсультируйтесь и получите разрешение сетевого "
 "администратора или другого компетентного сетевого органа."
 
@@ -96,7 +97,7 @@ msgstr "О приложении"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr "Сетевая утилита"
+msgstr "Сетевая Утилита"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
@@ -587,7 +588,7 @@ msgstr " и уровень сигнала "
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr "Nutty отказ от ответственности "
+msgstr "Nutty отказ от ответственности"
 
 #: src/window.vala:48
 msgid ""
