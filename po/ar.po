@@ -2,16 +2,25 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2023-12-19 20:07+0000\n"
+"Last-Translator: Salam Aljehni <salamj@gmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/nutty/"
+"translations/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 5.3\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "عرض رقم الإصدار"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "تشغيل Nutty لاستكشاف الأجهزة"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
@@ -27,27 +36,27 @@ msgstr ""
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "فتح"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "جميع الملفات"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "ملفات نصية"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "أداة شبكة"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
@@ -55,11 +64,11 @@ msgstr ""
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "الموقع الالكتروني | الترجمة | متتبع الأخطاء"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "اتفاقية مسح الشبكة"
 
 #: src/constants.vala.in:68
 msgid ""
