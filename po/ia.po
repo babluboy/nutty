@@ -2,60 +2,68 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2024-01-29 10:04+0000\n"
+"Last-Translator: Software In Interlingua <softinterlingua@gmail.com>\n"
+"Language-Team: Interlingua <https://hosted.weblate.org/projects/nutty/"
+"translations/ia/>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "Monstrar le numero de version"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "Executa Nutty pro discoperir apparatos"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "Executar Nutty in modo de alerta de apparatos"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "Executar Nutty in modo depuration"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "Executar Nutty in modo de information"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "Cancellar"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "Aperir"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "Salveguardar"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "Tote le files"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "Files de texto"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "Un utilitate de retes"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Traductores in Weblate"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "Sito web | Traduction | Sequimento de defectos"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
@@ -75,11 +83,11 @@ msgstr ""
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "A proposito de"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "Utilitate de retes"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
@@ -87,11 +95,11 @@ msgstr ""
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "Preferentias"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr ""
+msgstr "Exportar a un file"
 
 #: src/constants.vala.in:74
 msgid ""
@@ -110,11 +118,11 @@ msgstr ""
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "Hodie"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "Heri"
 
 #: src/constants.vala.in:78
 msgid "days ago"
@@ -122,15 +130,15 @@ msgstr ""
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "Resultatos "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "Necun datos trovate"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "Non disponibile"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
@@ -146,7 +154,7 @@ msgstr ""
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "Altere"
 
 #: src/constants.vala.in:86
 msgid "My Info"
@@ -154,11 +162,11 @@ msgstr ""
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "Selige un connexion"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "Monstrar le detalios"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
@@ -166,7 +174,7 @@ msgstr ""
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "Detalios"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
@@ -174,19 +182,19 @@ msgstr ""
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "Adresse MAC"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "Adresse IP"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "Adresse IPv6"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr ""
+msgstr "Stato del interfacie"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
@@ -210,7 +218,7 @@ msgstr ""
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
@@ -238,11 +246,11 @@ msgstr ""
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "IP de servitor"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "Nomine de servitor"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
@@ -266,11 +274,11 @@ msgstr ""
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "Velocitate de incarga"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "Velocitate de discarga"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
@@ -298,7 +306,7 @@ msgstr ""
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "Stato"
 
 #: src/constants.vala.in:124
 msgid "Port"
@@ -314,11 +322,11 @@ msgstr ""
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Percurso"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Apparatos"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
@@ -330,7 +338,7 @@ msgstr ""
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Nomine del apparato"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
@@ -354,7 +362,7 @@ msgstr ""
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
@@ -440,11 +448,11 @@ msgstr ""
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "Nomine"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "Datos inviate (Kb/sec)"
 
 #: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
@@ -480,7 +488,7 @@ msgstr ""
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "Clauder"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
@@ -504,11 +512,11 @@ msgstr ""
 
 #: src/devices.vala:318
 msgid " for "
-msgstr ""
+msgstr " pro "
 
 #: src/info.vala:174
 msgid "Network Card"
-msgstr ""
+msgstr "Carta de rete"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
@@ -536,7 +544,7 @@ msgstr ""
 
 #: src/info.vala:180
 msgid "Frequency of "
-msgstr ""
+msgstr "Frequentia de "
 
 #: src/info.vala:180
 msgid " and Bit Rate of "
