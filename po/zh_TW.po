@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-01-15 06:30+0000\n"
-"Last-Translator: Louies <louies0623@gmail.com>\n"
+"PO-Revision-Date: 2024-06-11 20:41+0000\n"
+"Last-Translator: hugoalh <hugoalh@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "nutty/translations/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -11,19 +11,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr "顯示版本號"
+msgstr "顯示版本號碼"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr "運行 Nutty 來尋找設備"
+msgstr "執行 Nutty 來尋找裝置"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr "在鬧鐘模式下執行 Nutty"
+msgstr "在裝置警報模式下執行 Nutty"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
@@ -31,43 +31,43 @@ msgstr "在偵錯模式下執行 Nutty"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "在資訊模式下執行 Nutty"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "全部檔案"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "文字檔案"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "一個網路實用程式"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "Weblate 翻譯者"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "網站 | 翻譯 | 錯誤追蹤器"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "網路掃描協議"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -83,29 +83,29 @@ msgstr ""
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "網路實用程式"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr ""
+msgstr "篩選結果…"
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "偏好設定"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr ""
+msgstr "匯出至檔案"
 
 #: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
-msgstr ""
+msgstr "Nutty 需要驗證才能執行此操作，請提供你的密碼以繼續。"
 
 #: src/constants.vala.in:75
 msgid ""
@@ -115,126 +115,130 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
+"Nutty 需要驗證才能更新根排程程式（crontab）以進行裝置監控。請提供你的密碼以完"
+"成此變更。 \n"
+"\n"
+"注意：目前的根排程程式（crontab）將會備份至主目錄。"
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr ""
+msgstr "天前"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "結果： "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "找不到資料"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "無法使用"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "我同意"
 
 #: src/constants.vala.in:83
 msgid "Wired"
-msgstr ""
+msgstr "有線"
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr ""
+msgstr "無線"
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "我的資訊"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "選擇一個連接"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "檢視詳細資訊"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr ""
+msgstr "屬性"
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "詳細資訊"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr ""
+msgstr "主機名稱"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "MAC 位址"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "IP 位址"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "IPv6 位址"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr ""
+msgstr "介面狀態"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr ""
+msgstr "介面硬體"
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "產品"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
-msgstr ""
+msgstr "供應商"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
-msgstr ""
+msgstr "實體 ID"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
-msgstr ""
+msgstr "匯流排資訊"
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
-msgstr ""
+msgstr "容量"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
-msgstr ""
+msgstr "匯流排寬度"
 
 #: src/constants.vala.in:104
 msgid "Clock Speed"
-msgstr ""
+msgstr "時脈速度"
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
@@ -246,11 +250,11 @@ msgstr ""
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "伺服器 IP"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "伺服器名稱"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
@@ -270,107 +274,107 @@ msgstr ""
 
 #: src/constants.vala.in:114
 msgid "No speed test has been done"
-msgstr ""
+msgstr "尚未進行速度測試"
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "上載速度"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "下載速度"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
-msgstr ""
+msgstr "重新整理速度測試結果"
 
 #: src/constants.vala.in:118
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
-msgstr ""
+msgstr "未知的日期。請點擊重新整理按鈕以進行速度測試"
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "通訊埠"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
-msgstr ""
+msgstr "掃描所有活動的通訊埠。"
 
 #: src/constants.vala.in:121
 msgid "Refresh Ports results"
-msgstr ""
+msgstr "重新整理通訊埠結果"
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "協定"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "狀態"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "通訊埠"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "處理程序 ID"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "程式名稱"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "路徑"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "裝置"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
-msgstr ""
+msgstr "重新整理裝置掃描結果"
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "裝置名稱"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "裝置製造商"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "最後看見"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
-msgstr ""
+msgstr "發現於"
 
 #: src/constants.vala.in:135
 msgid "Host IP"
-msgstr ""
+msgstr "主機 IP"
 
 #: src/constants.vala.in:136
 msgid "Host MAC"
-msgstr ""
+msgstr "主機 MAC"
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "活動"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "不活動"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "於較早前發現"
 
 #: src/constants.vala.in:140
 msgid ""
@@ -384,11 +388,11 @@ msgstr ""
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "裝置掃描正在進行…"
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "在此連接上找到的裝置"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
@@ -396,15 +400,15 @@ msgstr ""
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "忘記裝置"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr ""
+msgstr "在網路上發現新裝置："
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "使用情況"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
@@ -416,23 +420,23 @@ msgstr ""
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
-msgstr ""
+msgstr "請使用命令列將此連接介面新增至 vnstat。"
 
 #: src/constants.vala.in:153
 msgid "Time Period"
-msgstr ""
+msgstr "時段"
 
 #: src/constants.vala.in:154
 msgid "Data Received"
-msgstr ""
+msgstr "收到的數據"
 
 #: src/constants.vala.in:155
 msgid "Data Sent"
-msgstr ""
+msgstr "傳送的數據"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
-msgstr ""
+msgstr "總數據"
 
 #: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
@@ -444,23 +448,23 @@ msgstr ""
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
-msgstr ""
+msgstr "重新整理應用程式頻寬使用情況"
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "傳送的數據（Kb／秒）"
 
 #: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
-msgstr ""
+msgstr "收到的數據（Kb／秒）"
 
 #: src/constants.vala.in:163
 msgid "Background Device Monitoring"
-msgstr ""
+msgstr "背景裝置監控"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
@@ -484,7 +488,7 @@ msgstr ""
 
 #: src/constants.vala.in:169
 msgid "Close"
-msgstr ""
+msgstr "關閉"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
@@ -508,7 +512,7 @@ msgstr ""
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
-msgstr ""
+msgstr "Nutty 資訊已匯出於 "
 
 #: src/devices.vala:318
 msgid " for "
@@ -516,7 +520,7 @@ msgstr ""
 
 #: src/info.vala:174
 msgid "Network Card"
-msgstr ""
+msgstr "網路卡"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
@@ -564,38 +568,38 @@ msgstr ""
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "Nutty 免責聲明"
 
 #: src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
-msgstr ""
+msgstr "點擊閱讀 Nmap（由 Nutty 使用）上的法律免責聲明以瞭解更多資訊"
 
 #: src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "使用 Nutty"
 
 #: src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "離開"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
 msgid "Nutty"
-msgstr ""
+msgstr "Nutty"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "顯示網路資訊"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "一個簡單的網路資訊實用程式"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
@@ -638,16 +642,16 @@ msgstr ""
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
 msgid "Device Monitoring"
-msgstr ""
+msgstr "裝置監控"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
 msgid "Bandwidth Usage"
-msgstr ""
+msgstr "頻寬使用情況"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
 msgid "Speed Test"
-msgstr ""
+msgstr "速度測試"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "Siddhartha Das"
