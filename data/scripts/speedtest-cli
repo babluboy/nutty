@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Copyright 2012-2015 Matt Martz
 # All Rights Reserved.
@@ -248,7 +248,7 @@ class FileGetter(threading.Thread):
             if (timeit.default_timer() - self.starttime) <= 10:
                 request = build_request(self.url)
                 f = urlopen(request)
-                while 1 and not shutdown_event.isSet():
+                while 1 and not shutdown_event.is_set():
                     self.result.append(len(f.read(10240)))
                     if self.result[-1] == 0:
                         break
@@ -267,7 +267,7 @@ def downloadSpeed(files, quiet=False):
             thread = FileGetter(file, start)
             thread.start()
             q.put(thread, True)
-            if not quiet and not shutdown_event.isSet():
+            if not quiet and not shutdown_event.is_set():
                 sys.stdout.write('.')
                 sys.stdout.flush()
 
@@ -276,7 +276,7 @@ def downloadSpeed(files, quiet=False):
     def consumer(q, total_files):
         while len(finished) < total_files:
             thread = q.get(True)
-            while thread.isAlive():
+            while thread.is_alive():
                 thread.join(timeout=0.1)
             finished.append(sum(thread.result))
             del thread
@@ -287,9 +287,9 @@ def downloadSpeed(files, quiet=False):
     start = timeit.default_timer()
     prod_thread.start()
     cons_thread.start()
-    while prod_thread.isAlive():
+    while prod_thread.is_alive():
         prod_thread.join(timeout=0.1)
-    while cons_thread.isAlive():
+    while cons_thread.is_alive():
         cons_thread.join(timeout=0.1)
     return (sum(finished) / (timeit.default_timer() - start))
 
@@ -310,7 +310,7 @@ class FilePutter(threading.Thread):
     def run(self):
         try:
             if ((timeit.default_timer() - self.starttime) <= 10 and
-                    not shutdown_event.isSet()):
+                    not shutdown_event.is_set()):
                 request = build_request(self.url, data=self.data)
                 f = urlopen(request)
                 f.read(11)
@@ -332,7 +332,7 @@ def uploadSpeed(url, sizes, quiet=False):
             thread = FilePutter(url, start, size)
             thread.start()
             q.put(thread, True)
-            if not quiet and not shutdown_event.isSet():
+            if not quiet and not shutdown_event.is_set():
                 sys.stdout.write('.')
                 sys.stdout.flush()
 
@@ -341,7 +341,7 @@ def uploadSpeed(url, sizes, quiet=False):
     def consumer(q, total_sizes):
         while len(finished) < total_sizes:
             thread = q.get(True)
-            while thread.isAlive():
+            while thread.is_alive():
                 thread.join(timeout=0.1)
             finished.append(thread.result)
             del thread
@@ -352,9 +352,9 @@ def uploadSpeed(url, sizes, quiet=False):
     start = timeit.default_timer()
     prod_thread.start()
     cons_thread.start()
-    while prod_thread.isAlive():
+    while prod_thread.is_alive():
         prod_thread.join(timeout=0.1)
-    while cons_thread.isAlive():
+    while cons_thread.is_alive():
         cons_thread.join(timeout=0.1)
     return (sum(finished) / (timeit.default_timer() - start))
 
@@ -443,7 +443,7 @@ def closestServers(client, all=False):
             try:
                 try:
                     root = ET.fromstring(''.encode().join(serversxml))
-                    elements = root.getiterator('server')
+                    elements = root.iter('server')
                 except AttributeError:  # Python3 branch
                     root = DOM.parseString(''.join(serversxml))
                     elements = root.getElementsByTagName('server')
