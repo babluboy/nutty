@@ -119,7 +119,7 @@ namespace NuttyApp {
 		public static StringBuilder device_mac_found_in_scan = new StringBuilder("");
 		public static CssProvider cssProvider;
 		public static NuttyApp.Settings settings;
-		public static Granite.Services.Paths app_xdg_path;
+		public static string app_xdg_path;
 
 		construct {
 			build_version = NuttyApp.Constants.nutty_version;
@@ -142,9 +142,8 @@ namespace NuttyApp {
 			Intl.textdomain(GETTEXT_PACKAGE);
 			Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
 			//Initialize XDG Paths
-			app_xdg_path = new Granite.Services.Paths();
-			app_xdg_path.initialize (Constants.app_id, Constants.NUTTY_SCRIPT_PATH);
-			nutty_config_path = app_xdg_path.user_data_folder.get_path();
+			app_xdg_path = GLib.Environment.get_user_data_dir();
+			nutty_config_path = app_xdg_path + "/" + Constants.app_id + "/" + Constants.NUTTY_SCRIPT_PATH;
 			//migrate user data from .config to .local/share -- to be deleted in the next version
 			if("true" == NuttyApp.Utils.fileOperations(
 							"EXISTS", 
