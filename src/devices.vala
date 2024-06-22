@@ -448,16 +448,16 @@ public class NuttyApp.Devices {
 					Constants.COMMAND_FOR_SCHEDULED_DEVICE_SCAN,
 					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
 					NuttyApp.Nutty.nutty_config_path, 
-					NuttyApp.Nutty.app_xdg_path.user_config_folder.get_path() + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
-					NuttyApp.Nutty.app_xdg_path.user_cache_folder.get_path() + "/root_"+ Environment.get_user_name () + "_crontab_temp.txt"
+					GLib.Environment.get_user_config_dir() + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
+					GLib.Environment.get_user_cache_dir() + "/root_" + GLib.Environment.get_user_name() + "_crontab_temp.txt"
 	  	});
 		//execute the command to update user crontab for alerting
 		NuttyApp.Nutty.execute_sync_multiarg_command_pipes({
 					Constants.COMMAND_FOR_SCHEDULED_DEVICE_ALERT,
 					NuttyApp.Nutty.DEVICE_SCHEDULE_SELECTED.to_string(),
 					NuttyApp.Nutty.nutty_config_path, 
-					NuttyApp.Nutty.app_xdg_path.user_config_folder.get_path() + "/" + Constants.nutty_alert_scheduler_backup_file_name,
-					NuttyApp.Nutty.app_xdg_path.user_cache_folder.get_path() + "/user_"+Environment.get_user_name () + "_crontab_temp.txt"
+					GLib.Environment.get_user_config_dir() + "/" + Constants.nutty_monitor_scheduler_backup_file_name,
+					GLib.Environment.get_user_cache_dir() + "/root_" + GLib.Environment.get_user_name() + "_crontab_temp.txt"
   		});
 		info("[END] [FUNCTION:setupDeviceMonitoring]");
 	}
