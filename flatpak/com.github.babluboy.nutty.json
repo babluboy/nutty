@@ -1,0 +1,232 @@
+{
+  "app-id": "com.github.babluboy.nutty",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "46",
+  "sdk": "org.gnome.Sdk",
+  "command": "com.github.babluboy.nutty",
+  "finish-args": [
+    "--share=ipc",
+    "--device=dri",
+    "--socket=wayland",
+    "--socket=fallback-x11",
+    "--share=network",
+    "--filesystem=xdg-documents",
+    "--persist=var/lib/nutty",
+    "--talk-name=org.freedesktop.Notifications"
+  ],
+  "modules": [
+{
+  "name": "canberra-gtk-module",
+  "buildsystem": "autotools",
+  "config-opts": [
+    "--prefix=/app"
+  ],
+  "build-commands": [
+    "./configure --prefix=/app",
+    "make",
+    "make install"
+  ],
+  "sources": [
+    {
+      "type": "archive",
+      "url": "https://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
+      "sha256": "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
+    }
+  ]
+},
+    {
+      "name": "granite",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/elementary/granite/archive/refs/tags/6.1.0.tar.gz",
+          "sha256": "0b69ffdec1d0b61704d65bb82f8415b61f733b21eef3c7c6844f30b50791e6e9"
+        }
+      ]
+    },
+    {
+      "name": "net-tools",
+      "buildsystem": "simple",
+      "build-commands": [
+        "pwd",
+        "ls",
+        "yes n | make",
+        "sed -i 's|/usr/share/man|/app/share/man|g' man/Makefile",
+        "mkdir -p /app/share/man/man5 /app/share/man/man8",
+        "make install BINDIR=/app/bin SBINDIR=/app/sbin MANDIR=/app/share/man"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://sourceforge.net/projects/net-tools/files/net-tools-2.10.tar.xz",
+          "sha256": "b262435a5241e89bfa51c3cabd5133753952f7a7b7b93f32e08cb9d96f580d69"
+        }
+      ]
+    },
+    {
+      "name": "libpcap",
+      "buildsystem": "autotools",
+      "build-commands": [
+        "./configure --prefix=/app",
+        "make",
+        "make install"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "http://www.tcpdump.org/release/libpcap-1.10.1.tar.gz",
+          "sha256": "ed285f4accaf05344f90975757b3dbfe772ba41d1c401c2648b7fa45b711bdd4"
+        }
+      ]
+    },
+    {
+      "name": "nethogs",
+      "buildsystem": "simple",
+      "build-commands": [
+        "PKG_CONFIG_PATH=\"/app/lib/pkgconfig:$PKG_CONFIG_PATH\" LD_LIBRARY_PATH=\"/app/lib:$LD_LIBRARY_PATH\" LDFLAGS=\"-L/app/lib -ltinfo -lncurses\" make",
+        "PKG_CONFIG_PATH=\"/app/lib/pkgconfig:$PKG_CONFIG_PATH\" LD_LIBRARY_PATH=\"/app/lib:$LD_LIBRARY_PATH\" make install PREFIX=/app"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/raboof/nethogs/archive/v0.8.7.tar.gz",
+          "sha256": "957d6afcc220dfbba44c819162f44818051c5b4fb793c47ba98294393986617d"
+        }
+      ]
+    },
+    {
+      "name": "nmap",
+      "buildsystem": "simple",
+      "build-commands": [
+        "./configure --prefix=/app",
+        "make",
+        "make install"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://nmap.org/dist/nmap-7.93.tar.bz2",
+          "sha256": "55bcfe4793e25acc96ba4274d8c4228db550b8e8efd72004b38ec55a2dd16651"
+        }
+      ]
+    },
+    {
+      "name": "traceroute",
+      "buildsystem": "simple",
+      "build-commands": [
+        "sed -i 's|/usr/local|/app|g' Makefile",
+        "sed -i 's|/usr|/app|g' Makefile",
+        "sed -i 's|/usr|/app|g' default.rules",
+        "grep -rIl '/usr/local' . | xargs sed -i 's|/usr/local|/app|g'",
+        "grep -rIl '/usr' . | xargs sed -i 's|/usr|/app|g'",
+        "make",
+        "make install BINDIR=/app/bin"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://sourceforge.net/projects/traceroute/files/traceroute/traceroute-2.1.3/traceroute-2.1.3.tar.gz",
+          "sha256": "05ebc7aba28a9100f9bbae54ceecbf75c82ccf46bdfce8b5d64806459a7e0412"
+        }
+      ]
+    },
+    {
+      "name": "vnstat",
+      "buildsystem": "autotools",
+      "build-commands": [
+        "./configure --prefix=/app",
+        "make",
+        "make install"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://humdi.net/vnstat/vnstat-2.9.tar.gz",
+          "sha256": "11a21475dea91706500aba7c63e24126703fd01f13b1f3acdf92baa5aead9dc7"
+        }
+      ]
+    },
+    {
+      "name": "wireless-tools",
+      "buildsystem": "simple",
+      "build-commands": [
+      "pwd",
+      "ls",
+        "make -C wireless_tools",
+        "make -C wireless_tools install PREFIX=/app"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/HewlettPackard/wireless-tools/archive/refs/tags/v29.tar.gz",
+          "sha256": "69c5face9ac9d3273042436408a9a057d3416a814253dedeaaef210fcbc42d40"
+        }
+      ]
+    },
+    {
+      "name": "iproute2",
+      "buildsystem": "simple",
+      "build-commands": [
+    "sed -i 's|/sbin|/app/bin|g' Makefile",
+    "sed -i 's|/usr/include/iproute2|/app/include/iproute2|g' Makefile",
+    "sed -i 's|/etc/iproute2|/app/etc/iproute2|g' Makefile",
+    "sed -i 's|/var/lib/arpd|/app/var/lib/arpd|g' Makefile",
+    "sed -i 's|/usr|/app|g' Makefile",
+    "sed -i 's|/usr|/app|g' tc/Makefile",
+    "sed -i 's|/usr|/app|g' ip/Makefile",
+    "make",
+    "make install SBINDIR=/app/bin INCLUDEDIR=/app/include/iproute2 ETCDIR=/app/etc/iproute2 LIBDIR=/app/var/lib/arpd"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-5.18.0.tar.xz",
+          "sha256": "5ba3d464d51c8c283550d507ffac3d10f7aec587b7c66b0ccb6950643646389e"
+        }
+      ]
+    },
+    {
+      "name": "pciutils",
+      "buildsystem": "simple",
+      "build-commands": [
+        "make",
+        "make install PREFIX=/app"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/pciutils/pciutils/archive/v3.8.0.tar.gz",
+          "sha256": "71189a1297e39d2638dd5691a102d2aecd7db8083e6de376c115e8996eeda027"
+        }
+      ]
+    },
+    {
+      "name": "nutty",
+      "buildsystem": "meson",
+        "build-commands": [
+        "pwd",
+        "ls"
+      ],
+      "sources": [
+        {
+                    "type" : "dir",
+                    "path" : "."
+        }
+      ],
+      "build-options": {
+      }
+    }
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/pkgconfig",
+    "/share/man",
+    "/share/pkgconfig",
+    "/share/aclocal",
+    "/share/doc",
+    "/share/gtk-doc",
+    "/share/locale"
+  ]
+}
+
