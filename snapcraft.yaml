@@ -1,11 +1,14 @@
 name: nutty
-version: 1.0.0
+version: 2.0
 summary: A Network Information Utility
-description: A simple application to provide essential information on network related aspects. Nutty provides basic network information, internet usage and speed and monitors devices connected to the network.
+description: >
+  A simple application to provide essential information on network-related aspects.
+  Nutty provides basic network information, internet usage and speed, and monitors devices connected to the network.
 
 icon: data/icons/24/com.github.babluboy.nutty.svg
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+grade: devel  # Must be 'stable' to release into candidate/stable channels
+confinement: devmode  # Use 'strict' once you have the right plugs and slots
+base: core22  # Specify the base Snap
 
 slots:
   dbus-nutty:
@@ -19,40 +22,66 @@ apps:
     plugs: [home, x11, unity7, network]
 
 parts:
-    nutty:
-        source: https://github.com/babluboy/nutty.git
-        plugin: cmake        
-        configflags: [-DCMAKE_INSTALL_PREFIX=/usr]
-        build-packages:
-            - build-essential
-            - valac
-            - intltool
-            - libnotify-dev
-            - libgee-0.8-dev
-            - debhelper
-            - libgtk-3-dev
-            - granite-demo
-            - libgranite-dev
-            - libsqlite3-dev
-            - libxml2
-            - libxml2-dev
-        stage-packages:
-            - gnome-keyring
-            - gobject-introspection
-            - libgdk-pixbuf2.0-0
-            - libgee-0.8-2
-            - libgtk-3-0
-            - libnotify4
-            - libpango-1.0-0
-            - libpangocairo-1.0-0
-            - net-tools
-            - nmap
-            - traceroute
-            - vnstat
-            - nethogs
-            - gksu
-            - curl
-            - wireless-tools
-            - iproute2
-            - pciutils
-        after: [desktop-gtk3]
+  nutty:
+    source: https://github.com/babluboy/nutty.git
+    plugin: meson  # Use meson plugin for projects using Meson build system
+    meson-parameters: [--prefix=/usr]
+    build-packages:
+      - build-essential
+      - meson  # Install Meson build system
+      - valac
+      - intltool
+      - libnotify-dev
+      - libgee-0.8-dev
+      - debhelper
+      - libgtk-3-dev
+      - granite-demo
+      - libgranite-dev
+      - libsqlite3-dev
+      - libxml2-dev
+      - libxml2
+      
+    stage-packages:
+      - gnome-keyring
+      - gobject-introspection
+      - libgdk-pixbuf2.0-0
+      - libgee-0.8-2
+      - libgtk-3-0
+      - libnotify4
+      - libpango-1.0-0
+      - libpangocairo-1.0-0
+      - net-tools
+      - nmap
+      - traceroute
+      - vnstat
+      - nethogs
+      - curl
+      - wireless-tools
+      - iproute2
+      - pciutils
+      - libgranite6  # Add the missing libgranite6 library
+      - libatm1  # Added another library which is required during snap build process
+
+    after: [desktop-gtk3]
+
+  desktop-gtk3:
+    # Environment for running GTK3 desktop applications
+    plugin: nil
+    build-environment:
+      - DESKTOP_SESSION: ubuntu
+      - DISPLAY: ":0"
+
+    stage-packages:
+      - libgtk-3-0
+      - libgtk-3-bin
+      - adwaita-icon-theme
+
+    override-build: |
+      snapcraftctl build
+
+  polkit:
+    plugin: dump
+    source: ./polkit
+    organize:
+      com.example.nutty.policy: /usr/share/polkit-1/actions/com.example.nutty.policy
+
