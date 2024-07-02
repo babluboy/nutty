@@ -1,3 +1,17 @@
+com.github.babluboy.nutty (2.0) unreleased; urgency=low
+
+     [Kishor aka root-reborn@github]
+    * Added python3 support to speedtest-cli script
+    * Migrated code from Granite.Services.Paths to GLib.Environment utility library to manage common file paths within the Nutty application.
+    * Fixed issues in appdata.xml files by merging PR's and making small corrections in date format so that deb package can be built without any warnings and errors
+    * Built a flatpak for Nutty from scratch and merged the flatpak manifest file and a flatpak build guide into the github repo.Implementing polkit is pending.
+    * Updated files in the debian directory to confirm with the latest Debian Policy version 4.7.0.0, released on 7th April 2024.This changes are made for Nutty 2.0 release.
+    
+    [Other Contributors]
+    * Please include other contributors @babluboy for this release(you may refer commits since Nutty 1.1.1 release)
+    
+ -- Siddhartha Das <bablu.boy@gmail.com>  Tue, 2 Jul 2024 19:07:00 +0530
+
 com.github.babluboy.nutty (1.1.1) xenial; urgency=low
 
   * Initial Release (13-Jul-2015)
