@@ -1,0 +1,20 @@
+<!-- com.example.nutty.policy -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+    "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+  <!-- Allow Nutty to run specific commands with sudo -->
+  <action id="com.example.nutty.sudo">
+    <description>Allow Nutty to execute commands with sudo</description>
+    <message>Authentication is required to run commands as superuser</message>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate>description,"Allow executing commands with sudo for Nutty"</annotate>
+  </action>
+
+</policyconfig>
+
