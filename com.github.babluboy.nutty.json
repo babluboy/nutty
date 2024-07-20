@@ -15,25 +15,6 @@
     "--talk-name=org.freedesktop.Notifications"
   ],
   "modules": [
-{
-  "name": "canberra-gtk-module",
-  "buildsystem": "autotools",
-  "config-opts": [
-    "--prefix=/app"
-  ],
-  "build-commands": [
-    "./configure --prefix=/app",
-    "make",
-    "make install"
-  ],
-  "sources": [
-    {
-      "type": "archive",
-      "url": "https://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz",
-      "sha256": "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
-    }
-  ]
-},
     {
       "name": "granite",
       "buildsystem": "meson",
@@ -158,9 +139,9 @@
       ],
       "sources": [
         {
-          "type": "archive",
-          "url": "https://github.com/HewlettPackard/wireless-tools/archive/refs/tags/v29.tar.gz",
-          "sha256": "69c5face9ac9d3273042436408a9a057d3416a814253dedeaaef210fcbc42d40"
+          "type": "git",
+          "url": "https://github.com/HewlettPackard/wireless-tools.git",
+         "tag": "v29"
         }
       ]
     },
@@ -198,6 +179,21 @@
           "type": "archive",
           "url": "https://github.com/pciutils/pciutils/archive/v3.8.0.tar.gz",
           "sha256": "71189a1297e39d2638dd5691a102d2aecd7db8083e6de376c115e8996eeda027"
+        }
+      ]
+    },
+      {
+      "name": "lshw",
+      "buildsystem": "simple",
+      "build-commands": [
+       "make",
+       "make install PREFIX=/app"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://www.ezix.org/software/files/lshw-B.02.19.2.tar.gz",
+          "sha256": "9bb347ac87142339a366a1759ac845e3dbb337ec000aa1b99b50ac6758a80f80"
         }
       ]
     },

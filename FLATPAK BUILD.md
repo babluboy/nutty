@@ -1,7 +1,8 @@
-## Flatpak Build Instructions from Source - A Walkthrough
+## Flatpak Build Instructions - A Walkthrough
+
 This guide will be helpful if you are a Dev and wan't to contribute to the Nutty's Flatpak as the Dependencies and Runtimes get updated (or) if you are a linux power user who wants to build everything from source:)
 
-First install `flatpak` and `flatpak-builder` in your system using your respective package manager.I am using `apt` here since I run linux distro which is based on debian family.
+First install `flatpak` and `flatpak-builder` in your system using your respective package manager.I am using `apt` here since I run a debian based linux distro.
 ```bash
 sudo apt install flatpak flatpak-builder
 ```
@@ -42,7 +43,8 @@ flatpak-builder --user --install --force-clean build-dir com.github.babluboy.nut
 This will add the icon of Nutty to your desktop icon's tray (or) icon's menu.
 
 You can also check if Nutty is properly installed or not in your system by using the below command.
-```bash
+```
+flatpak list (or)
 flatpak list --app
 ```
 Upon executing this command you should be able to see `Nutty` under the "Name"" sections and `com.github.babluboy.nutty` under "Application-ID" section.
@@ -58,13 +60,3 @@ Cheers👍
 
 #### Author
 *Kishor* [Github](https://github.com/root-reborn)
-
-
-
-
-
-
-
-
-
-
