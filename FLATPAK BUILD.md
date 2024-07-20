@@ -27,18 +27,18 @@ cd nutty
 
 Now start building the flatpak of Nutty using the below command.
 ```bash
-flatpak-builder build-dir com.github.babluboy.nutty.json --force-clean
+flatpak-builder build-dir com.github.babluboy.nutty.yaml --force-clean
 ```
-This command will create a new directory named `build-dir` and installs all the flatpak build files inside it.It takes some time to build the flatpak as `flatpak-builder` needs to download and build lot of modules from source which are specified in the `com.github.babluboy.nutty.json` flatpak manifest file.It took me around 10min to complete the build process, so wait patiently or just grab some coffee meanwhile.
+This command will create a new directory named `build-dir` and installs all the flatpak build files inside it.It takes some time to build the flatpak as `flatpak-builder` needs to download and build lot of modules from source which are specified in the `com.github.babluboy.nutty.yaml` flatpak manifest file.It took me around 10min to complete the build process, so wait patiently or just grab some coffee meanwhile.
 
 After you have built the flatpak for Nutty,you can run it using below command
 ```bash
-flatpak-builder --run build-dir com.github.babluboy.nutty.json com.github.babluboy.nutty
+flatpak-builder --run build-dir com.github.babluboy.nutty.yaml com.github.babluboy.nutty
 ```
 
 If build is working prefectly fine,then you can install Nutty in your system using below command
 ```bash
-flatpak-builder --user --install --force-clean build-dir com.github.babluboy.nutty.json
+flatpak-builder --user --install --force-clean build-dir com.github.babluboy.nutty.yaml
 ```
 This will add the icon of Nutty to your desktop icon's tray (or) icon's menu.
 
