@@ -16,12 +16,14 @@ https://babluboy.github.io/nutty/
 ## Building, Testing, and Installation
 
 You'll need the following dependencies to build:
-* libgranite-dev
+* libgtk-4-dev
+* libgranite-7-dev
 * libnotify-dev
 * libxml2-dev
+* libxml2-utils
 * libgee-0.8-dev
-* libgtk-3-dev
 * libsqlite3-dev
+* gettext
 * meson
 * valac
 

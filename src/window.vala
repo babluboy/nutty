@@ -24,7 +24,7 @@ public class NuttyApp.AppWindow {
     public static Gtk.Box createNuttyWelcomeView() {
 		debug("Starting to create main window components...");
 		Gtk.Box welcome_ui_box = new Gtk.Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-		Granite.Widgets.Welcome welcome = new Granite.Widgets.Welcome (
+		Granite.Placeholder welcome = new Granite.Widgets.Welcome (
     		NuttyApp.Constants.PRIMARY_TEXT_FOR_DISCLAIMER,   
     		NuttyApp.Constants.SECONDARY_TEXT_FOR_DISCLAIMER
 		);

@@ -17,7 +17,7 @@
 * with Nutty. If not, see http://www.gnu.org/licenses/.
 */
 namespace NuttyApp {
-	public class Settings : Granite.Services.Settings {
+	public class Settings : GLib.Settings {
         private static Settings? instance = null;
 
           public int window_width { get; set; }
