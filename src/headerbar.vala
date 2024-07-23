@@ -74,13 +74,13 @@ public class NuttyApp.AppHeaderBar {
 		Gtk.MenuButton appMenuButton = new Gtk.MenuButton ();
         appMenuButton.set_image (NuttyApp.Nutty.menu_icon);
 
-		Gtk.Menu settingsMenu = new Gtk.Menu ();
+		Gtk.PopoverMenu settingsMenu = new Gtk.Menu ();
         appMenuButton.popup = settingsMenu;
 
 		//Add sub menu items
-		Gtk.MenuItem menuItemPrefferences = new Gtk.MenuItem.with_label(Constants.TEXT_FOR_HEADERBAR_MENU_PREFS);
+		Gtk.MenuButton menuItemPrefferences = new Gtk.MenuItem.with_label(Constants.TEXT_FOR_HEADERBAR_MENU_PREFS);
 		settingsMenu.add (menuItemPrefferences);
-		Gtk.MenuItem menuItemExportToFile = new Gtk.MenuItem.with_label(Constants.TEXT_FOR_HEADERBAR_MENU_EXPORT);
+		Gtk.MenuButton menuItemExportToFile = new Gtk.MenuItem.with_label(Constants.TEXT_FOR_HEADERBAR_MENU_EXPORT);
 		settingsMenu.add (menuItemExportToFile);
 		
 		//Add actions for menu items
@@ -91,7 +91,7 @@ public class NuttyApp.AppHeaderBar {
 			NuttyApp.Nutty.createExportDialog();
 		});
 		//Add About option to menu
-		Gtk.MenuItem showAbout = new Gtk.MenuItem.with_label (NuttyApp.Constants.TEXT_FOR_PREF_MENU_ABOUT_ITEM);
+		Gtk.MenuButton showAbout = new Gtk.MenuItem.with_label (NuttyApp.Constants.TEXT_FOR_PREF_MENU_ABOUT_ITEM);
         showAbout.activate.connect (ShowAboutDialog);
         settingsMenu.append (showAbout);
 

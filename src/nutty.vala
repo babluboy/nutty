@@ -24,12 +24,17 @@ using Granite.Services;
 public const string GETTEXT_PACKAGE = "nutty";
 
 namespace NuttyApp {
-	public class Nutty : Granite.Application {
+	public class Nutty : Gtk.Application {
 		public static bool isNuttyRunning = false;
 		public static Gtk.ApplicationWindow window;
 		public static Gtk.IconTheme default_theme;
 		public static Nutty application;
 		public static string[] commandLineArgs;
+		
+		// Declare variables as class variables
+    		public static string build_version;
+    		public static string program_name;
+    		public static string exec_name;
 
 		public static string[] COMMAND_FOR_ONLINE_MANUFACTURE_NAME = {
 					"curl", 
@@ -89,11 +94,11 @@ namespace NuttyApp {
 		public static Label bandwidth_results_label;
 		public static bool isBandwidthViewLoaded = false;
 		public static Spinner bandwidthProcessSpinner;
-		public static Gtk.RadioButton NoOption;
-		public static Gtk.RadioButton min15Option;
-		public static Gtk.RadioButton min30Option;
-		public static Gtk.RadioButton hourOption;
-		public static Gtk.RadioButton dayOption;
+		public static Gtk.CheckButton NoOption;
+		public static Gtk.CheckButton min15Option;
+		public static Gtk.CheckButton min30Option;
+		public static Gtk.CheckButton hourOption;
+		public static Gtk.CheckButton dayOption;
 		public static bool isMonitorScheduleReadyForChange = false;
 		public static Gtk.TreeModelFilter infoTreeModelFilter;
 		public static Gtk.TreeModelFilter portsTreeModelFilter;
@@ -254,22 +259,31 @@ namespace NuttyApp {
 			}catch(Error e){
 				warning("Unsucessful in registering the application. Error:"+e.message);
 			}
-			Logger.initialize(NuttyApp.Constants.app_id);
-			if(command_line_option_debug){
-				Logger.DisplayLevel = LogLevel.DEBUG;
-			}
-			if(command_line_option_info){
-				Logger.DisplayLevel = LogLevel.INFO;
-			}
-			info("[START] [FUNCTION:activate]");
-			//proceed if Bookworm is not running already
-			if(!isNuttyRunning) {
-				debug("No instance of Nutty found");
-				default_theme = Gtk.IconTheme.get_default();
-				window = new Gtk.ApplicationWindow (this);
-				//retrieve Settings
-				settings = NuttyApp.Settings.get_instance();
-				icon_theme = Gtk.IconTheme.get_default ();
+            // Logger initialization
+            try {
+                Logger.initialize(NuttyApp.Constants.app_id);
+                if (command_line_option_debug) {
+                    Logger.DisplayLevel = LogLevel.DEBUG;
+                } else if (command_line_option_info) {
+                    Logger.DisplayLevel = LogLevel.INFO;
+                }
+            } catch (Error e) {
+                warning("Logger initialization failed: %s", e.message);
+            }
+
+            info("[START] [FUNCTION:activate]");
+
+            // Proceed if Nutty is not running already
+            if (!isNuttyRunning) {
+                debug("No instance of Nutty found");
+
+                var default_display = Gdk.Display.get_default();
+                if (default_display != null) {
+                    default_theme = Gtk.IconTheme.get_for_display(default_display);
+                    icon_theme = Gtk.IconTheme.get_for_display(default_display);
+                } else {
+                    warning("Failed to get default display.");
+                }
 				//set window attributes
 				window.get_style_context ().add_class ("rounded");
 				window.set_border_width (Constants.SPACING_WIDGETS);
@@ -292,7 +306,7 @@ namespace NuttyApp {
 				}
 				//show the app window
 				add_window (window);
-				window.show_all();
+				window.present();
 				//hide the infobar on initial load
 				infobar.hide();
 				//capture window re-size events and save the window size
@@ -324,7 +338,7 @@ namespace NuttyApp {
 
 		public void loadImages() {
 			info("[START] [FUNCTION:loadImages]");
-			if (Gtk.IconTheme.get_default ().has_icon ("open-menu")) {
+			if (Gtk.IconTheme.get_for_display (default_display).has_icon ("open-menu")) {
 				menu_icon = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
 			}else{
 				try{
@@ -372,23 +386,23 @@ namespace NuttyApp {
 				}
 			});
 
-			NoOption = new Gtk.RadioButton.with_label_from_widget (null, Constants.TEXT_FOR_PREFS_DIALOG_0MIN_OPTION);
+			NoOption = new Gtk.CheckButton.with_label_from_widget (null, Constants.TEXT_FOR_PREFS_DIALOG_0MIN_OPTION);
 			NoOption.set_sensitive (false);
 			NoOption.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
-			min15Option = new Gtk.RadioButton.with_label_from_widget (NoOption, Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION);
+			min15Option = new Gtk.CheckButton.with_label_from_widget (NoOption, Constants.TEXT_FOR_PREFS_DIALOG_15MIN_OPTION);
 			min15Option.set_sensitive (false);
 			min15Option.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
-			min30Option = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION);
+			min30Option = new Gtk.CheckButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_30MIN_OPTION);
 			min30Option.set_sensitive (false);
 			min30Option.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
-			hourOption = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION);
+			hourOption = new Gtk.CheckButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_HOUR_OPTION);
 			hourOption.set_sensitive (false);
 			hourOption.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
-			dayOption = new Gtk.RadioButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION);
+			dayOption = new Gtk.CheckButton.with_label_from_widget (min15Option, Constants.TEXT_FOR_PREFS_DIALOG_DAY_OPTION);
 			dayOption.set_sensitive (false);
 			dayOption.toggled.connect (NuttyApp.Devices.deviceScheduleSelection);
 
@@ -419,24 +433,42 @@ namespace NuttyApp {
 			isMonitorScheduleReadyForChange = true;
 
 			Gtk.Box monitorIntervalBox = new Gtk.Box (Gtk.Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			monitorIntervalBox.pack_start (min15Option, false, false, 0);
-			monitorIntervalBox.pack_start (min30Option, false, false, 0);
-			monitorIntervalBox.pack_start (hourOption, false, false, 0);
-			monitorIntervalBox.pack_start (dayOption, false, false, 0);
+			monitorIntervalBox.prepend (min15Option);
+			min15Option.set_hexpand(false);
+			min15Option.set_vexpand(false);
+			monitorIntervalBox.prepend(min30Option);
+			min30Option.set_hexpand(false);
+			min30Option.set_vexpand(false);
+			monitorIntervalBox.prepend (hourOption);
+			hourOption.set_hexpand(false);
+			hourOption.set_vexpand(false);
+			monitorIntervalBox.prepend (dayOption);
+			dayOption.set_hexpand(false);
+			dayOption.set_vexpand(false);
 
 			Gtk.Box scheduleBox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
-			scheduleBox.pack_start (deviceMonitorLabel, false, true, 0);
-			scheduleBox.pack_start (deviceMonitoringSwitch, false, true, 0);
+			scheduleBox.prepend (deviceMonitorLabel);
+			deviceMonitorLabel.set_hexpand(false);
+			deviceMonitorLabel.set_vexpand(true);
+			scheduleBox.prepend (deviceMonitoringSwitch);
+			deviceMonitoringSwitch.set_hexpand(false);
+			deviceMonitoringSwitch.set_vexpand(true);
 
 			Gtk.Box prefsBox = new Gtk.Box (Gtk.Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			prefsBox.pack_start (scheduleBox, false, true, 0);
-			prefsBox.pack_start (monitorIntervalBox, false, true, 0);
+			prefsBox.prepend (scheduleBox);
+			scheduleBox.set_hexpand(false);
+			scheduleBox.set_vexpand(true);
+			prefsBox.prepend (monitorIntervalBox);
+			monitorIntervalBox.set_hexpand(false);
+			monitorIntervalBox.set_vexpand(true);
 
 			Gtk.Box prefsContent = prefsDialog.get_content_area () as Gtk.Box;
-			prefsContent.pack_start (prefsBox, false, true, 0);
+			prefsContent.prepend (prefsBox);
+			prefsBox.set_hexpand(false);
+			prefsBox.set_vexpand(true);
 			prefsContent.spacing = Constants.SPACING_WIDGETS;
 
-			prefsDialog.show_all ();
+			prefsDialog.present ();
 			prefsDialog.response.connect(prefsDialogResponseHandler);
 			debug("Completed setting up Prefference Dialog successfully...");
 		}
@@ -473,7 +505,7 @@ namespace NuttyApp {
 		public static void createExportDialog() {
 			info("[START] [FUNCTION:createExportDialog]");
 			Gtk.FileChooserDialog aFileChooserDialog = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, "Export Nutty Data", window, false);
-			aFileChooserDialog.show_all ();
+			aFileChooserDialog.present ();
 			aFileChooserDialog.response.connect(exportDialogResponseHandler);
 			debug("Completed setting up Export Dialog successfully...");
 		}
@@ -489,7 +521,7 @@ namespace NuttyApp {
 		    infobar = new Gtk.InfoBar ();
 		    infobarLabel = new Gtk.Label("");
 			infobarLabel.set_line_wrap (true);
-		    Gtk.Container infobarContent = infobar.get_content_area ();
+		    Gtk.Box infobarContent = infobar.get_content_area ();
 		    infobarContent.add (infobarLabel);
 		    infobar.set_show_close_button (true);
 		    infobar.response.connect(NuttyApp.AppWindow.on_info_bar_closed);
@@ -499,9 +531,15 @@ namespace NuttyApp {
 			StackSwitcher switcher = new StackSwitcher();
 			switcher.set_halign(Align.CENTER);
 			switcher.set_stack(stack);
-			main_ui_box.pack_start(infobar, false, true, 0);
-			main_ui_box.pack_start(switcher, false, true, 0);
-			main_ui_box.pack_start(stack, true, true, 0);
+			main_ui_box.prepend(infobar);
+			infobar.set_hexpand(false);
+			infobar.set_vexpand(true);
+			main_ui_box.prepend(switcher);
+			switcher.set_hexpand(false);
+			switcher.set_vexpand(true);
+			main_ui_box.prepend(stack);
+			stack.set_hexpand(true);
+			stack.set_vexpand(true);
 
 			//Fetch and persist names of connections and interfaces if it does not exist already
 			NuttyApp.Info.getConnectionsList();
@@ -565,18 +603,30 @@ namespace NuttyApp {
 			});
 
 			Box info_interface_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
-			info_interface_box.pack_start (info_combobox, false, true, 0);
-			info_interface_box.pack_start (info_details_combobox_label, false, true, 0);
-			info_interface_box.pack_start (detailsInfoSwitch, false, true, 0);
-			info_interface_box.pack_end (infoProcessSpinner, false, true, 0);
+			info_interface_box.prepend (info_combobox);
+			info_combobox.set_hexpand(false);
+			info_combobox.set_vexpand(true);
+			info_interface_box.prepend (info_details_combobox_label);
+			info_details_combobox_label.set_hexpand(false);
+			info_details_combobox_label.set_vexpand(true);
+			info_interface_box.prepend (detailsInfoSwitch);
+			detailsInfoSwitch.set_hexpand(false);
+			detailsInfoSwitch.set_vexpand(true);
+			info_interface_box.append (infoProcessSpinner);
+			infoProcessSpinner.set_hexpand(false);
+			infoProcessSpinner.set_vexpand(true);
 
 			ScrolledWindow info_scroll = new ScrolledWindow (null, null);
 			info_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			info_scroll.add (info_table_treeview);
 
 			Box info_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			info_layout_box.pack_start (info_interface_box, false, true, 0);
-			info_layout_box.pack_start (info_scroll, true, true, 0);
+			info_layout_box.prepend (info_interface_box);
+			info_interface_box.set_hexpand(false);
+			info_interface_box.set_vexpand(true);
+			info_layout_box.prepend (info_scroll);
+			info_scroll.set_hexpand(true);
+			info_scroll.set_vexpand(true);
 			//Add info-box to stack
 			stack.add_titled(info_layout_box, "my-info", Constants.TEXT_FOR_MYINFO_TAB);
 			debug("Info tab set up completed...");
@@ -595,9 +645,15 @@ namespace NuttyApp {
 			}
 			bandwidth_combobox.active = 0;
 			Box bandwidth_results_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
-			bandwidth_results_box.pack_start (bandwidth_combobox, false, true, 0);
-			bandwidth_results_box.pack_start (bandwidth_details_label, false, true, 0);
-			bandwidth_results_box.pack_start (bandwidth_results_label, false, true, 0);
+			bandwidth_results_box.prepend (bandwidth_combobox);
+			bandwidth_combobox.set_hexpand(false);
+			bandwidth_combobox.set_vexpand(true);
+			bandwidth_results_box.prepend (bandwidth_details_label);
+			bandwidth_details_label.set_hexpand(false);
+			bandwidth_details_label.set_vexpand(true);
+			bandwidth_results_box.prepend (bandwidth_results_label);
+			bandwidth_results_label.set_hexpand(false);
+			bandwidth_results_label.set_vexpand(true);
 
 			TreeView bandwidth_table_treeview = new TreeView();
 			//bandwidth_table_treeview.set_fixed_height_mode(false);
@@ -632,16 +688,32 @@ namespace NuttyApp {
 			bandwidth_process_refresh_button.set_tooltip_markup (Constants.TEXT_FOR_BANDWIDTH_PROCESS_TOOLTIP);
 			Label bandwidth_process_label = new Label (Constants.TEXT_FOR_BANDWIDTH_PROCESS_LABEL+bandwidth_combobox.get_active_text()+ " connection.");
 
-			bandwidth_process_result_box.pack_start (bandwidth_process_label, false, false, 0);
-			bandwidth_process_result_box.pack_end (bandwidth_process_refresh_button, false, false, 0);
-			bandwidth_process_result_box.pack_end (bandwidthProcessSpinner, false, false, 0);
+			bandwidth_process_result_box.prepend (bandwidth_process_label, false, false, 0);
+			bandwidth_process_label.set_hexpand(false);
+			bandwidth_process_label.set_vexpand(false);
+			bandwidth_process_result_box.append (bandwidth_process_refresh_button);
+			bandwidth_process_refresh_button.set_hexpand(false);
+			bandwidth_process_refresh_button.set_vexpand(false);
+			bandwidth_process_result_box.append (bandwidthProcessSpinner);
+			bandwidthProcessSpinner.set_hexpand(false);
+			bandwidthProcessSpinner.set_vexpand(false);
 
 			Box bandwidth_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			bandwidth_layout_box.pack_start (bandwidth_results_box, false, true, 0);
-			bandwidth_layout_box.pack_start (bandwidth_scroll, true, true, 0);
-			bandwidth_layout_box.pack_start (bandwidth_separator, false, false, 0);
-			bandwidth_layout_box.pack_start (bandwidth_process_result_box, false, false, 0);
-			bandwidth_layout_box.pack_end (bandwidth_process_scroll, true, true, 0);
+			bandwidth_layout_box.prepend (bandwidth_results_box);
+			bandwidth_results_box.set_hexpand(false);
+			bandwidth_results_box.set_vexpand(true);
+			bandwidth_layout_box.prepend (bandwidth_scroll);
+			bandwidth_scroll.set_hexpand(true);
+			bandwidth_scroll.set_vexpand(true);
+			bandwidth_layout_box.prepend (bandwidth_separator);
+			bandwidth_separator.set_hexpand(false);
+			bandwidth_separator.set_vexpand(false);
+			bandwidth_layout_box.prepend (bandwidth_process_result_box);
+			bandwidth_process_result_box.set_hexpand(false);
+			bandwidth_process_result_box.set_vexpand(false);
+			bandwidth_layout_box.append (bandwidth_process_scroll);
+			bandwidth_process_scroll.set_hexpand(true);
+			bandwidth_process_scroll.set_vexpand(true);
 
 			bandwidth_combobox.changed.connect (() => {
 				if(Constants.TEXT_FOR_INTERFACE_LABEL != bandwidth_combobox.get_active_id ()){
@@ -694,14 +766,26 @@ namespace NuttyApp {
 			setFilterAndSort(speedtest_table_treeview, speedTestTreeModelFilter, SortType.DESCENDING);
 
 			Box speed_test_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
-			speed_test_box.pack_start (speed_test_label, false, true, 0);
-			speed_test_box.pack_start (speed_test_results_label, false, true, 0);
-			speed_test_box.pack_end (speed_test_refresh_button, false, true, 0);
-			speed_test_box.pack_end (speedTestSpinner, false, true, 0);
+			speed_test_box.prepend (speed_test_label);
+			speed_test_label.set_hexpand(false);
+			speed_test_label.set_vexpand(true);
+			speed_test_box.prepend (speed_test_results_label);
+			speed_test_results_label.set_hexpand(false);
+			speed_test_results_label.set_vexpand(true);
+			speed_test_box.append (speed_test_refresh_button);
+			speed_test_refresh_button.set_hexpand(false);
+			speed_test_refresh_button.set_vexpand(true);
+			speed_test_box.append (speedTestSpinner);
+			speedTestSpinner.set_hexpand(false);
+			speedTestSpinner.set_vexpand(true);
 
 			Box speedtest_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			speedtest_layout_box.pack_start (speed_test_box, false, true, 0);
-			speedtest_layout_box.pack_start (speedtest_table_treeview, false, true, 0);
+			speedtest_layout_box.prepend (speed_test_box);
+			speed_test_box.set_hexpand(false);
+			speed_test_box.set_vexpand(true);
+			speedtest_layout_box.prepend (speedtest_table_treeview);
+			speedtest_table_treeview.set_hexpand(false);
+			speedtest_table_treeview.set_vexpand(true);
 
 			traceRouteSpinner = new Spinner();
 			Label route_speed_label = new Label (Constants.TEXT_FOR_ROUTE_TO_HOST);
@@ -751,27 +835,49 @@ namespace NuttyApp {
 			});
 
 			Box route_input_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
-			route_input_box.pack_start (route_speed_label, false, true, 0);
-			route_input_box.pack_start (route_entry_text, false, true, 0);
-			route_input_box.pack_start (route_button, false, true, 0);
-			route_input_box.pack_end (traceRouteSpinner, false, true, 0);
+			route_input_box.prepend (route_speed_label);
+			route_speed_label.set_hexpand(false);
+			route_speed_label.set_vexpand(true);
+			route_input_box.prepend (route_entry_text);
+			route_entry_text.set_hexpand(false);
+			route_entry_text.set_vexpand(true);
+			route_input_box.prepend (route_button);
+			route_button.set_hexpand(false);
+			route_button.set_vexpand(true);
+			route_input_box.append (traceRouteSpinner);
+			traceRouteSpinner.set_hexpand(false);
+			traceRouteSpinner.set_vexpand(true);
 
 			Box route_results_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			Label route_destination_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
 			route_results_label = new Label (" ");
-			route_results_box.pack_start (route_destination_label, false, true, 0);
-			route_results_box.pack_start (route_results_label, false, true, 0);
+			route_results_box.prepend (route_destination_label);
+			route_destination_label.set_hexpand(false);
+			route_destination_label.set_vexpand(true);
+			route_results_box.prepend (route_results_label);
+			route_results_label.set_hexpand(false);
+			route_results_label.set_vexpand(true);
 
 			ScrolledWindow route_scroll = new ScrolledWindow (null, null);
 			route_scroll.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 			route_scroll.add (route_table_treeview);
 
 			Box route_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			route_layout_box.pack_start (speedtest_layout_box, false, true, 0);
-			route_layout_box.pack_start (speed_separator, false, true, 0);
-			route_layout_box.pack_start (route_input_box, false, true, 0);
-			route_layout_box.pack_start (route_results_box, false, true, 0);
-			route_layout_box.pack_start (route_scroll, true, true, 0);
+			route_layout_box.prepend (speedtest_layout_box);
+			speedtest_layout_box.set_hexpand(false);
+			speedtest_layout_box.set_vexpand(true);
+			route_layout_box.prepend (speed_separator);
+			speed_separator.set_hexpand(false);
+			speed_separator.set_vexpand(true);
+			route_layout_box.prepend (route_input_box);
+			route_input_box.set_hexpand(false);
+			route_input_box.set_vexpand(true);
+			route_layout_box.prepend (route_results_box);
+			route_results_box.set_hexpand(false);
+			route_results_box.set_vexpand(true);
+			route_layout_box.prepend (route_scroll);
+			route_scroll.set_hexpand(true);
+			route_scroll.set_vexpand(true);
 			//Add route-box to stack
 			stack.add_titled(route_layout_box, "route", Constants.TEXT_FOR_ROUTE_TAB);
 			debug("Speed tab set up completed...");
@@ -799,14 +905,26 @@ namespace NuttyApp {
 			Box ports_results_box = new Box (Orientation.HORIZONTAL, Constants.SPACING_WIDGETS);
 			Label ports_destination_label = new Label (Constants.TEXT_FOR_LABEL_RESULT);
 			ports_results_label = new Label (" ");
-			ports_results_box.pack_start (ports_destination_label, false, true, 0);
-			ports_results_box.pack_start (ports_results_label, false, true, 0);
-			ports_results_box.pack_end (ports_refresh_button, false, true, 0);
-			ports_results_box.pack_end (portsSpinner, false, true, 0);
+			ports_results_box.prepend (ports_destination_label);
+			ports_destination_label.set_hexpand(false);
+			ports_destination_label.set_vexpand(true);
+			ports_results_box.prepend (ports_results_label);
+			ports_results_label.set_hexpand(false);
+			ports_results_label.set_vexpand(true);
+			ports_results_box.append (ports_refresh_button);
+			ports_refresh_button.set_hexpand(false);
+			ports_refresh_button.set_vexpand(true);
+			ports_results_box.append (portsSpinner);
+			portsSpinner.set_hexpand(false);
+			portsSpinner.set_vexpand(true);
 
 			Box ports_layout_box = new Box (Orientation.VERTICAL, Constants.SPACING_WIDGETS);
-			ports_layout_box.pack_start (ports_results_box, false, true, 0);
-			ports_layout_box.pack_start (ports_tcp_scroll, true, true, 0);
+			ports_layout_box.prepend (ports_results_box);
+			ports_results_box.set_hexpand(false);
+			ports_results_box.set_vexpand(true);
+			ports_layout_box.prepend (ports_tcp_scroll);
+			ports_tcp_scroll.set_hexpand(true);
+			ports_tcp_scroll.set_vexpand(true);
 
 			//Note: the contents of the Ports Tab are loaded when the Ports Tab is clicked
 			//see the Tab Change Event section below
@@ -919,7 +1037,7 @@ namespace NuttyApp {
 				debug("Saved window dimension: width="+settings.window_width.to_string()+
 																		  ", height="+settings.window_height.to_string());
 			}
-			if(window.is_maximized == true){
+			if (window.is_maximized()) {
 				settings.window_is_maximized = true;
 			}else{
 				settings.window_is_maximized = false;

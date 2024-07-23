@@ -20,26 +20,26 @@
 public class NuttyApp.Shortcuts: Gtk.Widget {
   public static bool isControlKeyPressed = false;
 
-  public static bool handleKeyPress(Gdk.EventKey ev){
+  public static bool handleKeyPress(Gdk.KeyEvent ev){
        //Ctrl Key pressed: Record the action for Ctrl combination keys
-        if ((ev.keyval == Gdk.Key.Control_L || ev.keyval == Gdk.Key.Control_R)) {
+        if ((ev.get_keyval() == Gdk.Key.Control_L || ev.get_keyval() == Gdk.Key.Control_R)) {
           NuttyApp.Shortcuts.isControlKeyPressed = true;
         }
 
         //Ctrl+Q Key pressed: Close Nutty completely
-        if (NuttyApp.Shortcuts.isControlKeyPressed && (ev.keyval == Gdk.Key.Q || ev.keyval == Gdk.Key.q)) {
+        if (NuttyApp.Shortcuts.isControlKeyPressed && (ev.get_keyval() == Gdk.Key.Q || ev.get_keyval() == Gdk.Key.q)) {
           NuttyApp.Nutty.window.destroy();
         }
         //Ctrl+F Key pressed: Focus the search entry on the header
-        if (NuttyApp.Shortcuts.isControlKeyPressed && (ev.keyval == Gdk.Key.F || ev.keyval == Gdk.Key.f)) {
+        if (NuttyApp.Shortcuts.isControlKeyPressed && (ev.get_keyval() == Gdk.Key.F || ev.get_keyval() == Gdk.Key.f)) {
           NuttyApp.Nutty.headerSearchBar.grab_focus ();
         }
         return false;
       }
 
-      public static bool handleKeyRelease(Gdk.EventKey ev){
+      public static bool handleKeyRelease(Gdk.KeyEvent ev){
         //Ctrl Key released: Record the action for Ctrl combination keys
-        if ((ev.keyval == Gdk.Key.Control_L || ev.keyval == Gdk.Key.Control_R)) {
+        if ((ev.get_keyval() == Gdk.Key.Control_L || ev.get_keyval() == Gdk.Key.Control_R)) {
           NuttyApp.Shortcuts.isControlKeyPressed = false;
         }
         return false;
