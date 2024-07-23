@@ -1,6 +1,6 @@
 # project name and programming language
 project('com.github.babluboy.nutty', ['vala', 'c'],
-    version: '1.1.1'
+    version: '2.0'
 )
 app_version = meson.project_version()
 gnome = import('gnome')
@@ -49,11 +49,11 @@ executable(
     vala_args: vala_args,
     link_args: '-lm',
     dependencies: [
-        dependency('gtk+-3.0'),
+        dependency('gtk4'),
         dependency('gee-0.8'),
         dependency('libxml-2.0'),
         dependency('libnotify'),
-        dependency('granite', version: '>=0.5'),
+        dependency('granite-7', version: '>=7.0'),
         dependency('sqlite3', version: '>=3.5.9')
     ],
     install: true
