@@ -19,6 +19,7 @@ You'll need the following dependencies to build:
 * libgranite-dev
 * libnotify-dev
 * libxml2-dev
+* libxml2-utils
 * libgee-0.8-dev
 * libgtk-3-dev
 * libsqlite3-dev
@@ -54,6 +55,13 @@ To install, use `sudo ninja install`, then execute with `com.github.babluboy.nut
 sudo ninja install
 com.github.babluboy.nutty
 ```
+
+To uninstall ,go to the build directory and run
+
+```
+sudo ninja uninstall
+```
+
 
 ## Screenshot
 
