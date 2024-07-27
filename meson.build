@@ -1,6 +1,6 @@
 # project name and programming language
 project('com.github.babluboy.nutty', ['vala', 'c'],
-    version: '1.1.1'
+    version: '1.2.0'
 )
 app_version = meson.project_version()
 gnome = import('gnome')

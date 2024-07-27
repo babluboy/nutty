@@ -1,16 +1,26 @@
-com.github.babluboy.nutty (2.0) unreleased; urgency=low
+com.github.babluboy.nutty (1.2.0) jammy; urgency=low
 
      [Kishor aka root-reborn@github]
-    * Added python3 support to speedtest-cli script
-    * Migrated code from Granite.Services.Paths to GLib.Environment utility library to manage common file paths within the Nutty application.
-    * Fixed issues in appdata.xml files by merging PR's and making small corrections in date format so that deb package can be built without any warnings and errors
-    * Built a flatpak for Nutty from scratch and merged the flatpak manifest file and a flatpak build guide into the github repo.Implementing polkit is pending.
-    * Updated files in the debian directory to confirm with the latest Debian Policy version 4.7.0.0, released on 7th April 2024.This changes are made for Nutty 2.0 release.
+    * Built a flatpak for Nutty completely from scratch.The Flatpak Manifest file and also a Flatpak Build guide are merged both files into the master branch of the repo. Still improvements needed for Nutty flatpak to access host OS paths.
+    * Added python3 support to `speedtest-cli` script by migrating it from python2.
+    * Migrated vala source code from Granite.Services.Paths to GLib.Environment utility library to manage common file paths within the Nutty application since the former is deprecated.
+    * Updated files in the debian directory to confirm with the latest Debian Policy version 4.7.0.0 (released on 7th April 2024) to build .DEB package for Nutty. This changes are made for Nutty 1.2.0 release.
+    * Fixed issues in appdata.xml files by merging PR's and made corrections in invalid date format.This ensures the smooth building process of .deb package without any errors and warnings.
+    * Worked on migrating Nutty from gtk3 to gtk4 by creating a new branch `nutty-gtk4` in the main repo and commiting changs to meson.build file, Readme file and vala source code files. The changes will be merged to main branch for Nutty 2.0 release.
     
-    [Other Contributors]
-    * Please include other contributors @babluboy for this release(you may refer commits since Nutty 1.1.1 release)
+    [vbfton]
+   * Removed unordered lists from inside paragraphs. This fixes issues when building the deb package with latest policy version.
     
- -- Siddhartha Das <bablu.boy@gmail.com>  Tue, 2 Jul 2024 19:07:00 +0530
+    [freddii & SheIITear]
+   * fixed typos
+    
+    [meisenzahl]
+    * Downgrade Node.js to fix builds on Travis CI
+    
+    [leela52452]
+    * Added ellipsis 
+    
+ -- Siddhartha Das <bablu.boy@gmail.com>  Tue, 27 Jul 2024 00:00:00 +0530
 
 com.github.babluboy.nutty (1.1.1) xenial; urgency=low
 
