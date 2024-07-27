@@ -13,7 +13,7 @@ A simple application made for elementary OS to provide essential information on 
 Check the Nutty website for details on features, shortcuts, installation guides for Ubuntu and other supported distros, etc. : <br>
 https://babluboy.github.io/nutty/
 
-## Building, Testing, and Installation
+## Building, Testing, and Installation from Source
 
 You'll need the following dependencies to build:
 * libgranite-dev
@@ -57,9 +57,28 @@ com.github.babluboy.nutty
 ```
 
 To uninstall ,go to the build directory and run
-
 ```
 sudo ninja uninstall
+```
+
+### Installation from Deb package
+
+To install Nutty from the `.deb` package make sure you have installed all the above execution dependencies of Nutty (no need build dependencies). Then run the below command
+```bash
+sudo dpkg -i <deb-package-name>.deb
+```
+
+And to uninstall Nutty installed via `.deb` package run
+```bash
+sudo apt autoremove com.github.babluboy.nutty
+```
+
+If you want to directly build the `.deb` package of Nutty yourself then install the above build dependencies and then run
+```bash
+git clone https://github.com/babluboy/nutty.git
+cd nutty
+dpkg-buildpackage -us -uc
+cd ..
 ```
 
 
