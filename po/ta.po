@@ -2,64 +2,72 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
+"PO-Revision-Date: 2025-01-20 15:39+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/nutty/translations/"
+"ta/>\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
-msgstr ""
+msgstr "பதிப்பு எண்ணைக் காண்பி"
 
 #: src/nutty.vala:133
 msgid "Run Nutty to discover devices"
-msgstr ""
+msgstr "சாதனங்களைக் கண்டறிய நட்டி இயக்கவும்"
 
 #: src/nutty.vala:134
 msgid "Run Nutty in device alert mode"
-msgstr ""
+msgstr "சாதன எச்சரிக்கை பயன்முறையில் நட்டு இயக்கவும்"
 
 #: src/nutty.vala:135
 msgid "Run Nutty in debug mode"
-msgstr ""
+msgstr "பிழைத்திருத்த பயன்முறையில் நட்டி இயக்கவும்"
 
 #: src/nutty.vala:136
 msgid "Run Nutty in info mode"
-msgstr ""
+msgstr "செய்தி பயன்முறையில் நட்டி இயக்கவும்"
 
 #: src/utils.vala:231
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்துசெய்"
 
 #: src/utils.vala:233
 msgid "Open"
-msgstr ""
+msgstr "திற"
 
 #: src/utils.vala:235
 msgid "Save"
-msgstr ""
+msgstr "சேமி"
 
 #: src/utils.vala:250
 msgid "All files"
-msgstr ""
+msgstr "அனைத்து கோப்புகள்"
 
 #: src/utils.vala:253
 msgid "Text files"
-msgstr ""
+msgstr "உரை கோப்புகள்"
 
 #: src/constants.vala.in:28
 msgid "A Network Utility"
-msgstr ""
+msgstr "பிணைய பயன்பாடு"
 
 #: src/constants.vala.in:30
 msgid "Weblate Translators"
-msgstr ""
+msgstr "வலைபெயர்ப்பு மொழிபெயர்ப்பாளர்கள்"
 
 #: src/constants.vala.in:35
 msgid "Website | Translation | Bug Tracker"
-msgstr ""
+msgstr "வலைத்தளம் | மொழிபெயர்ப்பு | பிழை டிராக்கர்"
 
 #: src/constants.vala.in:67
 msgid "Network Scan Agreement"
-msgstr ""
+msgstr "பிணையம் ச்கேன் ஒப்பந்தம்"
 
 #: src/constants.vala.in:68
 msgid ""
@@ -72,32 +80,41 @@ msgid ""
 "consult and get approval of the Network Administrator or other competent "
 "network authority."
 msgstr ""
+"இந்த பயன்பாடு துறைமுகம் ச்கேனிங்கைச் செய்வதற்கான அம்சங்களைக் கொண்டுள்ளது மற்றும் நீங்கள் "
+"பயன்படுத்தும் பிணையத்தில் உள்ள சாதனங்கள் பற்றிய தகவல்களை வழங்குகிறது. உங்கள் சொந்த "
+"குடியிருப்பு வீட்டு நெட்வொர்க்கில் அல்லது இலக்கு புரவலன் மற்றும்/அல்லது நெட்வொர்க்கால் "
+"வெளிப்படையாக அங்கீகரிக்கப்படும்போது சாதனங்களை ச்கேன் செய்வது மிகவும் சரி.\n"
+"\n"
+" உங்களுக்கு சொந்தமில்லாத ஒரு பிணையத்தில் துறைமுகம் ச்கேன் (சாதனங்கள் தாவல்) பயன்படுத்தும் "
+"போது, தயவுசெய்து பிணையம் நிர்வாகி அல்லது பிற திறமையான பிணைய அதிகாரத்தின் ஒப்புதலைப் "
+"பெறுங்கள்."
 
 #: src/constants.vala.in:69
 msgid "About"
-msgstr ""
+msgstr "பற்றி"
 
 #: src/constants.vala.in:70 data/com.github.babluboy.nutty.desktop.in:4
 msgid "Network Utility"
-msgstr ""
+msgstr "பிணைய பயன்பாடு"
 
 #: src/constants.vala.in:71
 msgid "Filter results..."
-msgstr ""
+msgstr "வடிகட்டி முடிவுகள் ..."
 
 #: src/constants.vala.in:72
 msgid "Preferences"
-msgstr ""
+msgstr "விருப்பத்தேர்வுகள்"
 
 #: src/constants.vala.in:73
 msgid "Export to File"
-msgstr ""
+msgstr "கோப்புக்கு ஏற்றுமதி"
 
 #: src/constants.vala.in:74
 msgid ""
 "Nutty needs authentication to perform this action, please provide your "
 "password to continue."
 msgstr ""
+"இந்த செயலைச் செய்ய நட்டிக்கு ஏற்பு தேவை, தொடர உங்கள் கடவுச்சொல்லை வழங்கவும்."
 
 #: src/constants.vala.in:75
 msgid ""
@@ -107,344 +124,355 @@ msgid ""
 "Note: The current root scheduler (crontab) will be backed up to the home "
 "directory."
 msgstr ""
+"சாதன கண்காணிப்புக்கான ரூட் திட்டமிடலை (க்ரோன்டாப்) புதுப்பிக்க நட்டிக்கு ஏற்பு தேவை. இந்த "
+"மாற்றத்தை முடிக்க உங்கள் கடவுச்சொல்லை வழங்கவும்.\n"
+"\n"
+" குறிப்பு: தற்போதைய ரூட் திட்டமிடல் (க்ரோன்டாப்) வீட்டு அடைவு வரை ஆதரிக்கப்படும்."
 
 #: src/constants.vala.in:76 src/constants.vala.in:152
 msgid "Today"
-msgstr ""
+msgstr "இன்று"
 
 #: src/constants.vala.in:77 src/constants.vala.in:151
 msgid "Yesterday"
-msgstr ""
+msgstr "நேற்று"
 
 #: src/constants.vala.in:78
 msgid "days ago"
-msgstr ""
+msgstr "சில நாட்களுக்கு முன்பு"
 
 #: src/constants.vala.in:79
 msgid "Results: "
-msgstr ""
+msgstr "முடிவுகள்: "
 
 #: src/constants.vala.in:80
 msgid "No data found"
-msgstr ""
+msgstr "தரவு எதுவும் கிடைக்கவில்லை"
 
 #: src/constants.vala.in:81
 msgid "Not Available"
-msgstr ""
+msgstr "கிடைக்கவில்லை"
 
 #: src/constants.vala.in:82
 msgid "I Agree"
-msgstr ""
+msgstr "நான் ஒப்புக்கொள்கிறேன்"
 
 #: src/constants.vala.in:83
 msgid "Wired"
-msgstr ""
+msgstr "கம்பி"
 
 #: src/constants.vala.in:84
 msgid "Wireless"
-msgstr ""
+msgstr "கம்பியில்லா"
 
 #: src/constants.vala.in:85
 msgid "Other"
-msgstr ""
+msgstr "மற்றொன்று"
 
 #: src/constants.vala.in:86
 msgid "My Info"
-msgstr ""
+msgstr "எனது செய்தி"
 
 #: src/constants.vala.in:87
 msgid "Select a connection"
-msgstr ""
+msgstr "இணைப்பைத் தேர்ந்தெடுக்கவும்"
 
 #: src/constants.vala.in:88
 msgid "View Details"
-msgstr ""
+msgstr "விவரங்களைக் காண்க"
 
 #: src/constants.vala.in:89
 msgid "Attribute"
-msgstr ""
+msgstr "பண்புக்கூறு"
 
 #: src/constants.vala.in:90
 msgid "Details"
-msgstr ""
+msgstr "விவரங்கள்"
 
 #: src/constants.vala.in:91
 msgid "Host Name"
-msgstr ""
+msgstr "புரவலன் பெயர்"
 
 #: src/constants.vala.in:92
 msgid "MAC Address"
-msgstr ""
+msgstr "மேக் முகவரி"
 
 #: src/constants.vala.in:93
 msgid "IP Address"
-msgstr ""
+msgstr "ஐபி முகவரி"
 
 #: src/constants.vala.in:94
 msgid "IPv6 Address"
-msgstr ""
+msgstr "IPv6 முகவரி"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
-msgstr ""
+msgstr "இடைமுக நிலை"
 
 #: src/constants.vala.in:96
 msgid "Interface Hardware"
-msgstr ""
+msgstr "இடைமுக வன்பொருள்"
 
 #: src/constants.vala.in:97
 msgid "Product"
-msgstr ""
+msgstr "தயாரிப்பு"
 
 #: src/constants.vala.in:98
 msgid "Vendor"
-msgstr ""
+msgstr "விற்பனையாளர்"
 
 #: src/constants.vala.in:99
 msgid "Physical ID"
-msgstr ""
+msgstr "இயற்பியல் ஐடி"
 
 #: src/constants.vala.in:100
 msgid "Bus Info"
-msgstr ""
+msgstr "பச் செய்தி"
 
 #: src/constants.vala.in:101
 msgid "Version"
-msgstr ""
+msgstr "பதிப்பு"
 
 #: src/constants.vala.in:102
 msgid "Capacity"
-msgstr ""
+msgstr "திறன்"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
-msgstr ""
+msgstr "பச் அகலம்"
 
 #: src/constants.vala.in:104
 msgid "Clock Speed"
-msgstr ""
+msgstr "கடிகார விரைவு"
 
 #: src/constants.vala.in:105
 msgid "Speed"
-msgstr ""
+msgstr "வேகம்"
 
 #: src/constants.vala.in:106
 msgid "Route times to Host (in milliseconds): "
-msgstr ""
+msgstr "ஓச்டுக்கு செல்லும் நேரங்கள் (மில்லி விநாடிகளில்): "
 
 #: src/constants.vala.in:107
 msgid "Hop#"
-msgstr ""
+msgstr "ஆப்#"
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "சேவையக ஐபி"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "சேவையக பெயர்"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
-msgstr ""
+msgstr "1 வது பாக்கெட் நேரம்"
 
 #: src/constants.vala.in:111
 msgid "2nd Packet Time"
-msgstr ""
+msgstr "2 வது பாக்கெட் நேரம்"
 
 #: src/constants.vala.in:112
 msgid "3rd Packet Time"
-msgstr ""
+msgstr "3 வது பாக்கெட் நேரம்"
 
 #: src/constants.vala.in:113
 msgid "Internet Speed : Results from test on"
-msgstr ""
+msgstr "இணைய வேகம்: சோதனையின் முடிவுகள்"
 
 #: src/constants.vala.in:114
 msgid "No speed test has been done"
-msgstr ""
+msgstr "வேக சோதனை எதுவும் செய்யப்படவில்லை"
 
 #: src/constants.vala.in:115
 msgid "Upload Speed"
-msgstr ""
+msgstr "வேகத்தை பதிவேற்றவும்"
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "பதிவிறக்க விரைவு"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
-msgstr ""
+msgstr "வேக சோதனை முடிவுகளைப் புதுப்பிக்கவும்"
 
 #: src/constants.vala.in:118
 msgid "Unknown Date. Please click Refresh Button to perform Speed Test"
 msgstr ""
+"தெரியாத தேதி. வேக சோதனையைச் செய்ய புதுப்பிப்பு பொத்தானைக் சொடுக்கு செய்க"
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "துறைமுகங்கள்"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
-msgstr ""
+msgstr "அனைத்து செயலில் உள்ள துறைமுகங்களும் ச்கேன் செய்யப்பட்டன."
 
 #: src/constants.vala.in:121
 msgid "Refresh Ports results"
-msgstr ""
+msgstr "துறைமுகங்களின் முடிவுகளைப் புதுப்பிக்கவும்"
 
 #: src/constants.vala.in:122
 msgid "Protocol"
-msgstr ""
+msgstr "நெறிமுறை"
 
 #: src/constants.vala.in:123
 msgid "State"
-msgstr ""
+msgstr "மாநிலம்"
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "துறைமுகம்"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "செயல்முறை ஐடி"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "நிரல் பெயர்"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "பாதை"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "சாதனங்கள்"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
-msgstr ""
+msgstr "சாதன ச்கேன் முடிவுகளை புதுப்பிக்கவும்"
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "நிலை"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "சாதன பெயர்"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
-msgstr ""
+msgstr "சாதன உற்பத்தியாளர்"
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "கடைசியாக பார்த்தேன்"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
-msgstr ""
+msgstr "கண்டுபிடிக்கப்பட்டது"
 
 #: src/constants.vala.in:135
 msgid "Host IP"
-msgstr ""
+msgstr "புரவலன் ஐபி"
 
 #: src/constants.vala.in:136
 msgid "Host MAC"
-msgstr ""
+msgstr "புரவலன் மேக்"
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "செயலில்"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "செயலில் இல்லை"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "முன்னர் கண்டுபிடிக்கப்பட்டது"
 
 #: src/constants.vala.in:140
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
+"முன்பு பதிவு செய்யப்பட்ட சாதனங்களைக் காண்பிக்கும். புதுப்பிப்பு நிலைக்கு இணைப்பைத் "
+"தேர்ந்தெடுக்கவும்."
 
 #: src/constants.vala.in:141
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
+"முன்னர் எந்த சாதனங்களும் பதிவு செய்யப்படவில்லை. முடிவுகளைப் புதுப்பிக்க இணைப்பைத் "
+"தேர்ந்தெடுக்கவும்."
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "சாதன ச்கேன் முன்னேற்றத்தில் உள்ளது ..."
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "இந்த இணைப்பில் காணப்படும் சாதனங்கள்"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
-msgstr ""
+msgstr "இதற்கான செயல்கள்: "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "சாதனத்தை மறந்து விடுங்கள்"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr ""
+msgstr "நெட்வொர்க்கில் புதிய சாதனம்:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
-msgstr ""
+msgstr "பயன்பாடு"
 
 #: src/constants.vala.in:148
 msgid "Connection monitored from "
-msgstr ""
+msgstr "இணைப்பு கண்காணிக்கப்படுகிறது "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr ""
+msgstr " கடைசியாக புதுப்பிக்கப்பட்டது "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
 msgstr ""
+"கட்டளை வரியைப் பயன்படுத்தி இந்த இணைப்பு இடைமுகத்தை Vnstat இல் சேர்க்கவும்."
 
 #: src/constants.vala.in:153
 msgid "Time Period"
-msgstr ""
+msgstr "காலம்"
 
 #: src/constants.vala.in:154
 msgid "Data Received"
-msgstr ""
+msgstr "தரவு பெறப்பட்டது"
 
 #: src/constants.vala.in:155
 msgid "Data Sent"
-msgstr ""
+msgstr "தரவு அனுப்பப்பட்டது"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
-msgstr ""
+msgstr "மொத்த தரவு"
 
 #: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
-msgstr ""
+msgstr "தரவு பயன்பாட்டைக் காண ஒரு இணைப்பைத் தேர்ந்தெடுக்கவும்"
 
 #: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
 msgstr ""
+"தற்போதைய பயன்பாடுகளைப் பயன்படுத்த புதுப்பிக்கவும் என்பதைக் சொடுக்கு செய்க "
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
-msgstr ""
+msgstr "பயன்பாடுகளின் அலைவரிசை பயன்பாட்டை புதுப்பிக்கவும்"
 
 #: src/constants.vala.in:160
 msgid "Name"
-msgstr ""
+msgstr "பெயர்"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "தரவு அனுப்பப்பட்டது (KB/நொடி)"
 
 #: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
