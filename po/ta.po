@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2025-01-20 15:39+0000\n"
+"PO-Revision-Date: 2025-01-21 07:15+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/nutty/translations/"
 "ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.10-dev\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -476,198 +476,212 @@ msgstr "தரவு அனுப்பப்பட்டது (KB/நொடி
 
 #: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
-msgstr ""
+msgstr "பெறப்பட்ட தரவு (kb/sec)"
 
 #: src/constants.vala.in:163
 msgid "Background Device Monitoring"
-msgstr ""
+msgstr "பின்னணி சாதன கண்காணிப்பு"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
-msgstr ""
+msgstr "சாதனங்களின் கண்காணிப்பு இல்லை"
 
 #: src/constants.vala.in:165
 msgid "Monitor devices every 15 minutes"
-msgstr ""
+msgstr "ஒவ்வொரு 15 நிமிடங்களுக்கும் சாதனங்களை கண்காணிக்கவும்"
 
 #: src/constants.vala.in:166
 msgid "Monitor devices every 30 minutes"
-msgstr ""
+msgstr "ஒவ்வொரு 30 நிமிடங்களுக்கும் சாதனங்களை கண்காணிக்கவும்"
 
 #: src/constants.vala.in:167
 msgid "Monitor devices every hour"
-msgstr ""
+msgstr "ஒவ்வொரு மணி நேரத்திற்கும் சாதனங்களை கண்காணிக்கவும்"
 
 #: src/constants.vala.in:168
 msgid "Monitor devices once a day"
-msgstr ""
+msgstr "சாதனங்களை ஒரு நாளைக்கு ஒரு முறை கண்காணிக்கவும்"
 
 #: src/constants.vala.in:169
 msgid "Close"
-msgstr ""
+msgstr "மூடு"
 
 #: src/constants.vala.in:170
 msgid "DEVICE_MONITORING_STATE"
-msgstr ""
+msgstr "சாதனம்_மோனிட்டர்_ச்டேட்"
 
 #: src/constants.vala.in:171
 msgid "DEVICE_MONITORING_SCHEDULE"
-msgstr ""
+msgstr "சாதனம்_மோனிட்டர்_செடுல்"
 
 #: src/constants.vala.in:172
 msgid "SPEEDTEST_DATE"
-msgstr ""
+msgstr "SpeadTest_date"
 
 #: src/constants.vala.in:173
 msgid "SPEEDTEST_UPLOADSPEED"
-msgstr ""
+msgstr "SpeadTest_uploadSpeed"
 
 #: src/constants.vala.in:174
 msgid "SPEEDTEST_DOWNLOADSPEED"
-msgstr ""
+msgstr "SpeadTest_downloadspeed"
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
-msgstr ""
+msgstr "ஏற்றுமதி செய்யப்பட்ட நட்டு செய்தி "
 
 #: src/devices.vala:318
 msgid " for "
-msgstr ""
+msgstr " க்கு "
 
 #: src/info.vala:174
 msgid "Network Card"
-msgstr ""
+msgstr "பிணைய அட்டை"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " பரிமாற்ற சக்தியுடன் தரநிலைகள் "
 
 #: src/info.vala:174
 msgid " [Power Management: "
-msgstr ""
+msgstr " [சக்தி மேலாண்மை: "
 
 #: src/info.vala:177
 msgid "Connected to"
-msgstr ""
+msgstr "இணைக்கப்பட்டுள்ளது"
 
 #: src/info.vala:177
 msgid " Network at Access Point "
-msgstr ""
+msgstr " அணுகல் புள்ளியில் பிணையம் "
 
 #: src/info.vala:177
 msgid " Mode"
-msgstr ""
+msgstr " பயன்முறை"
 
 #: src/info.vala:180
 msgid "Connected with"
-msgstr ""
+msgstr "உடன் இணைக்கப்பட்டுள்ளது"
 
 #: src/info.vala:180
 msgid "Frequency of "
-msgstr ""
+msgstr "அதிர்வெண் "
 
 #: src/info.vala:180
 msgid " and Bit Rate of "
-msgstr ""
+msgstr " மற்றும் பிட் வீதம் "
 
 #: src/info.vala:183
 msgid "Connection strength"
-msgstr ""
+msgstr "இணைப்பு வலிமை"
 
 #: src/info.vala:183
 msgid "Link Quality of "
-msgstr ""
+msgstr "இணைப்பு தகுதி "
 
 #: src/info.vala:183
 msgid " and Signal Level of "
-msgstr ""
+msgstr " மற்றும் சமிக்ஞை நிலை "
 
 #: src/window.vala:47
 msgid "Nutty Disclaimer"
-msgstr ""
+msgstr "நட்டு மறுப்பு"
 
 #: src/window.vala:48
 msgid ""
 "Click to read the legal disclaimer on Nmap (used by Nutty) for further "
 "information"
 msgstr ""
+"மேலும் தகவலுக்கு NMAP (NUTTY ஆல் பயன்படுத்தப்பட்டது) இல் சட்ட மறுப்பைப் படிக்க சொடுக்கு "
+"செய்க"
 
 #: src/window.vala:63
 msgid "Use Nutty"
-msgstr ""
+msgstr "நட்டு பயன்படுத்தவும்"
 
 #: src/window.vala:66
 msgid "Exit"
-msgstr ""
+msgstr "வெளியேறு"
 
 #: data/com.github.babluboy.nutty.desktop.in:3
 #: data/com.github.babluboy.nutty.appdata.xml.in:7
 msgid "Nutty"
-msgstr ""
+msgstr "நட்டு"
 
 #: data/com.github.babluboy.nutty.desktop.in:5
 msgid "Displays network information"
-msgstr ""
+msgstr "பிணைய தகவல்களைக் காட்டுகிறது"
 
 #: data/com.github.babluboy.nutty.desktop.in:8
 msgid "com.github.babluboy.nutty"
-msgstr ""
+msgstr "com.github.babluboy.nutty"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:9
 msgid "A simple utility for network information"
-msgstr ""
+msgstr "பிணையம் தகவலுக்கான எளிய பயன்பாடு"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:11
 msgid ""
 "Nutty provides an intuitive user interface for some commonly used network "
 "related command line tools."
 msgstr ""
+"பொதுவாகப் பயன்படுத்தப்படும் சில பிணையம் தொடர்பான கட்டளை வரி கருவிகளுக்கு உள்ளுணர்வு பயனர்"
+" இடைமுகத்தை நட்டி வழங்குகிறது."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:12
 msgid ""
 "A key feature is the ability to turn on notification when a device enters "
 "the user's network."
 msgstr ""
+"ஒரு சாதனம் பயனரின் நெட்வொர்க்கில் நுழையும் போது அறிவிப்பை இயக்கும் திறன் ஒரு முக்கிய "
+"அம்சமாகும்."
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:15
 msgid ""
 "My Info: Provides basic and detailed information for the device network card"
 msgstr ""
+"எனது தகவல்: சாதன பிணையம் அட்டைக்கான அடிப்படை மற்றும் விரிவான தகவல்களை வழங்குகிறது"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:16
 msgid ""
 "Usage: Provides network data usage in two views - historical usage and "
 "current usage"
 msgstr ""
+"பயன்பாடு: பிணையம் தரவு பயன்பாட்டை இரண்டு பார்வைகளில் வழங்குகிறது - வரலாற்று பயன்பாடு "
+"மற்றும் தற்போதைய பயன்பாடு"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:17
 msgid "Speed: Check Upload and Download speeds and get route times to a host"
 msgstr ""
+"வேகம்: பதிவேற்றம் மற்றும் பதிவிறக்க வேகத்தை சரிபார்த்து, ஓச்டுக்கு பாதை நேரங்களைப் பெறுங்கள்"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:18
 msgid ""
 "Ports: Provides information on active ports and application using them on "
 "the local device"
 msgstr ""
+"துறைமுகங்கள்: உள்ளக சாதனத்தில் செயலில் உள்ள துறைமுகங்கள் மற்றும் பயன்பாடு பற்றிய தகவல்களை "
+"வழங்குகிறது"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:19
 msgid ""
 "Devices: Monitors, alerts and provides information on the other devices on "
 "the network"
 msgstr ""
+"சாதனங்கள்: நெட்வொர்க்கில் உள்ள பிற சாதனங்களைப் பற்றிய கண்காணிப்புகள், விழிப்பூட்டல்கள் மற்றும் "
+"தகவல்களை வழங்குகின்றன"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:25
 msgid "Device Monitoring"
-msgstr ""
+msgstr "சாதன கண்காணிப்பு"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:29
 msgid "Bandwidth Usage"
-msgstr ""
+msgstr "அலைவரிசை பயன்பாடு"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:33
 msgid "Speed Test"
-msgstr ""
+msgstr "வேக சோதனை"
 
 #: data/com.github.babluboy.nutty.appdata.xml.in:72
 msgid "Siddhartha Das"
-msgstr ""
+msgstr "சித்தார்த் அடிமை"
