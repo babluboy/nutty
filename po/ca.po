@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2019-09-07 10:24+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2025-05-12 09:03+0000\n"
+"Last-Translator: Josep Mascarell <josepant@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/nutty/"
 "translations/ca/>\n"
 "Language: ca\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -375,41 +375,45 @@ msgstr ""
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "No actiu"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "Descobert abans"
 
 #: src/constants.vala.in:140
 msgid ""
 "Displaying devices recorded earlier. Select a connection to update status."
 msgstr ""
+"Mostrant els dispositius enregistrats anteriorment. Seleccioneu una connexió "
+"per actualitzar l'estat."
 
 #: src/constants.vala.in:141
 msgid ""
 "No devices have been recorded earlier. Select a connection to update results."
 msgstr ""
+"No s'ha enregistrat cap dispositiu anteriorment. Seleccioneu una connexió "
+"per actualitzar els resultats."
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "Escaneig de dispositius en curs ..."
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "dispositius trobats en aquesta connexió"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
-msgstr ""
+msgstr "Accions per a :· "
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "Oblida el dispositiu"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
-msgstr ""
+msgstr "Nou dispositiu trobat en la xarxa:"
 
 #: src/constants.vala.in:147
 msgid "Usage"
@@ -421,7 +425,7 @@ msgstr "La connexió es monitora des de "
 
 #: src/constants.vala.in:149
 msgid " and last updated on "
-msgstr " i s’ha actualitzar per darrera vegada el "
+msgstr " i s’ha actualitzat per darrera vegada el "
 
 #: src/constants.vala.in:150
 msgid "Please add this connection interface to vnstat using command line."
@@ -442,19 +446,20 @@ msgstr "Dades enviades"
 
 #: src/constants.vala.in:156
 msgid "Total Data"
-msgstr ""
+msgstr "Dades totals"
 
 #: src/constants.vala.in:157
 msgid "Select a connection to view data usage"
-msgstr ""
+msgstr "Seleccioneu una connexió per veure l'ús de dades"
 
 #: src/constants.vala.in:158
 msgid "Click refresh to see current Apps using "
 msgstr ""
+"Feu clic a Actualitza per veure les aplicacions actuals que utilitzen · "
 
 #: src/constants.vala.in:159
 msgid "Refresh Apps bandwidth usage"
-msgstr ""
+msgstr "Actualitza l'ús de l'amplada de banda de les aplicacions"
 
 #: src/constants.vala.in:160
 msgid "Name"
@@ -462,15 +467,15 @@ msgstr "Nom"
 
 #: src/constants.vala.in:161
 msgid "Data Sent (Kb/sec)"
-msgstr ""
+msgstr "Enviament de dades (Kb/s)"
 
 #: src/constants.vala.in:162
 msgid "Data Received (Kb/sec)"
-msgstr ""
+msgstr "Dades rebudes (Kb/s)"
 
 #: src/constants.vala.in:163
 msgid "Background Device Monitoring"
-msgstr ""
+msgstr "Monitoratge de dispositius en segon pla"
 
 #: src/constants.vala.in:164
 msgid "No monitoring of devices"
@@ -518,11 +523,11 @@ msgstr ""
 
 #: src/constants.vala.in:175
 msgid "Nutty Information Exported on "
-msgstr ""
+msgstr "Informació de Nutty exportada a · "
 
 #: src/devices.vala:318
 msgid " for "
-msgstr ""
+msgstr " ·per· "
 
 #: src/info.vala:174
 msgid "Network Card"
@@ -530,15 +535,15 @@ msgstr "Targeta de xarxa"
 
 #: src/info.vala:174
 msgid " Standards with Transmit Power of "
-msgstr ""
+msgstr " ·Estàndards amb potència de transmissió de· "
 
 #: src/info.vala:174
 msgid " [Power Management: "
-msgstr ""
+msgstr " · [Gestió de potència:· "
 
 #: src/info.vala:177
 msgid "Connected to"
-msgstr ""
+msgstr "Connectat a"
 
 #: src/info.vala:177
 msgid " Network at Access Point "
