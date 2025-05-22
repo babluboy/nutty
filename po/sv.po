@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-20 14:37+0530\n"
-"PO-Revision-Date: 2020-08-21 09:36+0000\n"
-"Last-Translator: Kristoffer Grundström <swedishsailfishosuser@tutanota.com>\n"
+"PO-Revision-Date: 2025-05-23 03:01+0000\n"
+"Last-Translator: Jimmy Dahlberg <jimmydaswag@hotmail.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/nutty/"
 "translations/sv/>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.2.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: src/nutty.vala:132
 msgid "Display version number"
@@ -189,9 +189,8 @@ msgid "IP Address"
 msgstr "IP-adress"
 
 #: src/constants.vala.in:94
-#, fuzzy
 msgid "IPv6 Address"
-msgstr "IP-adress"
+msgstr "IPv6-address"
 
 #: src/constants.vala.in:95
 msgid "Interface State"
@@ -227,7 +226,7 @@ msgstr "Kapacitet"
 
 #: src/constants.vala.in:103
 msgid "Bus Width"
-msgstr ""
+msgstr "Bussbredd"
 
 #: src/constants.vala.in:104
 msgid "Clock Speed"
@@ -247,19 +246,19 @@ msgstr ""
 
 #: src/constants.vala.in:108
 msgid "Server IP"
-msgstr ""
+msgstr "Server IP"
 
 #: src/constants.vala.in:109
 msgid "Server Name"
-msgstr ""
+msgstr "Server Namn"
 
 #: src/constants.vala.in:110
 msgid "1st Packet Time"
-msgstr ""
+msgstr "1st Paket Tid"
 
 #: src/constants.vala.in:111
 msgid "2nd Packet Time"
-msgstr ""
+msgstr "2nd Paket Tid"
 
 #: src/constants.vala.in:112
 msgid "3rd Packet Time"
@@ -279,7 +278,7 @@ msgstr ""
 
 #: src/constants.vala.in:116
 msgid "Download Speed"
-msgstr ""
+msgstr "Nedladdningshastighet"
 
 #: src/constants.vala.in:117
 msgid "Refresh Speed Test Results"
@@ -291,7 +290,7 @@ msgstr ""
 
 #: src/constants.vala.in:119
 msgid "Ports"
-msgstr ""
+msgstr "Portar"
 
 #: src/constants.vala.in:120
 msgid "All active ports scanned."
@@ -311,23 +310,23 @@ msgstr ""
 
 #: src/constants.vala.in:124
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/constants.vala.in:125
 msgid "Process ID"
-msgstr ""
+msgstr "Process ID"
 
 #: src/constants.vala.in:126
 msgid "Program Name"
-msgstr ""
+msgstr "Program Namn"
 
 #: src/constants.vala.in:127
 msgid "Path"
-msgstr ""
+msgstr "Väg"
 
 #: src/constants.vala.in:128
 msgid "Devices"
-msgstr ""
+msgstr "Enheter"
 
 #: src/constants.vala.in:129
 msgid "Refresh device scan results"
@@ -335,11 +334,11 @@ msgstr ""
 
 #: src/constants.vala.in:130
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: src/constants.vala.in:131
 msgid "Device Name"
-msgstr ""
+msgstr "Enhetsnamn"
 
 #: src/constants.vala.in:132
 msgid "Device Manufacturer"
@@ -347,7 +346,7 @@ msgstr ""
 
 #: src/constants.vala.in:133
 msgid "Last Seen"
-msgstr ""
+msgstr "Senast Sedd"
 
 #: src/constants.vala.in:134
 msgid "Discovered On"
@@ -355,23 +354,23 @@ msgstr ""
 
 #: src/constants.vala.in:135
 msgid "Host IP"
-msgstr ""
+msgstr "Host IP"
 
 #: src/constants.vala.in:136
 msgid "Host MAC"
-msgstr ""
+msgstr "Host MAC"
 
 #: src/constants.vala.in:137
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #: src/constants.vala.in:138
 msgid "Non Active"
-msgstr ""
+msgstr "Icke Aktiv"
 
 #: src/constants.vala.in:139
 msgid "Discovered Earlier"
-msgstr ""
+msgstr "Upptäckt Tidigare"
 
 #: src/constants.vala.in:140
 msgid ""
@@ -385,11 +384,11 @@ msgstr ""
 
 #: src/constants.vala.in:142
 msgid "Device scan in progress ..."
-msgstr ""
+msgstr "Enhetssökning pågår ..."
 
 #: src/constants.vala.in:143
 msgid "devices found on this connection"
-msgstr ""
+msgstr "Enheter funna på denna anslutning"
 
 #: src/constants.vala.in:144
 msgid "Actions for : "
@@ -397,7 +396,7 @@ msgstr ""
 
 #: src/constants.vala.in:145
 msgid "Forget device"
-msgstr ""
+msgstr "Glöm enhet"
 
 #: src/constants.vala.in:146
 msgid "New Device found on network:"
